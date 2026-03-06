@@ -1,0 +1,87 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Bonet Plumbing LLC | Trusted Plumbing in Oviedo, Winter Springs & East Orlando",
+  description = "Central Florida's trusted plumbing experts. Licensed & insured, same-day service. 15% OFF all repairs & installations. Call 407-734-3968.",
+} = Astro.props;
+
+const siteUrl = "https://bonetplumbing.com";
+
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Plumber",
+      "name": "Bonet Plumbing LLC",
+      "description": "Licensed & insured plumbing services in Central Florida. The Plumbers in Shining Armor.",
+      "url": siteUrl,
+      "telephone": "+14077343968",
+      "areaServed": [
+        { "@type": "City", "name": "Oviedo", "sameAs": "https://en.wikipedia.org/wiki/Oviedo,_Florida" },
+        { "@type": "City", "name": "Winter Springs", "sameAs": "https://en.wikipedia.org/wiki/Winter_Springs,_Florida" },
+        { "@type": "City", "name": "East Orlando" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Plumbing Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Plumbing Repairs" }},
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Water Heater Services" }},
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Drain Cleaning" }},
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fixture Installation" }}
+        ]
+      }
+    })} />
+
+  </head>
+  <body class="min-h-screen antialiased bg-background text-text">
+    <slot />
+  </body>
+</html>
