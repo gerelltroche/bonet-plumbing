@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro";
+import StickyNav from "../components/StickyNav.astro";
+import Footer from "../components/Footer.astro";
+
+const phone = "tel:+14077343968";
+const phoneDisplay = "407-734-3968";
+---
+
+<Layout
+  title="Geneva FL Plumber | Licensed Plumbing Services | Bonet Plumbing LLC"
+  description="Reliable plumber in Geneva, FL. Plumbing repairs, drain cleaning, water heaters & installations for rural and acreage properties. Call 407-734-3968."
+>
+  <StickyNav />
+  <main>
+    <section class="bg-gradient-to-b from-primary/[0.03] via-white to-white py-16 md:py-24">
+      <div class="max-w-4xl mx-auto px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-text leading-tight mb-4">
+          Geneva Plumber — Fast Service for Rural & Acreage Properties
+        </h1>
+        <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
+        <p class="text-lg text-text-secondary mb-8 max-w-2xl">
+          When you're on a large property in Geneva, the last thing you need is a plumber driving from across town. We're nearby, we understand well systems and rural plumbing, and we'll give you an upfront price before any work starts.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 mb-10">
+          <a href={phone} class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+            </svg>
+            Call Now: {phoneDisplay}
+          </a>
+          <a href="/#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Get a Free Estimate
+          </a>
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-bold text-text mb-6">Plumbing Services in Geneva</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+          <a href="/plumbing-repairs" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Plumbing Repairs</h3>
+            <p class="text-text-secondary text-sm">Leaks, burst pipes, or a plumbing emergency? We'll fix it fast — same-day service available.</p>
+          </a>
+          <a href="/water-heater-services" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Water Heater Services</h3>
+            <p class="text-text-secondary text-sm">No hot water? We repair, replace, and install tankless units — often the same day you call.</p>
+          </a>
+          <a href="/drain-cleaning" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Drain Cleaning</h3>
+            <p class="text-text-secondary text-sm">Slow drains or backed-up pipes? We'll clear the clog and get your water flowing again.</p>
+          </a>
+          <a href="/fixture-installation" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Fixture Installation</h3>
+            <p class="text-text-secondary text-sm">New toilet, faucet, or sink? We install it right the first time — to code and leak-free.</p>
+          </a>
+        </div>
+
+        <div class="bg-primary/5 border border-primary/10 rounded-xl p-6 mb-10">
+          <h2 class="text-xl font-bold text-text mb-3">What You Get</h2>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <span class="text-text-secondary text-sm">Your home is protected — licensed (CFC1434246) & fully insured in Florida</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <span class="text-text-secondary text-sm">Experienced with well systems, rural properties & older plumbing</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <span class="text-text-secondary text-sm">You'll know the price before we start — no hidden fees, no surprises</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <span class="text-text-secondary text-sm">Save 15% on all repairs & installations — available to Geneva residents</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href={phone} class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Call Now: {phoneDisplay}
+          </a>
+          <a href="/#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Get a Free Estimate
+          </a>
+        </div>
+
+        <nav class="mt-16 pt-8 border-t border-border" aria-label="Other service areas">
+          <h2 class="text-lg font-bold text-text mb-4">Nearby Service Areas</h2>
+          <ul class="flex flex-wrap gap-3">
+            <li><a href="/oviedo-plumber" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Oviedo</a></li>
+            <li><a href="/chuluota-plumber" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Chuluota</a></li>
+            <li><a href="/sanford-plumber" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Sanford</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

@@ -4,21 +4,25 @@ const services = [
     title: "Plumbing Repairs",
     description: "Leak detection, pipe repair, slab leaks & emergency services for Central Florida homes.",
     icon: "wrench",
+    href: "/plumbing-repairs",
   },
   {
     title: "Water Heater Services",
     description: "Repair, replacement & tankless unit installation to keep your hot water flowing.",
     icon: "flame",
+    href: "/water-heater-services",
   },
   {
     title: "Drain Cleaning",
     description: "Professional clog removal & sewer line cleaning to restore full drainage.",
     icon: "drain",
+    href: "/drain-cleaning",
   },
   {
     title: "Fixture Installation",
     description: "Toilets, faucets, sinks & bathroom remodel plumbing done right.",
     icon: "faucet",
+    href: "/fixture-installation",
   },
 ];
 ---
@@ -67,9 +71,9 @@ const services = [
           <!-- Description -->
           <p class="text-text-secondary text-sm leading-relaxed mb-4">{service.description}</p>
 
-          <!-- Micro CTA -->
-          <a href="#contact" class="inline-flex items-center gap-1 text-accent font-semibold text-sm hover:text-accent-light transition-colors">
-            Request Service
+          <!-- Micro CTA — now links to dedicated service page -->
+          <a href={service.href} class="inline-flex items-center gap-1 text-accent font-semibold text-sm hover:text-accent-light transition-colors">
+            Learn More
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
             </svg>

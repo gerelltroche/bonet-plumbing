@@ -5,27 +5,74 @@ const phoneDisplay = "407-734-3968";
 ---
 
 <footer class="bg-primary-dark border-t border-white/10">
-  <div class="max-w-5xl mx-auto px-4 py-10 text-center">
-    <!-- Brand -->
-    <div class="flex flex-col items-center mb-4">
-      <img src="/logo_with_text.jpeg" alt="Bonet Plumbing LLC" class="h-16 w-auto rounded bg-white p-1 mb-2" />
-      <span class="text-lg font-bold text-white/90">Bonet Plumbing LLC</span>
+  <div class="max-w-5xl mx-auto px-4 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <!-- Brand -->
+      <div class="flex flex-col items-center md:items-start">
+        <a href="/">
+          <img src="/logo_with_text.jpeg" alt="Bonet Plumbing LLC" class="h-16 w-auto rounded bg-white p-1 mb-2" />
+        </a>
+        <span class="text-lg font-bold text-white/90">Bonet Plumbing LLC</span>
+        <a href={phone} class="text-white/70 hover:text-white text-sm transition-colors mt-1">
+          {phoneDisplay}
+        </a>
+        <span class="text-white/50 text-sm">Mon–Sat 7am–6pm</span>
+      </div>
+
+      <!-- Services -->
+      <div class="text-center md:text-left">
+        <h3 class="text-white/90 font-bold text-sm uppercase tracking-wider mb-3">Services</h3>
+        <ul class="space-y-2">
+          <li><a href="/plumbing-repairs" class="text-white/60 hover:text-white text-sm transition-colors">Plumbing Repairs</a></li>
+          <li><a href="/water-heater-services" class="text-white/60 hover:text-white text-sm transition-colors">Water Heater Services</a></li>
+          <li><a href="/drain-cleaning" class="text-white/60 hover:text-white text-sm transition-colors">Drain Cleaning</a></li>
+          <li><a href="/fixture-installation" class="text-white/60 hover:text-white text-sm transition-colors">Fixture Installation</a></li>
+        </ul>
+      </div>
+
+      <!-- Service Areas — Seminole County -->
+      <div class="text-center md:text-left">
+        <h3 class="text-white/90 font-bold text-sm uppercase tracking-wider mb-3">Seminole County</h3>
+        <ul class="space-y-2">
+          <li><a href="/oviedo-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Oviedo</a></li>
+          <li><a href="/winter-springs-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Winter Springs</a></li>
+          <li><a href="/casselberry-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Casselberry</a></li>
+          <li><a href="/altamonte-springs-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Altamonte Springs</a></li>
+          <li><a href="/longwood-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Longwood</a></li>
+          <li><a href="/lake-mary-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Lake Mary</a></li>
+          <li><a href="/sanford-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Sanford</a></li>
+          <li><a href="/chuluota-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Chuluota</a></li>
+          <li><a href="/geneva-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Geneva</a></li>
+          <li><a href="/goldenrod-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Goldenrod</a></li>
+          <li><a href="/fern-park-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Fern Park</a></li>
+        </ul>
+      </div>
+
+      <!-- Service Areas — Orange County / East Orlando -->
+      <div class="text-center md:text-left">
+        <h3 class="text-white/90 font-bold text-sm uppercase tracking-wider mb-3">East Orlando</h3>
+        <ul class="space-y-2">
+          <li><a href="/east-orlando-plumber" class="text-white/60 hover:text-white text-sm transition-colors">East Orlando</a></li>
+          <li><a href="/alafaya-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Alafaya</a></li>
+          <li><a href="/waterford-lakes-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Waterford Lakes</a></li>
+          <li><a href="/avalon-park-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Avalon Park</a></li>
+          <li><a href="/union-park-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Union Park</a></li>
+          <li><a href="/ucf-area-plumber" class="text-white/60 hover:text-white text-sm transition-colors">UCF Area</a></li>
+          <li><a href="/winter-park-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Winter Park</a></li>
+          <li><a href="/maitland-plumber" class="text-white/60 hover:text-white text-sm transition-colors">Maitland</a></li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Contact -->
-    <a href={phone} class="text-white/70 hover:text-white text-sm transition-colors">
-      {phoneDisplay}
-    </a>
-    <span class="text-white/30 mx-2">|</span>
-    <span class="text-white/50 text-sm">Mon–Sat 7am–6pm</span>
-
     <!-- Legal -->
-    <p class="text-white/40 text-sm mt-4">
-      &copy; {year} Bonet Plumbing LLC
-      <span class="mx-2">|</span>
-      Licensed & Insured &middot; License CFC1434246
-      <span class="mx-2">|</span>
-      Defending Central Florida Homes
-    </p>
+    <div class="border-t border-white/10 pt-6 text-center">
+      <p class="text-white/40 text-sm">
+        &copy; {year} Bonet Plumbing LLC
+        <span class="mx-2">|</span>
+        Licensed & Insured &middot; License CFC1434246
+        <span class="mx-2">|</span>
+        Defending Central Florida Homes
+      </p>
+    </div>
   </div>
 </footer>
