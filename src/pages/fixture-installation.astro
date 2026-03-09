@@ -8,8 +8,12 @@ const phoneDisplay = "407-734-3968";
 ---
 
 <Layout
-  title="Fixture Installation in Oviedo, Winter Springs & East Orlando | Bonet Plumbing"
+  title="Fixture Installation | Bonet Plumbing LLC"
   description="Professional plumbing fixture installation — toilets, faucets, sinks & bathroom remodels. Licensed Central Florida plumbers. Call 407-734-3968."
+  breadcrumbs={[
+    { name: "Home", url: "https://bonetplumbing.com/" },
+    { name: "Fixture Installation" }
+  ]}
 >
   <StickyNav />
   <main>
@@ -68,6 +72,25 @@ const phoneDisplay = "407-734-3968";
           </a>
         </div>
 
+        <!-- FAQ Section -->
+        <div class="mt-16 pt-8 border-t border-border">
+          <h2 class="text-2xl font-bold text-text mb-6">Frequently Asked Questions</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-bold text-text mb-2">Can I install a new faucet or toilet myself?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">While some fixtures appear simple to install, improper installation can cause leaks, water damage, and code violations. A licensed plumber ensures proper connections, leak-free installation, and compliance with Florida building codes.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">Can I buy my own fixtures and have you install them?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Absolutely. Many of our customers purchase their own faucets, toilets, and sinks. We'll install whatever you choose — just make sure it's compatible with your existing plumbing, or we can advise you before you buy.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">How long does a fixture installation take?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Most single-fixture installations (toilet, faucet, or sink) take 1 to 2 hours. Bathroom remodel plumbing with multiple fixtures may take a full day depending on the scope of work.</p>
+            </div>
+          </div>
+        </div>
+
         <nav class="mt-16 pt-8 border-t border-border" aria-label="Other services">
           <h2 class="text-lg font-bold text-text mb-4">Our Other Services</h2>
           <ul class="flex flex-wrap gap-3">
@@ -79,5 +102,38 @@ const phoneDisplay = "407-734-3968";
       </div>
     </section>
   </main>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I install a new faucet or toilet myself?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While some fixtures appear simple to install, improper installation can cause leaks, water damage, and code violations. A licensed plumber ensures proper connections, leak-free installation, and compliance with Florida building codes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I buy my own fixtures and have you install them?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Many of our customers purchase their own faucets, toilets, and sinks. We'll install whatever you choose — just make sure it's compatible with your existing plumbing, or we can advise you before you buy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a fixture installation take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most single-fixture installations (toilet, faucet, or sink) take 1 to 2 hours. Bathroom remodel plumbing with multiple fixtures may take a full day depending on the scope of work."
+        }
+      }
+    ]
+  })} />
+
   <Footer />
 </Layout>

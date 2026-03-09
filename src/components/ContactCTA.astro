@@ -74,8 +74,8 @@ const phoneDisplay = "407-734-3968";
         >
           <!-- Honeypot for spam prevention -->
           <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden">
-            <label>Don't fill this out: <input name="bot-field" /></label>
+          <p class="hidden" aria-hidden="true">
+            <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
 
           <div class="space-y-5">
