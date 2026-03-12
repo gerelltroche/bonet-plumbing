@@ -24,21 +24,12 @@
   9. What do you do when you're not fixing pipes?
   10. Anything you want customers to know before they call?
 
----
-
-## Website Improvements
-
-### High Priority
 - [x] **Add a Privacy Policy page** — collecting form data via Netlify Forms with no privacy policy linked anywhere
 - [ ] **Add a testimonials/reviews section** — huge for local SEO and conversions; also enables Review/AggregateRating schema
-- [ ] **Optimize images** — `Headshot.jpeg` (130KB) and `logo_with_text.jpeg` (109KB) have no lazy loading, no WebP, no `width`/`height` attributes (causes layout shift)
+- [x] **Optimize images** — `Headshot.jpeg` (130KB) and `logo_with_text.jpeg` (109KB) have no lazy loading, no WebP, no `width`/`height` attributes (causes layout shift)
 - [ ] **Uncomment social profile URLs** in `Layout.astro:96` once Google Business Profile, Facebook, etc. are set up
 
 ### Medium Priority
-- [ ] **Add phone number pattern validation** to the contact form (currently accepts any text)
+- [x] **Add phone number pattern validation** to the contact form (currently accepts any text)
 - [ ] **Add a skip-to-content link** for keyboard/screen reader accessibility
 - [ ] **Create an About/Meet the Owner page** (already partially tracked — depends on Leo's answers)
-
-### Lower Priority
-- [ ] **Add form submission error handling** — currently just redirects to `/success` with no fallback
-- [ ] **Centralize hardcoded values** — phone number (407-734-3968), promo (15% OFF), and hours appear 15–50+ times each, making updates risky
