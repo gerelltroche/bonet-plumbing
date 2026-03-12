@@ -1,3 +1,6 @@
+# ai generated files
+.claude/
+
 # build output
 dist/
 # generated types
