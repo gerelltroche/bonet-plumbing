@@ -8,8 +8,12 @@ const phoneDisplay = "407-734-3968";
 ---
 
 <Layout
-  title="Plumbing Repairs in Oviedo, Winter Springs & East Orlando | Bonet Plumbing"
+  title="Plumbing Repairs | Bonet Plumbing LLC"
   description="Expert plumbing repair services in Central Florida. Leak detection, pipe repair, slab leaks & emergency plumbing. Licensed & insured. Call 407-734-3968."
+  breadcrumbs={[
+    { name: "Home", url: "https://bonetplumbing.com/" },
+    { name: "Plumbing Repairs" }
+  ]}
 >
   <StickyNav />
   <main>
@@ -68,6 +72,25 @@ const phoneDisplay = "407-734-3968";
           </a>
         </div>
 
+        <!-- FAQ Section -->
+        <div class="mt-16 pt-8 border-t border-border">
+          <h2 class="text-2xl font-bold text-text mb-6">Frequently Asked Questions</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-bold text-text mb-2">How quickly can you get here for an emergency repair?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">We offer same-day service throughout Oviedo, Winter Springs, and East Orlando. In most cases, a licensed plumber can be at your door within a few hours of your call.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">Do you provide free estimates for plumbing repairs?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Yes. We provide free, no-obligation estimates with upfront pricing before any work begins. You'll know the full cost before we start — no surprises.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">How do I know if I have a slab leak?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Common signs include unexplained increases in your water bill, warm spots on the floor, the sound of running water when all fixtures are off, and cracks in walls or flooring. We use professional detection equipment to locate slab leaks with minimal disruption.</p>
+            </div>
+          </div>
+        </div>
+
         <nav class="mt-16 pt-8 border-t border-border" aria-label="Other services">
           <h2 class="text-lg font-bold text-text mb-4">Our Other Services</h2>
           <ul class="flex flex-wrap gap-3">
@@ -79,5 +102,38 @@ const phoneDisplay = "407-734-3968";
       </div>
     </section>
   </main>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How quickly can you get here for an emergency repair?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer same-day service throughout Oviedo, Winter Springs, and East Orlando. In most cases, a licensed plumber can be at your door within a few hours of your call."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide free estimates for plumbing repairs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We provide free, no-obligation estimates with upfront pricing before any work begins. You'll know the full cost before we start — no surprises."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I know if I have a slab leak?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common signs include unexplained increases in your water bill, warm spots on the floor, the sound of running water when all fixtures are off, and cracks in walls or flooring. We use professional detection equipment to locate slab leaks with minimal disruption."
+        }
+      }
+    ]
+  })} />
+
   <Footer />
 </Layout>

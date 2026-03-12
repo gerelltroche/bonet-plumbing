@@ -8,8 +8,12 @@ const phoneDisplay = "407-734-3968";
 ---
 
 <Layout
-  title="Drain Cleaning in Oviedo, Winter Springs & East Orlando | Bonet Plumbing"
+  title="Drain Cleaning Services | Bonet Plumbing LLC"
   description="Professional drain cleaning and sewer line services in Central Florida. Clog removal, sewer cleaning & preventive maintenance. Call 407-734-3968."
+  breadcrumbs={[
+    { name: "Home", url: "https://bonetplumbing.com/" },
+    { name: "Drain Cleaning" }
+  ]}
 >
   <StickyNav />
   <main>
@@ -68,6 +72,25 @@ const phoneDisplay = "407-734-3968";
           </a>
         </div>
 
+        <!-- FAQ Section -->
+        <div class="mt-16 pt-8 border-t border-border">
+          <h2 class="text-2xl font-bold text-text mb-6">Frequently Asked Questions</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-bold text-text mb-2">Why shouldn't I use chemical drain cleaners?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Chemical drain cleaners can corrode your pipes over time, especially older plumbing. They often only dissolve part of the clog, leaving the rest to build up again. Professional drain cleaning removes the entire blockage safely.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">How often should I have my drains professionally cleaned?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">We recommend annual preventive drain maintenance for most homes. If you have older plumbing, trees near your sewer line, or frequent slow drains, every 6 months may be better to prevent emergency backups.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">What causes recurring drain clogs?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Recurring clogs usually indicate a deeper issue — tree root intrusion in the sewer line, pipe corrosion, or a bellied (sagging) pipe section. A professional inspection can identify the root cause and prevent repeat problems.</p>
+            </div>
+          </div>
+        </div>
+
         <nav class="mt-16 pt-8 border-t border-border" aria-label="Other services">
           <h2 class="text-lg font-bold text-text mb-4">Our Other Services</h2>
           <ul class="flex flex-wrap gap-3">
@@ -79,5 +102,38 @@ const phoneDisplay = "407-734-3968";
       </div>
     </section>
   </main>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why shouldn't I use chemical drain cleaners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Chemical drain cleaners can corrode your pipes over time, especially older plumbing. They often only dissolve part of the clog, leaving the rest to build up again. Professional drain cleaning removes the entire blockage safely."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should I have my drains professionally cleaned?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We recommend annual preventive drain maintenance for most homes. If you have older plumbing, trees near your sewer line, or frequent slow drains, every 6 months may be better to prevent emergency backups."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What causes recurring drain clogs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Recurring clogs usually indicate a deeper issue — tree root intrusion in the sewer line, pipe corrosion, or a bellied (sagging) pipe section. A professional inspection can identify the root cause and prevent repeat problems."
+        }
+      }
+    ]
+  })} />
+
   <Footer />
 </Layout>

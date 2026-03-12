@@ -1,14 +1,21 @@
 ---
+interface BreadcrumbItem {
+  name: string;
+  url?: string;
+}
+
 interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const {
-  title = "Bonet Plumbing LLC | Trusted Plumbing in Oviedo, Winter Springs & East Orlando",
+  title = "Bonet Plumbing LLC | Oviedo & Central FL Plumber",
   description = "Central Florida's trusted plumbing experts. Licensed & insured, same-day service. 15% OFF all repairs & installations. Call 407-734-3968.",
   noindex = false,
+  breadcrumbs,
 } = Astro.props;
 
 const siteUrl = "https://bonetplumbing.com";
@@ -25,10 +32,17 @@ import "../styles/global.css";
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
 
+    <!-- Geo & Local SEO -->
+    <meta name="geo.region" content="US-FL" />
+    <meta name="geo.placename" content="Oviedo, Florida" />
+    <meta name="geo.position" content="28.6700;-81.2081" />
+    <meta name="ICBM" content="28.6700, -81.2081" />
+
     <!-- Canonical -->
     <link rel="canonical" href={canonicalUrl} />
 
     <!-- Open Graph -->
+    <meta property="og:site_name" content="Bonet Plumbing LLC" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -36,6 +50,7 @@ import "../styles/global.css";
     <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Bonet Plumbing LLC — Plumbers in Shining Armor" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
@@ -43,6 +58,7 @@ import "../styles/global.css";
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={`${siteUrl}/og-image.jpg`} />
+    <meta name="twitter:image:alt" content="Bonet Plumbing LLC — Plumbers in Shining Armor" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -63,12 +79,19 @@ import "../styles/global.css";
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Plumber",
+      "@id": `${siteUrl}/#organization`,
       "name": "Bonet Plumbing LLC",
+      "alternateName": "Bonet Plumbing",
       "description": "Licensed & insured plumbing services in Central Florida. Plumbers in Shining Armor.",
       "url": siteUrl,
       "telephone": "+14077343968",
       "image": `${siteUrl}/logo_with_text.jpeg`,
-      "logo": `${siteUrl}/logo_with_text.jpeg`,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/logo_with_text.jpeg`,
+        "width": 400,
+        "height": 400
+      },
       "sameAs": [
         // TODO: Add your actual profile URLs here
         // "https://www.google.com/maps/place/Bonet+Plumbing+LLC",
@@ -97,6 +120,7 @@ import "../styles/global.css";
       ],
       "address": {
         "@type": "PostalAddress",
+        "addressLocality": "Oviedo",
         "addressRegion": "FL",
         "addressCountry": "US"
       },
@@ -131,6 +155,19 @@ import "../styles/global.css";
         ]
       }
     })} />
+
+    {breadcrumbs && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbs.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          ...(item.url ? { "item": item.url } : {})
+        }))
+      })} />
+    )}
 
   </head>
   <body class="min-h-screen antialiased bg-background text-text">
