@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import headshot from '../assets/Headshot.jpeg';
+
 const phone = "tel:+14077343968";
 const phoneDisplay = "407-734-3968";
 ---
@@ -76,7 +79,7 @@ const phoneDisplay = "407-734-3968";
       <!-- Headshot — right 40% -->
       <div class="hidden lg:flex lg:col-span-2 flex-col items-center gap-4">
         <div class="relative w-full max-w-xs rounded-2xl overflow-hidden shadow-lg border border-primary/10">
-          <img src="/Headshot.jpeg" alt="Owner of Bonet Plumbing" class="w-full h-auto object-cover" />
+          <Image src={headshot} alt="Owner of Bonet Plumbing" width={384} height={477} class="w-full h-auto object-cover" format="webp" quality={80} />
         </div>
         <div class="text-center">
           <p class="text-lg font-bold text-text">Leo Bonet</p>

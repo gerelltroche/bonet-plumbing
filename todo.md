@@ -29,7 +29,7 @@
 ## Website Improvements
 
 ### High Priority
-- [ ] **Add a Privacy Policy page** — collecting form data via Netlify Forms with no privacy policy linked anywhere
+- [x] **Add a Privacy Policy page** — collecting form data via Netlify Forms with no privacy policy linked anywhere
 - [ ] **Add a testimonials/reviews section** — huge for local SEO and conversions; also enables Review/AggregateRating schema
 - [ ] **Optimize images** — `Headshot.jpeg` (130KB) and `logo_with_text.jpeg` (109KB) have no lazy loading, no WebP, no `width`/`height` attributes (causes layout shift)
 - [ ] **Uncomment social profile URLs** in `Layout.astro:96` once Google Business Profile, Facebook, etc. are set up

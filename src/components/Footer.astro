@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo_with_text.jpeg';
+
 const year = new Date().getFullYear();
 const phone = "tel:+14077343968";
 const phoneDisplay = "407-734-3968";
@@ -10,7 +13,7 @@ const phoneDisplay = "407-734-3968";
       <!-- Brand -->
       <div class="flex flex-col items-center md:items-start">
         <a href="/">
-          <img src="/logo_with_text.jpeg" alt="Bonet Plumbing LLC" class="h-16 w-auto rounded bg-white p-1 mb-2" />
+          <Image src={logo} alt="Bonet Plumbing LLC" width={64} height={64} class="h-16 w-auto rounded bg-white p-1 mb-2" format="webp" quality={80} loading="lazy" />
         </a>
         <span class="text-lg font-bold text-white/90">Bonet Plumbing LLC</span>
         <a href={phone} class="text-white/70 hover:text-white text-sm transition-colors mt-1">

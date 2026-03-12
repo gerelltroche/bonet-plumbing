@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo_with_text.jpeg';
+
 const phone = "tel:+14077343968";
 const phoneDisplay = "407-734-3968";
 ---
@@ -7,7 +10,7 @@ const phoneDisplay = "407-734-3968";
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <!-- Logo / Brand -->
     <a href="/" class="flex items-center gap-2">
-      <img src="/logo_with_text.jpeg" alt="Bonet Plumbing LLC" class="h-14 w-auto shrink-0" />
+      <Image src={logo} alt="Bonet Plumbing LLC" width={56} height={56} class="h-14 w-auto shrink-0" format="webp" quality={80} />
       <span class="text-lg font-bold text-text">Bonet Plumbing</span>
     </a>
 
