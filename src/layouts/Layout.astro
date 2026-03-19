@@ -116,7 +116,10 @@ import "../styles/global.css";
         { "@type": "City", "name": "Avalon Park" },
         { "@type": "City", "name": "Union Park", "sameAs": "https://en.wikipedia.org/wiki/Union_Park,_Florida" },
         { "@type": "City", "name": "Winter Park", "sameAs": "https://en.wikipedia.org/wiki/Winter_Park,_Florida" },
-        { "@type": "City", "name": "Maitland", "sameAs": "https://en.wikipedia.org/wiki/Maitland,_Florida" }
+        { "@type": "City", "name": "Maitland", "sameAs": "https://en.wikipedia.org/wiki/Maitland,_Florida" },
+        { "@type": "City", "name": "Orlando", "sameAs": "https://en.wikipedia.org/wiki/Orlando,_Florida" },
+        { "@type": "City", "name": "Bithlo", "sameAs": "https://en.wikipedia.org/wiki/Bithlo,_Florida" },
+        { "@type": "City", "name": "Wedgefield", "sameAs": "https://en.wikipedia.org/wiki/Wedgefield,_Florida" }
       ],
       "address": {
         "@type": "PostalAddress",
@@ -133,15 +136,9 @@ import "../styles/global.css";
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "07:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "07:00",
-          "closes": "18:00"
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
         }
       ],
       "hasOfferCatalog": {
@@ -151,7 +148,9 @@ import "../styles/global.css";
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Plumbing Repairs", "url": `${siteUrl}/plumbing-repairs` }},
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Water Heater Services", "url": `${siteUrl}/water-heater-services` }},
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Drain Cleaning", "url": `${siteUrl}/drain-cleaning` }},
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fixture Installation", "url": `${siteUrl}/fixture-installation` }}
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fixture Installation", "url": `${siteUrl}/fixture-installation` }},
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Repiping", "url": `${siteUrl}/repiping` }},
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Light Commercial Plumbing", "url": `${siteUrl}/light-commercial-plumbing` }}
         ]
       }
     })} />

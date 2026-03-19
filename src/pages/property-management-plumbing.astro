@@ -1,0 +1,338 @@
+---
+import Layout from "../layouts/Layout.astro";
+import StickyNav from "../components/StickyNav.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from 'astro:assets';
+import headshot from '../assets/Headshot.jpeg';
+
+const phone = "tel:+14077343968";
+const phoneDisplay = "407-734-3968";
+---
+
+<Layout
+  title="Plumbing for Property Managers | Bonet Plumbing LLC"
+  description="Reliable plumbing partner for property managers in Central Florida. Fast tenant turnovers, emergency repairs, volume pricing. Licensed & insured. Call 407-734-3968."
+  breadcrumbs={[
+    { name: "Home", url: "https://bonetplumbing.com/" },
+    { name: "Property Management Plumbing" }
+  ]}
+>
+  <StickyNav />
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-primary/[0.03] via-white to-white py-16 md:py-24">
+      <div class="max-w-4xl mx-auto px-4">
+        <p class="text-accent font-bold text-sm uppercase tracking-wide mb-3">For Property Managers & Vendors</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-text leading-tight mb-4">
+          Your Go-To Plumber for Every Property You Manage
+        </h1>
+        <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
+        <p class="text-lg text-text-secondary mb-8 max-w-2xl">
+          Managing properties means plumbing calls at all hours. Tenants expect fast fixes, and you need a plumber who shows up on time, communicates clearly, and doesn't surprise you with hidden charges. That's exactly how we operate.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 mb-12">
+          <a href={phone} class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+            </svg>
+            Call Now: {phoneDisplay}
+          </a>
+          <a href="#pm-contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Set Up a Vendor Account
+          </a>
+        </div>
+
+        <!-- Why PMs Choose Us -->
+        <h2 class="text-2xl md:text-3xl font-bold text-text mb-6">Why Property Managers Work With Us</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <div class="size-10 min-w-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-text mb-2">Same-Day & Emergency Service</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Tenant has a leak or backed-up sewer? We prioritize property management calls and can often be on-site within hours — not days.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <div class="size-10 min-w-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-text mb-2">Upfront Pricing, No Surprises</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">You'll know the cost before we start. No hidden fees, no surprise line items. Makes it easy to bill back to owners or budget for maintenance.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <div class="size-10 min-w-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-text mb-2">Multi-Property Ready</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Whether you manage 5 units or 50, we're set up to handle multiple work orders across your portfolio. One plumber, all your properties.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <div class="size-10 min-w-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-text mb-2">Clear Communication & Documentation</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">We coordinate directly with tenants when needed, provide photos of the work, and send clear invoices you can forward to property owners.</p>
+          </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="bg-primary/5 border border-primary/10 rounded-xl p-8 mb-12">
+          <h2 class="text-2xl font-bold text-text mb-6">How It Works</h2>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-accent text-white font-bold rounded-full flex items-center justify-center shrink-0 text-sm">1</div>
+              <div>
+                <p class="font-bold text-text">You call or text with the work order</p>
+                <p class="text-text-secondary text-sm">Give us the property address, tenant contact, and the issue. That's all we need to get moving.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-accent text-white font-bold rounded-full flex items-center justify-center shrink-0 text-sm">2</div>
+              <div>
+                <p class="font-bold text-text">We schedule and coordinate</p>
+                <p class="text-text-secondary text-sm">We'll contact the tenant directly to schedule access, so you don't have to play middleman.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-accent text-white font-bold rounded-full flex items-center justify-center shrink-0 text-sm">3</div>
+              <div>
+                <p class="font-bold text-text">Work gets done, you get the update</p>
+                <p class="text-text-secondary text-sm">We complete the repair, send you photos and a clear invoice, and close out the work order. Simple.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services for PMs -->
+        <h2 class="text-2xl md:text-3xl font-bold text-text mb-2">Common Property Management Plumbing Calls</h2>
+        <p class="text-text-secondary mb-6">We handle the full range of residential plumbing — here's what we see most from PMs.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+          <div class="bg-surface border border-border rounded-lg p-5">
+            <p class="font-bold text-text text-sm mb-1">Leak Repairs</p>
+            <p class="text-text-secondary text-xs">Faucets, toilets, supply lines, slab leaks</p>
+          </div>
+          <div class="bg-surface border border-border rounded-lg p-5">
+            <p class="font-bold text-text text-sm mb-1">Drain Cleaning</p>
+            <p class="text-text-secondary text-xs">Kitchen, bathroom, and main sewer clogs</p>
+          </div>
+          <div class="bg-surface border border-border rounded-lg p-5">
+            <p class="font-bold text-text text-sm mb-1">Water Heater Service</p>
+            <p class="text-text-secondary text-xs">Repair or replacement, tank & tankless</p>
+          </div>
+          <div class="bg-surface border border-border rounded-lg p-5">
+            <p class="font-bold text-text text-sm mb-1">Toilet & Faucet Replacement</p>
+            <p class="text-text-secondary text-xs">Turnover-ready fixture installs</p>
+          </div>
+          <div class="bg-surface border border-border rounded-lg p-5">
+            <p class="font-bold text-text text-sm mb-1">Repiping</p>
+            <p class="text-text-secondary text-xs">Polybutylene & galvanized pipe replacement</p>
+          </div>
+          <div class="bg-surface border border-border rounded-lg p-5">
+            <p class="font-bold text-text text-sm mb-1">Tenant Turnovers</p>
+            <p class="text-text-secondary text-xs">Full plumbing inspections & repairs between tenants</p>
+          </div>
+        </div>
+
+        <!-- Service Area -->
+        <div class="bg-surface border border-border rounded-xl p-6 mb-12">
+          <h2 class="text-xl font-bold text-text mb-3">Service Area</h2>
+          <p class="text-text-secondary text-sm mb-4">We serve rental properties and managed units across Seminole and East Orange County:</p>
+          <div class="flex flex-wrap gap-2">
+            {["Oviedo", "Winter Springs", "East Orlando", "Casselberry", "Altamonte Springs", "Longwood", "Lake Mary", "Sanford", "Winter Park", "Maitland", "Alafaya", "Waterford Lakes", "Avalon Park", "UCF Area", "Goldenrod", "Fern Park", "Union Park"].map(area => (
+              <span class="bg-primary/5 text-text-secondary text-xs font-medium px-3 py-1.5 rounded-full">{area}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Discount Box -->
+        <div class="bg-accent/10 border border-accent/20 rounded-lg p-6 mb-12">
+          <p class="font-bold text-text mb-1">15% OFF Your First Service Call</p>
+          <p class="text-text-secondary text-sm">Mention this page when you call. Available for properties in Oviedo, Winter Springs & East Orlando.</p>
+          <p class="text-text-secondary text-xs mt-2">Florida License #CFC1434246 · Licensed & Insured</p>
+        </div>
+
+        <!-- Contact / Vendor Signup Form -->
+        <div id="pm-contact" class="scroll-mt-24">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <!-- Left -->
+            <div>
+              <h2 class="text-2xl md:text-3xl font-bold text-text mb-3">Let's Set Up a Vendor Relationship</h2>
+              <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
+              <p class="text-text-secondary mb-6">
+                Whether you need a one-time repair or a go-to plumber for your entire portfolio, we'd like to earn your business. Fill out the form and we'll get back to you within one business day.
+              </p>
+
+              <ul class="space-y-4 mb-8">
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                  </svg>
+                  <span class="text-text-secondary">No contracts or minimums required</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                  </svg>
+                  <span class="text-text-secondary">Priority scheduling for vendor partners</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                  </svg>
+                  <span class="text-text-secondary">W-9, insurance certificate & license on file — ready to send</span>
+                </li>
+              </ul>
+
+              <!-- Owner card -->
+              <div class="flex items-center gap-4 bg-primary/5 border border-primary/10 rounded-lg p-4 mb-8">
+                <Image src={headshot} alt="Leo Bonet, Owner of Bonet Plumbing" width={80} height={80} class="w-20 h-20 rounded-full object-cover object-[center_20%] shadow-md ring-2 ring-primary/15" format="webp" quality={80} loading="lazy" />
+                <div>
+                  <p class="font-bold text-text">Leo Bonet</p>
+                  <p class="text-sm text-text-secondary">Owner & Licensed Plumber</p>
+                  <p class="text-xs text-text-secondary/70">License #CFC1434246</p>
+                </div>
+              </div>
+
+              <p class="text-text-secondary text-sm mb-3">Prefer to call or text?</p>
+              <a
+                href={phone}
+                class="inline-flex items-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+                </svg>
+                {phoneDisplay}
+              </a>
+            </div>
+
+            <!-- Right — Form -->
+            <div class="bg-surface border border-border rounded-xl shadow-lg p-6 md:p-8">
+              <h3 class="text-xl font-bold text-text mb-6">Get in Touch</h3>
+
+              <form
+                name="property-management"
+                method="POST"
+                action="/success"
+                netlify
+                netlify-honeypot="bot-field"
+              >
+                <input type="hidden" name="form-name" value="property-management" />
+                <p class="hidden" aria-hidden="true">
+                  <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+                </p>
+
+                <div class="space-y-5">
+                  <div>
+                    <label for="pm-name" class="block text-sm font-semibold text-text mb-1.5">
+                      Your Name <span class="text-red-600">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="pm-name"
+                      name="name"
+                      required
+                      placeholder="Your full name"
+                      class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="pm-company" class="block text-sm font-semibold text-text mb-1.5">
+                      Company Name <span class="text-red-600">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="pm-company"
+                      name="company"
+                      required
+                      placeholder="Your property management company"
+                      class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="pm-phone" class="block text-sm font-semibold text-text mb-1.5">
+                      Phone <span class="text-red-600">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="pm-phone"
+                      name="phone"
+                      required
+                      inputmode="tel"
+                      placeholder="(407) 555-1234"
+                      class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="pm-email" class="block text-sm font-semibold text-text mb-1.5">
+                      Email <span class="text-red-600">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="pm-email"
+                      name="email"
+                      required
+                      placeholder="you@company.com"
+                      class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="pm-units" class="block text-sm font-semibold text-text mb-1.5">
+                      Approx. # of Units Managed <span class="text-text-muted text-xs font-normal">(optional)</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="pm-units"
+                      name="units"
+                      placeholder="e.g. 25"
+                      class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="pm-message" class="block text-sm font-semibold text-text mb-1.5">
+                      Anything else? <span class="text-text-muted text-xs font-normal">(optional)</span>
+                    </label>
+                    <textarea
+                      id="pm-message"
+                      name="message"
+                      rows="3"
+                      placeholder="Tell us about your properties or current plumbing needs..."
+                      class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors resize-y"
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="w-full bg-accent hover:bg-accent-light text-white font-bold text-lg py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg cursor-pointer"
+                  >
+                    Send Message
+                  </button>
+
+                  <p class="text-text-muted text-xs text-center">
+                    We'll get back to you within 1 business day
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

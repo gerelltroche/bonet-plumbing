@@ -1,0 +1,262 @@
+---
+import { Image } from 'astro:assets';
+import headshot from '../assets/Headshot.jpeg';
+import "../styles/global.css";
+import QRCode from 'qrcode';
+
+const phone = "407-734-3968";
+const qrSvg = await QRCode.toString("https://bonetplumbing.com/property-management-plumbing", {
+  type: 'svg',
+  margin: 0,
+  color: { dark: '#ffffff', light: '#00000000' },
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>Bonet Plumbing — Property Management Flyer</title>
+
+    <style>
+      @page {
+        size: letter;
+        margin: 0;
+      }
+      @media print {
+        html, body {
+          width: 8.5in;
+          height: 11in;
+          margin: 0;
+          padding: 0;
+          background: white !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .print-btn { display: none !important; }
+        .flyer { box-shadow: none !important; }
+      }
+      @media screen {
+        body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="antialiased bg-background-alt text-text">
+
+    <!-- Print button (screen only) -->
+    <button
+      onclick="window.print()"
+      class="print-btn fixed top-4 right-4 z-50 bg-accent hover:bg-accent-light text-white font-bold px-6 py-3 rounded-lg shadow-lg cursor-pointer transition-colors"
+    >
+      Print Flyer
+    </button>
+
+    <div class="flyer bg-white w-[8.5in] h-[11in] shadow-2xl overflow-hidden flex flex-col" style="font-size: 11px;">
+
+      <!-- Header bar -->
+      <div class="bg-primary text-white px-8 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <img src="/logo_with_text.jpeg" alt="Bonet Plumbing LLC" class="h-14 w-14 rounded-lg object-cover" />
+          <div>
+            <p class="text-2xl font-extrabold leading-tight" style="font-family: var(--font-heading);">Bonet Plumbing LLC</p>
+            <p class="text-white/80 text-sm">Plumbers in Shining Armor</p>
+          </div>
+        </div>
+        <div class="text-right">
+          <p class="text-2xl font-extrabold">{phone}</p>
+          <p class="text-white/80 text-sm">bonetplumbing.com</p>
+        </div>
+      </div>
+
+      <!-- Accent stripe -->
+      <div class="h-1.5 bg-accent"></div>
+
+      <!-- Main content -->
+      <div class="flex-1 px-8 py-5 flex flex-col">
+
+        <!-- Headline -->
+        <div class="text-center mb-5">
+          <h1 class="text-3xl font-extrabold text-text leading-tight mb-1" style="font-family: var(--font-heading);">
+            Your Reliable Plumbing Partner for<br/>Every Property You Manage
+          </h1>
+          <p class="text-text-secondary text-sm">Fast response, upfront pricing, clear communication — built for property managers.</p>
+        </div>
+
+        <!-- Two-column body -->
+        <div class="grid grid-cols-2 gap-6 flex-1">
+
+          <!-- Left column -->
+          <div class="flex flex-col">
+
+            <!-- Why Work With Us -->
+            <h2 class="text-lg font-bold text-primary mb-2.5 border-b-2 border-primary/20 pb-1" style="font-family: var(--font-heading);">Why Property Managers Choose Us</h2>
+            <div class="space-y-2.5 mb-5">
+              <div class="flex gap-2.5 items-start">
+                <div class="size-6 min-w-6 bg-accent/15 rounded flex items-center justify-center mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                  <p class="font-bold text-text text-[12px]">Same-Day & Emergency Service</p>
+                  <p class="text-text-secondary leading-snug">Tenant emergencies can't wait. We prioritize PM calls and are often on-site within hours.</p>
+                </div>
+              </div>
+              <div class="flex gap-2.5 items-start">
+                <div class="size-6 min-w-6 bg-accent/15 rounded flex items-center justify-center mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                  <p class="font-bold text-text text-[12px]">Upfront Pricing, No Surprises</p>
+                  <p class="text-text-secondary leading-snug">You know the cost before we start. Easy to bill back to owners or budget for maintenance.</p>
+                </div>
+              </div>
+              <div class="flex gap-2.5 items-start">
+                <div class="size-6 min-w-6 bg-accent/15 rounded flex items-center justify-center mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819"/></svg>
+                </div>
+                <div>
+                  <p class="font-bold text-text text-[12px]">Multi-Property Ready</p>
+                  <p class="text-text-secondary leading-snug">Whether you manage 5 units or 50 — one plumber for your entire portfolio.</p>
+                </div>
+              </div>
+              <div class="flex gap-2.5 items-start">
+                <div class="size-6 min-w-6 bg-accent/15 rounded flex items-center justify-center mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+                </div>
+                <div>
+                  <p class="font-bold text-text text-[12px]">Photos & Clear Invoices</p>
+                  <p class="text-text-secondary leading-snug">We document the work and send invoices you can forward directly to property owners.</p>
+                </div>
+              </div>
+              <div class="flex gap-2.5 items-start">
+                <div class="size-6 min-w-6 bg-accent/15 rounded flex items-center justify-center mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+                </div>
+                <div>
+                  <p class="font-bold text-text text-[12px]">Direct Tenant Coordination</p>
+                  <p class="text-text-secondary leading-snug">We contact tenants to schedule access so you don't have to play middleman.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- How It Works -->
+            <h2 class="text-lg font-bold text-primary mb-2.5 border-b-2 border-primary/20 pb-1" style="font-family: var(--font-heading);">How It Works</h2>
+            <div class="space-y-2">
+              <div class="flex gap-3 items-start">
+                <div class="size-6 min-w-6 bg-accent text-white font-bold rounded-full flex items-center justify-center text-[10px]">1</div>
+                <p class="text-text-secondary leading-snug"><span class="font-bold text-text">Call or text with the work order</span> — property address, tenant contact, and the issue.</p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <div class="size-6 min-w-6 bg-accent text-white font-bold rounded-full flex items-center justify-center text-[10px]">2</div>
+                <p class="text-text-secondary leading-snug"><span class="font-bold text-text">We schedule & coordinate</span> — we contact the tenant directly and handle access.</p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <div class="size-6 min-w-6 bg-accent text-white font-bold rounded-full flex items-center justify-center text-[10px]">3</div>
+                <p class="text-text-secondary leading-snug"><span class="font-bold text-text">Work done, you get the update</span> — photos, invoice, and work order closed out.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right column -->
+          <div class="flex flex-col">
+
+            <!-- Services -->
+            <h2 class="text-lg font-bold text-primary mb-2.5 border-b-2 border-primary/20 pb-1" style="font-family: var(--font-heading);">Services for Managed Properties</h2>
+            <div class="grid grid-cols-2 gap-2 mb-5">
+              <div class="bg-background rounded-lg p-2.5">
+                <p class="font-bold text-text text-[12px] mb-0.5">Leak Repairs</p>
+                <p class="text-text-secondary leading-snug">Faucets, toilets, supply lines, slab leaks</p>
+              </div>
+              <div class="bg-background rounded-lg p-2.5">
+                <p class="font-bold text-text text-[12px] mb-0.5">Drain Cleaning</p>
+                <p class="text-text-secondary leading-snug">Kitchen, bathroom, main sewer clogs</p>
+              </div>
+              <div class="bg-background rounded-lg p-2.5">
+                <p class="font-bold text-text text-[12px] mb-0.5">Water Heaters</p>
+                <p class="text-text-secondary leading-snug">Repair & replacement, tank or tankless</p>
+              </div>
+              <div class="bg-background rounded-lg p-2.5">
+                <p class="font-bold text-text text-[12px] mb-0.5">Fixture Installs</p>
+                <p class="text-text-secondary leading-snug">Toilets, faucets, sinks, disposals</p>
+              </div>
+              <div class="bg-background rounded-lg p-2.5">
+                <p class="font-bold text-text text-[12px] mb-0.5">Repiping</p>
+                <p class="text-text-secondary leading-snug">Polybutylene & galvanized replacement</p>
+              </div>
+              <div class="bg-background rounded-lg p-2.5">
+                <p class="font-bold text-text text-[12px] mb-0.5">Tenant Turnovers</p>
+                <p class="text-text-secondary leading-snug">Full plumbing inspection & repairs</p>
+              </div>
+            </div>
+
+            <!-- Service Areas -->
+            <h2 class="text-lg font-bold text-primary mb-2.5 border-b-2 border-primary/20 pb-1" style="font-family: var(--font-heading);">Service Areas</h2>
+            <div class="mb-5">
+              <p class="text-text-secondary leading-relaxed">
+                <span class="font-bold text-text">Seminole County:</span> Oviedo, Winter Springs, Casselberry, Altamonte Springs, Longwood, Lake Mary, Sanford, Chuluota, Geneva, Goldenrod, Fern Park
+              </p>
+              <p class="text-text-secondary leading-relaxed mt-1">
+                <span class="font-bold text-text">Orange County:</span> East Orlando, Alafaya, Waterford Lakes, Avalon Park, Union Park, UCF Area, Winter Park, Maitland
+              </p>
+            </div>
+
+            <!-- Promo box -->
+            <div class="bg-accent/10 border-2 border-accent/30 rounded-lg p-4 text-center mb-5">
+              <p class="text-2xl font-extrabold text-accent" style="font-family: var(--font-heading);">15% OFF</p>
+              <p class="font-bold text-text text-[13px]">Your First Service Call</p>
+              <p class="text-text-secondary text-[10px] mt-1">Mention this flyer when you call. Oviedo, Winter Springs & East Orlando.</p>
+            </div>
+
+            <!-- Owner card -->
+            <div class="flex items-center gap-3 bg-primary/5 border border-primary/10 rounded-lg p-3 mt-auto">
+              <Image src={headshot} alt="Leo Bonet" width={56} height={56} class="w-14 h-14 rounded-full object-cover object-[center_20%] ring-2 ring-primary/15" format="webp" quality={80} />
+              <div>
+                <p class="font-bold text-text text-[13px]">Leo Bonet</p>
+                <p class="text-text-secondary text-[11px]">Owner & Licensed Plumber</p>
+                <p class="text-text-muted text-[10px]">FL License #CFC1434246</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer bar -->
+      <div class="bg-primary text-white px-8 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-6">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="text-[11px]">Licensed & Insured</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="text-[11px]">24/7 Available</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="text-[11px]">No Contracts Required</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="text-right">
+            <p class="text-lg font-extrabold">{phone}</p>
+            <p class="text-white/70 text-[10px]">bonetplumbing.com/property-management-plumbing</p>
+          </div>
+          <div class="w-12 h-12" set:html={qrSvg} />
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
