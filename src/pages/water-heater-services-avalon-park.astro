@@ -1,0 +1,210 @@
+---
+import Layout from "../layouts/Layout.astro";
+import StickyNav from "../components/StickyNav.astro";
+import Footer from "../components/Footer.astro";
+
+const phone = "tel:+14077343968";
+const phoneDisplay = "407-734-3968";
+---
+
+<Layout
+  title="Water Heater Repair & Installation Avalon Park | Bonet Plumbing"
+  description="Water heater repair, replacement & tankless installation in Avalon Park, FL 32828. Same-day service across every village. Call 407-734-3968."
+  breadcrumbs={[
+    { name: "Home", url: "https://bonetplumbing.com/" },
+    { name: "Service Areas", url: "https://bonetplumbing.com/#service-areas" },
+    { name: "Avalon Park Plumber", url: "https://bonetplumbing.com/avalon-park-plumber" },
+    { name: "Water Heater Services in Avalon Park" }
+  ]}
+>
+  <StickyNav />
+  <main>
+    <section class="bg-gradient-to-b from-primary/[0.03] via-white to-white py-16 md:py-24">
+      <div class="max-w-4xl mx-auto px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-text leading-tight mb-4">
+          Water Heater Services in Avalon Park
+        </h1>
+        <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
+        <p class="text-lg text-text-secondary mb-4 max-w-2xl">
+          No hot water this morning? If your Avalon Park home was built between 2003 and 2015, your original water heater is approaching — or past — the end of its lifespan. Central Florida's hard water accelerates sediment buildup inside the tank, which means water heaters here fail faster than the national average.
+        </p>
+        <p class="text-lg text-text-secondary mb-8 max-w-2xl">
+          Whether you need a repair, a full replacement, or want to upgrade to a tankless system, we provide same-day water heater service across every Avalon Park village in the 32828 zip code. Upfront pricing — you'll know the cost before we start.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 mb-10">
+          <a href={phone} class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+            </svg>
+            Call Now: {phoneDisplay}
+          </a>
+          <a href="/#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Get a Free Estimate
+          </a>
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-bold text-text mb-6">Water Heater Services We Provide</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-xl font-bold text-text mb-3">Water Heater Repair</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Strange noises, lukewarm water, rusty discoloration, or a puddle forming at the base? We diagnose and fix the problem the same day — so you're not stuck taking cold showers in your Avalon Park home.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-xl font-bold text-text mb-3">Water Heater Replacement</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Many Avalon Park homes still have their original builder-grade water heaters from the 2000s. If yours is over 8 years old and constantly breaking down, we handle same-day replacements and haul away your old unit.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-xl font-bold text-text mb-3">Tankless Water Heaters</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Large families in Avalon Park's bigger homes run out of hot water fast. A tankless system provides endless hot water, lower energy bills, and frees up garage or closet space. We install Rinnai, Navien, and Rheem.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-xl font-bold text-text mb-3">Maintenance & Flushing</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Central Florida's hard water builds up sediment that kills water heaters years early. Annual flushing extends your unit's life, improves efficiency, and prevents those rumbling and popping sounds.</p>
+          </div>
+        </div>
+
+        <!-- Why Avalon Park Water Heaters Fail -->
+        <div class="bg-primary/5 border border-primary/10 rounded-xl p-6 mb-10">
+          <h2 class="text-xl font-bold text-text mb-3">Why Water Heaters Fail Faster in Avalon Park</h2>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z M12 15.75h.007v.008H12v-.008z"/></svg>
+              <span class="text-text-secondary text-sm"><strong>Hard water sediment</strong> — East Orlando's water supply has high mineral content that settles at the bottom of your tank, reducing efficiency and eventually corroding the lining</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z M12 15.75h.007v.008H12v-.008z"/></svg>
+              <span class="text-text-secondary text-sm"><strong>Builder-grade units aging out</strong> — homes built between 2003 and 2015 are hitting the 10-20 year mark, and the basic water heaters installed by builders are reaching end of life</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z M12 15.75h.007v.008H12v-.008z"/></svg>
+              <span class="text-text-secondary text-sm"><strong>High humidity and heat</strong> — Florida's climate is tough on water heaters stored in garages and utility closets, accelerating rust and component wear</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-accent/10 border border-accent/20 rounded-lg p-6 mb-10">
+          <p class="font-bold text-text mb-1">Save 15% on Water Heater Services</p>
+          <p class="text-text-secondary text-sm">Mention this offer when you call. Available for Avalon Park residents in the 32828 zip code.</p>
+          <p class="text-text-secondary text-xs mt-2">Florida License #CFC1434246 · Licensed & Insured</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href={phone} class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Call Now: {phoneDisplay}
+          </a>
+          <a href="/#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Get a Free Estimate
+          </a>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="mt-16 pt-8 border-t border-border">
+          <h2 class="text-2xl font-bold text-text mb-6">Water Heater FAQs — Avalon Park</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-bold text-text mb-2">My Avalon Park home still has the original water heater. Should I replace it?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">If your water heater is over 8 years old and you're experiencing lukewarm water, strange noises, or rusty water, it's likely more cost-effective to replace than keep repairing. Many Avalon Park homes built in the 2000s are hitting this point right now. We'll inspect yours and give you an honest recommendation.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">Is a tankless water heater worth it for my Avalon Park home?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">If you have a larger home with multiple bathrooms — common in Avalon Park — and your family frequently runs out of hot water, tankless is a strong option. You'll get endless hot water, lower energy bills, and reclaim storage space. The higher upfront cost pays for itself over the unit's 15-20 year lifespan.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">Why is my water heater making popping or rumbling sounds?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">That's sediment buildup at the bottom of the tank — extremely common in Avalon Park due to Central Florida's hard water. As the burner heats water through the sediment layer, it creates those sounds. A professional flush can resolve it, but if the tank is heavily scaled, replacement may be the better move.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">How quickly can you replace my water heater?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">In most cases we can replace your water heater the same day you call. We stock the most common residential sizes and can have your hot water restored within a few hours. We haul away your old unit as part of the job.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cross Navigation -->
+        <nav class="mt-16 pt-8 border-t border-border" aria-label="Related services and areas">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+              <h2 class="text-lg font-bold text-text mb-4">Other Services in Avalon Park</h2>
+              <ul class="flex flex-wrap gap-3">
+                <li><a href="/drain-cleaning-avalon-park" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Drain Cleaning</a></li>
+                <li><a href="/emergency-plumber-avalon-park" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Emergency Plumber</a></li>
+                <li><a href="/repiping-avalon-park" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Repiping</a></li>
+                <li><a href="/avalon-park-plumber" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">All Avalon Park Services</a></li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="text-lg font-bold text-text mb-4">Nearby Service Areas</h2>
+              <ul class="flex flex-wrap gap-3">
+                <li><a href="/waterford-lakes-plumber" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Waterford Lakes</a></li>
+                <li><a href="/alafaya-plumber" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Alafaya</a></li>
+                <li><a href="/east-orlando-plumber" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">East Orlando</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "My Avalon Park home still has the original water heater. Should I replace it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your water heater is over 8 years old and you're experiencing lukewarm water, strange noises, or rusty water, it's likely more cost-effective to replace than keep repairing. Many Avalon Park homes built in the 2000s are hitting this point right now. We'll inspect yours and give you an honest recommendation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a tankless water heater worth it for my Avalon Park home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you have a larger home with multiple bathrooms — common in Avalon Park — and your family frequently runs out of hot water, tankless is a strong option. You'll get endless hot water, lower energy bills, and reclaim storage space. The higher upfront cost pays for itself over the unit's 15-20 year lifespan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my water heater making popping or rumbling sounds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "That's sediment buildup at the bottom of the tank — extremely common in Avalon Park due to Central Florida's hard water. As the burner heats water through the sediment layer, it creates those sounds. A professional flush can resolve it, but if the tank is heavily scaled, replacement may be the better move."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can you replace my water heater?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In most cases we can replace your water heater the same day you call. We stock the most common residential sizes and can have your hot water restored within a few hours. We haul away your old unit as part of the job."
+        }
+      }
+    ]
+  })} />
+
+  <!-- Service Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Water Heater Services in Avalon Park",
+    "provider": {
+      "@type": "Plumber",
+      "name": "Bonet Plumbing LLC",
+      "telephone": "+14077343968",
+      "url": "https://bonetplumbing.com"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Avalon Park, Orlando, FL 32828"
+    },
+    "serviceType": "Water Heater Repair and Installation",
+    "description": "Water heater repair, replacement, tankless installation, and maintenance in Avalon Park, FL. Same-day service across every village."
+  })} />
+
+  <Footer />
+</Layout>
