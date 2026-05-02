@@ -12,6 +12,7 @@ export type Review = {
   text: string;
   date: string;
   location?: string;
+  reviewUrl?: string;
 };
 
 export type ReviewsData = {
@@ -98,6 +99,7 @@ async function fetchReviews(): Promise<ReviewsData> {
         rating: r.rating ?? 5,
         text: r.text?.text ?? r.originalText?.text ?? "",
         date: formatMonthYear(r.publishTime),
+        reviewUrl: r.googleMapsUri,
       }));
 
     if (reviews.length === 0) {
@@ -135,5 +137,6 @@ type PlacesResponse = {
     text?: { text?: string };
     originalText?: { text?: string };
     authorAttribution?: { displayName?: string };
+    googleMapsUri?: string;
   }>;
 };
