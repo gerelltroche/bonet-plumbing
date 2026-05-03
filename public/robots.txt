@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /checkup
+Disallow: /checkup/
 
 Sitemap: https://bonetplumbing.com/sitemap-index.xml

@@ -1,0 +1,1235 @@
+---
+import "../styles/global.css";
+
+const phone = "407-734-3968";
+const license = "FL License #CFC1434246";
+const inspector = "Leo Bonet";
+const businessEmail = "info@bonetplumbing.com";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="theme-color" content="#2D5A27" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="preload" as="image" href="/logo_with_text.jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>Courtesy Plumbing Checkup — Bonet Plumbing</title>
+
+    <style is:global>
+      :root {
+        --good: #16a34a;
+        --good-bg: #dcfce7;
+        --watch: #d97706;
+        --watch-bg: #fef3c7;
+        --action: #dc2626;
+        --action-bg: #fee2e2;
+      }
+
+      body { background: var(--color-background); padding-bottom: 6rem; }
+      .container { max-width: 880px; margin: 0 auto; padding: 0 1rem; }
+
+      /* Cards */
+      .card { background: white; border-radius: 0.75rem; box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06); padding: 1.1rem; margin-bottom: 0.85rem; }
+      .section-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--color-primary); border-bottom: 2px solid rgba(45,90,39,0.15); padding-bottom: 0.5rem; margin-bottom: 0.75rem; }
+
+      /* Inputs */
+      label.field { display: block; font-size: 0.78rem; font-weight: 600; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+      input[type=text], input[type=email], input[type=tel], input[type=date], textarea, input[type=number] {
+        width: 100%; padding: 0.6rem 0.75rem; font: inherit; border: 1px solid var(--color-border); border-radius: 0.5rem; background: white; color: var(--color-text);
+      }
+      textarea { min-height: 4.25rem; resize: vertical; }
+      input:focus, textarea:focus { outline: 2px solid var(--color-accent); outline-offset: 1px; }
+
+      /* === Section card === */
+      .section-card { padding: 0; }
+      .section-header {
+        display: flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1rem;
+        cursor: pointer; user-select: none;
+      }
+      .section-header .chevron {
+        flex-shrink: 0; width: 1.1rem; height: 1.1rem; color: var(--color-text-muted);
+        transition: transform 0.2s ease;
+      }
+      .section-card[data-collapsed="false"] .section-header .chevron { transform: rotate(90deg); }
+      .section-header h2 {
+        font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--color-primary);
+        margin: 0; flex: 1; line-height: 1.2;
+      }
+      .section-meta {
+        display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.75rem; color: var(--color-text-secondary);
+        white-space: nowrap;
+      }
+      .section-meta .meta-dot { width: 0.5rem; height: 0.5rem; border-radius: 999px; background: var(--color-border); }
+      .section-meta .meta-dot.good { background: var(--good); }
+      .section-meta .meta-dot.watch { background: var(--watch); }
+      .section-meta .meta-dot.action { background: var(--action); }
+      .section-remove {
+        flex-shrink: 0; appearance: none; background: transparent; border: 0; cursor: pointer;
+        color: var(--color-text-muted); padding: 0.25rem; line-height: 1; font-size: 1.4rem; border-radius: 0.35rem;
+      }
+      .section-remove:hover { color: var(--action); background: var(--action-bg); }
+      .section-body { padding: 0 1rem 1rem 1rem; border-top: 1px solid var(--color-border); }
+      .section-card[data-collapsed="true"] .section-body { display: none; }
+
+      /* === Item === */
+      .items { padding-top: 0.5rem; }
+      .item { padding: 0.75rem 0; border-bottom: 1px dashed var(--color-border); }
+      .item:last-child { border-bottom: 0; }
+      .item-head { display: flex; align-items: flex-start; gap: 0.4rem; }
+      .item-label { flex: 1; font-weight: 600; color: var(--color-text); line-height: 1.3; padding-top: 0.1rem; }
+      .item-label-input {
+        flex: 1; font-weight: 600; padding: 0.4rem 0.5rem !important;
+      }
+      .item-hint { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.15rem; }
+      .item-remove {
+        flex-shrink: 0; appearance: none; background: transparent; border: 0; cursor: pointer;
+        color: var(--color-text-muted); padding: 0.1rem 0.35rem; line-height: 1; font-size: 1.2rem; border-radius: 0.35rem;
+      }
+      .item-remove:hover { color: var(--action); background: var(--action-bg); }
+
+      /* Status pills */
+      .pills { display: flex; gap: 0.35rem; margin-top: 0.5rem; flex-wrap: wrap; }
+      .pill {
+        flex: 1 1 5rem; min-width: 5rem; appearance: none; cursor: pointer;
+        padding: 0.55rem 0.5rem; border-radius: 999px; border: 2px solid var(--color-border);
+        background: white; color: var(--color-text-secondary); font: inherit; font-weight: 600; font-size: 0.85rem;
+        display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+      }
+      .pill:active { transform: scale(0.97); }
+      .pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; background: currentColor; opacity: 0.45; }
+      .item[data-status="good"] .pill[data-pill="good"] { background: var(--good-bg); color: var(--good); border-color: var(--good); }
+      .item[data-status="good"] .pill[data-pill="good"] .dot { opacity: 1; }
+      .item[data-status="watch"] .pill[data-pill="watch"] { background: var(--watch-bg); color: var(--watch); border-color: var(--watch); }
+      .item[data-status="watch"] .pill[data-pill="watch"] .dot { opacity: 1; }
+      .item[data-status="action"] .pill[data-pill="action"] { background: var(--action-bg); color: var(--action); border-color: var(--action); }
+      .item[data-status="action"] .pill[data-pill="action"] .dot { opacity: 1; }
+
+      .item .notes { margin-top: 0.5rem; }
+
+      /* Photos */
+      .photos { margin-top: 0.55rem; }
+      .photo-btn {
+        display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer;
+        font-size: 0.85rem; font-weight: 600; color: var(--color-primary);
+        padding: 0.45rem 0.8rem; border: 1.5px dashed var(--color-primary); border-radius: 0.5rem;
+        background: rgba(45,90,39,0.04);
+      }
+      .photo-btn input { display: none; }
+      .photo-thumbs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+      .photo-thumb { position: relative; width: 5rem; height: 5rem; border-radius: 0.5rem; overflow: hidden; border: 1px solid var(--color-border); background: #f3f4f6; }
+      .photo-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .photo-thumb .remove {
+        position: absolute; top: 2px; right: 2px; width: 1.4rem; height: 1.4rem; border-radius: 999px;
+        background: rgba(0,0,0,0.65); color: white; border: 0; font: inherit; font-size: 0.8rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      }
+
+      /* Section action row */
+      .section-actions { display: flex; gap: 0.5rem; margin-top: 0.65rem; flex-wrap: wrap; }
+      .ghost-btn {
+        appearance: none; background: white; border: 1.5px dashed var(--color-border); color: var(--color-primary);
+        font: inherit; font-weight: 600; font-size: 0.85rem; cursor: pointer;
+        padding: 0.5rem 0.8rem; border-radius: 0.5rem;
+      }
+      .ghost-btn:hover { border-color: var(--color-primary); background: rgba(45,90,39,0.04); }
+
+      /* Recommendations within section */
+      .recs-block { margin-top: 0.85rem; padding-top: 0.65rem; border-top: 1px solid var(--color-border); }
+      .recs-head { font-size: 0.78rem; font-weight: 700; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.35rem; }
+      .recs-head svg { color: var(--accent, var(--color-accent)); }
+      .rec-row { display: grid; grid-template-columns: 1fr 6rem 2rem; gap: 0.4rem; margin-bottom: 0.4rem; align-items: center; }
+      .rec-row input { padding: 0.5rem 0.6rem; }
+      .rec-row .rec-remove {
+        appearance: none; background: transparent; border: 0; color: var(--color-text-muted); font-size: 1.2rem; cursor: pointer;
+        padding: 0.1rem;
+      }
+      .rec-row .rec-remove:hover { color: var(--action); }
+
+      /* Add section row */
+      .add-section-row { margin: 0.5rem 0 1rem 0; text-align: center; }
+      .add-section-btn {
+        appearance: none; background: var(--color-primary); color: white;
+        font: inherit; font-weight: 700; font-size: 0.95rem; cursor: pointer;
+        padding: 0.7rem 1.25rem; border: 0; border-radius: 0.6rem;
+        display: inline-flex; align-items: center; gap: 0.4rem;
+      }
+      .add-section-btn:hover { background: var(--color-primary-light); }
+
+      /* Sticky action bar */
+      .actionbar {
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+        background: white; border-top: 1px solid var(--color-border);
+        padding: 0.6rem 1rem calc(0.6rem + env(safe-area-inset-bottom)) 1rem;
+        display: flex; gap: 0.5rem; justify-content: center;
+        box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+      }
+      .actionbar button {
+        flex: 1; max-width: 14rem; cursor: pointer;
+        padding: 0.7rem 0.85rem; border-radius: 0.55rem; font: inherit; font-weight: 700; font-size: 0.95rem;
+        border: 0; display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+      }
+      .btn-primary { background: var(--color-accent); color: white; }
+      .btn-primary:hover { background: var(--color-accent-light); }
+      .btn-secondary { background: var(--color-primary); color: white; }
+      .btn-secondary:hover { background: var(--color-primary-light); }
+      .btn-ghost { background: var(--color-background-alt); color: var(--color-text); }
+      .btn-ghost:hover { background: #e2e6ec; }
+
+      /* Top header */
+      .topbar { background: var(--color-primary); color: white; padding: 0.85rem 1rem; }
+      .topbar-inner { max-width: 880px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+      .topbar img { width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; object-fit: cover; }
+      .topbar h1 { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 800; line-height: 1.15; margin: 0; }
+      .topbar p { font-size: 0.72rem; opacity: 0.85; margin: 0; }
+      .accent-stripe { height: 4px; background: var(--color-accent); }
+
+      .save-indicator { font-size: 0.75rem; color: var(--color-text-muted); text-align: right; padding: 0.5rem 0.25rem 0; }
+
+      @media (min-width: 720px) {
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+      }
+
+      /* Dialog */
+      dialog {
+        border: 0; border-radius: 0.85rem; padding: 0; max-width: min(420px, 92vw);
+        width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      }
+      dialog::backdrop { background: rgba(0,0,0,0.45); }
+      .dialog-inner { padding: 1.1rem 1.1rem 1rem 1.1rem; }
+      .dialog-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--color-primary); margin: 0 0 0.6rem 0; }
+      .dialog-list { display: flex; flex-direction: column; gap: 0.4rem; max-height: 60vh; overflow-y: auto; margin-bottom: 0.85rem; }
+      .dialog-list button {
+        appearance: none; background: var(--color-background-alt); border: 1px solid var(--color-border); color: var(--color-text);
+        text-align: left; padding: 0.7rem 0.85rem; border-radius: 0.55rem; font: inherit; font-weight: 600; cursor: pointer;
+      }
+      .dialog-list button:hover { background: #e2e6ec; border-color: var(--color-primary); }
+      .dialog-list button.custom { background: white; border-style: dashed; color: var(--color-primary); }
+      .dialog-actions { display: flex; gap: 0.5rem; justify-content: flex-end; }
+      .dialog-actions button {
+        appearance: none; cursor: pointer; padding: 0.6rem 1rem; border-radius: 0.5rem; font: inherit; font-weight: 600; border: 0;
+      }
+      .dialog-actions .cancel { background: var(--color-background-alt); color: var(--color-text); }
+      .dialog-actions .ok { background: var(--color-primary); color: white; }
+
+      /* === REPORT-ONLY (rendered into #report-out) === */
+      .report-only { display: none; }
+
+      /* === PRINT === */
+      @media print {
+        @page { size: letter; margin: 0.45in; }
+        html, body {
+          background: white !important;
+          padding: 0;
+          color: #1A1D23;
+          font-size: 10pt;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        .no-print, .actionbar, .topbar, .accent-stripe, .save-indicator, .add-section-row, dialog { display: none !important; }
+        .container { max-width: 100%; padding: 0; }
+        #sections-list, #customer-card, #footer-card, #quote-summary-card { display: none !important; }
+        #report-out { display: block !important; }
+
+        /* Report-specific print styles */
+        .rpt-banner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 0.4rem; border-bottom: 3px solid #2D5A27; }
+        .rpt-banner-left { display: flex; align-items: center; gap: 0.5rem; }
+        .rpt-logo { width: 0.55in; height: 0.55in; border-radius: 0.35rem; object-fit: cover; }
+        .rpt-brand { font-family: var(--font-heading); font-weight: 800; font-size: 14pt; color: #2D5A27; line-height: 1.1; margin: 0; }
+        .rpt-tagline { font-size: 8.5pt; color: #5A6170; margin-top: 1px; }
+        .rpt-banner-right { text-align: right; font-size: 8.5pt; color: #5A6170; }
+        .rpt-banner-right .name { font-weight: 700; color: #1A1D23; font-size: 9.5pt; }
+        .rpt-accent { height: 2px; background: #C8952E; margin-bottom: 0.35rem; }
+
+        .rpt-customer { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.2rem 0.65rem; padding: 0.4rem 0; margin-bottom: 0.5rem; border-bottom: 1px solid #d8dce4; }
+        .rpt-customer .lbl { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.04em; color: #8B92A0; font-weight: 700; }
+        .rpt-customer .val { font-size: 10pt; color: #1A1D23; font-weight: 600; }
+
+        .rpt-h2 { font-family: var(--font-heading); font-weight: 700; font-size: 11.5pt; color: #2D5A27; margin: 0.8rem 0 0.4rem 0; padding-bottom: 0.2rem; border-bottom: 1.5px solid rgba(45,90,39,0.2); }
+
+        .rpt-chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; margin: 0.4rem 0 0.6rem 0; }
+        .rpt-chip { padding: 0.5rem 0.6rem; border-radius: 0.5rem; text-align: center; }
+        .rpt-chip .num { font-size: 22pt; font-weight: 800; line-height: 1; font-family: var(--font-heading); }
+        .rpt-chip .lab { font-size: 8.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.15rem; }
+        .rpt-chip.action { background: #fee2e2; color: #b91c1c; }
+        .rpt-chip.watch  { background: #fef3c7; color: #b45309; }
+        .rpt-chip.good   { background: #dcfce7; color: #15803d; }
+
+        .rpt-status-section { margin-top: 0.55rem; page-break-inside: avoid; }
+        .rpt-status-head { display: flex; align-items: center; gap: 0.4rem; font-weight: 700; font-size: 10.5pt; padding: 0.25rem 0.5rem; border-radius: 0.35rem; margin-bottom: 0.35rem; }
+        .rpt-status-head.action { background: #fee2e2; color: #991b1b; }
+        .rpt-status-head.watch  { background: #fef3c7; color: #92400e; }
+        .rpt-status-head.good   { background: #dcfce7; color: #14532d; }
+        .rpt-status-head .icon { width: 0.65rem; height: 0.65rem; border-radius: 999px; background: currentColor; }
+
+        .rpt-finding { padding: 0.3rem 0.5rem 0.35rem 0.85rem; border-left: 2px solid #d8dce4; margin-bottom: 0.3rem; }
+        .rpt-finding.action { border-color: #dc2626; }
+        .rpt-finding.watch  { border-color: #d97706; }
+        .rpt-finding.good   { border-color: #16a34a; }
+        .rpt-finding .name { font-weight: 700; font-size: 10pt; color: #1A1D23; }
+        .rpt-finding .sect { font-size: 8.5pt; color: #8B92A0; font-weight: 500; margin-left: 0.3rem; }
+        .rpt-finding .note { font-size: 9.5pt; color: #5A6170; margin-top: 0.1rem; line-height: 1.35; }
+
+        .rpt-good-list { font-size: 9.5pt; color: #5A6170; line-height: 1.55; padding: 0.3rem 0.5rem; }
+        .rpt-good-list .pip { color: #16a34a; font-weight: 700; }
+
+        .rpt-quotes-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-top: 0.25rem; }
+        .rpt-quotes-table th, .rpt-quotes-table td { padding: 0.35rem 0.5rem; text-align: left; vertical-align: top; }
+        .rpt-quotes-table th { font-size: 7.8pt; text-transform: uppercase; letter-spacing: 0.04em; color: #5A6170; border-bottom: 1.5px solid #d8dce4; font-weight: 700; }
+        .rpt-quotes-table td { border-bottom: 1px solid #eef0f4; }
+        .rpt-quotes-table .price { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+        .rpt-quotes-table .total-row td { font-weight: 800; border-bottom: 0; padding-top: 0.5rem; }
+        .rpt-quotes-table .total-row .price { color: #2D5A27; font-size: 11pt; }
+        .rpt-honor { font-size: 9pt; color: #1A1D23; margin-top: 0.45rem; padding: 0.45rem 0.6rem; background: #fef3c7; border-radius: 0.35rem; border-left: 3px solid #C8952E; }
+        .rpt-honor strong { color: #2D5A27; }
+
+        .rpt-pagebreak { page-break-before: always; break-before: page; }
+
+        .rpt-detail-intro { font-size: 9pt; color: #5A6170; font-style: italic; margin-bottom: 0.5rem; }
+        .rpt-detail-section { margin-bottom: 0.7rem; page-break-inside: avoid; }
+        .rpt-detail-section h3 { font-family: var(--font-heading); font-weight: 700; font-size: 11pt; color: #2D5A27; margin: 0 0 0.35rem 0; padding-bottom: 0.15rem; border-bottom: 1px solid #d8dce4; }
+        .rpt-detail-item { display: flex; gap: 0.45rem; padding: 0.35rem 0; align-items: flex-start; }
+        .rpt-detail-item + .rpt-detail-item { border-top: 1px dashed #eef0f4; }
+        .rpt-detail-item .dot { flex-shrink: 0; width: 0.55rem; height: 0.55rem; border-radius: 999px; margin-top: 5px; background: #d8dce4; }
+        .rpt-detail-item.action .dot { background: #dc2626; }
+        .rpt-detail-item.watch  .dot { background: #d97706; }
+        .rpt-detail-item.good   .dot { background: #16a34a; }
+        .rpt-detail-item .body { flex: 1; min-width: 0; }
+        .rpt-detail-item .label { font-weight: 700; font-size: 9.5pt; }
+        .rpt-detail-item .note { font-size: 9pt; color: #5A6170; margin-top: 0.1rem; line-height: 1.35; }
+        .rpt-photos { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.35rem; }
+        .rpt-photo { width: 1.55in; height: 1.55in; object-fit: cover; border-radius: 0.3rem; border: 1px solid #d8dce4; }
+
+        .rpt-footer { margin-top: 1rem; padding-top: 0.4rem; border-top: 2px solid #2D5A27; display: flex; justify-content: space-between; gap: 1rem; font-size: 8.5pt; color: #5A6170; }
+        .rpt-footer strong { color: #1A1D23; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Top bar (screen) -->
+    <header class="topbar no-print">
+      <div class="topbar-inner">
+        <div style="display: flex; align-items: center; gap: 0.65rem;">
+          <img src="/logo_with_text.jpeg" alt="Bonet Plumbing" />
+          <div>
+            <h1>Plumbing Checkup</h1>
+            <p>Bonet Plumbing • {phone}</p>
+          </div>
+        </div>
+        <div style="text-align: right;">
+          <p style="font-weight: 700;">{inspector}</p>
+          <p>{license}</p>
+        </div>
+      </div>
+    </header>
+    <div class="accent-stripe no-print"></div>
+
+    <main class="container" style="padding-top: 1rem;">
+
+      <div class="save-indicator no-print" id="save-indicator">Auto-saves to this device</div>
+
+      <!-- Customer info -->
+      <section class="card" id="customer-card">
+        <h2 class="section-title">Customer & Visit Info</h2>
+        <div class="grid-2">
+          <div>
+            <label class="field" for="customer-name">Customer name</label>
+            <input id="customer-name" type="text" data-field="customerName" autocomplete="name" />
+          </div>
+          <div>
+            <label class="field" for="customer-phone">Phone</label>
+            <input id="customer-phone" type="tel" data-field="customerPhone" autocomplete="tel" />
+          </div>
+          <div style="grid-column: 1 / -1;">
+            <label class="field" for="customer-address">Service address</label>
+            <input id="customer-address" type="text" data-field="customerAddress" autocomplete="street-address" />
+          </div>
+          <div>
+            <label class="field" for="customer-email">Customer email</label>
+            <input id="customer-email" type="email" data-field="customerEmail" autocomplete="email" />
+          </div>
+          <div>
+            <label class="field" for="visit-date">Checkup date</label>
+            <input id="visit-date" type="date" data-field="visitDate" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Sections list (rendered by JS) -->
+      <div id="sections-list"></div>
+
+      <div class="add-section-row no-print">
+        <button type="button" class="add-section-btn" id="btn-add-section">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+          Add checkup section
+        </button>
+      </div>
+
+      <!-- Quote roll-up summary (screen) -->
+      <section class="card no-print" id="quote-summary-card">
+        <h2 class="section-title">Quote Summary</h2>
+        <div id="quote-summary-body" style="font-size: 0.9rem; color: var(--color-text-secondary);">No recommendations yet — add them inside each section as you find issues.</div>
+        <div style="border-top: 1px solid var(--color-border); margin-top: 0.85rem; padding-top: 0.65rem; display: flex; justify-content: space-between; align-items: center;">
+          <strong style="font-size: 0.95rem;">Estimated total</strong>
+          <strong id="quote-total" style="font-size: 1.15rem; color: var(--color-primary);">$0</strong>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 0.85rem; padding: 0.6rem 0.75rem; background: var(--color-background-alt); border-radius: 0.5rem;">
+          Quotes good for 30 days. Schedule any of the above before
+          <strong id="honor-date">—</strong>
+          and we honor today's price.
+        </p>
+      </section>
+
+      <!-- Footer -->
+      <section class="card no-print" id="footer-card">
+        <div style="display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem;">
+          <div>
+            <strong>Inspector:</strong> {inspector}<br/>
+            <span style="color: var(--color-text-secondary);">{license}</span>
+          </div>
+          <div style="text-align: right;">
+            <strong>Bonet Plumbing LLC</strong><br/>
+            <span style="color: var(--color-text-secondary);">{phone} • bonetplumbing.com</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Print-only output (built on demand) -->
+      <div id="report-out" class="report-only"></div>
+
+    </main>
+
+    <!-- Sticky action bar -->
+    <div class="actionbar no-print">
+      <button type="button" class="btn-ghost" id="btn-clear">Clear</button>
+      <button type="button" class="btn-secondary" id="btn-email">Email</button>
+      <button type="button" class="btn-primary" id="btn-print">Print / Save PDF</button>
+    </div>
+
+    <!-- Add section dialog -->
+    <dialog id="add-section-dialog">
+      <div class="dialog-inner">
+        <h3 class="dialog-title">Add a section</h3>
+        <div class="dialog-list" id="add-section-list"></div>
+        <div class="dialog-actions">
+          <button type="button" class="cancel" data-dialog-close>Cancel</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Custom section name dialog -->
+    <dialog id="custom-section-dialog">
+      <div class="dialog-inner">
+        <h3 class="dialog-title">Custom section</h3>
+        <label class="field" for="custom-section-name">Section name</label>
+        <input id="custom-section-name" type="text" placeholder="e.g. Garage utility sink" />
+        <div class="dialog-actions" style="margin-top: 0.85rem;">
+          <button type="button" class="cancel" data-dialog-close>Cancel</button>
+          <button type="button" class="ok" id="custom-section-ok">Add section</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script is:inline define:vars={{ businessEmail, phone, inspector, license }}>
+      // ===================== Data =====================
+      const STORAGE_KEY = "bonet-checkup-v1";
+
+      // Default section library — Leo can remove and re-add these.
+      const LIBRARY = [
+        { key: "water-heater", title: "Water Heater", items: [
+          { label: "Age (decode serial #)", hint: "Most homeowners don't know — flag if 10+ yrs" },
+          { label: "Tank condition", hint: "Rust, corrosion at fittings, sediment sounds" },
+          { label: "T&P valve functional" },
+          { label: "Expansion tank present, not waterlogged" },
+          { label: "Drain pan + drain line installed" },
+          { label: "Strapping condition" },
+          { label: "Temperature setting", hint: "120°F is the sweet spot" },
+        ]},
+        { key: "shutoff", title: "Main Water Shutoff", items: [
+          { label: "Located & known to homeowner" },
+          { label: "Operates smoothly (not seized)" },
+          { label: "Valve type", hint: "Gate valves are aging out — ball valves are the upgrade" },
+        ]},
+        { key: "supply-lines", title: "Supply Lines (Sinks & Toilets)", items: [
+          { label: "Line material", hint: "Old rubber/plastic vs. braided stainless" },
+          { label: "Corrosion at connections" },
+          { label: "Angle stops operational" },
+        ]},
+        { key: "toilets", title: "Toilets", items: [
+          { label: "Running, leaking at base, loose at floor" },
+          { label: "Flapper condition" },
+          { label: "Fill valve type / condition" },
+          { label: "Wax ring integrity", hint: "Visible water staining around base" },
+        ]},
+        { key: "drains", title: "Drains", items: [
+          { label: "Slow drains anywhere" },
+          { label: "P-trap condition under sinks" },
+          { label: "Visible leaks or staining in cabinet bases" },
+        ]},
+        { key: "pressure", title: "Water Pressure", items: [
+          { label: "Gauge reading at hose bib", hint: "50–80 psi target. Over 80 destroys fixtures" },
+          { label: "Pressure regulator present & functional" },
+        ]},
+        { key: "pipe-material", title: "Pipe Material", items: [
+          { label: "Pipe material in walls", hint: "Copper / CPVC / PEX / Polybutylene. Flag PB immediately." },
+          { label: "Visible copper corrosion (green/blue staining)" },
+          { label: "Galvanized in older homes" },
+        ]},
+        { key: "outdoor", title: "Outdoor", items: [
+          { label: "Hose bibs leaking or frozen-cracked" },
+          { label: "Irrigation backflow preventer condition" },
+          { label: "Wet spots in yard", hint: "Possible slab leak or main line issue" },
+        ]},
+        { key: "fixtures", title: "Fixtures", items: [
+          { label: "Faucet drips, aerator condition" },
+          { label: "Showerhead flow" },
+          { label: "Tub spout diverter functional" },
+        ]},
+        { key: "water-quality", title: "Water Quality", items: [
+          { label: "Visible hard water scaling", hint: "FL is hard water country — softener upsell" },
+          { label: "Discolored water from any tap" },
+          { label: "Smell at hot water tap" },
+        ]},
+      ];
+
+      const state = {
+        customerName: "", customerPhone: "", customerAddress: "", customerEmail: "", visitDate: "",
+        sections: [], // see initFromLibrary
+      };
+
+      function uid() {
+        if (typeof crypto !== "undefined" && crypto.randomUUID) return crypto.randomUUID();
+        return "id-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 8);
+      }
+
+      function load() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) Object.assign(state, JSON.parse(raw));
+        } catch (e) { /* ignore */ }
+      }
+      function save() {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+        catch (e) { /* quota */ }
+      }
+      function initFromLibraryIfEmpty() {
+        if (Array.isArray(state.sections) && state.sections.length > 0) return;
+        state.sections = LIBRARY.map((tpl) => makeSectionFromTemplate(tpl));
+      }
+      function makeSectionFromTemplate(tpl) {
+        return {
+          id: uid(),
+          key: tpl.key,                  // "" for custom
+          title: tpl.title,
+          collapsed: true,
+          items: tpl.items.map((it) => ({
+            id: uid(),
+            label: it.label,
+            hint: it.hint || "",
+            preset: true,
+            status: "",
+            notes: "",
+            photos: [],
+          })),
+          recommendations: [],
+        };
+      }
+      function makeCustomSection(title) {
+        return { id: uid(), key: "", title, collapsed: false, items: [], recommendations: [] };
+      }
+      function makeCustomItem() {
+        return { id: uid(), label: "", hint: "", preset: false, status: "", notes: "", photos: [] };
+      }
+      function makeRecommendation() {
+        return { id: uid(), desc: "", amount: "" };
+      }
+
+      // ===================== Photo handling =====================
+      function readPhoto(file) {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          const reader = new FileReader();
+          reader.onload = (e) => { img.src = e.target.result; };
+          reader.onerror = reject;
+          img.onload = () => {
+            const maxDim = 1280;
+            let { width, height } = img;
+            if (width > maxDim || height > maxDim) {
+              const r = Math.min(maxDim / width, maxDim / height);
+              width = Math.round(width * r); height = Math.round(height * r);
+            }
+            const c = document.createElement("canvas");
+            c.width = width; c.height = height;
+            c.getContext("2d").drawImage(img, 0, 0, width, height);
+            resolve(c.toDataURL("image/jpeg", 0.82));
+          };
+          img.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+      }
+
+      // ===================== Render =====================
+      const sectionsListEl = document.getElementById("sections-list");
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+      }
+
+      function metaSummary(section) {
+        const counts = { good: 0, watch: 0, action: 0 };
+        section.items.forEach((i) => { if (i.status) counts[i.status]++; });
+        const recCount = section.recommendations.filter((r) => r.desc || r.amount).length;
+        const parts = [];
+        if (counts.action) parts.push(`<span class="meta-dot action"></span>${counts.action}`);
+        if (counts.watch) parts.push(`<span class="meta-dot watch"></span>${counts.watch}`);
+        if (counts.good) parts.push(`<span class="meta-dot good"></span>${counts.good}`);
+        if (parts.length === 0) parts.push(`<span class="meta-dot"></span>not started`);
+        if (recCount) parts.push(`• ${recCount} rec${recCount > 1 ? "s" : ""}`);
+        return parts.join(" ");
+      }
+
+      function renderSection(section) {
+        const el = document.createElement("section");
+        el.className = "card section-card";
+        el.dataset.sectionId = section.id;
+        el.dataset.collapsed = section.collapsed ? "true" : "false";
+
+        const itemsHtml = section.items.map((item) => renderItemHtml(item)).join("");
+        const recsHtml = section.recommendations.map((rec) => renderRecHtml(rec)).join("");
+
+        el.innerHTML = `
+          <div class="section-header" data-action="toggle-section">
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <h2>${escapeHtml(section.title)}</h2>
+            <span class="section-meta" data-role="section-meta">${metaSummary(section)}</span>
+            <button type="button" class="section-remove" data-action="remove-section" aria-label="Remove section">×</button>
+          </div>
+          <div class="section-body">
+            <div class="items" data-role="items">${itemsHtml}</div>
+            <div class="section-actions">
+              <button type="button" class="ghost-btn" data-action="add-item">+ Add item</button>
+              <button type="button" class="ghost-btn" data-action="add-rec">+ Add recommendation</button>
+            </div>
+            <div class="recs-block" data-role="recs-block" style="${section.recommendations.length === 0 ? "display:none;" : ""}">
+              <div class="recs-head">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0l3-3m-3 3l-3-3M5 12a7 7 0 0114 0c0 3-2 4-2 7H7c0-3-2-4-2-7zM10 22h4"/></svg>
+                Recommendations from this section
+              </div>
+              <div data-role="recs">${recsHtml}</div>
+            </div>
+          </div>
+        `;
+        return el;
+      }
+
+      function renderItemHtml(item) {
+        const labelHtml = item.preset
+          ? `<div class="item-label">${escapeHtml(item.label)}${item.hint ? `<div class="item-hint">${escapeHtml(item.hint)}</div>` : ""}</div>`
+          : `<input type="text" class="item-label-input" data-role="item-label" value="${escapeHtml(item.label)}" placeholder="Item description" />`;
+        return `
+          <div class="item" data-item-id="${item.id}" ${item.status ? `data-status="${item.status}"` : ""}>
+            <div class="item-head">
+              ${labelHtml}
+              <button type="button" class="item-remove" data-action="remove-item" aria-label="Remove item">×</button>
+            </div>
+            <div class="pills" role="radiogroup">
+              <button type="button" class="pill" data-action="set-status" data-pill="good"><span class="dot"></span>Good</button>
+              <button type="button" class="pill" data-action="set-status" data-pill="watch"><span class="dot"></span>Watch</button>
+              <button type="button" class="pill" data-action="set-status" data-pill="action"><span class="dot"></span>Action</button>
+            </div>
+            <textarea class="notes" data-role="item-notes" placeholder="Notes / recommendation">${escapeHtml(item.notes || "")}</textarea>
+            <div class="photos">
+              <label class="photo-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                Add photo
+                <input type="file" accept="image/*" capture="environment" data-role="photo-input" />
+              </label>
+              <div class="photo-thumbs" data-role="photo-thumbs">${renderPhotosHtml(item.photos)}</div>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderPhotosHtml(photos) {
+        return photos.map((src, idx) => `
+          <div class="photo-thumb" data-photo-idx="${idx}">
+            <img src="${src}" alt="" />
+            <button type="button" class="remove" data-action="remove-photo" aria-label="Remove photo">×</button>
+          </div>
+        `).join("");
+      }
+
+      function renderRecHtml(rec) {
+        return `
+          <div class="rec-row" data-rec-id="${rec.id}">
+            <input type="text" data-role="rec-desc" placeholder="Description (e.g. Replace water heater)" value="${escapeHtml(rec.desc || "")}" />
+            <input type="number" inputmode="decimal" step="1" data-role="rec-amount" placeholder="$" value="${escapeHtml(rec.amount || "")}" />
+            <button type="button" class="rec-remove" data-action="remove-rec" aria-label="Remove recommendation">×</button>
+          </div>
+        `;
+      }
+
+      function renderAllSections() {
+        sectionsListEl.innerHTML = "";
+        state.sections.forEach((sec) => sectionsListEl.appendChild(renderSection(sec)));
+      }
+
+      function rerenderSection(section) {
+        const old = sectionsListEl.querySelector(`[data-section-id="${section.id}"]`);
+        if (!old) return;
+        const fresh = renderSection(section);
+        old.replaceWith(fresh);
+      }
+
+      function updateSectionMeta(section) {
+        const el = sectionsListEl.querySelector(`[data-section-id="${section.id}"] [data-role="section-meta"]`);
+        if (el) el.innerHTML = metaSummary(section);
+      }
+
+      // ===================== Quote roll-up =====================
+      function updateQuoteSummary() {
+        const body = document.getElementById("quote-summary-body");
+        const totalEl = document.getElementById("quote-total");
+        const groups = state.sections
+          .map((s) => ({ title: s.title, recs: s.recommendations.filter((r) => r.desc || r.amount) }))
+          .filter((g) => g.recs.length > 0);
+        let total = 0;
+        if (groups.length === 0) {
+          body.innerHTML = `<div style="font-size: 0.9rem; color: var(--color-text-secondary);">No recommendations yet — add them inside each section as you find issues.</div>`;
+        } else {
+          body.innerHTML = groups.map((g) => `
+            <div style="margin-bottom: 0.65rem;">
+              <div style="font-weight: 700; color: var(--color-text); font-size: 0.85rem; margin-bottom: 0.25rem;">${escapeHtml(g.title)}</div>
+              ${g.recs.map((r) => {
+                const amt = parseFloat(r.amount) || 0;
+                total += amt;
+                return `<div style="display: flex; justify-content: space-between; gap: 0.5rem; font-size: 0.88rem; color: var(--color-text-secondary); padding: 0.15rem 0;"><span>${escapeHtml(r.desc || "(no description)")}</span><span style="font-variant-numeric: tabular-nums;">$${amt.toLocaleString("en-US", {maximumFractionDigits: 0})}</span></div>`;
+              }).join("")}
+            </div>
+          `).join("");
+        }
+        // recompute total cleanly
+        total = 0;
+        state.sections.forEach((s) => s.recommendations.forEach((r) => { total += parseFloat(r.amount) || 0; }));
+        totalEl.textContent = `$${total.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
+      }
+
+      // ===================== Events (delegated) =====================
+      function findSection(sectionId) { return state.sections.find((s) => s.id === sectionId); }
+
+      sectionsListEl.addEventListener("click", (e) => {
+        const sectionEl = e.target.closest(".section-card");
+        if (!sectionEl) return;
+        const section = findSection(sectionEl.dataset.sectionId);
+        if (!section) return;
+
+        const removeSectionBtn = e.target.closest('[data-action="remove-section"]');
+        if (removeSectionBtn) {
+          e.stopPropagation();
+          if (confirm(`Remove section "${section.title}"?`)) {
+            state.sections = state.sections.filter((s) => s.id !== section.id);
+            save(); renderAllSections(); updateQuoteSummary();
+          }
+          return;
+        }
+
+        const toggle = e.target.closest('[data-action="toggle-section"]');
+        if (toggle) {
+          section.collapsed = !section.collapsed;
+          sectionEl.dataset.collapsed = section.collapsed ? "true" : "false";
+          save();
+          return;
+        }
+
+        const itemEl = e.target.closest(".item");
+        const item = itemEl ? section.items.find((i) => i.id === itemEl.dataset.itemId) : null;
+
+        const pillBtn = e.target.closest('[data-action="set-status"]');
+        if (pillBtn && item) {
+          const next = pillBtn.dataset.pill;
+          const newStatus = item.status === next ? "" : next;
+          item.status = newStatus;
+          if (newStatus) itemEl.dataset.status = newStatus;
+          else itemEl.removeAttribute("data-status");
+          save();
+          updateSectionMeta(section);
+          return;
+        }
+
+        if (e.target.closest('[data-action="remove-item"]') && item) {
+          if (confirm("Remove this item?")) {
+            section.items = section.items.filter((i) => i.id !== item.id);
+            save(); rerenderSection(section);
+          }
+          return;
+        }
+
+        if (e.target.closest('[data-action="remove-photo"]') && item) {
+          const thumb = e.target.closest("[data-photo-idx]");
+          const idx = parseInt(thumb.dataset.photoIdx, 10);
+          item.photos.splice(idx, 1);
+          save();
+          // re-render only the photo thumbs of this item
+          const thumbs = itemEl.querySelector('[data-role="photo-thumbs"]');
+          thumbs.innerHTML = renderPhotosHtml(item.photos);
+          return;
+        }
+
+        if (e.target.closest('[data-action="add-item"]')) {
+          const newItem = makeCustomItem();
+          section.items.push(newItem);
+          save(); rerenderSection(section);
+          // Focus the new item's label input
+          requestAnimationFrame(() => {
+            const newEl = sectionsListEl.querySelector(`[data-item-id="${newItem.id}"] [data-role="item-label"]`);
+            if (newEl) newEl.focus();
+          });
+          return;
+        }
+
+        if (e.target.closest('[data-action="add-rec"]')) {
+          const rec = makeRecommendation();
+          section.recommendations.push(rec);
+          save(); rerenderSection(section); updateQuoteSummary();
+          requestAnimationFrame(() => {
+            const newEl = sectionsListEl.querySelector(`[data-rec-id="${rec.id}"] [data-role="rec-desc"]`);
+            if (newEl) newEl.focus();
+          });
+          return;
+        }
+
+        if (e.target.closest('[data-action="remove-rec"]')) {
+          const recEl = e.target.closest("[data-rec-id]");
+          if (recEl) {
+            section.recommendations = section.recommendations.filter((r) => r.id !== recEl.dataset.recId);
+            save(); rerenderSection(section); updateQuoteSummary();
+          }
+          return;
+        }
+      });
+
+      // input events on textareas/inputs/files inside sections
+      sectionsListEl.addEventListener("input", (e) => {
+        const sectionEl = e.target.closest(".section-card");
+        if (!sectionEl) return;
+        const section = findSection(sectionEl.dataset.sectionId);
+        if (!section) return;
+        const itemEl = e.target.closest(".item");
+        const recEl = e.target.closest("[data-rec-id]");
+        const role = e.target.dataset.role;
+        if (itemEl) {
+          const item = section.items.find((i) => i.id === itemEl.dataset.itemId);
+          if (!item) return;
+          if (role === "item-notes") { item.notes = e.target.value; save(); }
+          else if (role === "item-label") { item.label = e.target.value; save(); }
+        } else if (recEl) {
+          const rec = section.recommendations.find((r) => r.id === recEl.dataset.recId);
+          if (!rec) return;
+          if (role === "rec-desc") { rec.desc = e.target.value; save(); updateQuoteSummary(); }
+          else if (role === "rec-amount") { rec.amount = e.target.value; save(); updateQuoteSummary(); }
+        }
+      });
+
+      sectionsListEl.addEventListener("change", async (e) => {
+        if (e.target.dataset.role !== "photo-input") return;
+        const sectionEl = e.target.closest(".section-card");
+        const itemEl = e.target.closest(".item");
+        const section = findSection(sectionEl.dataset.sectionId);
+        const item = section.items.find((i) => i.id === itemEl.dataset.itemId);
+        if (!section || !item) return;
+        const files = Array.from(e.target.files || []);
+        for (const f of files) {
+          try {
+            const dataUrl = await readPhoto(f);
+            item.photos.push(dataUrl);
+          } catch (err) { /* skip */ }
+        }
+        save();
+        const thumbs = itemEl.querySelector('[data-role="photo-thumbs"]');
+        thumbs.innerHTML = renderPhotosHtml(item.photos);
+        e.target.value = "";
+      });
+
+      // ===================== Customer fields =====================
+      function bindCustomerFields() {
+        document.querySelectorAll("[data-field]").forEach((el) => {
+          const key = el.getAttribute("data-field");
+          if (state[key]) el.value = state[key];
+          el.addEventListener("input", () => {
+            state[key] = el.value;
+            if (key === "visitDate") updateHonorDate();
+            save();
+          });
+        });
+      }
+      function setVisitDateDefault() {
+        const today = new Date();
+        const iso = today.toISOString().slice(0, 10);
+        if (!state.visitDate) state.visitDate = iso;
+        const el = document.getElementById("visit-date");
+        if (el) el.value = state.visitDate;
+        updateHonorDate();
+      }
+      function updateHonorDate() {
+        const base = state.visitDate ? new Date(state.visitDate) : new Date();
+        const d = new Date(base.getTime());
+        d.setDate(d.getDate() + 30);
+        const fmt = d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+        document.getElementById("honor-date").textContent = fmt;
+      }
+
+      // ===================== Add-section dialog =====================
+      const addSectionDialog = document.getElementById("add-section-dialog");
+      const customSectionDialog = document.getElementById("custom-section-dialog");
+      const addSectionList = document.getElementById("add-section-list");
+
+      function openAddSection() {
+        // List library sections not currently present
+        const presentKeys = new Set(state.sections.map((s) => s.key).filter(Boolean));
+        const available = LIBRARY.filter((tpl) => !presentKeys.has(tpl.key));
+        const buttons = [];
+        buttons.push(`<button type="button" class="custom" data-add-key="__custom__">+ Custom section…</button>`);
+        if (available.length === 0) {
+          buttons.push(`<div style="color: var(--color-text-muted); font-size: 0.85rem; padding: 0.5rem;">All checklist sections are already added.</div>`);
+        } else {
+          available.forEach((tpl) => {
+            buttons.push(`<button type="button" data-add-key="${escapeHtml(tpl.key)}">${escapeHtml(tpl.title)}</button>`);
+          });
+        }
+        addSectionList.innerHTML = buttons.join("");
+        addSectionDialog.showModal();
+      }
+
+      addSectionList.addEventListener("click", (e) => {
+        const btn = e.target.closest("button[data-add-key]");
+        if (!btn) return;
+        const key = btn.dataset.addKey;
+        addSectionDialog.close();
+        if (key === "__custom__") {
+          document.getElementById("custom-section-name").value = "";
+          customSectionDialog.showModal();
+          requestAnimationFrame(() => document.getElementById("custom-section-name").focus());
+          return;
+        }
+        const tpl = LIBRARY.find((t) => t.key === key);
+        if (!tpl) return;
+        const newSection = makeSectionFromTemplate(tpl);
+        newSection.collapsed = false;
+        state.sections.push(newSection);
+        save(); renderAllSections(); updateQuoteSummary();
+        scrollToSection(newSection.id);
+      });
+
+      document.getElementById("custom-section-ok").addEventListener("click", () => {
+        const input = document.getElementById("custom-section-name");
+        const name = (input.value || "").trim();
+        if (!name) { input.focus(); return; }
+        const newSection = makeCustomSection(name);
+        // Auto-add one blank item so it's ready to fill
+        newSection.items.push(makeCustomItem());
+        state.sections.push(newSection);
+        save(); renderAllSections(); updateQuoteSummary();
+        customSectionDialog.close();
+        scrollToSection(newSection.id);
+      });
+
+      function scrollToSection(id) {
+        requestAnimationFrame(() => {
+          const el = sectionsListEl.querySelector(`[data-section-id="${id}"]`);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+
+      document.getElementById("btn-add-section").addEventListener("click", openAddSection);
+
+      // Close dialog buttons (data-dialog-close + Esc)
+      document.querySelectorAll("[data-dialog-close]").forEach((b) => {
+        b.addEventListener("click", () => b.closest("dialog").close());
+      });
+      // Click backdrop closes
+      [addSectionDialog, customSectionDialog].forEach((d) => {
+        d.addEventListener("click", (e) => { if (e.target === d) d.close(); });
+      });
+
+      // ===================== Print report builder =====================
+      const reportOut = document.getElementById("report-out");
+
+      function buildReport() {
+        const visit = state.visitDate || new Date().toISOString().slice(0,10);
+        const visitFmt = new Date(visit + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+        const honorFmt = document.getElementById("honor-date").textContent;
+
+        // Aggregate findings + recommendations
+        const counts = { action: 0, watch: 0, good: 0 };
+        const groups = { action: [], watch: [], good: [] };
+        let totalQuote = 0;
+        const allRecs = [];
+
+        state.sections.forEach((s) => {
+          s.items.forEach((it) => {
+            if (it.status) {
+              counts[it.status]++;
+              groups[it.status].push({ section: s.title, label: it.label || "(unnamed)", notes: it.notes });
+            }
+          });
+          s.recommendations.forEach((r) => {
+            if (r.desc || r.amount) {
+              const amt = parseFloat(r.amount) || 0;
+              totalQuote += amt;
+              allRecs.push({ section: s.title, desc: r.desc || "(item)", amount: amt });
+            }
+          });
+        });
+
+        const hasAnyRated = counts.action + counts.watch + counts.good > 0;
+        const anyDetail = state.sections.some((s) =>
+          s.items.some((i) => i.status || i.notes || i.photos.length)
+        );
+
+        // Banner with logo
+        const bannerHtml = `
+          <div class="rpt-banner">
+            <div class="rpt-banner-left">
+              <img class="rpt-logo" src="/logo_with_text.jpeg" alt="" />
+              <div>
+                <div class="rpt-brand">Courtesy Plumbing Checkup</div>
+                <div class="rpt-tagline">Bonet Plumbing LLC • Plumbers in Shining Armor</div>
+              </div>
+            </div>
+            <div class="rpt-banner-right">
+              <div class="name">${escapeHtml(inspector)}</div>
+              <div>${escapeHtml(license)}</div>
+              <div>${escapeHtml(phone)} • bonetplumbing.com</div>
+            </div>
+          </div>
+          <div class="rpt-accent"></div>
+        `;
+
+        // Customer band — only show fields that have values
+        const customerFields = [
+          state.customerName     ? { lbl: "Customer", val: state.customerName } : null,
+          { lbl: "Date", val: visitFmt },
+          state.customerAddress  ? { lbl: "Property", val: state.customerAddress } : null,
+          state.customerPhone    ? { lbl: "Phone", val: state.customerPhone } : null,
+          state.customerEmail    ? { lbl: "Email", val: state.customerEmail } : null,
+        ].filter(Boolean);
+        const customerHtml = `
+          <div class="rpt-customer">
+            ${customerFields.map((f) => `<div><div class="lbl">${escapeHtml(f.lbl)}</div><div class="val">${escapeHtml(f.val)}</div></div>`).join("")}
+          </div>
+        `;
+
+        // Overview chips (count snapshot)
+        const overviewHtml = !hasAnyRated ? "" : `
+          <div class="rpt-chips">
+            <div class="rpt-chip action"><div class="num">${counts.action}</div><div class="lab">Action</div></div>
+            <div class="rpt-chip watch"><div class="num">${counts.watch}</div><div class="lab">Watch</div></div>
+            <div class="rpt-chip good"><div class="num">${counts.good}</div><div class="lab">Good</div></div>
+          </div>
+        `;
+
+        // Grouped findings
+        const findingsHtml = !hasAnyRated ? "" : `
+          <h2 class="rpt-h2">Checkup Summary</h2>
+          ${groups.action.length ? `
+            <div class="rpt-status-section">
+              <div class="rpt-status-head action"><span class="icon"></span>What Needs Action (${groups.action.length})</div>
+              ${groups.action.map((r) => `
+                <div class="rpt-finding action">
+                  <div class="name">${escapeHtml(r.label)}<span class="sect">${escapeHtml(r.section)}</span></div>
+                  ${r.notes ? `<div class="note">${escapeHtml(r.notes)}</div>` : ""}
+                </div>
+              `).join("")}
+            </div>
+          ` : ""}
+          ${groups.watch.length ? `
+            <div class="rpt-status-section">
+              <div class="rpt-status-head watch"><span class="icon"></span>What to Watch (${groups.watch.length})</div>
+              ${groups.watch.map((r) => `
+                <div class="rpt-finding watch">
+                  <div class="name">${escapeHtml(r.label)}<span class="sect">${escapeHtml(r.section)}</span></div>
+                  ${r.notes ? `<div class="note">${escapeHtml(r.notes)}</div>` : ""}
+                </div>
+              `).join("")}
+            </div>
+          ` : ""}
+          ${groups.good.length ? `
+            <div class="rpt-status-section">
+              <div class="rpt-status-head good"><span class="icon"></span>Checked & In Good Condition (${groups.good.length})</div>
+              <div class="rpt-good-list">
+                ${groups.good.map((r) => `<span class="pip">✓</span> ${escapeHtml(r.label)}`).join(" &nbsp; • &nbsp; ")}
+              </div>
+            </div>
+          ` : ""}
+        `;
+
+        // Quotes table
+        const quotesHtml = allRecs.length === 0 ? "" : `
+          <h2 class="rpt-h2">Recommended Work — Quotes Good 30 Days</h2>
+          <table class="rpt-quotes-table">
+            <thead>
+              <tr><th>Section</th><th>Recommended Work</th><th class="price">Price</th></tr>
+            </thead>
+            <tbody>
+              ${allRecs.map((r) => `
+                <tr>
+                  <td style="color:#5A6170;">${escapeHtml(r.section)}</td>
+                  <td style="font-weight: 600;">${escapeHtml(r.desc)}</td>
+                  <td class="price">$${r.amount.toLocaleString("en-US",{maximumFractionDigits:0})}</td>
+                </tr>
+              `).join("")}
+              <tr class="total-row">
+                <td></td>
+                <td style="text-align: right;">Total</td>
+                <td class="price">$${totalQuote.toLocaleString("en-US",{maximumFractionDigits:0})}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="rpt-honor">
+            Schedule any of the above by <strong>${escapeHtml(honorFmt)}</strong> and we honor today's pricing.
+          </div>
+        `;
+
+        // Detail per section (only ones with content)
+        const detailSectionsHtml = state.sections.map((s) => {
+          const items = s.items.filter((i) => i.status || i.notes || i.photos.length);
+          if (items.length === 0) return "";
+          return `
+            <div class="rpt-detail-section">
+              <h3>${escapeHtml(s.title)}</h3>
+              ${items.map((it) => `
+                <div class="rpt-detail-item ${it.status || ""}">
+                  <span class="dot"></span>
+                  <div class="body">
+                    <div class="label">${escapeHtml(it.label || "(unnamed)")}</div>
+                    ${it.notes ? `<div class="note">${escapeHtml(it.notes)}</div>` : ""}
+                    ${it.photos.length ? `<div class="rpt-photos">${it.photos.map((p) => `<img class="rpt-photo" src="${p}" alt="" />`).join("")}</div>` : ""}
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          `;
+        }).join("");
+
+        const detailHtml = !anyDetail ? "" : `
+          <div class="rpt-pagebreak"></div>
+          <h2 class="rpt-h2">Detailed Findings & Photos</h2>
+          <div class="rpt-detail-intro">Item-by-item notes and photos from the checkup.</div>
+          ${detailSectionsHtml}
+        `;
+
+        const footerHtml = `
+          <div class="rpt-footer">
+            <div><strong>Inspector:</strong> ${escapeHtml(inspector)} • ${escapeHtml(license)}</div>
+            <div><strong>Bonet Plumbing LLC</strong> • ${escapeHtml(phone)} • bonetplumbing.com</div>
+          </div>
+        `;
+
+        reportOut.innerHTML = bannerHtml + customerHtml + overviewHtml + findingsHtml + quotesHtml + detailHtml + footerHtml;
+      }
+
+      window.addEventListener("beforeprint", buildReport);
+
+      // ===================== Buttons =====================
+      document.getElementById("btn-print").addEventListener("click", () => window.print());
+
+      document.getElementById("btn-email").addEventListener("click", () => {
+        const to = encodeURIComponent(state.customerEmail || "");
+        const customer = state.customerName || "Customer";
+        const date = state.visitDate || new Date().toISOString().slice(0, 10);
+        const subject = encodeURIComponent(`Courtesy Plumbing Checkup — ${customer} (${date})`);
+
+        const lines = [];
+        lines.push(`Hi ${state.customerName || "there"},`);
+        lines.push("");
+        lines.push("Thanks for having Bonet Plumbing out today. Below is a summary of your courtesy plumbing checkup. The full report (with photos) is attached as a PDF.");
+        lines.push("");
+        if (state.customerAddress) lines.push(`Property: ${state.customerAddress}`);
+        lines.push(`Checkup date: ${date}`);
+        lines.push("");
+
+        const groups = { action: [], watch: [], good: [] };
+        state.sections.forEach((s) => s.items.forEach((it) => {
+          if (it.status) groups[it.status].push({ section: s.title, label: it.label, notes: it.notes });
+        }));
+        if (groups.action.length) {
+          lines.push("ACTION — recommend addressing soon:");
+          groups.action.forEach((r) => lines.push(`  • [${r.section}] ${r.label}${r.notes ? " — " + r.notes : ""}`));
+          lines.push("");
+        }
+        if (groups.watch.length) {
+          lines.push("WATCH — keep an eye on:");
+          groups.watch.forEach((r) => lines.push(`  • [${r.section}] ${r.label}${r.notes ? " — " + r.notes : ""}`));
+          lines.push("");
+        }
+        if (groups.good.length) {
+          lines.push("GOOD — looks healthy:");
+          groups.good.forEach((r) => lines.push(`  • [${r.section}] ${r.label}`));
+          lines.push("");
+        }
+
+        let total = 0;
+        const allRecs = [];
+        state.sections.forEach((s) => s.recommendations.forEach((r) => {
+          if (r.desc || r.amount) {
+            const amt = parseFloat(r.amount) || 0;
+            total += amt;
+            allRecs.push({ section: s.title, desc: r.desc || "(item)", amount: amt });
+          }
+        }));
+        if (allRecs.length) {
+          lines.push("Quotes (good for 30 days):");
+          allRecs.forEach((r) => lines.push(`  • [${r.section}] ${r.desc} — $${r.amount.toLocaleString("en-US",{maximumFractionDigits:0})}`));
+          lines.push(`  Total: $${total.toLocaleString("en-US",{maximumFractionDigits:0})}`);
+          lines.push(`  Schedule by ${document.getElementById("honor-date").textContent} and we honor today's pricing.`);
+          lines.push("");
+        }
+
+        lines.push(`Any questions, just reply to this email or call ${phone}.`);
+        lines.push("");
+        lines.push(`— ${inspector}`);
+        lines.push("Bonet Plumbing LLC");
+        lines.push(license);
+
+        const body = encodeURIComponent(lines.join("\n"));
+        const cc = encodeURIComponent(businessEmail);
+        const href = `mailto:${to}?cc=${cc}&subject=${subject}&body=${body}`;
+
+        const proceed = confirm("Tip: print to PDF first (Print / Save PDF) so you can attach the full report with photos. Open email now?");
+        if (proceed) window.location.href = href;
+      });
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        if (!confirm("Clear this checkup and start fresh? This cannot be undone.")) return;
+        localStorage.removeItem(STORAGE_KEY);
+        Object.assign(state, { customerName: "", customerPhone: "", customerAddress: "", customerEmail: "", visitDate: "", sections: [] });
+        initFromLibraryIfEmpty();
+        document.querySelectorAll("[data-field]").forEach((el) => { el.value = ""; });
+        setVisitDateDefault();
+        renderAllSections();
+        updateQuoteSummary();
+      });
+
+      // ===================== Boot =====================
+      load();
+      initFromLibraryIfEmpty();
+      bindCustomerFields();
+      setVisitDateDefault();
+      renderAllSections();
+      updateQuoteSummary();
+      // Pre-build the report once so the logo <img> is in the DOM (decoded + cached) before any print attempt.
+      buildReport();
+    </script>
+  </body>
+</html>

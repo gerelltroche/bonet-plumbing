@@ -8,7 +8,7 @@ export default defineConfig({
   site: 'https://bonetplumbing.com',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/success'),
+      filter: (page) => !page.includes('/success') && !page.includes('/checkup'),
     }),
   ],
   vite: {
