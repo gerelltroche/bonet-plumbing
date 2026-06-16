@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import StickyNav from "../components/StickyNav.astro";
 import Footer from "../components/Footer.astro";
+import CtaBanner from "../components/CtaBanner.astro";
 
 import Reviews from "../components/Reviews.astro";
 const phone = "tel:+14077343968";
@@ -9,11 +10,11 @@ const phoneDisplay = "407-734-3968";
 ---
 
 <Layout
-  title="Water Heater Repair & Installation | Bonet Plumbing"
-  description="Water heater repair, replacement & tankless installation in Central Florida. Same-day service, upfront pricing. Licensed plumbers. Call 407-734-3968."
+  title="Water Heater Replacement, Tankless & Gas Lines | Bonet Plumbing"
+  description="Water heater replacement, tankless conversion (Rinnai, Navien, Rheem) & gas line installation in Central Florida. Same-day service. Licensed (CFC1434246). Call 407-734-3968."
   breadcrumbs={[
     { name: "Home", url: "https://bonetplumbing.com/" },
-    { name: "Water Heater Services" }
+    { name: "Water Heaters & Gas Lines" }
   ]}
 >
   <StickyNav />
@@ -21,11 +22,11 @@ const phoneDisplay = "407-734-3968";
     <section class="bg-gradient-to-b from-primary/[0.03] via-white to-white py-16 md:py-24">
       <div class="max-w-4xl mx-auto px-4">
         <h1 class="text-4xl md:text-5xl font-extrabold text-text leading-tight mb-4">
-          Water Heater Services in Central Florida
+          Water Heaters, Tankless Conversion & Gas Lines
         </h1>
         <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
         <p class="text-lg text-text-secondary mb-8 max-w-2xl">
-          Woke up to a cold shower? Hearing strange popping or rumbling from your water heater? Whether you need a quick repair or a full replacement, we'll get your hot water back fast — with same-day service and upfront pricing across Oviedo, Winter Springs, and East Orlando.
+          Out of hot water, or ready to upgrade to endless hot water with a tankless system? We replace and install water heaters across Oviedo, Winter Springs, and East Orlando — and run the gas lines that feed them, your generator, pool heater, or outdoor kitchen. Same-day service, upfront pricing, permits pulled.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3 mb-10">
@@ -40,27 +41,92 @@ const phoneDisplay = "407-734-3968";
           </a>
         </div>
 
+        <!-- Jump links -->
+        <nav aria-label="On this page" class="flex flex-wrap gap-2 mb-12">
+          <a href="#repair-replace" class="bg-surface border border-border rounded-full px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:border-primary/40 transition-colors">Repair & Replacement</a>
+          <a href="#tankless" class="bg-surface border border-border rounded-full px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:border-primary/40 transition-colors">Tankless Conversion</a>
+          <a href="#gas-line" class="bg-surface border border-border rounded-full px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:border-primary/40 transition-colors">Gas Line Installation</a>
+        </nav>
+
+        <!-- Repair & Replacement -->
+        <h2 id="repair-replace" class="scroll-mt-24 text-2xl md:text-3xl font-bold text-text mb-3">Water Heater Repair & Replacement</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          A tank heater usually lasts 8–12 years here, and Central Florida's hard water tends to push it toward the short end of that range. If yours is leaking from the tank itself, replacement is the only real fix — and we carry quality units, install same-day, and haul the old one away.
+        </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <div class="bg-surface border border-border rounded-xl p-6">
-            <h2 class="text-xl font-bold text-text mb-3">Water Heater Repair</h2>
-            <p class="text-text-secondary text-sm leading-relaxed">Strange noises, lukewarm water, or a puddle forming at the base? We diagnose and fix the problem fast — so you're not stuck taking cold showers.</p>
+            <h3 class="text-lg font-bold text-text mb-3">Water Heater Repair</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Lukewarm water, strange noises, a tripped element, or a bad thermostat? We diagnose and fix it fast — so you're not stuck taking cold showers.</p>
           </div>
           <div class="bg-surface border border-border rounded-xl p-6">
-            <h2 class="text-xl font-bold text-text mb-3">Water Heater Replacement</h2>
-            <p class="text-text-secondary text-sm leading-relaxed">If your water heater is over 8 years old and constantly breaking down, it's time for a new one. We handle same-day replacements and haul away your old unit.</p>
+            <h3 class="text-lg font-bold text-text mb-3">Same-Day Replacement</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">If the tank is leaking or past its prime, we replace it the same day in most cases — quality units, proper code upgrades, and old-unit haul-away included.</p>
           </div>
           <div class="bg-surface border border-border rounded-xl p-6">
-            <h2 class="text-xl font-bold text-text mb-3">Tankless Water Heaters</h2>
-            <p class="text-text-secondary text-sm leading-relaxed">Tired of running out of hot water? Upgrade to a tankless system for endless hot water, lower energy bills, and more space. We install Rinnai, Navien, and Rheem.</p>
+            <h3 class="text-lg font-bold text-text mb-3">Maintenance & Flushing</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Hard-water sediment builds up fast and kills tanks early. A regular flush extends your unit's life, quiets the rumbling, and keeps energy bills down.</p>
           </div>
           <div class="bg-surface border border-border rounded-xl p-6">
-            <h2 class="text-xl font-bold text-text mb-3">Maintenance & Flushing</h2>
-            <p class="text-text-secondary text-sm leading-relaxed">Central Florida's hard water builds up sediment that kills water heaters early. Regular flushing extends your unit's life and keeps your energy bills down.</p>
+            <h3 class="text-lg font-bold text-text mb-3">Expansion Tanks & Code</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">A new heater on a closed system needs a properly sized thermal expansion tank and an up-to-code T&P discharge. We handle the details inspectors look for.</p>
+          </div>
+        </div>
+
+        <!-- Tankless -->
+        <h2 id="tankless" class="scroll-mt-24 text-2xl md:text-3xl font-bold text-text mb-3">Tankless Water Heater Conversion</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          Tankless units heat water on demand — endless hot water, 15–20 year lifespans, lower energy bills, and a wall-mounted footprint that frees up floor space. Converting from a tank isn't just a swap, though: it usually needs an upsized gas line, proper venting, and the right sizing for your home's fixture count. We handle the whole conversion and install Rinnai, Navien, and Rheem.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Right-Sized for Your Home</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">We size the unit to your real demand — how many showers and appliances run at once — so you get full flow without cold-water sandwiches.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Gas, Venting & Line Upsizing</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Tankless burners need more gas and dedicated venting. We upsize the gas line, run the correct venting, and bring it all to code in one job.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Rinnai · Navien · Rheem</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">We install the brands we trust and can service. We'll walk you through the differences and recommend the right fit for your home and budget.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Recirculation for Instant Hot</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Tired of waiting for hot water to reach the far bathroom? We can add a recirculation setup so it's there almost instantly — and save the water you'd run down the drain.</p>
+          </div>
+        </div>
+
+        <CtaBanner
+          heading="Ready for Endless Hot Water?"
+          sub="We'll size the right tankless unit for your home and give you an honest quote — same-day service available."
+        />
+
+        <!-- Gas Line -->
+        <h2 id="gas-line" class="scroll-mt-24 text-2xl md:text-3xl font-bold text-text mb-3">Gas Line Installation & Repair</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          Whether you're converting to tankless, adding a whole-home generator, a pool heater, an outdoor kitchen, or a gas range, it all needs a properly sized and tested gas line. We install new natural gas and propane lines, extend existing ones, and track down leaks — every job permitted, pressure-tested, and left safe.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">New Gas Lines & Extensions</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">New runs and extensions for tankless heaters, generators, pool heaters, outdoor kitchens, ranges, and dryers — sized correctly for the appliance's demand.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Leak Detection & Repair</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Smell gas or got a high bill with no explanation? We locate the leak, repair the line, and pressure-test it before we call the job done. If you smell gas now, leave and call us.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Permitted & Pressure-Tested</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Gas work isn't the place to cut corners. We pull the permit, install to code, and pressure-test every line so it passes inspection and keeps your family safe.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Natural Gas & Propane</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">We work in both natural gas and propane (LP) — including conversions and appliance hookups — across Central Florida homes.</p>
           </div>
         </div>
 
         <div class="bg-accent/10 border border-accent/20 rounded-lg p-6 mb-10">
-          <p class="font-bold text-text mb-1">Save 15% on Water Heater Services</p>
+          <p class="font-bold text-text mb-1">Save 15% on Water Heater & Gas Services</p>
           <p class="text-text-secondary text-sm">Mention this offer when you call. Available for Oviedo, Winter Springs & East Orlando residents.</p>
           <p class="text-text-secondary text-xs mt-2">Florida License #CFC1434246 · Licensed & Insured</p>
         </div>
@@ -80,15 +146,19 @@ const phoneDisplay = "407-734-3968";
           <div class="space-y-6">
             <div>
               <h3 class="font-bold text-text mb-2">How long does a water heater last?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">A traditional tank water heater typically lasts 8 to 12 years, while tankless models can last 15 to 20 years with proper maintenance. If yours is over 8 years old and needing frequent repairs, replacement is usually the better investment.</p>
+              <p class="text-text-secondary text-sm leading-relaxed">A traditional tank water heater typically lasts 8 to 12 years, while tankless models can last 15 to 20 years with proper maintenance. Central Florida's hard water shortens tank life, so if yours is over 8 years old and needing frequent repairs, replacement is usually the better investment.</p>
             </div>
             <div>
-              <h3 class="font-bold text-text mb-2">Should I switch to a tankless water heater?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Tankless water heaters provide endless hot water, take up less space, and are more energy-efficient. They're ideal for families who run out of hot water frequently. We can assess your home's needs and recommend the best option for your situation.</p>
+              <h3 class="font-bold text-text mb-2">Is converting to tankless worth it?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">For most families, yes — you get endless hot water, lower energy bills, a longer lifespan, and reclaimed floor space. The conversion typically requires upsizing the gas line and new venting, which we handle as part of the install. We'll assess your home and give you honest numbers before you commit.</p>
             </div>
             <div>
-              <h3 class="font-bold text-text mb-2">Why is my water heater making strange noises?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Popping, rumbling, or crackling sounds usually indicate sediment buildup at the bottom of the tank. Central Florida's hard water accelerates this problem. A professional flush can resolve the noise and improve efficiency.</p>
+              <h3 class="font-bold text-text mb-2">Do you install gas lines for generators and outdoor kitchens?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Yes. We install and extend natural gas and propane lines for whole-home generators, pool heaters, outdoor kitchens, ranges, and dryers — each one sized for the appliance, permitted, and pressure-tested.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">I think I smell gas — what should I do?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Leave the home, don't flip any switches, and call your gas utility and us from outside. Once it's safe, we'll locate the leak, repair the line, and pressure-test it before restoring service.</p>
             </div>
           </div>
         </div>
@@ -96,11 +166,9 @@ const phoneDisplay = "407-734-3968";
         <nav class="mt-16 pt-8 border-t border-border" aria-label="Other services">
           <h2 class="text-lg font-bold text-text mb-4">Our Other Services</h2>
           <ul class="flex flex-wrap gap-3">
-            <li><a href="/plumbing-repairs" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Plumbing Repairs</a></li>
-            <li><a href="/drain-cleaning" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Drain Cleaning</a></li>
-            <li><a href="/fixture-installation" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Fixture Installation</a></li>
-            <li><a href="/repiping" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Repiping</a></li>
-            <li><a href="/light-commercial-plumbing" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Light Commercial</a></li>
+            <li><a href="/repiping" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Whole-Home Repiping</a></li>
+            <li><a href="/repiping#slab-leak" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Slab Leak Repair</a></li>
+            <li><a href="/repiping#sewer-line" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Sewer Line Replacement</a></li>
           </ul>
         </nav>
       </div>
@@ -118,23 +186,31 @@ const phoneDisplay = "407-734-3968";
         "name": "How long does a water heater last?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A traditional tank water heater typically lasts 8 to 12 years, while tankless models can last 15 to 20 years with proper maintenance. If yours is over 8 years old and needing frequent repairs, replacement is usually the better investment."
+          "text": "A traditional tank water heater typically lasts 8 to 12 years, while tankless models can last 15 to 20 years with proper maintenance. Central Florida's hard water shortens tank life, so if yours is over 8 years old and needing frequent repairs, replacement is usually the better investment."
         }
       },
       {
         "@type": "Question",
-        "name": "Should I switch to a tankless water heater?",
+        "name": "Is converting to tankless worth it?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Tankless water heaters provide endless hot water, take up less space, and are more energy-efficient. They're ideal for families who run out of hot water frequently. We can assess your home's needs and recommend the best option for your situation."
+          "text": "For most families, yes — you get endless hot water, lower energy bills, a longer lifespan, and reclaimed floor space. The conversion typically requires upsizing the gas line and new venting, which we handle as part of the install. We'll assess your home and give you honest numbers before you commit."
         }
       },
       {
         "@type": "Question",
-        "name": "Why is my water heater making strange noises?",
+        "name": "Do you install gas lines for generators and outdoor kitchens?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Popping, rumbling, or crackling sounds usually indicate sediment buildup at the bottom of the tank. Central Florida's hard water accelerates this problem. A professional flush can resolve the noise and improve efficiency."
+          "text": "Yes. We install and extend natural gas and propane lines for whole-home generators, pool heaters, outdoor kitchens, ranges, and dryers — each one sized for the appliance, permitted, and pressure-tested."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I think I smell gas — what should I do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Leave the home, don't flip any switches, and call your gas utility and us from outside. Once it's safe, we'll locate the leak, repair the line, and pressure-test it before restoring service."
         }
       }
     ]

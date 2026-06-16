@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import StickyNav from "../components/StickyNav.astro";
 import Footer from "../components/Footer.astro";
+import CtaBanner from "../components/CtaBanner.astro";
 
 import Reviews from "../components/Reviews.astro";
 const phone = "tel:+14077343968";
@@ -9,11 +10,11 @@ const phoneDisplay = "407-734-3968";
 ---
 
 <Layout
-  title="Repiping Services | Bonet Plumbing LLC"
-  description="Professional repiping services in Central Florida. Whole-home repipes, galvanized & polybutylene pipe replacement. Licensed & insured. Call 407-734-3968."
+  title="Repiping, Slab Leak & Sewer Line Replacement | Bonet Plumbing"
+  description="Whole-home repiping, slab leak reroute, trenchless sewer line & water main replacement in Central Florida. Licensed & insured (CFC1434246). Call 407-734-3968."
   breadcrumbs={[
     { name: "Home", url: "https://bonetplumbing.com/" },
-    { name: "Repiping" }
+    { name: "Repiping & Pipe Replacement" }
   ]}
 >
   <StickyNav />
@@ -21,11 +22,11 @@ const phoneDisplay = "407-734-3968";
     <section class="bg-gradient-to-b from-primary/[0.03] via-white to-white py-16 md:py-24">
       <div class="max-w-4xl mx-auto px-4">
         <h1 class="text-4xl md:text-5xl font-extrabold text-text leading-tight mb-4">
-          Repiping Services in Central Florida
+          Whole-Home Repiping & Pipe Replacement in Central Florida
         </h1>
         <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
         <p class="text-lg text-text-secondary mb-8 max-w-2xl">
-          Rusty water, low pressure, or constant leaks? If your home has aging galvanized or polybutylene pipes, patching won't cut it forever. We'll replace your old plumbing with modern, long-lasting materials — with upfront pricing and minimal disruption to your daily routine.
+          Rusty water, dropping pressure, slab leaks, or a sewer line that keeps backing up? When your home's pipes are failing, patching the same spot twice a year isn't a fix. We replace supply lines, slab runs, sewer mains, and water service lines with modern materials — upfront pricing, permits pulled, and your daily routine protected.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3 mb-10">
@@ -40,27 +41,131 @@ const phoneDisplay = "407-734-3968";
           </a>
         </div>
 
+        <!-- Jump links -->
+        <nav aria-label="On this page" class="flex flex-wrap gap-2 mb-12">
+          <a href="#repiping" class="bg-surface border border-border rounded-full px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:border-primary/40 transition-colors">Whole-Home Repiping</a>
+          <a href="#slab-leak" class="bg-surface border border-border rounded-full px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:border-primary/40 transition-colors">Slab Leak Repair</a>
+          <a href="#sewer-line" class="bg-surface border border-border rounded-full px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:border-primary/40 transition-colors">Sewer Line Replacement</a>
+          <a href="#water-main" class="bg-surface border border-border rounded-full px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:border-primary/40 transition-colors">Water Main Replacement</a>
+          <a href="#pressure" class="bg-surface border border-border rounded-full px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:border-primary/40 transition-colors">Whole-Home Pressure</a>
+        </nav>
+
+        <!-- Whole-Home Repiping -->
+        <h2 id="repiping" class="scroll-mt-24 text-2xl md:text-3xl font-bold text-text mb-3">Whole-Home Repiping</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          A lot of Central Florida homes are still running on pipe that's past its service life. Galvanized steel rusts shut from the inside, and polybutylene — installed in tens of thousands of Florida homes between 1978 and 1995 — fails without warning. We replace every supply line in the house with PEX or copper, restore full pressure to every fixture, and get it done in 1–3 days for most homes.
+        </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <div class="bg-surface border border-border rounded-xl p-6">
-            <h2 class="text-xl font-bold text-text mb-3">Whole-Home Repiping</h2>
-            <p class="text-text-secondary text-sm leading-relaxed">Complete replacement of all supply lines with modern PEX or copper piping. Restores full water pressure, eliminates leaks, and gives your plumbing a fresh start that lasts decades.</p>
+            <h3 class="text-lg font-bold text-text mb-3">PEX & Copper Repipes</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Complete replacement of all supply lines. PEX is flexible, corrosion-proof, and warrantied for decades; copper is available where you prefer it. We patch and texture drywall behind us so it doesn't look like a construction site.</p>
           </div>
           <div class="bg-surface border border-border rounded-xl p-6">
-            <h2 class="text-xl font-bold text-text mb-3">Galvanized Pipe Replacement</h2>
-            <p class="text-text-secondary text-sm leading-relaxed">Galvanized steel pipes corrode from the inside out, causing rusty water and shrinking water pressure over time. We remove them and upgrade to modern materials that won't rust.</p>
+            <h3 class="text-lg font-bold text-text mb-3">Galvanized Pipe Replacement</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Galvanized steel corrodes from the inside out — rusty water, brown stains, and pressure that fades year after year. We pull it out and upgrade to materials that won't rust.</p>
           </div>
           <div class="bg-surface border border-border rounded-xl p-6">
-            <h2 class="text-xl font-bold text-text mb-3">Polybutylene Pipe Replacement</h2>
-            <p class="text-text-secondary text-sm leading-relaxed">Poly-B pipes (common in Florida homes built 1978–1995) are prone to sudden failure. We replace them before they burst — protecting your home from costly water damage.</p>
+            <h3 class="text-lg font-bold text-text mb-3">Polybutylene (Poly-B) Replacement</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">If your home was built 1978–1995, there's a real chance it has gray polybutylene pipe. It cracks and fails suddenly — often inside a wall. We replace it before it floods your home.</p>
           </div>
           <div class="bg-surface border border-border rounded-xl p-6">
-            <h2 class="text-xl font-bold text-text mb-3">Partial Repiping</h2>
-            <p class="text-text-secondary text-sm leading-relaxed">Don't need a full repipe? We can target problem areas — replacing damaged sections, upgrading specific runs, or repiping a single bathroom or kitchen.</p>
+            <h3 class="text-lg font-bold text-text mb-3">Partial Repiping</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Not every job is a full repipe. We can target a single failing run, a bathroom, or a kitchen — and tell you honestly when partial is the smart call versus the whole house.</p>
+          </div>
+        </div>
+
+        <CtaBanner
+          heading="Not Sure What Your Pipes Need?"
+          sub="We'll inspect your system and give you a straight answer — free estimate, upfront pricing, no pressure."
+        />
+
+        <!-- Slab Leak -->
+        <h2 id="slab-leak" class="scroll-mt-24 text-2xl md:text-3xl font-bold text-text mb-3">Slab Leak Repair & Reroute</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          Most homes here are built slab-on-grade, with copper supply lines run through or under the concrete. Florida's aggressive soil eats through that copper, and the first sign is often a warm spot on the floor, a water bill that jumped for no reason, or the sound of running water when everything's shut off. We locate the leak with electronic detection — no guessing, no jackhammering the whole floor.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Electronic Leak Detection</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">We pinpoint the leak under the slab with acoustic and pressure equipment before we open anything — so the repair is surgical, not destructive.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Reroute vs. Spot Repair</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">A single pinhole can be spot-repaired. But when a slab line has failed once, it usually fails again — so we'll often reroute that line overhead through the wall or attic in PEX, ending the problem for good.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Insurance-Friendly Documentation</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Slab leaks are frequently a covered claim. We document the cause and scope clearly so you have what you need for your homeowner's insurance.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Whole-Home Reroute</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Repeated slab leaks usually mean the rest of the under-slab copper is on borrowed time. An overhead repipe abandons the slab lines entirely and is often the most cost-effective long-term fix.</p>
+          </div>
+        </div>
+
+        <!-- Sewer Line -->
+        <h2 id="sewer-line" class="scroll-mt-24 text-2xl md:text-3xl font-bold text-text mb-3">Sewer Line Replacement</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          Recurring backups, gurgling drains, or sewage smell in the yard usually aren't a clog you can snake away — they're a failing main. Older Orlando-area homes were plumbed in cast iron that corrodes and cracks, and our mature live oaks send roots straight into the joints. We camera the line first to see exactly what's happening, then replace it — often trenchless, so we're not trenching across your whole lawn.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Camera Inspection & Diagnosis</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">We run a camera down the line to find the break, belly, or root intrusion and confirm whether you need a replacement or just a cleaning — no upselling a repair you don't need.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Trenchless Replacement</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Where the line allows, pipe bursting pulls new pipe through the old path — replacing the main without digging up your driveway, patio, or landscaping.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Cast Iron Replacement</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Homes built before the mid-1970s often have cast iron drains that have rusted thin or collapsed. We replace them with modern PVC that won't corrode or trap roots.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Root Intrusion Repairs</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Oak and pine roots find the smallest joint gap and grow into the line. We clear them, replace the compromised section, and seal the path so they can't come back.</p>
+          </div>
+        </div>
+
+        <CtaBanner
+          heading="Leak Under the Slab or in the Yard?"
+          sub="The sooner we find it, the less it costs you. Call for same-day detection and a clear repair plan."
+        />
+
+        <!-- Water Main -->
+        <h2 id="water-main" class="scroll-mt-24 text-2xl md:text-3xl font-bold text-text mb-3">Water Main & Service Line Replacement</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          The water service line — the pipe running from your meter at the street to the house — is easy to forget until it leaks. A soggy strip across the yard, a meter that spins with every fixture off, or a sudden drop in whole-house pressure all point to a failing service line. We replace it, frequently with a trenchless directional bore that leaves your yard intact.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Underground Leak Location</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">We trace and locate the leak in the buried service line so the replacement is targeted — no exploratory trenching across the whole yard.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Trenchless Bore Replacement</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Directional boring pulls a new, continuous line from the meter to the house underground — saving your driveway, walkway, and landscaping.</p>
+          </div>
+        </div>
+
+        <!-- Whole-Home Pressure / PRV -->
+        <h2 id="pressure" class="scroll-mt-24 text-2xl md:text-3xl font-bold text-text mb-3">Whole-Home Water Pressure & Regulators</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          Too little pressure is annoying; too much quietly destroys your plumbing. Pressure above 80 psi hammers fixtures, shortens the life of your water heater (and can void its warranty), and stresses every joint in the house. A pressure-reducing valve (PRV) set correctly protects the whole system — and when we repipe, it's the right time to dial it in.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Pressure-Reducing Valve (PRV)</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">We test your incoming pressure and install or replace a PRV to hold it at a safe ~60 psi — protecting fixtures, your water heater, and every connection in the home.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Thermal Expansion Tanks</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">A closed system with a PRV needs somewhere for hot-water expansion to go. We add the right expansion tank so pressure spikes don't stress your tank and valves.</p>
           </div>
         </div>
 
         <div class="bg-accent/10 border border-accent/20 rounded-lg p-6 mb-10">
-          <p class="font-bold text-text mb-1">Save 15% on Repiping Services</p>
+          <p class="font-bold text-text mb-1">Save 15% on Repiping & Pipe Replacement</p>
           <p class="text-text-secondary text-sm">Mention this offer when you call. Available for Oviedo, Winter Springs & East Orlando residents.</p>
           <p class="text-text-secondary text-xs mt-2">Florida License #CFC1434246 · Licensed & Insured</p>
         </div>
@@ -87,8 +192,16 @@ const phoneDisplay = "407-734-3968";
               <p class="text-text-secondary text-sm leading-relaxed">Most whole-home repipes are completed in 1–3 days depending on the size of the home and accessibility of the pipes. We minimize disruption by working room-by-room and restoring water service as quickly as possible.</p>
             </div>
             <div>
+              <h3 class="font-bold text-text mb-2">How do I know if I have a slab leak?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Watch for an unexplained jump in your water bill, a warm spot on the floor, the sound of running water when every fixture is off, or new cracks in flooring or walls. We use electronic detection to pinpoint slab leaks before opening the floor, and we'll often reroute the line overhead so it doesn't happen again.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">Can you replace my sewer line without digging up the yard?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">In most cases, yes. After a camera inspection confirms the problem, trenchless pipe bursting can pull new pipe through the existing path with only small access points — sparing your driveway, patio, and landscaping. We'll tell you upfront if your line is a candidate.</p>
+            </div>
+            <div>
               <h3 class="font-bold text-text mb-2">What pipe materials do you use?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">We primarily use PEX (cross-linked polyethylene) for supply lines — it's flexible, corrosion-resistant, and backed by a long warranty. For specific applications, we also work with copper. We'll recommend the best option for your home and budget.</p>
+              <p class="text-text-secondary text-sm leading-relaxed">We primarily use PEX for supply lines — flexible, corrosion-resistant, and backed by a long warranty — and copper where you prefer it. Sewer and drain replacements use modern PVC. We'll recommend the best option for your home and budget.</p>
             </div>
           </div>
         </div>
@@ -96,11 +209,8 @@ const phoneDisplay = "407-734-3968";
         <nav class="mt-16 pt-8 border-t border-border" aria-label="Other services">
           <h2 class="text-lg font-bold text-text mb-4">Our Other Services</h2>
           <ul class="flex flex-wrap gap-3">
-            <li><a href="/plumbing-repairs" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Plumbing Repairs</a></li>
-            <li><a href="/water-heater-services" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Water Heater Services</a></li>
-            <li><a href="/drain-cleaning" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Drain Cleaning</a></li>
-            <li><a href="/fixture-installation" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Fixture Installation</a></li>
-            <li><a href="/light-commercial-plumbing" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Light Commercial</a></li>
+            <li><a href="/water-heater-services" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Water Heaters & Tankless</a></li>
+            <li><a href="/water-heater-services#gas-line" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Gas Line Installation</a></li>
           </ul>
         </nav>
       </div>
@@ -131,10 +241,26 @@ const phoneDisplay = "407-734-3968";
       },
       {
         "@type": "Question",
+        "name": "How do I know if I have a slab leak?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Watch for an unexplained jump in your water bill, a warm spot on the floor, the sound of running water when every fixture is off, or new cracks in flooring or walls. We use electronic detection to pinpoint slab leaks before opening the floor, and we'll often reroute the line overhead so it doesn't happen again."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you replace my sewer line without digging up the yard?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In most cases, yes. After a camera inspection confirms the problem, trenchless pipe bursting can pull new pipe through the existing path with only small access points — sparing your driveway, patio, and landscaping. We'll tell you upfront if your line is a candidate."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "What pipe materials do you use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We primarily use PEX (cross-linked polyethylene) for supply lines — it's flexible, corrosion-resistant, and backed by a long warranty. For specific applications, we also work with copper. We'll recommend the best option for your home and budget."
+          "text": "We primarily use PEX for supply lines — flexible, corrosion-resistant, and backed by a long warranty — and copper where you prefer it. Sewer and drain replacements use modern PVC. We'll recommend the best option for your home and budget."
         }
       }
     ]

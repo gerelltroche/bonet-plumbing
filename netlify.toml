@@ -1,3 +1,148 @@
 [build]
   command = "npm run build"
   publish = "dist"
+
+# --- 301 redirects: residential high-net repositioning (June 2026) ---
+# Retired low-net service pages → folded into the two flagships
+[[redirects]]
+  from = "/plumbing-repairs"
+  to = "/repiping"
+  status = 301
+
+[[redirects]]
+  from = "/drain-cleaning"
+  to = "/repiping"
+  status = 301
+
+[[redirects]]
+  from = "/fixture-installation"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/light-commercial-plumbing"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/property-management-plumbing"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/property-management-flyer"
+  to = "/"
+  status = 301
+
+# Retired courtesy plumbing checkup tool + its print/PDF report
+[[redirects]]
+  from = "/checkup"
+  to = "/"
+  status = 301
+
+# Pruned city pages → nearest kept city (Oviedo, Winter Springs, East Orlando, Lake Mary, Alafaya)
+[[redirects]]
+  from = "/casselberry-plumber"
+  to = "/winter-springs-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/altamonte-springs-plumber"
+  to = "/winter-springs-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/fern-park-plumber"
+  to = "/winter-springs-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/longwood-plumber"
+  to = "/lake-mary-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/sanford-plumber"
+  to = "/lake-mary-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/chuluota-plumber"
+  to = "/oviedo-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/geneva-plumber"
+  to = "/oviedo-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/goldenrod-plumber"
+  to = "/east-orlando-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/waterford-lakes-plumber"
+  to = "/east-orlando-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/avalon-park-plumber"
+  to = "/east-orlando-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/union-park-plumber"
+  to = "/east-orlando-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/winter-park-plumber"
+  to = "/east-orlando-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/maitland-plumber"
+  to = "/east-orlando-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/orlando-plumber"
+  to = "/east-orlando-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/ucf-area-plumber"
+  to = "/alafaya-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/bithlo-plumber"
+  to = "/alafaya-plumber"
+  status = 301
+
+[[redirects]]
+  from = "/wedgefield-plumber"
+  to = "/alafaya-plumber"
+  status = 301
+
+# Avalon Park per-service cluster → flagships
+[[redirects]]
+  from = "/repiping-avalon-park"
+  to = "/repiping"
+  status = 301
+
+[[redirects]]
+  from = "/water-heater-services-avalon-park"
+  to = "/water-heater-services"
+  status = 301
+
+[[redirects]]
+  from = "/drain-cleaning-avalon-park"
+  to = "/repiping"
+  status = 301
+
+[[redirects]]
+  from = "/emergency-plumber-avalon-park"
+  to = "/"
+  status = 301

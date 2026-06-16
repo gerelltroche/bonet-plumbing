@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import StickyNav from "../components/StickyNav.astro";
 import Footer from "../components/Footer.astro";
+import CtaBanner from "../components/CtaBanner.astro";
 
 import Reviews from "../components/Reviews.astro";
 const phone = "tel:+14077343968";
@@ -10,7 +11,7 @@ const phoneDisplay = "407-734-3968";
 
 <Layout
   title="Lake Mary Plumber | Bonet Plumbing LLC"
-  description="Professional plumber in Lake Mary, FL. Same-day plumbing repairs, drain cleaning, water heaters & fixture installation. Licensed & insured. Call 407-734-3968."
+  description="Lake Mary high-value plumbing — whole-home repiping, tankless water heater installation, slab leak repair, sewer & gas lines. Licensed & insured (CFC1434246). Call 407-734-3968."
   breadcrumbs={[
     { name: "Home", url: "https://bonetplumbing.com/" },
     { name: "Service Areas", url: "https://bonetplumbing.com/#service-areas" },
@@ -41,33 +42,41 @@ const phoneDisplay = "407-734-3968";
           </a>
         </div>
 
-        <h2 class="text-2xl md:text-3xl font-bold text-text mb-6">Plumbing Services in Lake Mary</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-text mb-6">High-Value Plumbing Services in Lake Mary</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-          <a href="/plumbing-repairs" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
-            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Plumbing Repairs</h3>
-            <p class="text-text-secondary text-sm">Leaks, burst pipes, or a plumbing emergency? We'll fix it fast — same-day service available.</p>
+          <a href="/repiping" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Whole-Home Repiping</h3>
+            <p class="text-text-secondary text-sm">Aging galvanized or polybutylene pipes replaced with modern PEX or copper — full pressure restored, leaks gone for decades.</p>
           </a>
           <a href="/water-heater-services" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
-            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Water Heater Services</h3>
-            <p class="text-text-secondary text-sm">No hot water? We repair, replace, and install tankless units — often the same day you call.</p>
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Water Heaters & Tankless</h3>
+            <p class="text-text-secondary text-sm">Same-day replacement and tankless conversion (Rinnai, Navien, Rheem) for endless hot water and lower bills.</p>
           </a>
-          <a href="/drain-cleaning" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
-            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Drain Cleaning</h3>
-            <p class="text-text-secondary text-sm">Slow drains or backed-up pipes? We'll clear the clog and get your water flowing again.</p>
+          <a href="/repiping#slab-leak" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Slab Leak Repair</h3>
+            <p class="text-text-secondary text-sm">Warm floor spots or a spiking water bill? We locate and reroute slab leaks before they damage your foundation.</p>
           </a>
-          <a href="/fixture-installation" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
-            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Fixture Installation</h3>
-            <p class="text-text-secondary text-sm">New toilet, faucet, or sink? We install it right the first time — to code and leak-free.</p>
+          <a href="/repiping#sewer-line" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Sewer Line Replacement</h3>
+            <p class="text-text-secondary text-sm">Trenchless replacement of collapsed, root-invaded, or bellied sewer lines — without tearing up the yard.</p>
           </a>
-          <a href="/repiping" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
-            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Repiping</h3>
-            <p class="text-text-secondary text-sm">Old or corroded pipes? We replace galvanized & polybutylene plumbing with modern materials.</p>
+          <a href="/water-heater-services#gas-line" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Gas Line Installation</h3>
+            <p class="text-text-secondary text-sm">New gas lines for tankless heaters, generators, pool heaters, and outdoor kitchens — permitted and leak-tested.</p>
           </a>
-          <a href="/light-commercial-plumbing" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
-            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Light Commercial</h3>
-            <p class="text-text-secondary text-sm">Plumbing for restaurants, offices, retail & rental properties — reliable service that keeps your business running.</p>
+          <a href="/repiping#water-main" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Water Main Replacement</h3>
+            <p class="text-text-secondary text-sm">Leaking service line from the meter to your home? We replace it, often trenchless, to restore full flow.</p>
           </a>
         </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-text mb-4">Plumbing in Lake Mary: What We See Most</h2>
+        <p class="text-text-secondary mb-4 max-w-2xl">Lake Mary's established communities — Heathrow, Magnolia Plantation, Timacuan, and the estates along Markham Woods — were largely built between the 1980s and 2000s, and that timing tells us a lot before we ever walk in the door. These are larger homes, often with multiple bathrooms and two water heaters, which makes them strong candidates for tankless conversion and hot-water recirculation so the far end of the house isn't waiting on hot water. Central Florida's hard water is relentless here, so we do a steady amount of water-heater flushing and softener work to protect those systems.</p>
+        <p class="text-text-secondary mb-10 max-w-2xl">These neighborhoods are also hitting the age where the original plumbing starts to give out — polybutylene runs and under-slab copper that have simply reached the end of their service life. That's where repiping and slab leak work come in. And because these are homes built for comfort, gas line additions for whole-home generators, pool heaters, and outdoor kitchens are some of the most common upgrades we handle in Lake Mary.</p>
+
+        <CtaBanner
+          heading="Need a Plumber in Lake Mary Today?"
+          sub="Free estimates, upfront pricing, and same-day service from a licensed local plumber."
+        />
 
         <div class="bg-primary/5 border border-primary/10 rounded-xl p-6 mb-10">
           <h2 class="text-xl font-bold text-text mb-3">What You Get</h2>
@@ -103,9 +112,9 @@ const phoneDisplay = "407-734-3968";
         <nav class="mt-16 pt-8 border-t border-border" aria-label="Other service areas">
           <h2 class="text-lg font-bold text-text mb-4">Nearby Service Areas</h2>
           <ul class="flex flex-wrap gap-3">
-            <li><a href="/sanford-plumber" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Sanford</a></li>
-            <li><a href="/longwood-plumber" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Longwood</a></li>
             <li><a href="/winter-springs-plumber" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Winter Springs</a></li>
+            <li><a href="/oviedo-plumber" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Oviedo</a></li>
+            <li><a href="/east-orlando-plumber" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">East Orlando</a></li>
           </ul>
         </nav>
       </div>
