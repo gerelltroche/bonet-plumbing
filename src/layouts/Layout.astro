@@ -9,13 +9,22 @@ interface Props {
   description?: string;
   noindex?: boolean;
   breadcrumbs?: BreadcrumbItem[];
+  geoPlacename?: string;
+  geoLat?: number;
+  geoLng?: number;
 }
 
 const {
-  title = "Bonet Plumbing LLC | Oviedo & Central FL Plumber",
+  title = "Bonet Plumbing LLC | Central Florida Plumber",
   description = "Central Florida's trusted plumbing experts. Licensed & insured, same-day service. Call 407-734-3968.",
   noindex = false,
   breadcrumbs,
+  // Geo meta defaults to the business's operating base (Oviedo). Pages about a
+  // different market pass their own placename/coordinates. Note: these tags are
+  // ignored by Google — they exist only for internal consistency.
+  geoPlacename = "Oviedo, Florida",
+  geoLat = 28.6700,
+  geoLng = -81.2081,
 } = Astro.props;
 
 const siteUrl = "https://bonetplumbing.com";
@@ -34,9 +43,9 @@ import "../styles/global.css";
 
     <!-- Geo & Local SEO -->
     <meta name="geo.region" content="US-FL" />
-    <meta name="geo.placename" content="Oviedo, Florida" />
-    <meta name="geo.position" content="28.6700;-81.2081" />
-    <meta name="ICBM" content="28.6700, -81.2081" />
+    <meta name="geo.placename" content={geoPlacename} />
+    <meta name="geo.position" content={`${geoLat};${geoLng}`} />
+    <meta name="ICBM" content={`${geoLat}, ${geoLng}`} />
 
     <!-- Canonical -->
     <link rel="canonical" href={canonicalUrl} />
@@ -121,7 +130,7 @@ import "../styles/global.css";
         { "@type": "City", "name": "Fern Park", "sameAs": "https://en.wikipedia.org/wiki/Fern_Park,_Florida" },
         { "@type": "City", "name": "Alafaya", "sameAs": "https://en.wikipedia.org/wiki/Alafaya,_Florida" },
         { "@type": "City", "name": "Waterford Lakes" },
-        { "@type": "City", "name": "Avalon Park" },
+        { "@type": "City", "name": "Avalon Park", "address": { "@type": "PostalAddress", "postalCode": "32828", "addressRegion": "FL", "addressCountry": "US" } },
         { "@type": "City", "name": "Union Park", "sameAs": "https://en.wikipedia.org/wiki/Union_Park,_Florida" },
         { "@type": "City", "name": "Winter Park", "sameAs": "https://en.wikipedia.org/wiki/Winter_Park,_Florida" },
         { "@type": "City", "name": "Maitland", "sameAs": "https://en.wikipedia.org/wiki/Maitland,_Florida" },
