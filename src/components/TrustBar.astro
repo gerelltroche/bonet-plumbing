@@ -1,3 +1,8 @@
+---
+import BbbBadge from "./BbbBadge.astro";
+import { bbb } from "../lib/bbb";
+---
+
 <section class="bg-background-alt py-10 md:py-14" aria-labelledby="trust-heading">
   <div class="max-w-5xl mx-auto px-4">
     <h2 id="trust-heading" class="sr-only">Why Choose Bonet Plumbing</h2>
@@ -32,5 +37,11 @@
         <span class="font-semibold text-text">Upfront Pricing, No Surprises</span>
       </div>
     </div>
+
+    {bbb && (
+      <div class="mt-8 md:mt-10 pt-8 border-t border-border flex justify-center">
+        <BbbBadge class="items-center text-text-secondary" />
+      </div>
+    )}
   </div>
 </section>

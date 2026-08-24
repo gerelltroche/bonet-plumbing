@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import BbbBadge from './BbbBadge.astro';
 import logo from '../assets/logo_with_text.jpeg';
 
 const year = new Date().getFullYear();
@@ -20,6 +21,7 @@ const phoneDisplay = "407-734-3968";
           {phoneDisplay}
         </a>
         <span class="text-white/50 text-sm">Available 24/7</span>
+        <BbbBadge class="mt-4 items-center md:items-start text-white/50" />
       </div>
 
       <!-- Services -->

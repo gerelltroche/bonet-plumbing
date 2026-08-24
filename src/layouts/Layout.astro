@@ -30,6 +30,8 @@ const {
 const siteUrl = "https://bonetplumbing.com";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 
+import { bbbProfileUrlForSchema } from "../lib/bbb";
+
 import "../styles/global.css";
 ---
 
@@ -110,6 +112,9 @@ import "../styles/global.css";
         "height": 400
       },
       "sameAs": [
+        // The BBB profile is included automatically once the seal is configured
+        // (see src/lib/bbb.ts).
+        ...(bbbProfileUrlForSchema ? [bbbProfileUrlForSchema] : []),
         // TODO: Add your actual profile URLs here
         // "https://www.google.com/maps/place/Bonet+Plumbing+LLC",
         // "https://www.facebook.com/bonetplumbing",

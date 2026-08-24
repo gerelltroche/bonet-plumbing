@@ -1,0 +1,41 @@
+---
+// BBB Accredited Business seal. Renders nothing until the accreditation is
+// configured — see src/lib/bbb.ts.
+//
+// The caption inherits its color from the parent, and alignment is left to the
+// caller, so pass the text color and `items-*` that suit the surface it sits on
+// (light section vs. dark footer).
+import { bbb } from "../lib/bbb";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+{bbb && (
+  <div class={`flex flex-col gap-2 ${className}`}>
+    <a
+      href={bbb.profileUrl}
+      target="_blank"
+      rel="nofollow noopener"
+      class="inline-block rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+    >
+      <img
+        src={bbb.sealImageUrl}
+        alt="Bonet Plumbing LLC is a BBB Accredited Business — view the BBB business profile"
+        width={bbb.sealWidth}
+        height={bbb.sealHeight}
+        loading="lazy"
+        decoding="async"
+        class="h-auto max-w-full"
+      />
+    </a>
+    {bbb.accreditedSince && (
+      <span class="text-xs font-medium tracking-wide">
+        BBB Accredited Since {bbb.accreditedSince}
+      </span>
+    )}
+  </div>
+)}
