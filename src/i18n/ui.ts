@@ -21,6 +21,8 @@ const en = {
   // to the Spanish twin of the current page; on Spanish pages it offers English.
   badge: {
     text: "Hablamos español",
+    /** Phone-width nav label. */
+    short: "ES",
     aria: "Ver esta página en español",
     targetLocale: "es" as const,
   },
@@ -239,6 +241,7 @@ const es: UiStrings = {
   },
   badge: {
     text: "English",
+    short: "EN",
     aria: "View this page in English",
     targetLocale: "en" as const,
   },

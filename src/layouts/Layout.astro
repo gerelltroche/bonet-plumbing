@@ -39,8 +39,9 @@ const {
   noindex = false,
   breadcrumbs,
   faq,
-  // Geo meta defaults to the primary market (East Orlando / Avalon Park). City
-  // pages about a different market pass their own placename/coordinates. Note:
+  // Geo meta defaults to the primary market (East Orlando / Avalon Park) for
+  // home and service pages. Every city page passes its own placename and
+  // coordinates. Note:
   // these tags are ignored by Google — they exist only for internal consistency.
   geoPlacename = "East Orlando, Florida",
   geoLat = 28.5087,
@@ -223,7 +224,7 @@ const { overallRating, reviewCount } = await getReviews();
     )}
 
   </head>
-  <body class:list={["min-h-screen antialiased bg-background text-text", !hideCtaBar && "pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-0"]}>
+  <body class:list={["min-h-screen antialiased bg-background text-text", !hideCtaBar && "pb-[calc(4.5rem+env(safe-area-inset-bottom))] md:pb-0"]}>
     <slot />
     {!hideCtaBar && <MobileCtaBar quoteHref={quoteHref} />}
   </body>

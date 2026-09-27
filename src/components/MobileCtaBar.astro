@@ -1,9 +1,9 @@
 ---
-// Fixed bottom bar on phones: Call / Text / Request a Quote, with a thin
-// language strip above it. Hidden on md+ where the sticky nav and in-page
+// Fixed bottom bar on phones: Call / Text / Request a Quote. The language
+// switcher lives in the sticky nav, so the bar keeps its space for the
+// three actions. Hidden on md+ where the sticky nav and in-page
 // CTAs already do the job. Layout adds matching bottom padding to <body> so
 // the bar never covers the footer.
-import LangBadge from './LangBadge.astro';
 import { PHONE_HREF, smsHref } from '../lib/contact';
 import { useI18n } from '../i18n';
 
@@ -20,7 +20,6 @@ const { t, l } = useI18n(Astro.url);
   role="region"
   aria-label={t.bar.region}
 >
-  <LangBadge variant="bar" />
   <div class="grid grid-cols-[auto_auto_1fr] gap-2 px-3 py-2.5">
     <a
       href={PHONE_HREF}
