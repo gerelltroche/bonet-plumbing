@@ -1,0 +1,72 @@
+---
+// Compact quote form for near the top of the home page: name, phone, service,
+// submit. Home traffic is mostly warm (Google Business Profile, referrals), so
+// it gets a short form up front; the full <ContactCTA /> stays at the bottom.
+// Posts to the same Netlify form ("contact") with a subset of its fields, and
+// sends the page's language so Leo knows how to reply.
+import { useI18n } from '../i18n';
+
+const id = "quick-quote";
+const { locale, t, l } = useI18n(Astro.url);
+const field = "w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors";
+---
+
+<section id={id} class="bg-white py-10 md:py-12" aria-labelledby={`${id}-heading`}>
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="bg-surface border border-border rounded-xl shadow-lg p-6 md:p-8">
+      <h2 id={`${id}-heading`} class="text-xl font-bold text-text mb-5">{t.contact.formHeading}</h2>
+
+      <form
+        id={`${id}-form`}
+        name="contact"
+        method="POST"
+        action={l(t.contact.successPath)}
+        netlify
+        netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="page" value={Astro.url.pathname} />
+        <input type="hidden" name="language" value={locale} />
+        <p class="hidden" hidden aria-hidden="true">
+          <label>{t.contact.honeypot} <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_auto] gap-4 md:items-end">
+          <div>
+            <label for={`${id}-name`} class="block text-sm font-semibold text-text mb-1.5">
+              {t.contact.name} <span class="text-red-600">*</span>
+            </label>
+            <input type="text" id={`${id}-name`} name="name" required autocomplete="name" placeholder={t.contact.namePlaceholder} class={field} />
+          </div>
+
+          <div>
+            <label for={`${id}-phone`} class="block text-sm font-semibold text-text mb-1.5">
+              {t.contact.phone} <span class="text-red-600">*</span>
+            </label>
+            <input type="tel" id={`${id}-phone`} name="phone" required inputmode="tel" autocomplete="tel" placeholder={t.contact.phonePlaceholder} class={field} />
+          </div>
+
+          <div>
+            <label for={`${id}-service`} class="block text-sm font-semibold text-text mb-1.5">
+              {t.contact.service} <span class="text-red-600">*</span>
+            </label>
+            <select id={`${id}-service`} name="service" required class={`${field} cursor-pointer`}>
+              <option value="" disabled selected>{t.contact.selectService}</option>
+              {t.contact.services.map((svc) => <option value={svc.value}>{svc.label}</option>)}
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            id={`${id}-submit`}
+            class="w-full md:w-auto bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-3 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg cursor-pointer"
+          >
+            {t.contact.submit}
+          </button>
+        </div>
+
+        <p class="text-text-muted text-xs mt-4">{t.contact.responseTime}</p>
+      </form>
+    </div>
+  </div>
+</section>

@@ -10,6 +10,7 @@ import TrustBar from "../../components/TrustBar.astro";
 import Reviews from "../../components/Reviews.astro";
 import ServiceAreas from "../../components/ServiceAreas.astro";
 import ContactCTA from "../../components/ContactCTA.astro";
+import QuickQuote from "../../components/QuickQuote.astro";
 import Footer from "../../components/Footer.astro";
 import { useI18n } from "../../i18n";
 
@@ -20,6 +21,7 @@ const { t } = useI18n(Astro.url);
   <StickyNav />
   <main>
     <Hero />
+    <QuickQuote />
     <Services />
     <TrustBar />
     <Reviews />
