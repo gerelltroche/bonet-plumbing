@@ -229,7 +229,7 @@ const es: UiStrings = {
       "Los expertos en plomería de confianza en Florida Central. Con licencia y asegurados, servicio el mismo día. Llame al 407-734-3968.",
     homeTitle: "Bonet Plumbing LLC | Plomero en Florida Central",
     homeDescription:
-      "Cambio completo de tuberías, instalación de calentadores de agua y sin tanque, reparación de fugas bajo la losa, reemplazo de línea de alcantarillado y líneas de gas en Oviedo, Winter Springs y East Orlando. Con licencia y asegurados (CFC1434246). Llame al 407-734-3968.",
+      "Cambio completo de tuberías, instalación de calentadores de agua y sin tanque, reparación de fugas bajo la losa, reemplazo de línea de cloaca y líneas de gas en Oviedo, Winter Springs y East Orlando. Con licencia y asegurados (CFC1434246). Llame al 407-734-3968.",
     orgDescription: "Servicios de plomería con licencia y seguro en Florida Central. Plomeros en Armadura Brillante.",
     ogImageAlt: "Bonet Plumbing LLC — Plomeros en Armadura Brillante",
     breadcrumbHome: "Inicio",
@@ -284,9 +284,9 @@ const es: UiStrings = {
         href: "/repiping/#slab-leak",
       },
       {
-        title: "Reemplazo de Línea de Alcantarillado",
+        title: "Reemplazo de Línea de Cloaca",
         description:
-          "Reemplazo sin zanja de líneas de alcantarillado colapsadas, invadidas por raíces o hundidas, sin destrozar todo su patio.",
+          "Reemplazo sin zanja de líneas de cloaca colapsadas, invadidas por raíces o hundidas, sin destrozar todo su patio.",
         icon: "drain",
         href: "/repiping/#sewer-line",
       },
@@ -358,7 +358,7 @@ const es: UiStrings = {
       { value: "repiping", label: "Cambio completo de tuberías" },
       { value: "water-heater", label: "Calentador de agua / Sin tanque" },
       { value: "slab-leak", label: "Fuga bajo la losa" },
-      { value: "sewer-line", label: "Reemplazo de línea de alcantarillado" },
+      { value: "sewer-line", label: "Reemplazo de línea de cloaca" },
       { value: "water-main", label: "Reemplazo de línea principal de agua" },
       { value: "gas-line", label: "Instalación de línea de gas" },
       { value: "water-pressure", label: "Presión de agua / Válvula reguladora (PRV)" },
@@ -385,7 +385,7 @@ const es: UiStrings = {
       { label: "Cambio completo de tuberías", href: "/repiping/" },
       { label: "Calentadores de agua y sin tanque", href: "/water-heater-services/" },
       { label: "Fugas bajo la losa", href: "/repiping/#slab-leak" },
-      { label: "Línea de alcantarillado", href: "/repiping/#sewer-line" },
+      { label: "Línea de cloaca", href: "/repiping/#sewer-line" },
       { label: "Línea principal de agua", href: "/repiping/#water-main" },
       { label: "Líneas de gas", href: "/water-heater-services/#gas-line" },
     ],
