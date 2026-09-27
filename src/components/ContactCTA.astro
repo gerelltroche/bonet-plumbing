@@ -2,8 +2,27 @@
 import { Image } from 'astro:assets';
 import headshot from '../assets/Headshot.jpeg';
 
-const phone = "tel:+14077343968";
-const phoneDisplay = "407-734-3968";
+import TextUsLink from './TextUsLink.astro';
+import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from '../lib/contact';
+
+interface Props {
+  /** Pre-select "Service Needed" (a value from SERVICES) on pages about one service. */
+  defaultService?: string;
+}
+const { defaultService } = Astro.props;
+
+const SERVICES = [
+  { value: "repiping", label: "Whole-Home Repiping" },
+  { value: "water-heater", label: "Water Heater / Tankless" },
+  { value: "slab-leak", label: "Slab Leak Repair" },
+  { value: "sewer-line", label: "Sewer Line Replacement" },
+  { value: "water-main", label: "Water Main Replacement" },
+  { value: "gas-line", label: "Gas Line Installation" },
+  { value: "water-pressure", label: "Water Pressure / PRV" },
+  { value: "general-repair", label: "General Plumbing Repair" },
+  { value: "other", label: "Other" },
+];
+const hasDefault = SERVICES.some((svc) => svc.value === defaultService);
 ---
 
 <section id="contact" class="bg-white py-16 md:py-24">
@@ -57,10 +76,14 @@ const phoneDisplay = "407-734-3968";
           </svg>
           Call Now: {phoneDisplay}
         </a>
+        <p class="mt-4">
+          <TextUsLink />
+        </p>
       </div>
 
       <!-- Right column — form -->
-      <div id="form-container" class="bg-surface border border-border rounded-xl shadow-lg p-6 md:p-8">
+      <!-- Form first on phones so the #contact anchor and the sticky bar land on it, not on the pitch. -->
+      <div id="form-container" class="order-first lg:order-none bg-surface border border-border rounded-xl shadow-lg p-6 md:p-8">
         <h3 class="text-xl font-bold text-text mb-6">Request a Quote</h3>
 
         <form
@@ -73,6 +96,7 @@ const phoneDisplay = "407-734-3968";
         >
           <!-- Honeypot for spam prevention -->
           <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="page" value={Astro.url.pathname} />
           <p class="hidden" hidden aria-hidden="true">
             <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
@@ -120,14 +144,10 @@ const phoneDisplay = "407-734-3968";
                 required
                 class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors cursor-pointer"
               >
-                <option value="" disabled selected>Select a service</option>
-                <option value="repiping">Whole-Home Repiping</option>
-                <option value="water-heater">Water Heater / Tankless</option>
-                <option value="slab-leak">Slab Leak Repair</option>
-                <option value="sewer-line">Sewer Line Replacement</option>
-                <option value="water-main">Water Main Replacement</option>
-                <option value="gas-line">Gas Line Installation</option>
-                <option value="other">Other</option>
+                <option value="" disabled selected={!hasDefault}>Select a service</option>
+                {SERVICES.map((svc) => (
+                  <option value={svc.value} selected={hasDefault && svc.value === defaultService}>{svc.label}</option>
+                ))}
               </select>
             </div>
 
@@ -165,7 +185,7 @@ const phoneDisplay = "407-734-3968";
               id="submit-btn"
               class="w-full bg-accent hover:bg-accent-light text-white font-bold text-lg py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg cursor-pointer"
             >
-              Request Service
+              Request a Quote
             </button>
 
             <!-- Response time -->

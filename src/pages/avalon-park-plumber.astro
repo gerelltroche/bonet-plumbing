@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import StickyNav from "../components/StickyNav.astro";
 import Footer from "../components/Footer.astro";
 import CtaBanner from "../components/CtaBanner.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+import TextUsLink from "../components/TextUsLink.astro";
 
 import Reviews from "../components/Reviews.astro";
 const phone = "tel:+14077343968";
@@ -40,10 +42,20 @@ const phoneDisplay = "407-734-3968";
             </svg>
             Call Now: {phoneDisplay}
           </a>
-          <a href="/#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
-            Get a Free Estimate
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Request a Quote
           </a>
         </div>
+        <p class="-mt-6 mb-4">
+          <TextUsLink />
+        </p>
+      </div>
+    </section>
+
+    <ContactCTA defaultService="water-heater" />
+
+    <section class="bg-white pb-16 md:pb-24">
+      <div class="max-w-4xl mx-auto px-4">
 
         <!-- LEAD SERVICE: Water heater replacement -->
         <h2 class="text-2xl md:text-3xl font-bold text-text mb-3">Water Heater Replacement — Our Bread and Butter in Avalon Park</h2>
@@ -133,8 +145,8 @@ const phoneDisplay = "407-734-3968";
           <a href={phone} class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
             Call Now: {phoneDisplay}
           </a>
-          <a href="/#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
-            Get a Free Estimate
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Request a Quote
           </a>
         </div>
 

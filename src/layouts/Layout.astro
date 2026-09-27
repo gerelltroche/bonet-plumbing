@@ -12,6 +12,10 @@ interface Props {
   geoPlacename?: string;
   geoLat?: number;
   geoLng?: number;
+  /** Target of the mobile bar's "Request a Quote": "#contact" on pages with the form, "/#contact" otherwise. */
+  quoteHref?: string;
+  /** Hide the mobile Call/Text/Quote bar (e.g. on the form success page). */
+  hideCtaBar?: boolean;
 }
 
 const {
@@ -25,11 +29,14 @@ const {
   geoPlacename = "Oviedo, Florida",
   geoLat = 28.6700,
   geoLng = -81.2081,
+  quoteHref = "#contact",
+  hideCtaBar = false,
 } = Astro.props;
 
 const siteUrl = "https://bonetplumbing.com";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 
+import MobileCtaBar from "../components/MobileCtaBar.astro";
 import "../styles/global.css";
 ---
 
@@ -186,7 +193,8 @@ import "../styles/global.css";
     )}
 
   </head>
-  <body class="min-h-screen antialiased bg-background text-text">
+  <body class:list={["min-h-screen antialiased bg-background text-text", !hideCtaBar && "pb-[calc(4.25rem+env(safe-area-inset-bottom))] md:pb-0"]}>
     <slot />
+    {!hideCtaBar && <MobileCtaBar quoteHref={quoteHref} />}
   </body>
 </html>
