@@ -14,8 +14,12 @@ import data from "../data/reviews.json";
 export type Review = {
   author: string;
   rating: number;
-  text: string;
-  date: string;
+  /** Language the reviewer wrote in ("en", "es", ...). */
+  lang: string;
+  /** Text by language: `text[lang]` is the original, other keys are Google's translation. */
+  text: Record<string, string>;
+  /** ISO date (YYYY-MM-DD) the review was posted. */
+  publishedAt: string;
   location?: string;
   reviewUrl?: string;
   avatarUrl?: string;

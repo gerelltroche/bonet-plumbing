@@ -101,7 +101,9 @@ const en = {
     basedOn: (n: number) => `Based on ${n} reviews`,
     readFull: "Read full review",
     readAll: "Read all reviews on Google",
-    note: "",
+    translatedBy: "Translated by Google",
+    showOriginal: (language: string) => `See original (${language})`,
+    showTranslation: "See translation",
   },
   areas: {
     heading: "Proudly Protecting Central Florida Homes",
@@ -317,7 +319,9 @@ const es: UiStrings = {
     basedOn: (n: number) => `Basado en ${n} reseñas`,
     readFull: "Leer la reseña completa",
     readAll: "Ver todas las reseñas en Google",
-    note: "Las reseñas se muestran en el idioma original en que fueron escritas.",
+    translatedBy: "Traducido por Google",
+    showOriginal: (language: string) => `Ver original (${language})`,
+    showTranslation: "Ver traducción",
   },
   areas: {
     heading: "Protegiendo con Orgullo los Hogares de Florida Central",

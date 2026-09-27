@@ -2,7 +2,7 @@
 import { getReviews } from "../lib/reviews";
 import { useI18n } from "../i18n";
 
-const { t } = useI18n(Astro.url);
+const { t, locale } = useI18n(Astro.url);
 const { reviews, overallRating, reviewCount, googleReviewsUrl } = await getReviews();
 
 const initials = (name: string) =>
@@ -13,6 +13,16 @@ const initials = (name: string) =>
     .slice(0, 2)
     .join("")
     .toUpperCase();
+
+// Each review is shown in the page's language when Google gave us a
+// translation, with a button to flip to what the reviewer actually wrote.
+const languageName = (code: string) =>
+  new Intl.DisplayNames([locale], { type: "language" }).of(code) ?? code;
+const monthYear = (iso: string) => {
+  const d = new Date(`${iso}T12:00:00Z`);
+  if (!iso || Number.isNaN(d.getTime())) return "";
+  return d.toLocaleString(`${locale}-US`, { month: "long", year: "numeric", timeZone: "UTC" });
+};
 
 // Reviews longer than this get visually clamped + a "Read full review" link.
 const CLAMP_THRESHOLD = 320;
@@ -57,17 +67,18 @@ const external = "M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h1
         <span class="text-text-muted">·</span>
         <span class="text-text-secondary">{t.reviews.basedOn(reviewCount)}</span>
       </div>
-      {t.reviews.note && (
-        <p class="text-text-muted text-xs mt-3">{t.reviews.note}</p>
-      )}
     </div>
 
     <!-- Review cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mb-10">
       {reviews.map((r) => {
-        const isLong = r.text.length > CLAMP_THRESHOLD;
+        const original = r.text[r.lang];
+        const translated = r.lang !== locale && r.text[locale] ? r.text[locale] : null;
+        const shown = translated ?? original;
+        const isLong = shown.length > CLAMP_THRESHOLD;
+        const clamp = isLong ? "line-clamp-7 mb-3" : "mb-5";
         return (
-          <article class="relative bg-surface border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col" lang="en">
+          <article class="relative bg-surface border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col">
             <!-- Decorative quote mark -->
             <svg class="absolute top-4 right-4 w-8 h-8 text-primary/10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
@@ -83,7 +94,27 @@ const external = "M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h1
             </div>
 
             <!-- Review body -->
-            <p class={`text-text-secondary leading-relaxed ${isLong ? "line-clamp-7 mb-3" : "mb-5"}`}>"{r.text}"</p>
+            {translated ? (
+              <div data-review-translation>
+                <p class={`text-text-secondary leading-relaxed ${clamp}`} lang={locale} data-version="translated">"{translated}"</p>
+                <p class={`text-text-secondary leading-relaxed ${clamp}`} lang={r.lang} data-version="original" hidden>"{original}"</p>
+                <p class="text-xs text-text-muted -mt-2 mb-4">
+                  <span data-version="translated">{t.reviews.translatedBy} · </span>
+                  <button
+                    type="button"
+                    class="font-medium text-primary hover:text-primary-light underline underline-offset-2"
+                    data-review-toggle
+                    data-show-original={t.reviews.showOriginal(languageName(r.lang))}
+                    data-show-translation={t.reviews.showTranslation}
+                    aria-pressed="false"
+                  >
+                    {t.reviews.showOriginal(languageName(r.lang))}
+                  </button>
+                </p>
+              </div>
+            ) : (
+              <p class={`text-text-secondary leading-relaxed ${clamp}`} lang={r.lang}>"{original}"</p>
+            )}
 
             {isLong && (
               <a
@@ -122,7 +153,7 @@ const external = "M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h1
               <div class="min-w-0">
                 <p class="font-semibold text-text truncate">{r.author}</p>
                 <p class="text-xs text-text-muted">
-                  {r.location ? `${r.location} · ` : ""}{r.date}
+                  {r.location ? `${r.location} · ` : ""}{monthYear(r.publishedAt)}
                 </p>
               </div>
             </div>
@@ -150,3 +181,18 @@ const external = "M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h1
     </div>
   </div>
 </section>
+
+<script>
+  // Swap a translated review for the reviewer's original words and back.
+  document.addEventListener("click", (e) => {
+    const button = (e.target as Element).closest<HTMLButtonElement>("[data-review-toggle]");
+    if (!button) return;
+    const wrap = button.closest("[data-review-translation]")!;
+    const showingOriginal = button.getAttribute("aria-pressed") !== "true";
+    wrap.querySelectorAll<HTMLElement>("[data-version]").forEach((el) => {
+      el.hidden = (el.dataset.version === "original") !== showingOriginal;
+    });
+    button.setAttribute("aria-pressed", String(showingOriginal));
+    button.textContent = showingOriginal ? button.dataset.showTranslation! : button.dataset.showOriginal!;
+  });
+</script>
