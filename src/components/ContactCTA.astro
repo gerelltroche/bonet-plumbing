@@ -67,13 +67,13 @@ const phoneDisplay = "407-734-3968";
           id="contact-form"
           name="contact"
           method="POST"
-          action="/success"
+          action="/success/"
           netlify
           netlify-honeypot="bot-field"
         >
           <!-- Honeypot for spam prevention -->
           <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden" aria-hidden="true">
+          <p class="hidden" hidden aria-hidden="true">
             <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
 
