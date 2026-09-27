@@ -1,28 +1,19 @@
 ---
 import { Image } from 'astro:assets';
 import headshot from '../assets/Headshot.jpeg';
-
 import TextUsLink from './TextUsLink.astro';
 import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from '../lib/contact';
+import { useI18n } from '../i18n';
 
 interface Props {
-  /** Pre-select "Service Needed" (a value from SERVICES) on pages about one service. */
+  /** Pre-select "Service Needed" (a value from the services list) on pages about one service. */
   defaultService?: string;
 }
 const { defaultService } = Astro.props;
+const { locale, t, l } = useI18n(Astro.url);
 
-const SERVICES = [
-  { value: "repiping", label: "Whole-Home Repiping" },
-  { value: "water-heater", label: "Water Heater / Tankless" },
-  { value: "slab-leak", label: "Slab Leak Repair" },
-  { value: "sewer-line", label: "Sewer Line Replacement" },
-  { value: "water-main", label: "Water Main Replacement" },
-  { value: "gas-line", label: "Gas Line Installation" },
-  { value: "water-pressure", label: "Water Pressure / PRV" },
-  { value: "general-repair", label: "General Plumbing Repair" },
-  { value: "other", label: "Other" },
-];
-const hasDefault = SERVICES.some((svc) => svc.value === defaultService);
+const services = t.contact.services;
+const hasDefault = services.some((svc) => svc.value === defaultService);
 ---
 
 <section id="contact" class="bg-white py-16 md:py-24">
@@ -30,43 +21,33 @@ const hasDefault = SERVICES.some((svc) => svc.value === defaultService);
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       <!-- Left column — persuasion -->
       <div>
-        <h2 class="text-3xl md:text-4xl font-bold text-text mb-3">Ready to Call in the Cavalry?</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-text mb-3">{t.contact.heading}</h2>
         <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
 
         <!-- Benefit bullets -->
         <ul class="space-y-4 mb-10">
-          <li class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
-            </svg>
-            <span class="text-text-secondary">Free estimates — no obligations</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
-            </svg>
-            <span class="text-text-secondary">Same-day rescue missions available</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
-            </svg>
-            <span class="text-text-secondary">Our knight's promise: satisfaction guaranteed</span>
-          </li>
+          {t.contact.bullets.map((b) => (
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+              <span class="text-text-secondary">{b}</span>
+            </li>
+          ))}
         </ul>
 
         <!-- Owner card -->
         <div class="flex items-center gap-4 bg-primary/5 border border-primary/10 rounded-lg p-4 mb-10">
-          <Image src={headshot} alt="Leo Bonet, Owner of Bonet Plumbing" width={80} height={80} class="w-20 h-20 rounded-full object-cover object-[center_20%] shadow-md ring-2 ring-primary/15" format="webp" quality={80} loading="lazy" />
+          <Image src={headshot} alt={t.contact.ownerAlt} width={80} height={80} class="w-20 h-20 rounded-full object-cover object-[center_20%] shadow-md ring-2 ring-primary/15" format="webp" quality={80} loading="lazy" />
           <div>
-            <p class="font-bold text-text">Leo Bonet</p>
-            <p class="text-sm text-text-secondary">Owner & Licensed Plumber</p>
-            <p class="text-xs text-text-secondary/70">License #CFC1434246</p>
+            <p class="font-bold text-text">{t.contact.ownerName}</p>
+            <p class="text-sm text-text-secondary">{t.contact.ownerTitle}</p>
+            <p class="text-xs text-text-secondary/70">{t.contact.license}</p>
           </div>
         </div>
 
         <!-- Phone CTA -->
-        <p class="text-text-secondary text-sm mb-3">Prefer to call?</p>
+        <p class="text-text-secondary text-sm mb-3">{t.contact.preferCall}</p>
         <a
           href={phone}
           class="inline-flex items-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg"
@@ -74,7 +55,7 @@ const hasDefault = SERVICES.some((svc) => svc.value === defaultService);
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
           </svg>
-          Call Now: {phoneDisplay}
+          {t.contact.callNow}: {phoneDisplay}
         </a>
         <p class="mt-4">
           <TextUsLink />
@@ -84,13 +65,13 @@ const hasDefault = SERVICES.some((svc) => svc.value === defaultService);
       <!-- Right column — form -->
       <!-- Form first on phones so the #contact anchor and the sticky bar land on it, not on the pitch. -->
       <div id="form-container" class="order-first lg:order-none bg-surface border border-border rounded-xl shadow-lg p-6 md:p-8">
-        <h3 class="text-xl font-bold text-text mb-6">Request a Quote</h3>
+        <h3 class="text-xl font-bold text-text mb-6">{t.contact.formHeading}</h3>
 
         <form
           id="contact-form"
           name="contact"
           method="POST"
-          action="/success/"
+          action={l(t.contact.successPath)}
           netlify
           netlify-honeypot="bot-field"
         >
@@ -98,21 +79,21 @@ const hasDefault = SERVICES.some((svc) => svc.value === defaultService);
           <input type="hidden" name="form-name" value="contact" />
           <input type="hidden" name="page" value={Astro.url.pathname} />
           <p class="hidden" hidden aria-hidden="true">
-            <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            <label>{t.contact.honeypot} <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
 
           <div class="space-y-5">
             <!-- Name -->
             <div>
               <label for="name" class="block text-sm font-semibold text-text mb-1.5">
-                Name <span class="text-red-600">*</span>
+                {t.contact.name} <span class="text-red-600">*</span>
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 required
-                placeholder="Your full name"
+                placeholder={t.contact.namePlaceholder}
                 class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
               />
             </div>
@@ -120,7 +101,7 @@ const hasDefault = SERVICES.some((svc) => svc.value === defaultService);
             <!-- Phone -->
             <div>
               <label for="phone" class="block text-sm font-semibold text-text mb-1.5">
-                Phone <span class="text-red-600">*</span>
+                {t.contact.phone} <span class="text-red-600">*</span>
               </label>
               <input
                 type="tel"
@@ -128,7 +109,7 @@ const hasDefault = SERVICES.some((svc) => svc.value === defaultService);
                 name="phone"
                 required
                 inputmode="tel"
-                placeholder="(407) 555-1234"
+                placeholder={t.contact.phonePlaceholder}
                 class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
               />
             </div>
@@ -136,7 +117,7 @@ const hasDefault = SERVICES.some((svc) => svc.value === defaultService);
             <!-- Service Needed -->
             <div>
               <label for="service" class="block text-sm font-semibold text-text mb-1.5">
-                Service Needed <span class="text-red-600">*</span>
+                {t.contact.service} <span class="text-red-600">*</span>
               </label>
               <select
                 id="service"
@@ -144,23 +125,38 @@ const hasDefault = SERVICES.some((svc) => svc.value === defaultService);
                 required
                 class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors cursor-pointer"
               >
-                <option value="" disabled selected={!hasDefault}>Select a service</option>
-                {SERVICES.map((svc) => (
+                <option value="" disabled selected={!hasDefault}>{t.contact.selectService}</option>
+                {services.map((svc) => (
                   <option value={svc.value} selected={hasDefault && svc.value === defaultService}>{svc.label}</option>
                 ))}
               </select>
             </div>
 
+            <!-- Preferred language — posted as `language` (en|es); defaults to the page's language -->
+            <fieldset>
+              <legend class="block text-sm font-semibold text-text mb-1.5">{t.contact.language}</legend>
+              <div class="flex gap-3">
+                <label class="flex-1 flex items-center justify-center gap-2 px-4 py-3 border border-border rounded-lg bg-background text-text cursor-pointer has-[:checked]:border-primary has-[:checked]:ring-2 has-[:checked]:ring-primary/30 has-[:checked]:bg-primary/5 transition-colors">
+                  <input type="radio" name="language" value="en" checked={locale === "en"} class="accent-primary" />
+                  <span lang="en">{t.contact.languageEnglish}</span>
+                </label>
+                <label class="flex-1 flex items-center justify-center gap-2 px-4 py-3 border border-border rounded-lg bg-background text-text cursor-pointer has-[:checked]:border-primary has-[:checked]:ring-2 has-[:checked]:ring-primary/30 has-[:checked]:bg-primary/5 transition-colors">
+                  <input type="radio" name="language" value="es" checked={locale === "es"} class="accent-primary" />
+                  <span lang="es">{t.contact.languageSpanish}</span>
+                </label>
+              </div>
+            </fieldset>
+
             <!-- Email (optional) -->
             <div>
               <label for="email" class="block text-sm font-semibold text-text mb-1.5">
-                Email <span class="text-text-muted text-xs font-normal">(optional)</span>
+                {t.contact.email} <span class="text-text-muted text-xs font-normal">{t.contact.optional}</span>
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                placeholder="your@email.com"
+                placeholder={t.contact.emailPlaceholder}
                 class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
               />
             </div>
@@ -168,13 +164,13 @@ const hasDefault = SERVICES.some((svc) => svc.value === defaultService);
             <!-- Message (optional) -->
             <div>
               <label for="message" class="block text-sm font-semibold text-text mb-1.5">
-                Anything else we should know? <span class="text-text-muted text-xs font-normal">(optional)</span>
+                {t.contact.message} <span class="text-text-muted text-xs font-normal">{t.contact.optional}</span>
               </label>
               <textarea
                 id="message"
                 name="message"
                 rows="3"
-                placeholder="Describe your plumbing issue..."
+                placeholder={t.contact.messagePlaceholder}
                 class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors resize-y"
               ></textarea>
             </div>
@@ -185,12 +181,12 @@ const hasDefault = SERVICES.some((svc) => svc.value === defaultService);
               id="submit-btn"
               class="w-full bg-accent hover:bg-accent-light text-white font-bold text-lg py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg cursor-pointer"
             >
-              Request a Quote
+              {t.contact.submit}
             </button>
 
             <!-- Response time -->
             <p class="text-text-muted text-xs text-center">
-              We typically respond within 1 hour
+              {t.contact.responseTime}
             </p>
           </div>
         </form>

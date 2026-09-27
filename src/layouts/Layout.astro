@@ -1,4 +1,8 @@
 ---
+import MobileCtaBar from "../components/MobileCtaBar.astro";
+import { useI18n, alternateUrl, SITE_URL, LOCALES, DEFAULT_LOCALE } from "../i18n";
+import "../styles/global.css";
+
 interface BreadcrumbItem {
   name: string;
   url?: string;
@@ -18,9 +22,11 @@ interface Props {
   hideCtaBar?: boolean;
 }
 
+const { locale, t } = useI18n(Astro.url);
+
 const {
-  title = "Bonet Plumbing LLC | Central Florida Plumber",
-  description = "Central Florida's trusted plumbing experts. Licensed & insured, same-day service. Call 407-734-3968.",
+  title = t.site.defaultTitle,
+  description = t.site.defaultDescription,
   noindex = false,
   breadcrumbs,
   // Geo meta defaults to the business's operating base (Oviedo). Pages about a
@@ -33,15 +39,18 @@ const {
   hideCtaBar = false,
 } = Astro.props;
 
-const siteUrl = "https://bonetplumbing.com";
+const siteUrl = SITE_URL;
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 
-import MobileCtaBar from "../components/MobileCtaBar.astro";
-import "../styles/global.css";
+// Every page has a twin in the other language at the same slug under /es/,
+// so hreflang alternates are derived from the path (see src/i18n).
+const alternates = LOCALES.map((l) => ({ lang: l, href: alternateUrl(Astro.url.pathname, l) }));
+const xDefault = alternateUrl(Astro.url.pathname, DEFAULT_LOCALE);
+const otherOgLocale = locale === "en" ? "es_US" : "en_US";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={t.htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -54,8 +63,12 @@ import "../styles/global.css";
     <meta name="geo.position" content={`${geoLat};${geoLng}`} />
     <meta name="ICBM" content={`${geoLat}, ${geoLng}`} />
 
-    <!-- Canonical -->
+    <!-- Canonical + language alternates -->
     <link rel="canonical" href={canonicalUrl} />
+    {alternates.map((a) => (
+      <link rel="alternate" hreflang={a.lang} href={a.href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="Bonet Plumbing LLC" />
@@ -66,15 +79,16 @@ import "../styles/global.css";
     <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Bonet Plumbing LLC — Plumbers in Shining Armor" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:image:alt" content={t.site.ogImageAlt} />
+    <meta property="og:locale" content={t.ogLocale} />
+    <meta property="og:locale:alternate" content={otherOgLocale} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={`${siteUrl}/og-image.jpg`} />
-    <meta name="twitter:image:alt" content="Bonet Plumbing LLC — Plumbers in Shining Armor" />
+    <meta name="twitter:image:alt" content={t.site.ogImageAlt} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -106,7 +120,7 @@ import "../styles/global.css";
       "@id": `${siteUrl}/#organization`,
       "name": "Bonet Plumbing LLC",
       "alternateName": "Bonet Plumbing",
-      "description": "Licensed & insured plumbing services in Central Florida. Plumbers in Shining Armor.",
+      "description": t.site.orgDescription,
       "url": siteUrl,
       "telephone": "+14077343968",
       "image": `${siteUrl}/logo_with_text.jpeg`,
@@ -116,6 +130,10 @@ import "../styles/global.css";
         "width": 400,
         "height": 400
       },
+      "availableLanguage": [
+        { "@type": "Language", "name": "English", "alternateName": "en" },
+        { "@type": "Language", "name": "Spanish", "alternateName": "es" }
+      ],
       "sameAs": [
         // TODO: Add your actual profile URLs here
         // "https://www.google.com/maps/place/Bonet+Plumbing+LLC",
@@ -193,7 +211,7 @@ import "../styles/global.css";
     )}
 
   </head>
-  <body class:list={["min-h-screen antialiased bg-background text-text", !hideCtaBar && "pb-[calc(4.25rem+env(safe-area-inset-bottom))] md:pb-0"]}>
+  <body class:list={["min-h-screen antialiased bg-background text-text", !hideCtaBar && "pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-0"]}>
     <slot />
     {!hideCtaBar && <MobileCtaBar quoteHref={quoteHref} />}
   </body>

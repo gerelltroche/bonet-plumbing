@@ -1,0 +1,226 @@
+---
+// Spanish twin of src/pages/water-heater-services.astro. Same markup, same
+// section order, same anchor ids; only the copy, links (/es/...), and metadata change.
+import Layout from "../../layouts/Layout.astro";
+import StickyNav from "../../components/StickyNav.astro";
+import Footer from "../../components/Footer.astro";
+import CtaBanner from "../../components/CtaBanner.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import TextUsLink from "../../components/TextUsLink.astro";
+import Reviews from "../../components/Reviews.astro";
+import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/contact";
+---
+
+<Layout
+  title="Reemplazo de Calentadores de Agua, Sin Tanque y Líneas de Gas | Bonet Plumbing"
+  description="Reemplazo de calentadores de agua, conversión a sistema sin tanque (Rinnai, Navien, Rheem) e instalación de líneas de gas en Central Florida. Servicio el mismo día. Con licencia (CFC1434246). Llame al 407-734-3968."
+  breadcrumbs={[
+    { name: "Inicio", url: "https://bonetplumbing.com/es/" },
+    { name: "Calentadores de Agua y Líneas de Gas" }
+  ]}
+>
+  <StickyNav />
+  <main>
+    <section class="bg-gradient-to-b from-primary/[0.03] via-white to-white py-16 md:py-24">
+      <div class="max-w-4xl mx-auto px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-text leading-tight mb-4">
+          Calentadores de Agua, Conversión a Sistema Sin Tanque y Líneas de Gas
+        </h1>
+        <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
+        <p class="text-lg text-text-secondary mb-8 max-w-2xl">
+          ¿Se quedó sin agua caliente, o está listo para disfrutar de agua caliente sin límite con un sistema sin tanque? Reemplazamos e instalamos calentadores de agua en Oviedo, Winter Springs y East Orlando, y también instalamos las líneas de gas que alimentan el calentador, su generador, el calentador de piscina o la cocina exterior. Servicio el mismo día, precio por adelantado y con permisos.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 mb-10">
+          <a href={phone} class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+            </svg>
+            Llame ahora: {phoneDisplay}
+          </a>
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Solicitar cotización
+          </a>
+        </div>
+        <p class="-mt-6 mb-4">
+          <TextUsLink />
+        </p>
+      </div>
+    </section>
+
+    <ContactCTA defaultService="water-heater" />
+
+    <section class="bg-white pb-16 md:pb-24">
+      <div class="max-w-4xl mx-auto px-4">
+
+        <!-- Jump links -->
+        <nav aria-label="En esta página" class="flex flex-wrap gap-2 mb-12">
+          <a href="#repair-replace" class="bg-surface border border-border rounded-full px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:border-primary/40 transition-colors">Reparación y Reemplazo</a>
+          <a href="#tankless" class="bg-surface border border-border rounded-full px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:border-primary/40 transition-colors">Conversión a Sin Tanque</a>
+          <a href="#gas-line" class="bg-surface border border-border rounded-full px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:border-primary/40 transition-colors">Instalación de Líneas de Gas</a>
+        </nav>
+
+        <!-- Repair & Replacement -->
+        <h2 id="repair-replace" class="scroll-mt-24 text-2xl md:text-3xl font-bold text-text mb-3">Reparación y Reemplazo de Calentadores de Agua</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          Un calentador de tanque suele durar de 8 a 12 años aquí, y el agua dura de Central Florida tiende a acercarlo al extremo corto de ese rango. Si el suyo gotea desde el tanque mismo, el reemplazo es la única solución real: tenemos equipos de calidad, instalamos el mismo día y nos llevamos el equipo viejo.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Reparación de Calentadores de Agua</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">¿Agua tibia, ruidos extraños, una resistencia quemada o un termostato dañado? Lo diagnosticamos y lo reparamos rápido, para que no tenga que seguir bañándose con agua fría.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Reemplazo el Mismo Día</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Si el tanque gotea o ya cumplió su vida útil, en la mayoría de los casos lo reemplazamos el mismo día: equipos de calidad, actualización al código y retiro del equipo viejo incluido.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Mantenimiento y Purga</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">El sedimento del agua dura se acumula rápido y acaba con los tanques antes de tiempo. Una purga periódica alarga la vida de su equipo, elimina el ruido y mantiene bajas las facturas de energía.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Tanques de Expansión y Código</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Un calentador nuevo en un sistema cerrado necesita un tanque de expansión térmica del tamaño correcto y una descarga de la válvula de alivio (T&P) conforme al código. Nos encargamos de los detalles que buscan los inspectores.</p>
+          </div>
+        </div>
+
+        <!-- Tankless -->
+        <h2 id="tankless" class="scroll-mt-24 text-2xl md:text-3xl font-bold text-text mb-3">Conversión a Calentador de Agua Sin Tanque</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          Los sistemas sin tanque calientan el agua a demanda: agua caliente sin límite, una vida útil de 15 a 20 años, facturas de energía más bajas y un equipo montado en la pared que libera espacio en el piso. Pero pasar de un tanque a un sistema sin tanque no es un simple cambio: por lo general requiere una línea de gas de mayor diámetro, ventilación adecuada y el tamaño correcto según la cantidad de grifos y aparatos de su casa. Nos encargamos de toda la conversión e instalamos Rinnai, Navien y Rheem.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Del Tamaño Justo para Su Casa</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Dimensionamos el equipo según su demanda real, cuántas duchas y aparatos funcionan al mismo tiempo, para que tenga flujo completo sin ráfagas de agua fría.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Gas, Ventilación y Ampliación de Línea</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Los quemadores sin tanque necesitan más gas y ventilación dedicada. Ampliamos la línea de gas, instalamos la ventilación correcta y dejamos todo conforme al código en un solo trabajo.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Rinnai · Navien · Rheem</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Instalamos las marcas en las que confiamos y a las que podemos dar servicio. Le explicamos las diferencias y le recomendamos la opción ideal para su casa y su presupuesto.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Recirculación para Agua Caliente al Instante</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">¿Cansado de esperar a que el agua caliente llegue al baño más lejano? Podemos agregar un sistema de recirculación para que llegue casi al instante, y así ahorra el agua que se iría por el desagüe.</p>
+          </div>
+        </div>
+
+        <CtaBanner
+          heading="¿Listo para Agua Caliente Sin Límite?"
+          sub="Dimensionamos el sistema sin tanque ideal para su casa y le damos una cotización honesta. Servicio el mismo día disponible."
+        />
+
+        <!-- Gas Line -->
+        <h2 id="gas-line" class="scroll-mt-24 text-2xl md:text-3xl font-bold text-text mb-3">Instalación y Reparación de Líneas de Gas</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          Ya sea que esté cambiando a un sistema sin tanque, agregando un generador para toda la casa, un calentador de piscina, una cocina exterior o una estufa de gas, todo necesita una línea de gas del tamaño correcto y debidamente probada. Instalamos líneas nuevas de gas natural y propano, extendemos las existentes y localizamos fugas: cada trabajo con permisos, con prueba de presión y entregado seguro.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Líneas de Gas Nuevas y Extensiones</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Tramos nuevos y extensiones para calentadores sin tanque, generadores, calentadores de piscina, cocinas exteriores, estufas y secadoras, dimensionados correctamente según la demanda del aparato.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Detección y Reparación de Fugas</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">¿Huele a gas o le llegó una factura alta sin explicación? Localizamos la fuga, reparamos la línea y hacemos una prueba de presión antes de dar el trabajo por terminado. Si huele a gas en este momento, salga de la casa y llámenos.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Con Permisos y Prueba de Presión</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">El trabajo con gas no es lugar para tomar atajos. Sacamos el permiso, instalamos conforme al código y hacemos prueba de presión en cada línea para que pase la inspección y mantenga a su familia segura.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Gas Natural y Propano</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Trabajamos tanto con gas natural como con propano (LP), incluidas conversiones y conexiones de aparatos, en hogares de todo Central Florida.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href={phone} class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Llame ahora: {phoneDisplay}
+          </a>
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Solicitar cotización
+          </a>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="mt-16 pt-8 border-t border-border">
+          <h2 class="text-2xl font-bold text-text mb-6">Preguntas Frecuentes</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-bold text-text mb-2">¿Cuánto dura un calentador de agua?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Un calentador de tanque tradicional suele durar de 8 a 12 años, mientras que los modelos sin tanque pueden durar de 15 a 20 años con el mantenimiento adecuado. El agua dura de Central Florida acorta la vida de los tanques, así que si el suyo tiene más de 8 años y necesita reparaciones frecuentes, el reemplazo suele ser la mejor inversión.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">¿Vale la pena cambiar a un sistema sin tanque?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Para la mayoría de las familias, sí: obtiene agua caliente sin límite, facturas de energía más bajas, una vida útil más larga y espacio libre en el piso. La conversión normalmente requiere ampliar la línea de gas y ventilación nueva, y nosotros nos encargamos de eso como parte de la instalación. Evaluamos su casa y le damos números honestos antes de que se comprometa.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">¿Instalan líneas de gas para generadores y cocinas exteriores?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Sí. Instalamos y extendemos líneas de gas natural y propano para generadores de toda la casa, calentadores de piscina, cocinas exteriores, estufas y secadoras, cada una dimensionada según el aparato, con permisos y prueba de presión.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">Creo que huele a gas, ¿qué debo hacer?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Salga de la casa, no encienda ni apague ningún interruptor, y llame a su compañía de gas y a nosotros desde afuera. Una vez que sea seguro, localizamos la fuga, reparamos la línea y hacemos una prueba de presión antes de restablecer el servicio.</p>
+            </div>
+          </div>
+        </div>
+
+        <nav class="mt-16 pt-8 border-t border-border" aria-label="Otros servicios">
+          <h2 class="text-lg font-bold text-text mb-4">Nuestros Otros Servicios</h2>
+          <ul class="flex flex-wrap gap-3">
+            <li><a href="/es/repiping/" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Cambio Completo de Tuberías</a></li>
+            <li><a href="/es/repiping/#slab-leak" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Reparación de Fugas Bajo la Losa</a></li>
+            <li><a href="/es/repiping/#sewer-line" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Reemplazo de Línea de Alcantarillado</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+    <Reviews />
+  </main>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto dura un calentador de agua?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un calentador de tanque tradicional suele durar de 8 a 12 años, mientras que los modelos sin tanque pueden durar de 15 a 20 años con el mantenimiento adecuado. El agua dura de Central Florida acorta la vida de los tanques, así que si el suyo tiene más de 8 años y necesita reparaciones frecuentes, el reemplazo suele ser la mejor inversión."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Vale la pena cambiar a un sistema sin tanque?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Para la mayoría de las familias, sí: obtiene agua caliente sin límite, facturas de energía más bajas, una vida útil más larga y espacio libre en el piso. La conversión normalmente requiere ampliar la línea de gas y ventilación nueva, y nosotros nos encargamos de eso como parte de la instalación. Evaluamos su casa y le damos números honestos antes de que se comprometa."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Instalan líneas de gas para generadores y cocinas exteriores?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Instalamos y extendemos líneas de gas natural y propano para generadores de toda la casa, calentadores de piscina, cocinas exteriores, estufas y secadoras, cada una dimensionada según el aparato, con permisos y prueba de presión."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Creo que huele a gas, ¿qué debo hacer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Salga de la casa, no encienda ni apague ningún interruptor, y llame a su compañía de gas y a nosotros desde afuera. Una vez que sea seguro, localizamos la fuga, reparamos la línea y hacemos una prueba de presión antes de restablecer el servicio."
+        }
+      }
+    ]
+  })} />
+
+  <Footer />
+</Layout>

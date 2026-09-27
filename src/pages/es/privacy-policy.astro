@@ -1,0 +1,129 @@
+---
+// Spanish twin of src/pages/privacy-policy.astro. Same markup, same section
+// order; only the copy, links (/es/...), and metadata change.
+import Layout from "../../layouts/Layout.astro";
+import StickyNav from "../../components/StickyNav.astro";
+import Footer from "../../components/Footer.astro";
+import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/contact";
+---
+
+<Layout
+  quoteHref="/#contact"
+  title="Política de privacidad | Bonet Plumbing LLC"
+  description="Política de privacidad de Bonet Plumbing LLC. Conozca cómo recopilamos, usamos y protegemos su información personal."
+  breadcrumbs={[
+    { name: "Inicio", url: "https://bonetplumbing.com/es/" },
+    { name: "Política de privacidad" },
+  ]}
+>
+  <StickyNav />
+  <main class="bg-white py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 class="text-3xl md:text-4xl font-bold text-text mb-2 font-heading">Política de privacidad</h1>
+      <p class="text-text-secondary text-sm mb-10">Fecha de vigencia: 12 de marzo de 2026</p>
+
+      <div class="space-y-8 text-text-secondary leading-relaxed">
+        <section>
+          <h2 class="text-xl font-bold text-text mb-3">Quiénes somos</h2>
+          <p>
+            Bonet Plumbing LLC ("nosotros" o "nuestro") es una empresa de plomería con licencia y asegurada
+            que presta servicio en Oviedo, el condado de Seminole y el área metropolitana de Florida Central. Estamos
+            comprometidos con proteger la privacidad de cada cliente y de cada visitante del sitio web.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-text mb-3">Información que recopilamos</h2>
+          <p class="mb-3">Podemos recopilar los siguientes tipos de información cuando usted usa nuestro sitio web o se comunica con nosotros:</p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong class="text-text">Información de contacto</strong> &mdash; nombre, número de teléfono, dirección de correo electrónico y dirección de servicio que usted proporciona al solicitar un presupuesto o programar un servicio.</li>
+            <li><strong class="text-text">Detalles del servicio</strong> &mdash; descripciones de problemas de plomería o solicitudes de servicio que usted comparte con nosotros.</li>
+            <li><strong class="text-text">Datos de uso</strong> &mdash; información anónima como el tipo de navegador, el tipo de dispositivo, las páginas visitadas y la URL de referencia, recopilada automáticamente mediante tecnologías web estándar.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-text mb-3">Cómo usamos su información</h2>
+          <p class="mb-3">Usamos la información que recopilamos para:</p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Responder a sus consultas y solicitudes de servicio</li>
+            <li>Programar y prestar servicios de plomería</li>
+            <li>Comunicarnos con usted sobre sus citas de servicio</li>
+            <li>Mejorar nuestro sitio web y la experiencia del cliente</li>
+            <li>Cumplir con nuestras obligaciones legales</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-text mb-3">Divulgación de información</h2>
+          <p>
+            No vendemos, intercambiamos ni alquilamos su información personal a terceros. Podemos compartir
+            su información únicamente cuando sea necesario para prestar nuestros servicios (por ejemplo, con un
+            procesador de pagos para completar una transacción) o cuando la ley lo exija.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-text mb-3">Cookies y analítica</h2>
+          <p>
+            Nuestro sitio web puede usar cookies y tecnologías similares para mejorar su experiencia de navegación
+            y recopilar estadísticas de uso anónimas. Usted puede controlar la configuración de cookies desde las
+            preferencias de su navegador. Desactivar las cookies no afectará su capacidad de contactarnos ni de
+            solicitar servicios.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-text mb-3">Seguridad de los datos</h2>
+          <p>
+            Tomamos medidas razonables para proteger su información personal contra el acceso, la alteración
+            o la divulgación no autorizados. Sin embargo, ningún método de transmisión o almacenamiento electrónico
+            es 100% seguro, y no podemos garantizar una seguridad absoluta.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-text mb-3">Enlaces a terceros</h2>
+          <p>
+            Nuestro sitio web puede contener enlaces a sitios web de terceros. No somos responsables de las
+            prácticas de privacidad ni del contenido de esos sitios. Le recomendamos revisar las políticas de
+            privacidad de cualquier sitio de terceros que visite.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-text mb-3">Sus derechos</h2>
+          <p>
+            Usted puede solicitar el acceso, la corrección o la eliminación de su información personal en
+            cualquier momento comunicándose con nosotros. Responderemos a su solicitud en un plazo razonable.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-text mb-3">Cambios a esta política</h2>
+          <p>
+            Podemos actualizar esta política de privacidad ocasionalmente. Cualquier cambio se publicará en esta
+            página con una fecha de vigencia actualizada. Le recomendamos revisar esta página periódicamente.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-text mb-3">Contáctenos</h2>
+          <p class="mb-3">
+            Si tiene preguntas sobre esta política de privacidad o sobre cómo manejamos su información, comuníquese con nosotros:
+          </p>
+          <ul class="space-y-2">
+            <li>
+              <strong class="text-text">Teléfono:</strong>
+              <a href={phone} class="text-accent hover:text-accent-light transition-colors font-semibold">{phoneDisplay}</a>
+            </li>
+            <li>
+              <strong class="text-text">Horario:</strong> Disponibles 24/7
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

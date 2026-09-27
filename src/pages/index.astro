@@ -8,9 +8,12 @@ import Reviews from "../components/Reviews.astro";
 import ServiceAreas from "../components/ServiceAreas.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Footer from "../components/Footer.astro";
+import { useI18n } from "../i18n";
+
+const { t } = useI18n(Astro.url);
 ---
 
-<Layout>
+<Layout title={t.site.homeTitle} description={t.site.homeDescription}>
   <StickyNav />
   <main>
     <Hero />

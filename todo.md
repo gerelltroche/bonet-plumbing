@@ -6,6 +6,8 @@
 
 - [ ] Leo needs to **verify** the `LeoGomezBonet@bonetplumbing.com` address in Gmail (Settings → Accounts and Import → Send mail as → click "verify"). Once verified, he can set it as default.
 - [x] Get a headshot of Leo to add to the website — builds trust and puts a face to the business.
+- [ ] **Have Leo proofread the Spanish site** (every page under `/es/`, plus the shared strings in `src/i18n/ui.ts`). The translation was machine-drafted in Sept 2026 with formal "usted"; a native read-through for tone and local wording (e.g. "cambio de tuberías", "calentador sin tanque") is worth an hour before promoting the Spanish pages on GBP.
+- [ ] **Add Spanish to Google Business Profile** once Leo signs off: set "Languages spoken: Spanish" and post the `/es/` link in a GBP update so "plomero cerca de mí" searches have a landing page.
 - [ ] Set up **Google Business Profile** as a Service Area Business — primary category "Plumber", add all services, service areas, photos, and a business description. Post weekly updates to stay fresh.
 - [ ] **Talk to Leo about switching from Wave to Square Invoices** for invoicing/payments. Key differences:
   - **Wave**: Free invoicing, but no webhook for "invoice paid" — so we can't automate a review request when a customer pays. Would need Zapier (limited) or manual texting.

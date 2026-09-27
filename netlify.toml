@@ -152,3 +152,16 @@
   from = "/:slug"
   to = "/:slug/"
   status = 301
+
+# Spanish site lives under /es/ with the same slugs. Same trailing-slash
+# pinning as above, plus a Spanish 404 for anything unknown under /es/.
+# Netlify skips a redirect when a real file matches, so existing pages win.
+[[redirects]]
+  from = "/es/:slug"
+  to = "/es/:slug/"
+  status = 301
+
+[[redirects]]
+  from = "/es/*"
+  to = "/es/404/index.html"
+  status = 404

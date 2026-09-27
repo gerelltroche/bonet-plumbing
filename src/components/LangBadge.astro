@@ -1,0 +1,31 @@
+---
+// Language switcher / "Hablamos español" badge. On English pages it links to
+// the Spanish twin of the current page; on Spanish pages it offers English.
+// The twin path is derived from the URL (see src/i18n), so it works on every
+// page without per-page wiring.
+import { useI18n, localizePath } from "../i18n";
+
+interface Props {
+  /** nav: compact pill; hero: pill; footer: light text link; bar: thin strip above the mobile bar. */
+  variant?: "nav" | "hero" | "footer" | "bar";
+}
+const { variant = "hero" } = Astro.props;
+const { t } = useI18n(Astro.url);
+const target = t.badge.targetLocale;
+const href = localizePath(Astro.url.pathname, target);
+
+const styles = {
+  // Hidden on phones: the brand name would truncate, and the mobile bar's strip carries the switcher there.
+  nav: "hidden sm:inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/5 text-primary hover:bg-primary/10 text-xs font-semibold px-2.5 py-1.5 transition-colors",
+  hero: "inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/5 text-primary hover:bg-primary/10 text-sm font-semibold px-3 py-1.5 transition-colors",
+  footer: "inline-flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-semibold transition-colors",
+  bar: "flex items-center justify-center gap-1.5 bg-primary text-white text-xs font-semibold py-1.5",
+};
+---
+
+<a href={href} hreflang={target} lang={target} aria-label={t.badge.aria} class={styles[variant]}>
+  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3 7.5 7.03 7.5 12s2.015 9 4.5 9zM3.6 9h16.8M3.6 15h16.8"/>
+  </svg>
+  {t.badge.text}
+</a>

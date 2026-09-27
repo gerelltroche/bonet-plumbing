@@ -1,0 +1,230 @@
+---
+// Spanish twin of src/pages/avalon-park-plumber.astro. Same markup, same section
+// order, same anchor ids; only the copy, links (/es/...), and metadata change.
+import Layout from "../../layouts/Layout.astro";
+import StickyNav from "../../components/StickyNav.astro";
+import Footer from "../../components/Footer.astro";
+import CtaBanner from "../../components/CtaBanner.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import TextUsLink from "../../components/TextUsLink.astro";
+import Reviews from "../../components/Reviews.astro";
+import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/contact";
+---
+
+<Layout
+  title="Reemplazo y Reparación de Calentadores de Agua en Avalon Park | Bonet Plumbing LLC"
+  description="Reemplazo de calentadores de agua, conversión a sistema sin tanque y reparación de plomería para hogares de Avalon Park en el 32828. Las casas construidas a principios de los 2000 ya van por su segundo o tercer calentador de agua. Con licencia y asegurados (CFC1434246). Llame al 407-734-3968."
+  breadcrumbs={[
+    { name: "Inicio", url: "https://bonetplumbing.com/es/" },
+    { name: "Áreas de servicio", url: "https://bonetplumbing.com/es/#service-areas" },
+    { name: "Calentadores de Agua en Avalon Park" }
+  ]}
+  geoPlacename="Avalon Park, Orlando, Florida"
+  geoLat={28.5087}
+  geoLng={-81.1551}
+>
+  <StickyNav />
+  <main>
+    <section class="bg-gradient-to-b from-primary/[0.03] via-white to-white py-16 md:py-24">
+      <div class="max-w-4xl mx-auto px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-text leading-tight mb-4">
+          Reemplazo de Calentadores de Agua en Avalon Park — ¿Su Casa es de Principios de los 2000? Probablemente Ya Va por el Segundo o Tercero.
+        </h1>
+        <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
+        <p class="text-lg text-text-secondary mb-8 max-w-2xl">
+          Avalon Park se construyó entre 2000 y 2019: aproximadamente 2,447 casas unifamiliares y 1,168 unidades multifamiliares repartidas en siete villas. Con el agua dura de Florida, un calentador de agua de tanque dura entre 8 y 12 años, así que si usted compró aquí en los primeros años, la unidad de su garaje es casi con seguridad la segunda o tercera que ha tenido esta casa. Cuando falle, la reemplazamos el mismo día, desde Downtown / Founders Square hasta Original Village, South Village y Avalon Lakes.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 mb-12">
+          <a href={phone} class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+            </svg>
+            Llame ahora: {phoneDisplay}
+          </a>
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Solicitar cotización
+          </a>
+        </div>
+        <p class="-mt-6 mb-4">
+          <TextUsLink />
+        </p>
+      </div>
+    </section>
+
+    <ContactCTA defaultService="water-heater" />
+
+    <section class="bg-white pb-16 md:pb-24">
+      <div class="max-w-4xl mx-auto px-4">
+
+        <!-- LEAD SERVICE: Water heater replacement -->
+        <h2 class="text-2xl md:text-3xl font-bold text-text mb-3">Reemplazo de Calentadores de Agua: Nuestra Especialidad en Avalon Park</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          Un tanque que gotea por la base, agua caliente oxidada, golpeteos y retumbos, o un piloto que no se mantiene encendido: cuando un calentador de agua llega al final de su vida útil, el reemplazo es la solución honesta, no otra factura de reparación. Manejamos unidades de calidad, instalamos el mismo día en la mayoría de los casos, ponemos las conexiones al código y nos llevamos el tanque viejo. Sabrá el precio antes de que empecemos.
+          <!-- [VERIFY WITH OWNER]: any specific water-heater or install pricing / price ranges before adding numbers here -->
+          <!-- [VERIFY WITH OWNER]: warranty terms or durations on installed units and on labor -->
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Reemplazo de Tanque el Mismo Día</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Si el suyo gotea o ya pasó su mejor momento, lo cambiamos el mismo día en la mayoría de los casos: unidad de calidad, mejoras al código y retiro del equipo viejo incluidos.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Reparación Cuando Tiene Sentido</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Un termostato, una resistencia o una válvula de gas dañados en una unidad más nueva sí valen la pena repararse. Le diremos con honestidad si una reparación le gana tiempo real o solo pospone lo inevitable.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Tanque de Expansión y Código</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">Un calentador nuevo en un sistema cerrado necesita un tanque de expansión térmica del tamaño correcto y una línea de descarga T&P conforme al código. Nos encargamos de los detalles que buscan los inspectores.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-6">
+            <h3 class="text-lg font-bold text-text mb-3">Purga y Mantenimiento</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">El agua dura de Florida Central deposita sedimento rápidamente, y eso es lo que acaba con un tanque antes de tiempo. Una purga regular calma el retumbo y ayuda a que su unidad llegue al extremo lejano de esa ventana de 8 a 12 años.</p>
+          </div>
+        </div>
+
+        <!-- Tankless conversion -->
+        <h2 class="text-2xl md:text-3xl font-bold text-text mb-3">¿Está Pensando en un Sistema Sin Tanque?</h2>
+        <p class="text-text-secondary mb-10 max-w-2xl">
+          Si de todas formas le toca cambiar el tanque, es el momento natural para considerar la conversión a sistema sin tanque: agua caliente sin límite, una vida útil de 15 a 20 años, facturas de energía más bajas y una unidad montada en la pared que le devuelve el espacio de piso del garaje. En una casa de Avalon Park normalmente implica ampliar la línea de gas y agregar la ventilación adecuada, y nosotros nos encargamos de eso como parte del trabajo. Instalamos Rinnai, Navien y Rheem, y dimensionamos la unidad según cómo su familia realmente usa el agua caliente. <a href="/es/water-heater-services/" class="text-accent hover:text-accent-light font-medium">Vea nuestro servicio completo de calentadores de agua y sin tanque &rarr;</a>
+        </p>
+
+        <CtaBanner
+          heading="¿Calentador de Agua con Problemas en Avalon Park?"
+          sub="Presupuestos gratis, precios por adelantado y servicio el mismo día de un plomero local con licencia."
+        />
+
+        <!-- Secondary services -->
+        <h2 class="text-2xl md:text-3xl font-bold text-text mb-6 mt-12">Todo lo Demás que Atendemos en Avalon Park</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+          <div class="bg-surface border border-border rounded-xl p-5">
+            <h3 class="text-lg font-bold text-text mb-2">Presión de Agua y Válvula Reguladora (PRV)</h3>
+            <p class="text-text-secondary text-sm">Una presión demasiado baja es molesta; una presión demasiado alta desgasta en silencio la grifería, los electrodomésticos y ese calentador de agua nuevo. Si su válvula reguladora de presión falló, la probamos y la reemplazamos.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-5">
+            <h3 class="text-lg font-bold text-text mb-2">Tratamiento de Agua y Ablandadores</h3>
+            <p class="text-text-secondary text-sm">La misma agua dura que acorta la vida del tanque deja sarro en la grifería y la cristalería. Instalamos y damos servicio a ablandadores y sistemas de tratamiento para proteger su plomería y su calentador nuevo.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-5">
+            <h3 class="text-lg font-bold text-text mb-2">Destape de Drenajes</h3>
+            <p class="text-text-secondary text-sm">¿Lavamanos lentos, duchas que gorgotean o una línea de cocina que se tapa una y otra vez? Eliminamos las obstrucciones y hacemos que sus drenajes vuelvan a fluir: sin adivinar y sin dejar desorden.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-5">
+            <h3 class="text-lg font-bold text-text mb-2">Instalación y Reparación de Grifería y Accesorios</h3>
+            <p class="text-text-secondary text-sm">Grifos, inodoros, trituradores de basura, llaves de manguera y válvulas de ducha: los reparamos cuando se puede y los reemplazamos limpiamente cuando es hora de mejorar.</p>
+          </div>
+          <div class="bg-surface border border-border rounded-xl p-5">
+            <h3 class="text-lg font-bold text-text mb-2">Reparación General de Plomería</h3>
+            <p class="text-text-secondary text-sm">Fugas debajo del fregadero, un inodoro que no deja de correr, una línea de suministro que se suelta: los problemas de todos los días que necesitan un plomero con licencia que llegue y lo arregle bien.</p>
+          </div>
+          <a href="/es/alafaya-plumber/" class="bg-primary/5 border border-primary/10 rounded-xl p-5 hover:shadow-md transition-shadow group flex flex-col justify-center">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">¿Necesita Plomería General, No Solo Calentadores de Agua?</h3>
+            <p class="text-text-secondary text-sm">Vea nuestra página completa de plomería en Alafaya y UCF para cambio de tuberías, fugas bajo la losa, líneas de alcantarillado y más en todo el este del condado de Orange. &rarr;</p>
+          </a>
+        </div>
+
+        <div class="bg-primary/5 border border-primary/10 rounded-xl p-6 mb-10">
+          <h2 class="text-xl font-bold text-text mb-3">Lo Que Recibe</h2>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <span class="text-text-secondary text-sm">Su hogar está protegido: con licencia (CFC1434246) y seguro completo en Florida</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <span class="text-text-secondary text-sm">Reemplazo de calentadores de agua el mismo día en las siete villas de Avalon Park</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <span class="text-text-secondary text-sm">Sabrá el precio antes de que empecemos: sin cargos ocultos, sin sorpresas</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href={phone} class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Llame ahora: {phoneDisplay}
+          </a>
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+            Solicitar cotización
+          </a>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="mt-16 pt-8 border-t border-border">
+          <h2 class="text-2xl font-bold text-text mb-6">Preguntas Frecuentes</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-bold text-text mb-2">Mi casa en Avalon Park es de principios de los 2000, ¿necesito reemplazar el calentador de agua?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Un calentador de agua de tanque en Florida Central suele durar de 8 a 12 años, y el agua dura empuja a muchos hacia el extremo corto. Si su casa se construyó cuando Avalon Park apenas se levantaba y el calentador nunca se ha cambiado, ya pasó con creces esa ventana; y si ya necesita reparaciones, el reemplazo suele ser la mejor inversión.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">¿Pueden reemplazar un calentador de agua el mismo día?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">En la mayoría de los casos, sí. Tenemos unidades de tanque de calidad disponibles, y para un cambio sencillo podemos reemplazarlo, poner las conexiones al código y llevarnos el viejo en una sola visita. Las conversiones a sistema sin tanque requieren un poco más de planificación por el gas y la ventilación.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">¿Debería cambiarme a un sistema sin tanque en lugar de otro tanque?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">Para muchas familias vale la pena: agua caliente sin límite, mayor vida útil, facturas de energía más bajas y espacio de piso recuperado. En la mayoría de las casas de Avalon Park requiere ampliar la línea de gas y ventilación nueva, y nosotros nos encargamos de eso como parte de la instalación. Evaluamos su casa y le damos números honestos antes de que se comprometa.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-2">¿A qué villas de Avalon Park dan servicio?</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">A todas: Downtown / Founders Square, Original Village, South Village y Avalon Lakes, además de los vecindarios cercanos del 32828.</p>
+            </div>
+          </div>
+        </div>
+
+        <nav class="mt-16 pt-8 border-t border-border" aria-label="Páginas relacionadas">
+          <h2 class="text-lg font-bold text-text mb-4">Cercanos y Relacionados</h2>
+          <ul class="flex flex-wrap gap-3">
+            <li><a href="/es/alafaya-plumber/" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Plomero en Alafaya / UCF</a></li>
+            <li><a href="/es/water-heater-services/" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">Calentadores de Agua y Sin Tanque</a></li>
+            <li><a href="/es/east-orlando-plumber/" class="text-accent hover:text-accent-light font-medium text-sm transition-colors">East Orlando</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+    <Reviews />
+  </main>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Mi casa en Avalon Park es de principios de los 2000, ¿necesito reemplazar el calentador de agua?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un calentador de agua de tanque en Florida Central suele durar de 8 a 12 años, y el agua dura empuja a muchos hacia el extremo corto. Si su casa se construyó cuando Avalon Park apenas se levantaba y el calentador nunca se ha cambiado, ya pasó con creces esa ventana; y si ya necesita reparaciones, el reemplazo suele ser la mejor inversión."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Pueden reemplazar un calentador de agua el mismo día?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En la mayoría de los casos, sí. Tenemos unidades de tanque de calidad disponibles, y para un cambio sencillo podemos reemplazarlo, poner las conexiones al código y llevarnos el viejo en una sola visita. Las conversiones a sistema sin tanque requieren un poco más de planificación por el gas y la ventilación."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Debería cambiarme a un sistema sin tanque en lugar de otro tanque?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Para muchas familias vale la pena: agua caliente sin límite, mayor vida útil, facturas de energía más bajas y espacio de piso recuperado. En la mayoría de las casas de Avalon Park requiere ampliar la línea de gas y ventilación nueva, y nosotros nos encargamos de eso como parte de la instalación. Evaluamos su casa y le damos números honestos antes de que se comprometa."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿A qué villas de Avalon Park dan servicio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A todas: Downtown / Founders Square, Original Village, South Village y Avalon Lakes, además de los vecindarios cercanos del 32828."
+        }
+      }
+    ]
+  })} />
+
+  <Footer />
+</Layout>

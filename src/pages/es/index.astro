@@ -1,0 +1,30 @@
+---
+// Spanish home. Every section is a shared component that picks its strings
+// from the URL locale (src/i18n), so this file is structurally identical to
+// the English home and cannot drift from it.
+import Layout from "../../layouts/Layout.astro";
+import StickyNav from "../../components/StickyNav.astro";
+import Hero from "../../components/Hero.astro";
+import Services from "../../components/Services.astro";
+import TrustBar from "../../components/TrustBar.astro";
+import Reviews from "../../components/Reviews.astro";
+import ServiceAreas from "../../components/ServiceAreas.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import Footer from "../../components/Footer.astro";
+import { useI18n } from "../../i18n";
+
+const { t } = useI18n(Astro.url);
+---
+
+<Layout title={t.site.homeTitle} description={t.site.homeDescription}>
+  <StickyNav />
+  <main>
+    <Hero />
+    <Services />
+    <TrustBar />
+    <Reviews />
+    <ServiceAreas />
+    <ContactCTA />
+  </main>
+  <Footer />
+</Layout>

@@ -2,9 +2,17 @@
 import { Image } from 'astro:assets';
 import headshot from '../assets/Headshot.jpeg';
 import TextUsLink from './TextUsLink.astro';
+import LangBadge from './LangBadge.astro';
+import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from '../lib/contact';
+import { useI18n } from '../i18n';
 
-const phone = "tel:+14077343968";
-const phoneDisplay = "407-734-3968";
+const { t } = useI18n(Astro.url);
+
+const badgeIcons = [
+  "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z",
+  "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z",
+  "M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+];
 ---
 
 <header class="relative bg-gradient-to-b from-primary/[0.03] via-white to-white overflow-hidden">
@@ -18,34 +26,28 @@ const phoneDisplay = "407-734-3968";
       <div class="lg:col-span-3">
         <!-- H1 — value proposition -->
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-text leading-tight mb-3">
-          Central Florida's Trusted Plumbing Experts
+          {t.hero.h1}
         </h1>
 
         <!-- Tagline — the subtle medieval nod -->
-        <p class="text-lg md:text-xl text-text-secondary font-medium mb-6">
-          Plumbers in Shining Armor
+        <p class="text-lg md:text-xl text-text-secondary font-medium mb-4">
+          {t.hero.tagline}
         </p>
+
+        <div class="mb-6">
+          <LangBadge variant="hero" />
+        </div>
 
         <!-- Inline trust badges — stacked on mobile, inline on sm+ -->
         <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2.5 sm:gap-4 mb-8">
-          <div class="flex items-center gap-1.5 text-sm font-medium text-text-secondary">
-            <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
-            </svg>
-            Licensed & Insured
-          </div>
-          <div class="flex items-center gap-1.5 text-sm font-medium text-text-secondary">
-            <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            Same-Day Rescue Service
-          </div>
-          <div class="flex items-center gap-1.5 text-sm font-medium text-text-secondary">
-            <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            No Hidden Fees
-          </div>
+          {t.hero.badges.map((label, i) => (
+            <div class="flex items-center gap-1.5 text-sm font-medium text-text-secondary">
+              <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d={badgeIcons[i]}/>
+              </svg>
+              {label}
+            </div>
+          ))}
         </div>
 
         <!-- Dual CTA buttons -->
@@ -57,13 +59,13 @@ const phoneDisplay = "407-734-3968";
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
             </svg>
-            Call Now: {phoneDisplay}
+            {t.hero.callNow}: {phoneDisplay}
           </a>
           <a
             href="#contact"
             class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg"
           >
-            Request a Quote
+            {t.hero.quote}
           </a>
         </div>
         <p class="mt-4">
@@ -74,12 +76,12 @@ const phoneDisplay = "407-734-3968";
       <!-- Headshot — right 40% -->
       <div class="hidden lg:flex lg:col-span-2 flex-col items-center gap-4">
         <div class="relative w-full max-w-xs rounded-2xl overflow-hidden shadow-lg border border-primary/10">
-          <Image src={headshot} alt="Owner of Bonet Plumbing" width={384} height={477} class="w-full h-auto object-cover" format="webp" quality={80} />
+          <Image src={headshot} alt={t.hero.ownerAlt} width={384} height={477} class="w-full h-auto object-cover" format="webp" quality={80} />
         </div>
         <div class="text-center">
-          <p class="text-lg font-bold text-text">Leo Bonet</p>
-          <p class="text-sm text-text-secondary font-medium">Owner & Licensed Plumber</p>
-          <p class="text-xs text-text-secondary/70">License #CFC1434246</p>
+          <p class="text-lg font-bold text-text">{t.hero.ownerName}</p>
+          <p class="text-sm text-text-secondary font-medium">{t.hero.ownerTitle}</p>
+          <p class="text-xs text-text-secondary/70">{t.hero.license}</p>
         </div>
       </div>
     </div>

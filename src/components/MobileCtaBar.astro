@@ -1,21 +1,26 @@
 ---
-// Fixed bottom bar on phones: Call / Text / Request a Quote. Hidden on md+
-// where the sticky nav and in-page CTAs already do the job. Layout adds
-// matching bottom padding to <body> so the bar never covers the footer.
-import { PHONE_HREF, SMS_HREF } from "../lib/contact";
+// Fixed bottom bar on phones: Call / Text / Request a Quote, with a thin
+// language strip above it. Hidden on md+ where the sticky nav and in-page
+// CTAs already do the job. Layout adds matching bottom padding to <body> so
+// the bar never covers the footer.
+import LangBadge from './LangBadge.astro';
+import { PHONE_HREF, smsHref } from '../lib/contact';
+import { useI18n } from '../i18n';
 
 interface Props {
   /** Where "Request a Quote" goes: "#contact" when the page has the form, "/#contact" otherwise. */
   quoteHref?: string;
 }
 const { quoteHref = "#contact" } = Astro.props;
+const { t, l } = useI18n(Astro.url);
 ---
 
 <div
   class="md:hidden fixed inset-x-0 bottom-0 z-40 bg-white/95 backdrop-blur-sm border-t border-border shadow-[0_-4px_16px_rgba(0,0,0,0.08)] pb-[env(safe-area-inset-bottom)]"
   role="region"
-  aria-label="Quick contact"
+  aria-label={t.bar.region}
 >
+  <LangBadge variant="bar" />
   <div class="grid grid-cols-[auto_auto_1fr] gap-2 px-3 py-2.5">
     <a
       href={PHONE_HREF}
@@ -24,24 +29,24 @@ const { quoteHref = "#contact" } = Astro.props;
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
       </svg>
-      Call
-      <span class="sr-only">Bonet Plumbing at 407-734-3968</span>
+      {t.bar.call}
+      <span class="sr-only">{t.bar.callSr}</span>
     </a>
     <a
-      href={SMS_HREF}
+      href={smsHref(t.sms.body)}
       class="inline-flex items-center justify-center gap-1.5 bg-surface border border-border hover:border-primary/40 text-text font-bold text-sm px-4 py-3 rounded-lg shadow-sm"
     >
       <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
       </svg>
-      Text
-      <span class="sr-only">us a photo of the problem</span>
+      {t.bar.text}
+      <span class="sr-only">{t.bar.textSr}</span>
     </a>
     <a
-      href={quoteHref}
+      href={l(quoteHref)}
       class="inline-flex items-center justify-center bg-primary hover:bg-primary-light text-white font-bold text-sm px-4 py-3 rounded-lg shadow-sm"
     >
-      Request a Quote
+      {t.bar.quote}
     </a>
   </div>
 </div>

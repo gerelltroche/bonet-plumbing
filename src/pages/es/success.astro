@@ -1,9 +1,11 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import StickyNav from "../components/StickyNav.astro";
-import Footer from "../components/Footer.astro";
-import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../lib/contact";
-import { useI18n } from "../i18n";
+// Spanish form-success page. The form on /es/ pages posts here (see
+// ui.contact.successPath localized in ContactCTA). Strings come from src/i18n.
+import Layout from "../../layouts/Layout.astro";
+import StickyNav from "../../components/StickyNav.astro";
+import Footer from "../../components/Footer.astro";
+import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/contact";
+import { useI18n } from "../../i18n";
 
 const { t } = useI18n(Astro.url);
 ---
