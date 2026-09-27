@@ -9,10 +9,31 @@ import TextUsLink from "../components/TextUsLink.astro";
 import Reviews from "../components/Reviews.astro";
 const phone = "tel:+14077343968";
 const phoneDisplay = "407-734-3968";
+
+// Rendered in the FAQ section below and emitted as FAQPage JSON-LD by Layout.
+const faqs = [
+  {
+    q: "My Avalon Park home is from the early 2000s — does my water heater need replacing?",
+    a: "A tank water heater in Central Florida typically lasts 8 to 12 years, and hard water pushes many toward the short end. If your home was built when Avalon Park first went up and the heater has never been changed, it's well past that window — and if it's already needing repairs, replacement is usually the better investment.",
+  },
+  {
+    q: "Can you replace a water heater the same day?",
+    a: "In most cases, yes. We keep quality tank units on hand, and for a straightforward swap we can replace it, bring the connections up to code, and haul the old one away in a single visit. Tankless conversions take a bit more planning because of gas and venting.",
+  },
+  {
+    q: "Should I switch to tankless instead of another tank?",
+    a: "For a lot of families it's worth it — endless hot water, a longer lifespan, lower energy bills, and reclaimed floor space. In most Avalon Park homes it requires upsizing the gas line and new venting, which we handle as part of the install. We'll assess your home and give you honest numbers before you commit.",
+  },
+  {
+    q: "Which Avalon Park villages do you serve?",
+    a: "All of them — Downtown / Founders Square, the Original Village, South Village, and Avalon Lakes — plus Waterford Lakes, Eastwood, Stoneybrook, and the rest of 32828 and 32829.",
+  },
+];
 ---
 
 <Layout
-  title="Avalon Park Water Heater Replacement & Repair | Bonet Plumbing LLC"
+  faq={faqs}
+  title="Avalon Park Plumber | Water Heaters, Repiping & Slab Leaks | Bonet Plumbing"
   description="Water heater replacement, tankless conversion, and plumbing repair for Avalon Park homes in 32828. Homes built in the early 2000s are on their second or third water heater now. Licensed & insured (CFC1434246). Call 407-734-3968."
   breadcrumbs={[
     { name: "Home", url: "https://bonetplumbing.com/" },
@@ -28,11 +49,11 @@ const phoneDisplay = "407-734-3968";
     <section class="bg-gradient-to-b from-primary/[0.03] via-white to-white py-16 md:py-24">
       <div class="max-w-4xl mx-auto px-4">
         <h1 class="text-4xl md:text-5xl font-extrabold text-text leading-tight mb-4">
-          Water Heater Replacement in Avalon Park — Built in the Early 2000s? You're Likely on Your Second or Third.
+          Avalon Park Plumber — Built in the Early 2000s? You're Likely on Your Second or Third Water Heater.
         </h1>
         <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
         <p class="text-lg text-text-secondary mb-8 max-w-2xl">
-          Avalon Park was built out between 2000 and 2019 — roughly 2,447 single-family homes and 1,168 multi-family units across seven villages. A tank water heater in Florida's hard water lasts about 8 to 12 years, so if you bought here in the early days, the unit in your garage is almost certainly the second or third one this house has had. When it goes, we replace it same-day — from Downtown / Founders Square to the Original Village, South Village, and Avalon Lakes.
+          Avalon Park was built out between 2000 and 2019 — roughly 2,447 single-family homes and 1,168 multi-family units across seven villages. A tank water heater in Florida's hard water lasts about 8 to 12 years, so if you bought here in the early days, the unit in your garage is almost certainly the second or third one this house has had. When it goes, we replace it same-day — from Downtown / Founders Square to the Original Village, South Village, and Avalon Lakes, and across Waterford Lakes, Eastwood, Stoneybrook, and the rest of 32828 and 32829.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3 mb-12">
@@ -89,6 +110,26 @@ const phoneDisplay = "407-734-3968";
           If your tank is due anyway, it's the natural moment to consider going tankless — endless hot water, a 15-to-20-year lifespan, lower energy bills, and a wall-mounted unit that gives you back the garage floor space. In an Avalon Park home it usually means upsizing the gas line and adding proper venting, which we handle as part of the job. We install Rinnai, Navien, and Rheem, and we'll size the unit to how your household actually uses hot water. <a href="/water-heater-services/" class="text-accent hover:text-accent-light font-medium">See our full water heater &amp; tankless service &rarr;</a>
         </p>
 
+        <!-- Bigger jobs: 2000s-era construction specifics -->
+        <h2 class="text-2xl md:text-3xl font-bold text-text mb-3">Bigger Jobs in Avalon Park</h2>
+        <p class="text-text-secondary mb-6 max-w-2xl">
+          Two decades in, the original plumbing in these houses is starting to need more than a fixture swap. These are the three jobs we're called out for most once an Avalon Park home passes the 20-year mark.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+          <a href="/repiping/" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Whole-Home Repiping</h3>
+            <p class="text-text-secondary text-sm">Most Avalon Park homes were plumbed in CPVC, which turns brittle after 15 to 20 years in a hot attic and tends to crack at the fittings. Once pinhole leaks start showing up in more than one spot, we repipe the house in PEX in a few days instead of chasing them one at a time.</p>
+          </a>
+          <a href="/repiping/#slab-leak" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Slab Leak Repair</h3>
+            <p class="text-text-secondary text-sm">Every village here is built slab-on-grade, so supply lines run under the concrete and a leak shows up as a warm floor spot or a water bill that jumped for no reason. We locate it electronically and usually reroute the line overhead rather than breaking up your floor.</p>
+          </a>
+          <a href="/repiping/#sewer-line" class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Sewer Line Replacement</h3>
+            <p class="text-text-secondary text-sm">Avalon Park's drains are PVC, so you're spared the cast-iron corrosion older Orlando neighborhoods fight, but bellies from settling fill dirt and roots at the joints still cause repeat backups. We camera the line first and replace only the run that's actually failed, trenchless where the yard allows.</p>
+          </a>
+        </div>
+
         <CtaBanner
           heading="Water Heater Acting Up in Avalon Park?"
           sub="Free estimates, upfront pricing, and same-day service from a licensed local plumber."
@@ -117,10 +158,6 @@ const phoneDisplay = "407-734-3968";
             <h3 class="text-lg font-bold text-text mb-2">General Plumbing Repair</h3>
             <p class="text-text-secondary text-sm">Leaks under the sink, a running toilet, a supply line that lets go — the everyday problems that need a licensed plumber who shows up and fixes it right.</p>
           </div>
-          <a href="/alafaya-plumber/" class="bg-primary/5 border border-primary/10 rounded-xl p-5 hover:shadow-md transition-shadow group flex flex-col justify-center">
-            <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">Need General Plumbing, Not Just Water Heaters?</h3>
-            <p class="text-text-secondary text-sm">See our full Alafaya &amp; UCF plumbing page for repiping, slab leaks, sewer lines, and more across east Orange County. &rarr;</p>
-          </a>
         </div>
 
         <div class="bg-primary/5 border border-primary/10 rounded-xl p-6 mb-10">
@@ -140,7 +177,14 @@ const phoneDisplay = "407-734-3968";
             </li>
           </ul>
         </div>
+      </div>
+    </section>
 
+    <!-- Second quote form near the bottom of the page; unique id so field ids don't collide with the hero form -->
+    <ContactCTA defaultService="water-heater" id="contact-bottom" />
+
+    <section class="bg-white pb-16 md:pb-24">
+      <div class="max-w-4xl mx-auto px-4">
         <div class="flex flex-col sm:flex-row gap-4">
           <a href={phone} class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
             Call Now: {phoneDisplay}
@@ -154,22 +198,12 @@ const phoneDisplay = "407-734-3968";
         <div class="mt-16 pt-8 border-t border-border">
           <h2 class="text-2xl font-bold text-text mb-6">Frequently Asked Questions</h2>
           <div class="space-y-6">
-            <div>
-              <h3 class="font-bold text-text mb-2">My Avalon Park home is from the early 2000s — does my water heater need replacing?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">A tank water heater in Central Florida typically lasts 8 to 12 years, and hard water pushes many toward the short end. If your home was built when Avalon Park first went up and the heater has never been changed, it's well past that window — and if it's already needing repairs, replacement is usually the better investment.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">Can you replace a water heater the same day?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">In most cases, yes. We keep quality tank units on hand, and for a straightforward swap we can replace it, bring the connections up to code, and haul the old one away in a single visit. Tankless conversions take a bit more planning because of gas and venting.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">Should I switch to tankless instead of another tank?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">For a lot of families it's worth it — endless hot water, a longer lifespan, lower energy bills, and reclaimed floor space. In most Avalon Park homes it requires upsizing the gas line and new venting, which we handle as part of the install. We'll assess your home and give you honest numbers before you commit.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">Which Avalon Park villages do you serve?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">All of them — Downtown / Founders Square, the Original Village, South Village, and Avalon Lakes, and the surrounding 32828 neighborhoods.</p>
-            </div>
+            {faqs.map((f) => (
+              <div>
+                <h3 class="font-bold text-text mb-2">{f.q}</h3>
+                <p class="text-text-secondary text-sm leading-relaxed">{f.a}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -185,46 +219,6 @@ const phoneDisplay = "407-734-3968";
     </section>
     <Reviews />
   </main>
-
-  <!-- FAQPage Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "My Avalon Park home is from the early 2000s — does my water heater need replacing?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A tank water heater in Central Florida typically lasts 8 to 12 years, and hard water pushes many toward the short end. If your home was built when Avalon Park first went up and the heater has never been changed, it's well past that window — and if it's already needing repairs, replacement is usually the better investment."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you replace a water heater the same day?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "In most cases, yes. We keep quality tank units on hand, and for a straightforward swap we can replace it, bring the connections up to code, and haul the old one away in a single visit. Tankless conversions take a bit more planning because of gas and venting."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Should I switch to tankless instead of another tank?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "For a lot of families it's worth it — endless hot water, a longer lifespan, lower energy bills, and reclaimed floor space. In most Avalon Park homes it requires upsizing the gas line and new venting, which we handle as part of the install. We'll assess your home and give you honest numbers before you commit."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which Avalon Park villages do you serve?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "All of them — Downtown / Founders Square, the Original Village, South Village, and Avalon Lakes, and the surrounding 32828 neighborhoods."
-        }
-      }
-    ]
-  })} />
 
   <Footer />
 </Layout>

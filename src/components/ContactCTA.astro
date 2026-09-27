@@ -8,15 +8,17 @@ import { useI18n } from '../i18n';
 interface Props {
   /** Pre-select "Service Needed" (a value from the services list) on pages about one service. */
   defaultService?: string;
+  /** Section id. Pass a different one for a second instance on the same page so field ids stay unique. */
+  id?: string;
 }
-const { defaultService } = Astro.props;
+const { defaultService, id = "contact" } = Astro.props;
 const { locale, t, l } = useI18n(Astro.url);
 
 const services = t.contact.services;
 const hasDefault = services.some((svc) => svc.value === defaultService);
 ---
 
-<section id="contact" class="bg-white py-16 md:py-24">
+<section id={id} class="bg-white py-16 md:py-24">
   <div class="max-w-6xl mx-auto px-4">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       <!-- Left column — persuasion -->
@@ -64,11 +66,11 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
 
       <!-- Right column — form -->
       <!-- Form first on phones so the #contact anchor and the sticky bar land on it, not on the pitch. -->
-      <div id="form-container" class="order-first lg:order-none bg-surface border border-border rounded-xl shadow-lg p-6 md:p-8">
+      <div id={`${id}-form-container`} class="order-first lg:order-none bg-surface border border-border rounded-xl shadow-lg p-6 md:p-8">
         <h3 class="text-xl font-bold text-text mb-6">{t.contact.formHeading}</h3>
 
         <form
-          id="contact-form"
+          id={`${id}-form`}
           name="contact"
           method="POST"
           action={l(t.contact.successPath)}
@@ -85,12 +87,12 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
           <div class="space-y-5">
             <!-- Name -->
             <div>
-              <label for="name" class="block text-sm font-semibold text-text mb-1.5">
+              <label for={`${id}-name`} class="block text-sm font-semibold text-text mb-1.5">
                 {t.contact.name} <span class="text-red-600">*</span>
               </label>
               <input
                 type="text"
-                id="name"
+                id={`${id}-name`}
                 name="name"
                 required
                 placeholder={t.contact.namePlaceholder}
@@ -100,12 +102,12 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
 
             <!-- Phone -->
             <div>
-              <label for="phone" class="block text-sm font-semibold text-text mb-1.5">
+              <label for={`${id}-phone`} class="block text-sm font-semibold text-text mb-1.5">
                 {t.contact.phone} <span class="text-red-600">*</span>
               </label>
               <input
                 type="tel"
-                id="phone"
+                id={`${id}-phone`}
                 name="phone"
                 required
                 inputmode="tel"
@@ -116,11 +118,11 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
 
             <!-- Service Needed -->
             <div>
-              <label for="service" class="block text-sm font-semibold text-text mb-1.5">
+              <label for={`${id}-service`} class="block text-sm font-semibold text-text mb-1.5">
                 {t.contact.service} <span class="text-red-600">*</span>
               </label>
               <select
-                id="service"
+                id={`${id}-service`}
                 name="service"
                 required
                 class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors cursor-pointer"
@@ -149,12 +151,12 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
 
             <!-- Email (optional) -->
             <div>
-              <label for="email" class="block text-sm font-semibold text-text mb-1.5">
+              <label for={`${id}-email`} class="block text-sm font-semibold text-text mb-1.5">
                 {t.contact.email} <span class="text-text-muted text-xs font-normal">{t.contact.optional}</span>
               </label>
               <input
                 type="email"
-                id="email"
+                id={`${id}-email`}
                 name="email"
                 placeholder={t.contact.emailPlaceholder}
                 class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
@@ -163,11 +165,11 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
 
             <!-- Message (optional) -->
             <div>
-              <label for="message" class="block text-sm font-semibold text-text mb-1.5">
+              <label for={`${id}-message`} class="block text-sm font-semibold text-text mb-1.5">
                 {t.contact.message} <span class="text-text-muted text-xs font-normal">{t.contact.optional}</span>
               </label>
               <textarea
-                id="message"
+                id={`${id}-message`}
                 name="message"
                 rows="3"
                 placeholder={t.contact.messagePlaceholder}
@@ -178,7 +180,7 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
             <!-- Submit button -->
             <button
               type="submit"
-              id="submit-btn"
+              id={`${id}-submit`}
               class="w-full bg-accent hover:bg-accent-light text-white font-bold text-lg py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg cursor-pointer"
             >
               {t.contact.submit}

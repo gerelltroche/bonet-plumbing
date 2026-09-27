@@ -1,7 +1,7 @@
 // Google Places API (v1) → normalized reviews data.
 //
 // Plain JS (not TS) so it can be shared by the Astro build (src/lib/reviews.ts)
-// and the standalone snapshot script (scripts/reviews-snapshot.mjs) without a
+// and the refresh script (scripts/reviews-refresh.mjs) without a
 // TypeScript loader.
 
 /**

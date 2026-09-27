@@ -9,11 +9,32 @@ import ContactCTA from "../../components/ContactCTA.astro";
 import TextUsLink from "../../components/TextUsLink.astro";
 import Reviews from "../../components/Reviews.astro";
 import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/contact";
+
+// Rendered in the FAQ section below and emitted as FAQPage JSON-LD by Layout.
+const faqs = [
+  {
+    q: "¿Cuánto dura un calentador de agua?",
+    a: "Un calentador de tanque tradicional suele durar de 8 a 12 años, mientras que los modelos sin tanque pueden durar de 15 a 20 años con el mantenimiento adecuado. El agua dura de Florida Central acorta la vida de los tanques, así que si el suyo tiene más de 8 años y necesita reparaciones frecuentes, el reemplazo suele ser la mejor inversión.",
+  },
+  {
+    q: "¿Vale la pena cambiar a un sistema sin tanque?",
+    a: "Para la mayoría de las familias, sí: obtiene agua caliente sin límite, facturas de energía más bajas, una vida útil más larga y espacio libre en el piso. La conversión normalmente requiere ampliar la línea de gas y ventilación nueva, y nosotros nos encargamos de eso como parte de la instalación. Evaluamos su casa y le damos números honestos antes de que se comprometa.",
+  },
+  {
+    q: "¿Instalan líneas de gas para generadores y cocinas exteriores?",
+    a: "Sí. Instalamos y extendemos líneas de gas natural y propano para generadores de toda la casa, calentadores de piscina, cocinas exteriores, estufas y secadoras, cada una dimensionada según el aparato, con permisos y prueba de presión.",
+  },
+  {
+    q: "Creo que huele a gas, ¿qué debo hacer?",
+    a: "Salga de la casa, no encienda ni apague ningún interruptor, y llame a su compañía de gas y a nosotros desde afuera. Una vez que sea seguro, localizamos la fuga, reparamos la línea y hacemos una prueba de presión antes de restablecer el servicio.",
+  },
+];
 ---
 
 <Layout
+  faq={faqs}
   title="Reemplazo de Calentadores de Agua, Sin Tanque y Líneas de Gas | Bonet Plumbing"
-  description="Reemplazo de calentadores de agua, conversión a sistema sin tanque (Rinnai, Navien, Rheem) e instalación de líneas de gas en Central Florida. Servicio el mismo día. Con licencia (CFC1434246). Llame al 407-734-3968."
+  description="Reemplazo de calentadores de agua, conversión a sistema sin tanque (Rinnai, Navien, Rheem) e instalación de líneas de gas en Florida Central. Servicio el mismo día. Con licencia (CFC1434246). Llame al 407-734-3968."
   breadcrumbs={[
     { name: "Inicio", url: "https://bonetplumbing.com/es/" },
     { name: "Calentadores de Agua y Líneas de Gas" }
@@ -28,7 +49,7 @@ import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/co
         </h1>
         <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
         <p class="text-lg text-text-secondary mb-8 max-w-2xl">
-          ¿Se quedó sin agua caliente, o está listo para disfrutar de agua caliente sin límite con un sistema sin tanque? Reemplazamos e instalamos calentadores de agua en Oviedo, Winter Springs y East Orlando, y también instalamos las líneas de gas que alimentan el calentador, su generador, el calentador de piscina o la cocina exterior. Servicio el mismo día, precio por adelantado y con permisos.
+          ¿Se quedó sin agua caliente, o está listo para disfrutar de agua caliente sin límite con un sistema sin tanque? Reemplazamos e instalamos calentadores de agua en East Orlando, Avalon Park, Oviedo y Winter Springs, y también instalamos las líneas de gas que alimentan el calentador, su generador, el calentador de piscina o la cocina exterior. Servicio el mismo día, precio por adelantado y con permisos.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3 mb-10">
@@ -63,7 +84,7 @@ import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/co
         <!-- Repair & Replacement -->
         <h2 id="repair-replace" class="scroll-mt-24 text-2xl md:text-3xl font-bold text-text mb-3">Reparación y Reemplazo de Calentadores de Agua</h2>
         <p class="text-text-secondary mb-6 max-w-2xl">
-          Un calentador de tanque suele durar de 8 a 12 años aquí, y el agua dura de Central Florida tiende a acercarlo al extremo corto de ese rango. Si el suyo gotea desde el tanque mismo, el reemplazo es la única solución real: tenemos equipos de calidad, instalamos el mismo día y nos llevamos el equipo viejo.
+          Un calentador de tanque suele durar de 8 a 12 años aquí, y el agua dura de Florida Central tiende a acercarlo al extremo corto de ese rango. Si el suyo gotea desde el tanque mismo, el reemplazo es la única solución real: tenemos equipos de calidad, instalamos el mismo día y nos llevamos el equipo viejo.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <div class="bg-surface border border-border rounded-xl p-6">
@@ -133,7 +154,7 @@ import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/co
           </div>
           <div class="bg-surface border border-border rounded-xl p-6">
             <h3 class="text-lg font-bold text-text mb-3">Gas Natural y Propano</h3>
-            <p class="text-text-secondary text-sm leading-relaxed">Trabajamos tanto con gas natural como con propano (LP), incluidas conversiones y conexiones de aparatos, en hogares de todo Central Florida.</p>
+            <p class="text-text-secondary text-sm leading-relaxed">Trabajamos tanto con gas natural como con propano (LP), incluidas conversiones y conexiones de aparatos, en hogares de todo Florida Central.</p>
           </div>
         </div>
 
@@ -150,22 +171,12 @@ import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/co
         <div class="mt-16 pt-8 border-t border-border">
           <h2 class="text-2xl font-bold text-text mb-6">Preguntas Frecuentes</h2>
           <div class="space-y-6">
-            <div>
-              <h3 class="font-bold text-text mb-2">¿Cuánto dura un calentador de agua?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Un calentador de tanque tradicional suele durar de 8 a 12 años, mientras que los modelos sin tanque pueden durar de 15 a 20 años con el mantenimiento adecuado. El agua dura de Central Florida acorta la vida de los tanques, así que si el suyo tiene más de 8 años y necesita reparaciones frecuentes, el reemplazo suele ser la mejor inversión.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">¿Vale la pena cambiar a un sistema sin tanque?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Para la mayoría de las familias, sí: obtiene agua caliente sin límite, facturas de energía más bajas, una vida útil más larga y espacio libre en el piso. La conversión normalmente requiere ampliar la línea de gas y ventilación nueva, y nosotros nos encargamos de eso como parte de la instalación. Evaluamos su casa y le damos números honestos antes de que se comprometa.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">¿Instalan líneas de gas para generadores y cocinas exteriores?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Sí. Instalamos y extendemos líneas de gas natural y propano para generadores de toda la casa, calentadores de piscina, cocinas exteriores, estufas y secadoras, cada una dimensionada según el aparato, con permisos y prueba de presión.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">Creo que huele a gas, ¿qué debo hacer?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Salga de la casa, no encienda ni apague ningún interruptor, y llame a su compañía de gas y a nosotros desde afuera. Una vez que sea seguro, localizamos la fuga, reparamos la línea y hacemos una prueba de presión antes de restablecer el servicio.</p>
-            </div>
+            {faqs.map((f) => (
+              <div>
+                <h3 class="font-bold text-text mb-2">{f.q}</h3>
+                <p class="text-text-secondary text-sm leading-relaxed">{f.a}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -181,46 +192,6 @@ import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/co
     </section>
     <Reviews />
   </main>
-
-  <!-- FAQPage Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "¿Cuánto dura un calentador de agua?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Un calentador de tanque tradicional suele durar de 8 a 12 años, mientras que los modelos sin tanque pueden durar de 15 a 20 años con el mantenimiento adecuado. El agua dura de Central Florida acorta la vida de los tanques, así que si el suyo tiene más de 8 años y necesita reparaciones frecuentes, el reemplazo suele ser la mejor inversión."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Vale la pena cambiar a un sistema sin tanque?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Para la mayoría de las familias, sí: obtiene agua caliente sin límite, facturas de energía más bajas, una vida útil más larga y espacio libre en el piso. La conversión normalmente requiere ampliar la línea de gas y ventilación nueva, y nosotros nos encargamos de eso como parte de la instalación. Evaluamos su casa y le damos números honestos antes de que se comprometa."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Instalan líneas de gas para generadores y cocinas exteriores?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí. Instalamos y extendemos líneas de gas natural y propano para generadores de toda la casa, calentadores de piscina, cocinas exteriores, estufas y secadoras, cada una dimensionada según el aparato, con permisos y prueba de presión."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Creo que huele a gas, ¿qué debo hacer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Salga de la casa, no encienda ni apague ningún interruptor, y llame a su compañía de gas y a nosotros desde afuera. Una vez que sea seguro, localizamos la fuga, reparamos la línea y hacemos una prueba de presión antes de restablecer el servicio."
-        }
-      }
-    ]
-  })} />
 
   <Footer />
 </Layout>

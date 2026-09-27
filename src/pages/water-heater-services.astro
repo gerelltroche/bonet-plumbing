@@ -9,9 +9,30 @@ import TextUsLink from "../components/TextUsLink.astro";
 import Reviews from "../components/Reviews.astro";
 const phone = "tel:+14077343968";
 const phoneDisplay = "407-734-3968";
+
+// Rendered in the FAQ section below and emitted as FAQPage JSON-LD by Layout.
+const faqs = [
+  {
+    q: "How long does a water heater last?",
+    a: "A traditional tank water heater typically lasts 8 to 12 years, while tankless models can last 15 to 20 years with proper maintenance. Central Florida's hard water shortens tank life, so if yours is over 8 years old and needing frequent repairs, replacement is usually the better investment.",
+  },
+  {
+    q: "Is converting to tankless worth it?",
+    a: "For most families, yes — you get endless hot water, lower energy bills, a longer lifespan, and reclaimed floor space. The conversion typically requires upsizing the gas line and new venting, which we handle as part of the install. We'll assess your home and give you honest numbers before you commit.",
+  },
+  {
+    q: "Do you install gas lines for generators and outdoor kitchens?",
+    a: "Yes. We install and extend natural gas and propane lines for whole-home generators, pool heaters, outdoor kitchens, ranges, and dryers — each one sized for the appliance, permitted, and pressure-tested.",
+  },
+  {
+    q: "I think I smell gas — what should I do?",
+    a: "Leave the home, don't flip any switches, and call your gas utility and us from outside. Once it's safe, we'll locate the leak, repair the line, and pressure-test it before restoring service.",
+  },
+];
 ---
 
 <Layout
+  faq={faqs}
   title="Water Heater Replacement, Tankless & Gas Lines | Bonet Plumbing"
   description="Water heater replacement, tankless conversion (Rinnai, Navien, Rheem) & gas line installation in Central Florida. Same-day service. Licensed (CFC1434246). Call 407-734-3968."
   breadcrumbs={[
@@ -28,7 +49,7 @@ const phoneDisplay = "407-734-3968";
         </h1>
         <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
         <p class="text-lg text-text-secondary mb-8 max-w-2xl">
-          Out of hot water, or ready to upgrade to endless hot water with a tankless system? We replace and install water heaters across Oviedo, Winter Springs, and East Orlando — and run the gas lines that feed them, your generator, pool heater, or outdoor kitchen. Same-day service, upfront pricing, permits pulled.
+          Out of hot water, or ready to upgrade to endless hot water with a tankless system? We replace and install water heaters across East Orlando, Avalon Park, Oviedo, and Winter Springs — and run the gas lines that feed them, your generator, pool heater, or outdoor kitchen. Same-day service, upfront pricing, permits pulled.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3 mb-10">
@@ -150,22 +171,12 @@ const phoneDisplay = "407-734-3968";
         <div class="mt-16 pt-8 border-t border-border">
           <h2 class="text-2xl font-bold text-text mb-6">Frequently Asked Questions</h2>
           <div class="space-y-6">
-            <div>
-              <h3 class="font-bold text-text mb-2">How long does a water heater last?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">A traditional tank water heater typically lasts 8 to 12 years, while tankless models can last 15 to 20 years with proper maintenance. Central Florida's hard water shortens tank life, so if yours is over 8 years old and needing frequent repairs, replacement is usually the better investment.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">Is converting to tankless worth it?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">For most families, yes — you get endless hot water, lower energy bills, a longer lifespan, and reclaimed floor space. The conversion typically requires upsizing the gas line and new venting, which we handle as part of the install. We'll assess your home and give you honest numbers before you commit.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">Do you install gas lines for generators and outdoor kitchens?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Yes. We install and extend natural gas and propane lines for whole-home generators, pool heaters, outdoor kitchens, ranges, and dryers — each one sized for the appliance, permitted, and pressure-tested.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">I think I smell gas — what should I do?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Leave the home, don't flip any switches, and call your gas utility and us from outside. Once it's safe, we'll locate the leak, repair the line, and pressure-test it before restoring service.</p>
-            </div>
+            {faqs.map((f) => (
+              <div>
+                <h3 class="font-bold text-text mb-2">{f.q}</h3>
+                <p class="text-text-secondary text-sm leading-relaxed">{f.a}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -181,46 +192,6 @@ const phoneDisplay = "407-734-3968";
     </section>
     <Reviews />
   </main>
-
-  <!-- FAQPage Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How long does a water heater last?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A traditional tank water heater typically lasts 8 to 12 years, while tankless models can last 15 to 20 years with proper maintenance. Central Florida's hard water shortens tank life, so if yours is over 8 years old and needing frequent repairs, replacement is usually the better investment."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is converting to tankless worth it?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "For most families, yes — you get endless hot water, lower energy bills, a longer lifespan, and reclaimed floor space. The conversion typically requires upsizing the gas line and new venting, which we handle as part of the install. We'll assess your home and give you honest numbers before you commit."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you install gas lines for generators and outdoor kitchens?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We install and extend natural gas and propane lines for whole-home generators, pool heaters, outdoor kitchens, ranges, and dryers — each one sized for the appliance, permitted, and pressure-tested."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "I think I smell gas — what should I do?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Leave the home, don't flip any switches, and call your gas utility and us from outside. Once it's safe, we'll locate the leak, repair the line, and pressure-test it before restoring service."
-        }
-      }
-    ]
-  })} />
 
   <Footer />
 </Layout>

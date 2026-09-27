@@ -9,9 +9,34 @@ import ContactCTA from "../../components/ContactCTA.astro";
 import TextUsLink from "../../components/TextUsLink.astro";
 import Reviews from "../../components/Reviews.astro";
 import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/contact";
+
+// Rendered in the FAQ section below and emitted as FAQPage JSON-LD by Layout.
+const faqs = [
+  {
+    q: "¿Cómo sé si mi casa necesita un cambio de tuberías?",
+    a: "Las señales comunes incluyen agua descolorida u oxidada, baja presión de agua en varios grifos, fugas frecuentes en distintas áreas y corrosión visible en las tuberías expuestas. Si su casa se construyó antes de 1995 y todavía tiene su plomería original, una inspección gratis le dirá en qué estado están las cosas.",
+  },
+  {
+    q: "¿Cuánto tarda un cambio completo de tuberías?",
+    a: "La mayoría de los cambios completos de tuberías se terminan en 1 a 3 días, según el tamaño de la casa y el acceso a las tuberías. Reducimos las molestias trabajando cuarto por cuarto y restableciendo el servicio de agua lo más rápido posible.",
+  },
+  {
+    q: "¿Cómo sé si tengo una fuga bajo la losa?",
+    a: "Esté atento a un aumento inexplicable en su factura de agua, un punto tibio en el piso, el sonido de agua corriendo cuando todos los grifos están cerrados o grietas nuevas en pisos o paredes. Usamos detección electrónica para ubicar con precisión las fugas bajo la losa antes de abrir el piso, y muchas veces desviamos la línea por arriba para que no vuelva a pasar.",
+  },
+  {
+    q: "¿Pueden reemplazar mi línea de cloaca sin excavar el patio?",
+    a: "En la mayoría de los casos, sí. Después de que una inspección con cámara confirma el problema, el pipe bursting sin zanja puede jalar la tubería nueva por el camino existente con solo pequeños puntos de acceso, respetando su entrada, su patio y su jardín. Le diremos desde el principio si su línea es candidata.",
+  },
+  {
+    q: "¿Qué materiales de tubería usan?",
+    a: "Usamos principalmente PEX para las líneas de suministro (flexible, resistente a la corrosión y respaldado por una garantía larga) y cobre si lo prefiere. Los reemplazos de cloaca y drenaje usan PVC moderno. Le recomendaremos la mejor opción para su casa y su presupuesto.",
+  },
+];
 ---
 
 <Layout
+  faq={faqs}
   title="Cambio de Tuberías, Fugas Bajo la Losa y Línea de Cloaca | Bonet Plumbing"
   description="Cambio completo de tuberías, desvío de fugas bajo la losa, reemplazo sin zanja de línea de cloaca y línea principal de agua en Florida Central. Con licencia y asegurados (CFC1434246). Llame al 407-734-3968."
   breadcrumbs={[
@@ -189,26 +214,12 @@ import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/co
         <div class="mt-16 pt-8 border-t border-border">
           <h2 class="text-2xl font-bold text-text mb-6">Preguntas Frecuentes</h2>
           <div class="space-y-6">
-            <div>
-              <h3 class="font-bold text-text mb-2">¿Cómo sé si mi casa necesita un cambio de tuberías?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Las señales comunes incluyen agua descolorida u oxidada, baja presión de agua en varios grifos, fugas frecuentes en distintas áreas y corrosión visible en las tuberías expuestas. Si su casa se construyó antes de 1995 y todavía tiene su plomería original, una inspección gratis le dirá en qué estado están las cosas.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">¿Cuánto tarda un cambio completo de tuberías?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">La mayoría de los cambios completos de tuberías se terminan en 1 a 3 días, según el tamaño de la casa y el acceso a las tuberías. Reducimos las molestias trabajando cuarto por cuarto y restableciendo el servicio de agua lo más rápido posible.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">¿Cómo sé si tengo una fuga bajo la losa?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Esté atento a un aumento inexplicable en su factura de agua, un punto tibio en el piso, el sonido de agua corriendo cuando todos los grifos están cerrados o grietas nuevas en pisos o paredes. Usamos detección electrónica para ubicar con precisión las fugas bajo la losa antes de abrir el piso, y muchas veces desviamos la línea por arriba para que no vuelva a pasar.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">¿Pueden reemplazar mi línea de cloaca sin excavar el patio?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">En la mayoría de los casos, sí. Después de que una inspección con cámara confirma el problema, el pipe bursting sin zanja puede jalar la tubería nueva por el camino existente con solo pequeños puntos de acceso, respetando su entrada, su patio y su jardín. Le diremos desde el principio si su línea es candidata.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">¿Qué materiales de tubería usan?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Usamos principalmente PEX para las líneas de suministro (flexible, resistente a la corrosión y respaldado por una garantía larga) y cobre si lo prefiere. Los reemplazos de cloaca y drenaje usan PVC moderno. Le recomendaremos la mejor opción para su casa y su presupuesto.</p>
-            </div>
+            {faqs.map((f) => (
+              <div>
+                <h3 class="font-bold text-text mb-2">{f.q}</h3>
+                <p class="text-text-secondary text-sm leading-relaxed">{f.a}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -223,54 +234,6 @@ import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../../lib/co
     </section>
     <Reviews />
   </main>
-
-  <!-- FAQPage Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "¿Cómo sé si mi casa necesita un cambio de tuberías?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Las señales comunes incluyen agua descolorida u oxidada, baja presión de agua en varios grifos, fugas frecuentes en distintas áreas y corrosión visible en las tuberías expuestas. Si su casa se construyó antes de 1995 y todavía tiene su plomería original, una inspección gratis le dirá en qué estado están las cosas."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Cuánto tarda un cambio completo de tuberías?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "La mayoría de los cambios completos de tuberías se terminan en 1 a 3 días, según el tamaño de la casa y el acceso a las tuberías. Reducimos las molestias trabajando cuarto por cuarto y restableciendo el servicio de agua lo más rápido posible."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Cómo sé si tengo una fuga bajo la losa?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Esté atento a un aumento inexplicable en su factura de agua, un punto tibio en el piso, el sonido de agua corriendo cuando todos los grifos están cerrados o grietas nuevas en pisos o paredes. Usamos detección electrónica para ubicar con precisión las fugas bajo la losa antes de abrir el piso, y muchas veces desviamos la línea por arriba para que no vuelva a pasar."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Pueden reemplazar mi línea de cloaca sin excavar el patio?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "En la mayoría de los casos, sí. Después de que una inspección con cámara confirma el problema, el pipe bursting sin zanja puede jalar la tubería nueva por el camino existente con solo pequeños puntos de acceso, respetando su entrada, su patio y su jardín. Le diremos desde el principio si su línea es candidata."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Qué materiales de tubería usan?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Usamos principalmente PEX para las líneas de suministro (flexible, resistente a la corrosión y respaldado por una garantía larga) y cobre si lo prefiere. Los reemplazos de cloaca y drenaje usan PVC moderno. Le recomendaremos la mejor opción para su casa y su presupuesto."
-        }
-      }
-    ]
-  })} />
 
   <Footer />
 </Layout>

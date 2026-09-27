@@ -1,20 +1,15 @@
 // Single source of truth for review data across the whole site.
 //
-// Every page that renders <Reviews /> awaits getReviews(), which is memoized so
-// the Places API is hit exactly once per build. That guarantees the rating,
-// review count and review cards are identical on every page of a given deploy.
+// Everything that shows a rating or review count — the <Reviews /> section on
+// every page and the AggregateRating in the organization JSON-LD emitted by
+// Layout.astro — reads from src/data/reviews.json through this module. The
+// build never calls the Places API, so every page of a deploy shows the same
+// numbers and a change in the count is visible in a diff.
 //
-// Required env vars on Netlify:
-//   GOOGLE_PLACES_API_KEY  — Places API key from Google Cloud
-//   GOOGLE_PLACE_ID        — Place ID for Bonet Plumbing
-//
-// If either is missing or the API call fails, the build falls back to
-// src/data/reviews-snapshot.json — the last known-good API result — so a
-// degraded build still shows real reviews and the real count instead of
-// sample data. Refresh the snapshot with `npm run reviews:snapshot`.
+// Refresh the file from Google with `npm run reviews:refresh` (needs
+// GOOGLE_PLACES_API_KEY and GOOGLE_PLACE_ID in .env), then commit it.
 
-import snapshot from "../data/reviews-snapshot.json";
-import { fetchPlaceReviews } from "./places.mjs";
+import data from "../data/reviews.json";
 
 export type Review = {
   author: string;
@@ -31,37 +26,19 @@ export type ReviewsData = {
   overallRating: number;
   reviewCount: number;
   googleReviewsUrl: string;
+  /** ISO date the file was last refreshed from Google. */
+  fetchedAt: string;
 };
 
-const SNAPSHOT: ReviewsData = {
-  reviews: snapshot.reviews,
-  overallRating: snapshot.overallRating,
-  reviewCount: snapshot.reviewCount,
-  googleReviewsUrl: snapshot.googleReviewsUrl,
+export const reviewsData: ReviewsData = {
+  reviews: data.reviews,
+  overallRating: data.overallRating,
+  reviewCount: data.reviewCount,
+  googleReviewsUrl: data.googleReviewsUrl,
+  fetchedAt: data.fetchedAt,
 };
 
-let cached: Promise<ReviewsData> | null = null;
-
+/** Kept async-shaped so existing `await getReviews()` call sites keep working. */
 export function getReviews(): Promise<ReviewsData> {
-  if (!cached) cached = loadReviews();
-  return cached;
-}
-
-async function loadReviews(): Promise<ReviewsData> {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-  const placeId = process.env.GOOGLE_PLACE_ID;
-
-  if (!apiKey || !placeId) {
-    console.warn(
-      `[reviews] GOOGLE_PLACES_API_KEY or GOOGLE_PLACE_ID not set — using snapshot from ${snapshot.fetchedAt}`
-    );
-    return SNAPSHOT;
-  }
-
-  const live = await fetchPlaceReviews({ apiKey, placeId });
-  if (!live) {
-    console.warn(`[reviews] falling back to snapshot from ${snapshot.fetchedAt}`);
-    return SNAPSHOT;
-  }
-  return live;
+  return Promise.resolve(reviewsData);
 }

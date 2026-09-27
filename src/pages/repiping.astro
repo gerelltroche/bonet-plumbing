@@ -9,9 +9,34 @@ import TextUsLink from "../components/TextUsLink.astro";
 import Reviews from "../components/Reviews.astro";
 const phone = "tel:+14077343968";
 const phoneDisplay = "407-734-3968";
+
+// Rendered in the FAQ section below and emitted as FAQPage JSON-LD by Layout.
+const faqs = [
+  {
+    q: "How do I know if my home needs repiping?",
+    a: "Common signs include discolored or rusty water, low water pressure at multiple fixtures, frequent leaks in different areas, and visible corrosion on exposed pipes. If your home was built before 1995 and still has its original plumbing, a free inspection can tell you where things stand.",
+  },
+  {
+    q: "How long does a whole-home repipe take?",
+    a: "Most whole-home repipes are completed in 1–3 days depending on the size of the home and accessibility of the pipes. We minimize disruption by working room-by-room and restoring water service as quickly as possible.",
+  },
+  {
+    q: "How do I know if I have a slab leak?",
+    a: "Watch for an unexplained jump in your water bill, a warm spot on the floor, the sound of running water when every fixture is off, or new cracks in flooring or walls. We use electronic detection to pinpoint slab leaks before opening the floor, and we'll often reroute the line overhead so it doesn't happen again.",
+  },
+  {
+    q: "Can you replace my sewer line without digging up the yard?",
+    a: "In most cases, yes. After a camera inspection confirms the problem, trenchless pipe bursting can pull new pipe through the existing path with only small access points — sparing your driveway, patio, and landscaping. We'll tell you upfront if your line is a candidate.",
+  },
+  {
+    q: "What pipe materials do you use?",
+    a: "We primarily use PEX for supply lines — flexible, corrosion-resistant, and backed by a long warranty — and copper where you prefer it. Sewer and drain replacements use modern PVC. We'll recommend the best option for your home and budget.",
+  },
+];
 ---
 
 <Layout
+  faq={faqs}
   title="Repiping, Slab Leak & Sewer Line Replacement | Bonet Plumbing"
   description="Whole-home repiping, slab leak reroute, trenchless sewer line & water main replacement in Central Florida. Licensed & insured (CFC1434246). Call 407-734-3968."
   breadcrumbs={[
@@ -189,26 +214,12 @@ const phoneDisplay = "407-734-3968";
         <div class="mt-16 pt-8 border-t border-border">
           <h2 class="text-2xl font-bold text-text mb-6">Frequently Asked Questions</h2>
           <div class="space-y-6">
-            <div>
-              <h3 class="font-bold text-text mb-2">How do I know if my home needs repiping?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Common signs include discolored or rusty water, low water pressure at multiple fixtures, frequent leaks in different areas, and visible corrosion on exposed pipes. If your home was built before 1995 and still has its original plumbing, a free inspection can tell you where things stand.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">How long does a whole-home repipe take?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Most whole-home repipes are completed in 1–3 days depending on the size of the home and accessibility of the pipes. We minimize disruption by working room-by-room and restoring water service as quickly as possible.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">How do I know if I have a slab leak?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">Watch for an unexplained jump in your water bill, a warm spot on the floor, the sound of running water when every fixture is off, or new cracks in flooring or walls. We use electronic detection to pinpoint slab leaks before opening the floor, and we'll often reroute the line overhead so it doesn't happen again.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">Can you replace my sewer line without digging up the yard?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">In most cases, yes. After a camera inspection confirms the problem, trenchless pipe bursting can pull new pipe through the existing path with only small access points — sparing your driveway, patio, and landscaping. We'll tell you upfront if your line is a candidate.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-text mb-2">What pipe materials do you use?</h3>
-              <p class="text-text-secondary text-sm leading-relaxed">We primarily use PEX for supply lines — flexible, corrosion-resistant, and backed by a long warranty — and copper where you prefer it. Sewer and drain replacements use modern PVC. We'll recommend the best option for your home and budget.</p>
-            </div>
+            {faqs.map((f) => (
+              <div>
+                <h3 class="font-bold text-text mb-2">{f.q}</h3>
+                <p class="text-text-secondary text-sm leading-relaxed">{f.a}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -223,54 +234,6 @@ const phoneDisplay = "407-734-3968";
     </section>
     <Reviews />
   </main>
-
-  <!-- FAQPage Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How do I know if my home needs repiping?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Common signs include discolored or rusty water, low water pressure at multiple fixtures, frequent leaks in different areas, and visible corrosion on exposed pipes. If your home was built before 1995 and still has its original plumbing, a free inspection can tell you where things stand."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does a whole-home repipe take?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most whole-home repipes are completed in 1–3 days depending on the size of the home and accessibility of the pipes. We minimize disruption by working room-by-room and restoring water service as quickly as possible."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I know if I have a slab leak?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Watch for an unexplained jump in your water bill, a warm spot on the floor, the sound of running water when every fixture is off, or new cracks in flooring or walls. We use electronic detection to pinpoint slab leaks before opening the floor, and we'll often reroute the line overhead so it doesn't happen again."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you replace my sewer line without digging up the yard?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "In most cases, yes. After a camera inspection confirms the problem, trenchless pipe bursting can pull new pipe through the existing path with only small access points — sparing your driveway, patio, and landscaping. We'll tell you upfront if your line is a candidate."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What pipe materials do you use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We primarily use PEX for supply lines — flexible, corrosion-resistant, and backed by a long warranty — and copper where you prefer it. Sewer and drain replacements use modern PVC. We'll recommend the best option for your home and budget."
-        }
-      }
-    ]
-  })} />
 
   <Footer />
 </Layout>

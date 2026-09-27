@@ -9,9 +9,9 @@ const en = {
     defaultTitle: "Bonet Plumbing LLC | Central Florida Plumber",
     defaultDescription:
       "Central Florida's trusted plumbing experts. Licensed & insured, same-day service. Call 407-734-3968.",
-    homeTitle: "Bonet Plumbing LLC | Central Florida Plumber",
+    homeTitle: "East Orlando & Avalon Park Plumber | Bonet Plumbing LLC",
     homeDescription:
-      "Whole-home repiping, water heater & tankless installation, slab leak repair, sewer line replacement and gas lines across Oviedo, Winter Springs & East Orlando. Licensed & insured (CFC1434246). Call 407-734-3968.",
+      "Licensed plumber serving East Orlando, Avalon Park, Waterford Lakes and Oviedo. Water heaters, repiping, slab leaks and sewer lines. Same-day service. Call 407-734-3968.",
     orgDescription: "Licensed & insured plumbing services in Central Florida. Plumbers in Shining Armor.",
     ogImageAlt: "Bonet Plumbing LLC — Plumbers in Shining Armor",
     breadcrumbHome: "Home",
@@ -31,8 +31,8 @@ const en = {
     callAria: "Call Bonet Plumbing at 407-734-3968",
   },
   hero: {
-    h1: "Central Florida's Trusted Plumbing Experts",
-    tagline: "Plumbers in Shining Armor",
+    h1: "East Orlando's Plumbers in Shining Armor",
+    tagline: "Serving Avalon Park, Waterford Lakes, Alafaya & Oviedo",
     badges: ["Licensed & Insured", "Same-Day Rescue Service", "No Hidden Fees"],
     callNow: "Call Now",
     quote: "Request a Quote",
@@ -227,9 +227,9 @@ const es: UiStrings = {
     defaultTitle: "Bonet Plumbing LLC | Plomero en Florida Central",
     defaultDescription:
       "Los expertos en plomería de confianza en Florida Central. Con licencia y asegurados, servicio el mismo día. Llame al 407-734-3968.",
-    homeTitle: "Bonet Plumbing LLC | Plomero en Florida Central",
+    homeTitle: "Plomero en East Orlando y Avalon Park | Bonet Plumbing LLC",
     homeDescription:
-      "Cambio completo de tuberías, instalación de calentadores de agua y sin tanque, reparación de fugas bajo la losa, reemplazo de línea de cloaca y líneas de gas en Oviedo, Winter Springs y East Orlando. Con licencia y asegurados (CFC1434246). Llame al 407-734-3968.",
+      "Plomero con licencia en East Orlando, Avalon Park, Waterford Lakes y Oviedo. Calentadores de agua, cambio de tuberías, fugas bajo la losa y líneas de cloaca. Servicio el mismo día. Llame al 407-734-3968.",
     orgDescription: "Servicios de plomería con licencia y seguro en Florida Central. Plomeros en Armadura Brillante.",
     ogImageAlt: "Bonet Plumbing LLC — Plomeros en Armadura Brillante",
     breadcrumbHome: "Inicio",
@@ -247,8 +247,8 @@ const es: UiStrings = {
     callAria: "Llame a Bonet Plumbing al 407-734-3968",
   },
   hero: {
-    h1: "Los Expertos en Plomería de Confianza en Florida Central",
-    tagline: "Plomeros en Armadura Brillante",
+    h1: "Los Plomeros en Armadura Brillante de East Orlando",
+    tagline: "Servimos Avalon Park, Waterford Lakes, Alafaya y Oviedo",
     badges: ["Con licencia y asegurados", "Rescate el mismo día", "Sin cargos ocultos"],
     callNow: "Llame ahora",
     quote: "Solicitar cotización",

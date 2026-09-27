@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "reviews:snapshot": "node --env-file-if-exists=.env scripts/reviews-snapshot.mjs"
+    "reviews:refresh": "node --env-file-if-exists=.env scripts/reviews-refresh.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",

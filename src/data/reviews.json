@@ -1,5 +1,5 @@
 {
-  "_comment": "Last known-good Places API result. Used only when GOOGLE_PLACES_API_KEY/GOOGLE_PLACE_ID are missing or the API call fails, so a degraded build never publishes fake sample reviews or a wrong count. Refresh with: npm run reviews:snapshot",
+  "_comment": "Single source of review data for the whole site: the Reviews section on every page and the AggregateRating in the JSON-LD both read from here. Refresh from Google with: npm run reviews:refresh (then commit).",
   "fetchedAt": "2026-09-24",
   "overallRating": 5,
   "reviewCount": 24,

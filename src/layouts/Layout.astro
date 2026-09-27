@@ -1,6 +1,8 @@
 ---
 import MobileCtaBar from "../components/MobileCtaBar.astro";
 import { useI18n, alternateUrl, SITE_URL, LOCALES, DEFAULT_LOCALE } from "../i18n";
+import { getReviews } from "../lib/reviews";
+import { SERVICE_AREAS } from "../data/service-areas";
 import "../styles/global.css";
 
 interface BreadcrumbItem {
@@ -8,7 +10,14 @@ interface BreadcrumbItem {
   url?: string;
 }
 
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
 interface Props {
+  /** Page FAQs. When present, a FAQPage JSON-LD block is emitted. Pages render the same array visibly. */
+  faq?: FaqItem[];
   title?: string;
   description?: string;
   noindex?: boolean;
@@ -29,12 +38,13 @@ const {
   description = t.site.defaultDescription,
   noindex = false,
   breadcrumbs,
-  // Geo meta defaults to the business's operating base (Oviedo). Pages about a
-  // different market pass their own placename/coordinates. Note: these tags are
-  // ignored by Google — they exist only for internal consistency.
-  geoPlacename = "Oviedo, Florida",
-  geoLat = 28.6700,
-  geoLng = -81.2081,
+  faq,
+  // Geo meta defaults to the primary market (East Orlando / Avalon Park). City
+  // pages about a different market pass their own placename/coordinates. Note:
+  // these tags are ignored by Google — they exist only for internal consistency.
+  geoPlacename = "East Orlando, Florida",
+  geoLat = 28.5087,
+  geoLng = -81.1551,
   quoteHref = "#contact",
   hideCtaBar = false,
 } = Astro.props;
@@ -47,6 +57,11 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const alternates = LOCALES.map((l) => ({ lang: l, href: alternateUrl(Astro.url.pathname, l) }));
 const xDefault = alternateUrl(Astro.url.pathname, DEFAULT_LOCALE);
 const otherOgLocale = locale === "en" ? "es_US" : "en_US";
+
+// Rating and count come from src/data/reviews.json via one loader, the same
+// one the <Reviews /> section uses, so the schema can never disagree with the
+// visible numbers on any page.
+const { overallRating, reviewCount } = await getReviews();
 ---
 
 <!doctype html>
@@ -140,29 +155,7 @@ const otherOgLocale = locale === "en" ? "es_US" : "en_US";
         // "https://www.facebook.com/bonetplumbing",
         // "https://www.yelp.com/biz/bonet-plumbing-oviedo"
       ],
-      "areaServed": [
-        { "@type": "City", "name": "Oviedo", "sameAs": "https://en.wikipedia.org/wiki/Oviedo,_Florida" },
-        { "@type": "City", "name": "Winter Springs", "sameAs": "https://en.wikipedia.org/wiki/Winter_Springs,_Florida" },
-        { "@type": "City", "name": "East Orlando" },
-        { "@type": "City", "name": "Chuluota", "sameAs": "https://en.wikipedia.org/wiki/Chuluota,_Florida" },
-        { "@type": "City", "name": "Geneva", "sameAs": "https://en.wikipedia.org/wiki/Geneva,_Florida" },
-        { "@type": "City", "name": "Casselberry", "sameAs": "https://en.wikipedia.org/wiki/Casselberry,_Florida" },
-        { "@type": "City", "name": "Altamonte Springs", "sameAs": "https://en.wikipedia.org/wiki/Altamonte_Springs,_Florida" },
-        { "@type": "City", "name": "Longwood", "sameAs": "https://en.wikipedia.org/wiki/Longwood,_Florida" },
-        { "@type": "City", "name": "Lake Mary", "sameAs": "https://en.wikipedia.org/wiki/Lake_Mary,_Florida" },
-        { "@type": "City", "name": "Sanford", "sameAs": "https://en.wikipedia.org/wiki/Sanford,_Florida" },
-        { "@type": "City", "name": "Goldenrod", "sameAs": "https://en.wikipedia.org/wiki/Goldenrod,_Florida" },
-        { "@type": "City", "name": "Fern Park", "sameAs": "https://en.wikipedia.org/wiki/Fern_Park,_Florida" },
-        { "@type": "City", "name": "Alafaya", "sameAs": "https://en.wikipedia.org/wiki/Alafaya,_Florida" },
-        { "@type": "City", "name": "Waterford Lakes" },
-        { "@type": "City", "name": "Avalon Park", "address": { "@type": "PostalAddress", "postalCode": "32828", "addressRegion": "FL", "addressCountry": "US" } },
-        { "@type": "City", "name": "Union Park", "sameAs": "https://en.wikipedia.org/wiki/Union_Park,_Florida" },
-        { "@type": "City", "name": "Winter Park", "sameAs": "https://en.wikipedia.org/wiki/Winter_Park,_Florida" },
-        { "@type": "City", "name": "Maitland", "sameAs": "https://en.wikipedia.org/wiki/Maitland,_Florida" },
-        { "@type": "City", "name": "Orlando", "sameAs": "https://en.wikipedia.org/wiki/Orlando,_Florida" },
-        { "@type": "City", "name": "Bithlo", "sameAs": "https://en.wikipedia.org/wiki/Bithlo,_Florida" },
-        { "@type": "City", "name": "Wedgefield", "sameAs": "https://en.wikipedia.org/wiki/Wedgefield,_Florida" }
-      ],
+      "areaServed": SERVICE_AREAS,
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Oviedo",
@@ -175,6 +168,13 @@ const otherOgLocale = locale === "en" ? "es_US" : "en_US";
         "longitude": -81.2081
       },
       "priceRange": "$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": overallRating,
+        "reviewCount": reviewCount,
+        "bestRating": 5,
+        "worstRating": 1
+      },
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -206,6 +206,18 @@ const otherOgLocale = locale === "en" ? "es_US" : "en_US";
           "position": index + 1,
           "name": item.name,
           ...(item.url ? { "item": item.url } : {})
+        }))
+      })} />
+    )}
+
+    {faq && faq.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faq.map((item) => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": { "@type": "Answer", "text": item.a }
         }))
       })} />
     )}
