@@ -1,15 +1,13 @@
 {
   "_comment": "Single source of review data for the whole site: the Reviews section on every page and the AggregateRating in the JSON-LD both read from here. Refresh from Google with: npm run reviews:refresh (then commit).",
-  "fetchedAt": "2026-09-24",
-  "overallRating": 5,
-  "reviewCount": 24,
-  "googleReviewsUrl": "https://maps.google.com/?cid=3120497498541400573&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
+  "fetchedAt": "2026-09-27",
   "reviews": [
     {
       "author": "Katherine Gundel",
       "rating": 5,
       "text": "We reached out to Bonet Plumbing to fix a DIY project. The owner Leo was super knowledgeable, professional and he worked with our busy schedule. We will definitely be calling Leo first for any future projects!",
       "date": "May 2026",
+      "reviewUrl": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xGUU5WSkRURXRDUlRSTE5ERjZjVVJ4UjBsMlRXYxAB!2m1!1s0xae1014bb0c077d09:0x2b4e3bf11b0e21fd",
       "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjW1_g-rAM5fqxBvYtCHOCRwL-OGrtvDh3QTKq2XzqM97Y6KAXw=s128-c0x00000000-cc-rp-mo"
     },
     {
@@ -17,6 +15,7 @@
       "rating": 5,
       "text": "Leo is the only plumber I trust, not only with my own home but with my customers homes as well. He’s thorough and gets the job done right the first time. If you want a plumber you don’t have to second guess, I highly recommend Bonet Plumbing.",
       "date": "April 2026",
+      "reviewUrl": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xKVExVVkxlbDlHYlZSc1ZrMXhkVWhVYTBGU1dsRRAB!2m1!1s0xae1014bb0c077d09:0x2b4e3bf11b0e21fd",
       "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjVJZ6HzVGhXGVL_ZVKh4Iniq9WIITdjQeDyQzYrJ1qZIztsJIrXRw=s128-c0x00000000-cc-rp-mo"
     },
     {
@@ -24,7 +23,11 @@
       "rating": 5,
       "text": "Leo is super dependable! Super fast response and very fair pricing! Will always use Bonet plumbing for any plumbing issues in the future!",
       "date": "April 2026",
+      "reviewUrl": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT25CbFRrdDRYMmg0V1ZwVVVUTnZOSHAwTWxwbE9YYxAB!2m1!1s0xae1014bb0c077d09:0x2b4e3bf11b0e21fd",
       "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocJBx7Ca8zOpIwN1yJ569tBzfzt4TuNHdSeXgvECYgY5GGYOMg=s128-c0x00000000-cc-rp-mo"
     }
-  ]
+  ],
+  "overallRating": 5,
+  "reviewCount": 24,
+  "googleReviewsUrl": "https://maps.google.com/?cid=3120497498541400573&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
 }
