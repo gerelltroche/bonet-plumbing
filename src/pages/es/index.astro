@@ -17,7 +17,7 @@ import { useI18n } from "../../i18n";
 const { t } = useI18n(Astro.url);
 ---
 
-<Layout title={t.site.homeTitle} description={t.site.homeDescription}>
+<Layout title={t.site.homeTitle} description={t.site.homeDescription} quoteHref="#quick-quote">
   <StickyNav />
   <main>
     <Hero />
@@ -28,5 +28,5 @@ const { t } = useI18n(Astro.url);
     <ServiceAreas />
     <ContactCTA />
   </main>
-  <Footer />
+  <Footer quoteHref="#quick-quote" />
 </Layout>

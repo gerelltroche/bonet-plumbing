@@ -6,6 +6,12 @@ import LangBadge from './LangBadge.astro';
 import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from '../lib/contact';
 import { useI18n } from '../i18n';
 
+interface Props {
+  /** Target of the footer's "Request a Quote": this page's form ("#contact" by default),
+   *  or "/#quick-quote" on pages without one. */
+  quoteHref?: string;
+}
+const { quoteHref = "#contact" } = Astro.props;
 const year = new Date().getFullYear();
 const { t, l } = useI18n(Astro.url);
 const areaLinks = [...t.areas.main, ...t.areas.more];
@@ -54,7 +60,7 @@ const areaLinks = [...t.areas.main, ...t.areas.more];
       <div class="text-center md:text-left">
         <h3 class="text-white/90 font-bold text-sm uppercase tracking-wider mb-3">{t.footer.company}</h3>
         <ul class="space-y-2">
-          <li><a href={l("/#contact")} class="text-white/60 hover:text-white text-sm transition-colors">{t.footer.quote}</a></li>
+          <li><a href={l(quoteHref)} class="text-white/60 hover:text-white text-sm transition-colors">{t.footer.quote}</a></li>
           <li><a href={l("/privacy-policy/")} class="text-white/60 hover:text-white text-sm transition-colors">{t.footer.privacy}</a></li>
         </ul>
       </div>

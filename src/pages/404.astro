@@ -8,7 +8,7 @@ import { useI18n } from "../i18n";
 const { t, l } = useI18n(Astro.url);
 ---
 
-<Layout title={t.notFound.title} description={t.notFound.description} noindex={true} quoteHref="/#contact">
+<Layout title={t.notFound.title} description={t.notFound.description} noindex={true} quoteHref="/#quick-quote">
   <StickyNav />
   <main class="bg-white py-24 md:py-32">
     <div class="max-w-xl mx-auto px-4 text-center">
@@ -31,5 +31,5 @@ const { t, l } = useI18n(Astro.url);
       </div>
     </div>
   </main>
-  <Footer />
+  <Footer quoteHref="/#quick-quote" />
 </Layout>

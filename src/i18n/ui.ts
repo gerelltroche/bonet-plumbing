@@ -33,8 +33,11 @@ const en = {
     callAria: "Call Bonet Plumbing at 407-734-3968",
   },
   hero: {
-    h1: "East Orlando's Plumbers in Shining Armor",
-    tagline: "Serving Avalon Park, Waterford Lakes, Alafaya & Oviedo",
+    /** Brand line above the H1; the H1 itself names the work. */
+    eyebrow: "Plumbers in Shining Armor",
+    h1: "East Orlando's Repiping & Water Heater Specialists",
+    tagline:
+      "Whole-home repiping, water heater and tankless replacement, slab leaks and sewer lines, for homes in Avalon Park, Waterford Lakes, Alafaya and Oviedo.",
     badges: ["Licensed & Insured", "Same-Day Rescue Service", "No Hidden Fees"],
     callNow: "Call Now",
     quote: "Request a Quote",
@@ -161,8 +164,11 @@ const en = {
     emailPlaceholder: "your@email.com",
     message: "Anything else we should know?",
     messagePlaceholder: "Describe your plumbing issue...",
-    submit: "Request a Quote",
-    responseTime: "We typically respond within 1 hour",
+    photo: "Photo of the problem",
+    photoHint: "A photo helps Leo quote faster. One image, up to 8 MB.",
+    rating: (n: number) => `on Google · ${n} reviews`,
+    submit: "Get my free estimate",
+    responseTime: "Leo calls or texts you back himself, usually within the hour.",
     successPath: "/success/",
   },
   footer: {
@@ -252,8 +258,10 @@ const es: UiStrings = {
     callAria: "Llame a Bonet Plumbing al 407-734-3968",
   },
   hero: {
-    h1: "Los Plomeros en Armadura Brillante de East Orlando",
-    tagline: "Servimos Avalon Park, Waterford Lakes, Alafaya y Oviedo",
+    eyebrow: "Plomeros en Armadura Brillante",
+    h1: "Especialistas en Tuberías y Calentadores de Agua en East Orlando",
+    tagline:
+      "Cambio completo de tuberías, calentadores de agua y sin tanque, fugas bajo la losa y líneas de cloaca, para hogares en Avalon Park, Waterford Lakes, Alafaya y Oviedo.",
     badges: ["Con licencia y asegurados", "Rescate el mismo día", "Sin cargos ocultos"],
     callNow: "Llame ahora",
     quote: "Solicitar cotización",
@@ -380,8 +388,11 @@ const es: UiStrings = {
     emailPlaceholder: "su@correo.com",
     message: "¿Algo más que debamos saber?",
     messagePlaceholder: "Describa su problema de plomería...",
-    submit: "Solicitar cotización",
-    responseTime: "Normalmente respondemos en menos de 1 hora",
+    photo: "Foto del problema",
+    photoHint: "Una foto ayuda a Leo a cotizar más rápido. Una imagen, hasta 8 MB.",
+    rating: (n: number) => `en Google · ${n} reseñas`,
+    submit: "Obtener mi presupuesto gratis",
+    responseTime: "Leo mismo le llama o le escribe, normalmente en menos de una hora.",
     successPath: "/success/",
   },
   footer: {
