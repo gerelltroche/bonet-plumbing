@@ -16,6 +16,8 @@ const en = {
     ogImageAlt: "Bonet Plumbing LLC — Plumbers in Shining Armor",
     breadcrumbHome: "Home",
     breadcrumbAreas: "Service Areas",
+    /** Keyboard-only link at the top of every page (Layout.astro). */
+    skipToContent: "Skip to main content",
   },
   // Language switcher. On English pages it reads "Hablamos español" and links
   // to the Spanish twin of the current page; on Spanish pages it offers English.
@@ -302,6 +304,7 @@ const es: UiStrings = {
     ogImageAlt: "Bonet Plumbing LLC — Plomeros en Armadura Brillante",
     breadcrumbHome: "Inicio",
     breadcrumbAreas: "Áreas de servicio",
+    skipToContent: "Saltar al contenido principal",
   },
   badge: {
     text: "English",

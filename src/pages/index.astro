@@ -16,7 +16,7 @@ const { t } = useI18n(Astro.url);
 
 <Layout title={t.site.homeTitle} description={t.site.homeDescription} quoteHref="#quick-quote">
   <StickyNav />
-  <main>
+  <main id="main" class="scroll-mt-20">
     <Hero />
     <QuickQuote />
     <Services />

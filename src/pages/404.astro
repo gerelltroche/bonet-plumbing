@@ -10,7 +10,7 @@ const { t, l } = useI18n(Astro.url);
 
 <Layout title={t.notFound.title} description={t.notFound.description} noindex={true} quoteHref="/#quick-quote">
   <StickyNav />
-  <main class="bg-white py-24 md:py-32">
+  <main id="main" class="scroll-mt-20 bg-white py-24 md:py-32">
     <div class="max-w-xl mx-auto px-4 text-center">
       <p class="text-6xl font-extrabold text-primary mb-4">404</p>
       <h1 class="text-2xl md:text-3xl font-bold text-text mb-4">{t.notFound.heading}</h1>

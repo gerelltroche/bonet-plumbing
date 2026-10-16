@@ -13,7 +13,7 @@ const { t } = useI18n(Astro.url);
 
 <Layout title={t.success.title} description={t.success.description} noindex={true} hideCtaBar={true}>
   <StickyNav />
-  <main class="bg-white py-24 md:py-32">
+  <main id="main" class="scroll-mt-20 bg-white py-24 md:py-32">
     <div class="max-w-xl mx-auto px-4 text-center">
       <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
         <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">

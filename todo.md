@@ -26,5 +26,4 @@
 - [ ] **Add other profiles to `sameAs`** in `src/layouts/Layout.astro` (Facebook, Yelp, Nextdoor…) as they go live. Google Business Profile is already there.
 
 ### Medium Priority
-- [ ] **Add a skip-to-content link** for keyboard/screen reader accessibility
 - [ ] **Create an About/Meet the Owner page** (already partially tracked — depends on Leo's answers)
