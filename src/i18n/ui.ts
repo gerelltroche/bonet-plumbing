@@ -24,7 +24,7 @@ const en = {
     /** Phone-width nav label. */
     short: "ES",
     aria: "Ver esta página en español",
-    targetLocale: "es" as const,
+    targetLocale: "es" as "en" | "es",
   },
   nav: {
     brand: "Bonet Plumbing",
@@ -53,7 +53,7 @@ const en = {
       {
         title: "Whole-Home Repiping",
         description:
-          "Replace aging galvanized or polybutylene pipes with modern PEX or copper — restored pressure, no more leaks, for decades.",
+          "Replace brittle CPVC, polybutylene, or rusted galvanized pipes with modern PEX or copper — restored pressure, no more leaks, for decades.",
         icon: "pipe",
         href: "/repiping/",
       },
@@ -290,7 +290,7 @@ const es: UiStrings = {
       {
         title: "Cambio Completo de Tuberías",
         description:
-          "Reemplazamos tuberías viejas de acero galvanizado o polibutileno por PEX o cobre moderno: presión restaurada y sin fugas por décadas.",
+          "Reemplazamos tuberías de CPVC quebradizo, polibutileno o acero galvanizado oxidado por PEX o cobre moderno: presión restaurada y sin fugas por décadas.",
         icon: "pipe",
         href: "/repiping/",
       },

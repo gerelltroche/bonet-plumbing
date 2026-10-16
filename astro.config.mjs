@@ -51,6 +51,8 @@ export default defineConfig({
     }),
   ],
   vite: {
-    plugins: [tailwindcss()]
+    // @tailwindcss/vite resolves its own (newer) vite for types while Astro 5
+    // bundles vite 6, so the Plugin types don't line up. Runtime is fine.
+    plugins: [/** @type {any} */ (tailwindcss())]
   }
 });
