@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import headshot from '../assets/Headshot.jpeg';
 import TextUsLink from './TextUsLink.astro';
-import LangBadge from './LangBadge.astro';
 import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from '../lib/contact';
 import { useI18n } from '../i18n';
 
@@ -12,6 +11,7 @@ const badgeIcons = [
   "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z",
   "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z",
   "M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+  "M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3 7.5 7.03 7.5 12s2.015 9 4.5 9zM3.6 9h16.8M3.6 15h16.8",
 ];
 ---
 
@@ -34,13 +34,9 @@ const badgeIcons = [
         </h1>
 
         <!-- Subhead — the services, then where -->
-        <p class="text-lg md:text-xl text-text-secondary font-medium mb-4">
+        <p class="text-lg md:text-xl text-text-secondary font-medium mb-6">
           {t.hero.tagline}
         </p>
-
-        <div class="mb-6">
-          <LangBadge variant="hero" />
-        </div>
 
         <!-- Inline trust badges — stacked on mobile, inline on sm+ -->
         <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2.5 sm:gap-4 mb-8">
@@ -54,10 +50,11 @@ const badgeIcons = [
           ))}
         </div>
 
-        <!-- Dual CTA buttons -->
+        <!-- One primary action; the quote form is the next section and the mobile bar carries Quote too -->
         <div class="flex flex-col sm:flex-row gap-3">
           <a
             href={phone}
+            data-hero-cta
             class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
@@ -65,15 +62,9 @@ const badgeIcons = [
             </svg>
             {t.hero.callNow}: {phoneDisplay}
           </a>
-          <a
-            href="#quick-quote"
-            class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg"
-          >
-            {t.hero.quote}
-          </a>
         </div>
         <p class="mt-4">
-          <TextUsLink />
+          <TextUsLink hero />
         </p>
       </div>
 

@@ -38,9 +38,8 @@ const en = {
     h1: "East Orlando's Repiping & Water Heater Specialists",
     tagline:
       "Whole-home repiping, water heater and tankless replacement, slab leaks and sewer lines, for homes in Avalon Park, Waterford Lakes, Alafaya and Oviedo.",
-    badges: ["Licensed & Insured", "Same-Day Rescue Service", "No Hidden Fees"],
+    badges: ["Licensed & Insured", "Same-Day Rescue Service", "No Hidden Fees", "Hablamos español"],
     callNow: "Call Now",
-    quote: "Request a Quote",
     ownerAlt: "Owner of Bonet Plumbing",
     ownerName: "Leo Bonet",
     ownerTitle: "Owner & Licensed Plumber",
@@ -207,6 +206,7 @@ const en = {
   },
   sms: {
     label: "Text us a photo of the problem",
+    heroLabel: "Or text Leo a photo of the problem",
     body: "Hi Leo, here's a photo of my plumbing problem. Can you give me a quote?",
   },
   notFound: {
@@ -275,9 +275,8 @@ const es: UiStrings = {
     h1: "Especialistas en Tuberías y Calentadores de Agua en East Orlando",
     tagline:
       "Cambio completo de tuberías, calentadores de agua y sin tanque, fugas bajo la losa y líneas de cloaca, para hogares en Avalon Park, Waterford Lakes, Alafaya y Oviedo.",
-    badges: ["Con licencia y asegurados", "Rescate el mismo día", "Sin cargos ocultos"],
+    badges: ["Con licencia y asegurados", "Rescate el mismo día", "Sin cargos ocultos", "Hablamos español"],
     callNow: "Llame ahora",
-    quote: "Solicitar cotización",
     ownerAlt: "Dueño de Bonet Plumbing",
     ownerName: "Leo Bonet",
     ownerTitle: "Dueño y plomero con licencia",
@@ -445,6 +444,7 @@ const es: UiStrings = {
   },
   sms: {
     label: "Envíenos una foto del problema por texto",
+    heroLabel: "O envíele a Leo una foto del problema por texto",
     body: "Hola Leo, aquí tiene una foto de mi problema de plomería. ¿Me puede dar una cotización?",
   },
   notFound: {

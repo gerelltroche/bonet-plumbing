@@ -3,7 +3,9 @@
 // switcher lives in the sticky nav, so the bar keeps its space for the
 // three actions. Hidden on md+ where the sticky nav and in-page
 // CTAs already do the job. Layout adds matching bottom padding to <body> so
-// the bar never covers the footer.
+// the bar never covers the footer. On pages whose hero has its own Call
+// button (marked data-hero-cta), the bar stays hidden until that button
+// scrolls off screen, so the first screen has one clear action.
 import { PHONE_HREF, smsHref } from '../lib/contact';
 import { useI18n } from '../i18n';
 
@@ -16,7 +18,8 @@ const { t, l } = useI18n(Astro.url);
 ---
 
 <div
-  class="md:hidden fixed inset-x-0 bottom-0 z-40 bg-white/95 backdrop-blur-sm border-t border-border shadow-[0_-4px_16px_rgba(0,0,0,0.08)] pb-[env(safe-area-inset-bottom)]"
+  id="mobile-cta-bar"
+  class="md:hidden fixed transition-transform duration-200 data-[hidden]:translate-y-full inset-x-0 bottom-0 z-40 bg-white/95 backdrop-blur-sm border-t border-border shadow-[0_-4px_16px_rgba(0,0,0,0.08)] pb-[env(safe-area-inset-bottom)]"
   role="region"
   aria-label={t.bar.region}
 >
@@ -49,3 +52,19 @@ const { t, l } = useI18n(Astro.url);
     </a>
   </div>
 </div>
+
+<script is:inline>
+  (function () {
+    var bar = document.getElementById('mobile-cta-bar');
+    var cta = document.querySelector('[data-hero-cta]');
+    if (!bar || !cta || !('IntersectionObserver' in window)) return;
+    function setHidden(hidden) {
+      bar.toggleAttribute('data-hidden', hidden);
+      bar.inert = hidden;
+    }
+    setHidden(true);
+    new IntersectionObserver(function (entries) {
+      setHidden(entries[0].isIntersecting);
+    }).observe(cta);
+  })();
+</script>
