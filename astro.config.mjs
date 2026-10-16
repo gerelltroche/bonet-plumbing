@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { execFileSync } from 'node:child_process';
@@ -33,6 +33,31 @@ export default defineConfig({
   // elements ("407-734-3968Request a Quote"). Keep the pre-7 behavior so
   // inline links and text never run together.
   compressHTML: true,
+  // Self-hosted at build time (no request to Google), with metric-matched
+  // fallbacks so the swap from the fallback font barely moves the layout.
+  // Layout.astro emits them via <Font>; global.css maps them into the theme.
+  // Latin covers Spanish (á, é, ñ, ¿). Weights are only the ones in use:
+  // Playfair is headings only, which are always font-bold or font-extrabold.
+  fonts: [
+    {
+      name: 'Inter',
+      cssVariable: '--font-inter',
+      provider: fontProviders.google(),
+      weights: [400, 500, 600, 700, 800],
+      styles: ['normal'],
+      subsets: ['latin'],
+      fallbacks: ['system-ui', 'sans-serif'],
+    },
+    {
+      name: 'Playfair Display',
+      cssVariable: '--font-playfair',
+      provider: fontProviders.google(),
+      weights: [700, 800],
+      styles: ['normal'],
+      subsets: ['latin'],
+      fallbacks: ['Georgia', 'serif'],
+    },
+  ],
   // English is unprefixed, Spanish lives under /es/ with the same slugs
   // (src/pages/es/*). Shared components pick their strings from the URL via
   // src/i18n, and Layout emits hreflang alternates for every page.

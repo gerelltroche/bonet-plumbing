@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import MobileCtaBar from "../components/MobileCtaBar.astro";
 import { useI18n, alternateUrl, SITE_URL, LOCALES, DEFAULT_LOCALE } from "../i18n";
 import { getReviews } from "../lib/reviews";
@@ -131,21 +132,12 @@ const { overallRating, reviewCount } = await getReviews();
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- Google Fonts (non-render-blocking) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
+    <!-- Self-hosted fonts (see astro.config.mjs). Each family is one variable
+         latin woff2 covering all its weights, so `preload` is one file each.
+         (A weight filter like [{ weight: 800 }] silently matches nothing:
+         Astro tags a shared variable file with only its first face's weight.) -->
+    <Font cssVariable="--font-inter" preload />
+    <Font cssVariable="--font-playfair" preload />
 
     <title>{title}</title>
 

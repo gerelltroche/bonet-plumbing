@@ -14,9 +14,12 @@
   --color-text-secondary: #5A6170;
   --color-text-muted: #8B92A0;
   --color-border: #D8DCE4;
+}
 
-  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+/* Font stacks come from the Fonts API (astro.config.mjs), fallbacks included. */
+@theme inline {
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
 }
 
 /* Base styles */
