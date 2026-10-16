@@ -143,24 +143,13 @@
   status = 301
 
 # --- Trailing-slash canonicalization ---
-# Astro is configured with trailingSlash: 'always' and every canonical tag uses
-# the /slug/ form. Netlify's "Pretty URLs" already 301s /slug → /slug/, but that
-# is a dashboard toggle; this rule pins the behavior in the repo. It never
-# shadows real files (robots.txt, favicons) because Netlify skips redirects
-# when a matching file exists. Keep it LAST so the specific rules above win.
-[[redirects]]
-  from = "/:slug"
-  to = "/:slug/"
-  status = 301
+# Handled by Netlify's "Pretty URLs" (/slug → /slug/ when /slug/index.html
+# exists). Do NOT add a "/:slug" → "/:slug/" rule here: Netlify ignores the
+# trailing slash when matching, so for any URL without a real page the rule
+# matches /slug/ too and redirects it to itself (ERR_TOO_MANY_REDIRECTS).
 
-# Spanish site lives under /es/ with the same slugs. Same trailing-slash
-# pinning as above, plus a Spanish 404 for anything unknown under /es/.
-# Netlify skips a redirect when a real file matches, so existing pages win.
-[[redirects]]
-  from = "/es/:slug"
-  to = "/es/:slug/"
-  status = 301
-
+# Spanish 404 for anything unknown under /es/. Netlify skips a redirect when a
+# real file matches, so existing pages win.
 [[redirects]]
   from = "/es/*"
   to = "/es/404/index.html"
