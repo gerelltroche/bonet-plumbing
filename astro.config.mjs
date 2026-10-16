@@ -20,7 +20,8 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/success'),
+      // Conversion pages are noindexed; keep them out of the sitemap too.
+      filter: (page) => !page.includes('/success') && !page.includes('/quote/'),
       // Adds <xhtml:link rel="alternate" hreflang> entries so the Spanish
       // pages are listed as translations of their English twins.
       i18n: {

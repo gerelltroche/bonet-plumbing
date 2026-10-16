@@ -217,6 +217,18 @@ const en = {
     home: "Back to Home",
     call: "Call",
   },
+  // Dedicated quote page (/quote/) — the target for the Google Business Profile
+  // booking button and paid ads. Form fields and labels come from `contact`.
+  quote: {
+    title: "Request a Free Quote | Bonet Plumbing LLC",
+    description:
+      "Request a free quote from Bonet Plumbing. Leo calls or texts you back himself, usually within the hour. Call 407-734-3968.",
+    heading: "Request a Free Quote",
+    orTalk: "Rather talk now?",
+    call: "Call",
+    text: "Text a photo",
+    thankYouPath: "/quote/thank-you/",
+  },
   success: {
     title: "Request Received | Bonet Plumbing LLC",
     description:
@@ -441,6 +453,16 @@ const es: UiStrings = {
     body: "Lo sentimos, la página que busca no existe o fue movida.",
     home: "Volver al inicio",
     call: "Llame al",
+  },
+  quote: {
+    title: "Solicite una cotización gratis | Bonet Plumbing LLC",
+    description:
+      "Solicite una cotización gratis a Bonet Plumbing. Leo mismo le llama o le escribe, normalmente en menos de una hora. Llame al 407-734-3968.",
+    heading: "Solicite una cotización gratis",
+    orTalk: "¿Prefiere hablar ahora?",
+    call: "Llamar",
+    text: "Enviar una foto",
+    thankYouPath: "/quote/thank-you/",
   },
   success: {
     title: "Solicitud recibida | Bonet Plumbing LLC",

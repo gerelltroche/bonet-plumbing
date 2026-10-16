@@ -73,6 +73,15 @@ const { overallRating, reviewCount } = await getReviews();
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
 
+    <!-- Google Analytics 4. Quote-page conversions = page_view of /quote/thank-you/. -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-E4KHF6FJDB"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-E4KHF6FJDB');
+    </script>
+
     <!-- Geo & Local SEO -->
     <meta name="geo.region" content="US-FL" />
     <meta name="geo.placename" content={geoPlacename} />
