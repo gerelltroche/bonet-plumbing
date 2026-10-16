@@ -162,11 +162,10 @@ const { overallRating, reviewCount } = await getReviews();
         { "@type": "Language", "name": "English", "alternateName": "en" },
         { "@type": "Language", "name": "Spanish", "alternateName": "es" }
       ],
+      // The business's other official profiles. Add Facebook, Yelp, etc. here as they go live.
       "sameAs": [
-        // TODO: Add your actual profile URLs here
-        // "https://www.google.com/maps/place/Bonet+Plumbing+LLC",
-        // "https://www.facebook.com/bonetplumbing",
-        // "https://www.yelp.com/biz/bonet-plumbing-oviedo"
+        // Google Business Profile (the stable cid link the Places API reports).
+        "https://maps.google.com/?cid=3120497498541400573",
       ],
       "areaServed": SERVICE_AREAS,
       "address": {

@@ -7,7 +7,7 @@
 - [ ] Leo needs to **verify** the `LeoGomezBonet@bonetplumbing.com` address in Gmail (Settings → Accounts and Import → Send mail as → click "verify"). Once verified, he can set it as default.
 - [ ] **Have Leo proofread the Spanish site** (every page under `/es/`, plus the shared strings in `src/i18n/ui.ts`). The translation was machine-drafted in Sept 2026 with formal "usted"; a native read-through for tone and local wording (e.g. "cambio de tuberías", "calentador sin tanque") is worth an hour before promoting the Spanish pages on GBP.
 - [ ] **Add Spanish to Google Business Profile** once Leo signs off: set "Languages spoken: Spanish" and post the `/es/` link in a GBP update so "plomero cerca de mí" searches have a landing page.
-- [ ] Set up **Google Business Profile** as a Service Area Business — primary category "Plumber", add all services, service areas, photos, and a business description. Post weekly updates to stay fresh.
+- [ ] **Keep the Google Business Profile active**: post an update weekly, add job photos, and ask happy customers for reviews. Tag its links so GA4 and the lead form show where visitors came from: website link `https://bonetplumbing.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp`, booking / "Request a quote" link `https://bonetplumbing.com/quote/?utm_source=google&utm_medium=organic&utm_campaign=gbp`.
 - [ ] **Talk to Leo about switching from Wave to Square Invoices** for invoicing/payments. Key differences:
   - **Wave**: Free invoicing, but no webhook for "invoice paid" — so we can't automate a review request when a customer pays. Would need Zapier (limited) or manual texting.
   - **Square**: Also free (no monthly fee, just processing fees ~2.9% + 30¢ per card payment, or 1% for ACH). Has an `invoice.payment_made` webhook — meaning we can build a Netlify function that automatically sends a Google review request to the customer right after they pay. Fully automated, no extra cost.
@@ -25,7 +25,7 @@
   9. What do you do when you're not fixing pipes?
   10. Anything you want customers to know before they call?
 
-- [ ] **Fill in social profile URLs** (`sameAs` in `src/layouts/Layout.astro`) once Google Business Profile, Facebook, etc. are set up
+- [ ] **Add other profiles to `sameAs`** in `src/layouts/Layout.astro` (Facebook, Yelp, Nextdoor…) as they go live. Google Business Profile is already there.
 
 ### Medium Priority
 - [ ] **Add a skip-to-content link** for keyboard/screen reader accessibility
