@@ -5,22 +5,22 @@
 // the top, Leo's face and license, and Call/Text as the escape hatch.
 //
 // Short form plus the optional photo (the photo is what lets Leo quote without
-// a visit). No language field: the page's language is sent as a hidden field.
-// Posts to the same Netlify form ("contact") as the in-page forms, with empty
-// copies of the long form's other optional fields so every same-named form
-// declares the same field set. Noindexed: it's a conversion page, not content.
+// a visit). No language field: <QuoteForm> sends the page's language, and
+// empty values for the other fields it doesn't show, to the same Netlify form
+// as the in-page forms. Noindexed: it's a conversion page, not content.
 import { Image } from "astro:assets";
 import headshot from "../assets/Headshot.jpeg";
 import Layout from "../layouts/Layout.astro";
 import StickyNav from "./StickyNav.astro";
 import Footer from "./Footer.astro";
 import FormRating from "./FormRating.astro";
+import QuoteForm from "./QuoteForm.astro";
+import { FIELD_CLASS as field } from "../lib/quote-form";
 import { PHONE_HREF, smsHref } from "../lib/contact";
 import { useI18n } from "../i18n";
 
 const id = "quote";
-const { locale, t, l } = useI18n(Astro.url);
-const field = "w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors";
+const { t, l } = useI18n(Astro.url);
 ---
 
 <Layout title={t.quote.title} description={t.quote.description} noindex={true} hideCtaBar={true}>
@@ -46,25 +46,8 @@ const field = "w-full px-4 py-3 border border-border rounded-lg bg-background te
       </div>
 
       <div class="lg:col-start-2 lg:row-start-1 lg:row-span-2 bg-surface border border-border rounded-xl shadow-lg p-5 md:p-7">
-        <form
-          id={`${id}-form`}
-          name="contact"
-          method="POST"
-          action={l(t.quote.thankYouPath)}
-          enctype="multipart/form-data"
-          netlify
-          netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <!-- Path plus query string (filled in below), so the submission shows the utm_campaign -->
-          <input type="hidden" name="page" value={Astro.url.pathname} />
-          <input type="hidden" name="language" value={locale} />
-          <input type="hidden" name="email" value="" />
-          <input type="hidden" name="message" value="" />
-          <p class="hidden" hidden aria-hidden="true">
-            <label>{t.contact.honeypot} <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-          </p>
-
+        <!-- QuoteForm adds a hidden "page" input; the script at the bottom appends the query string. -->
+        <QuoteForm id={`${id}-form`} action={l(t.quote.thankYouPath)}>
           <div class="space-y-4">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -119,7 +102,7 @@ const field = "w-full px-4 py-3 border border-border rounded-lg bg-background te
             </button>
             <p class="text-text-muted text-xs text-center">{t.contact.consent}</p>
           </div>
-        </form>
+        </QuoteForm>
       </div>
 
       <!-- Escape hatch for people who'd rather not fill in a form -->

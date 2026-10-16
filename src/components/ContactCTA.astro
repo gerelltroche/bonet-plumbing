@@ -2,7 +2,9 @@
 import { Image } from 'astro:assets';
 import headshot from '../assets/Headshot.jpeg';
 import FormRating from './FormRating.astro';
+import QuoteForm from './QuoteForm.astro';
 import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from '../lib/contact';
+import { FIELD_CLASS } from '../lib/quote-form';
 import { useI18n } from '../i18n';
 
 interface Props {
@@ -66,22 +68,7 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
       <div id={`${id}-form-container`} class="order-first lg:order-none bg-surface border border-border rounded-xl shadow-lg p-6 md:p-8">
         <h3 class="text-xl font-bold text-text mb-6">{t.contact.formHeading}</h3>
 
-        <form
-          id={`${id}-form`}
-          name="contact"
-          method="POST"
-          action={l(t.contact.successPath)}
-          enctype="multipart/form-data"
-          netlify
-          netlify-honeypot="bot-field"
-        >
-          <!-- Honeypot for spam prevention -->
-          <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="page" value={Astro.url.pathname} />
-          <p class="hidden" hidden aria-hidden="true">
-            <label>{t.contact.honeypot} <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-          </p>
-
+        <QuoteForm id={`${id}-form`} action={l(t.contact.successPath)}>
           <div class="space-y-5">
             <!-- Name -->
             <div>
@@ -94,7 +81,7 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
                 name="name"
                 required
                 placeholder={t.contact.namePlaceholder}
-                class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                class={FIELD_CLASS}
               />
             </div>
 
@@ -110,7 +97,7 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
                 required
                 inputmode="tel"
                 placeholder={t.contact.phonePlaceholder}
-                class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                class={FIELD_CLASS}
               />
             </div>
 
@@ -157,7 +144,7 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
                 id={`${id}-email`}
                 name="email"
                 placeholder={t.contact.emailPlaceholder}
-                class="w-full px-4 py-3 border border-border rounded-lg bg-background text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                class={FIELD_CLASS}
               />
             </div>
 
@@ -209,7 +196,7 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
             </p>
             <p class="text-text-muted text-xs text-center -mt-3">{t.contact.consent}</p>
           </div>
-        </form>
+        </QuoteForm>
 
       </div>
     </div>

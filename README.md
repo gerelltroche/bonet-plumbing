@@ -55,10 +55,13 @@ page file's last commit (see `astro.config.mjs`).
 **Quote forms.** Three forms post to the same Netlify Form, `contact`:
 `ContactCTA` (full form on most pages), `QuickQuote` (short form on the home
 page) and `QuotePage` (`/quote/`, the target for Google Business Profile and
-ads). Netlify detects fields from the HTML, so every form carries the same
-field set, with hidden empty inputs for the fields it doesn't show. Add a
-field to all three or Netlify may drop it. Submissions land on `/success/` or
-`/quote/thank-you/`.
+ads). Netlify detects fields from the HTML, so every form must declare the
+same field set. Each form wraps its visible fields in `<QuoteForm>`, which adds
+a hidden empty input for every field in `QUOTE_FIELDS`
+(`src/lib/quote-form.ts`) that the form doesn't show, and fails the build if a
+form shows a field missing from that list. To add a field, add it to
+`QUOTE_FIELDS`; the other forms pick it up automatically. Submissions land on
+`/success/` or `/quote/thank-you/`.
 
 **Analytics.** GA4 is set up in Layout. Key events: `call_click` and
 `text_click` (any `tel:`/`sms:` tap) and `generate_lead` (fired by the success

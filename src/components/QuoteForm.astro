@@ -1,0 +1,55 @@
+---
+// <form> wrapper for every quote form (see src/lib/quote-form.ts). The slot is
+// the form's visible fields. This adds the Netlify plumbing (form-name, page,
+// honeypot) and a hidden empty input for every shared field the slot doesn't
+// render, so all quote forms declare the same field set to Netlify.
+import { QUOTE_FORM_NAME, QUOTE_FIELDS } from "../lib/quote-form";
+import { useI18n } from "../i18n";
+
+interface Props {
+  /** Form element id, e.g. "contact-form". */
+  id: string;
+  /** Where Netlify sends the visitor after a successful submission. */
+  action: string;
+}
+const { id, action } = Astro.props;
+const { locale, t } = useI18n(Astro.url);
+
+const body = await Astro.slots.render("default");
+const shown = new Set([...body.matchAll(/\sname="([^"]+)"/g)].map((m) => m[1]));
+const unknown = [...shown].filter((f) => !(QUOTE_FIELDS as readonly string[]).includes(f));
+if (unknown.length) {
+  throw new Error(
+    `Quote form #${id} renders field(s) ${unknown.join(", ")} that aren't in QUOTE_FIELDS ` +
+      `(src/lib/quote-form.ts). Add them there so every quote form declares them to Netlify.`,
+  );
+}
+// Hidden ones get the page's language for `language`, empty for everything else.
+const hidden = QUOTE_FIELDS.filter((f) => !shown.has(f));
+---
+
+<form
+  id={id}
+  name={QUOTE_FORM_NAME}
+  method="POST"
+  action={action}
+  enctype="multipart/form-data"
+  netlify
+  netlify-honeypot="bot-field"
+>
+  <input type="hidden" name="form-name" value={QUOTE_FORM_NAME} />
+  <input type="hidden" name="page" value={Astro.url.pathname} />
+  {hidden.map((f) =>
+    f === "photo" ? (
+      <input type="file" name="photo" class="hidden" hidden tabindex="-1" aria-hidden="true" />
+    ) : f === "language" ? (
+      <input type="hidden" name="language" value={locale} />
+    ) : (
+      <input type="hidden" name={f} value="" />
+    ),
+  )}
+  <p class="hidden" hidden aria-hidden="true">
+    <label>{t.contact.honeypot} <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+  </p>
+  <Fragment set:html={body} />
+</form>
