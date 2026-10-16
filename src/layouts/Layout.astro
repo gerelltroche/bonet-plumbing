@@ -71,15 +71,26 @@ const { overallRating, reviewCount } = await getReviews();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    <meta name="robots" content={noindex ? "noindex" : "index, follow"} />
 
-    <!-- Google Analytics 4. Quote-page conversions = page_view of /quote/thank-you/. -->
+    <!-- Google Analytics 4. Key events: call_click, text_click, generate_lead (fired by FormSuccess). -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-E4KHF6FJDB"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-E4KHF6FJDB');
+      // Call/text taps are the main conversions; enhanced measurement doesn't report them as their own events.
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="sms:"]');
+        if (a) gtag('event', a.protocol === 'tel:' ? 'call_click' : 'text_click', { page_location: location.href });
+      });
+      // A quote form was submitted from this page; the success page reads this to fire generate_lead
+      // only after a real submission (not on a reload or a direct visit).
+      document.addEventListener('submit', function (e) {
+        if (e.target.name !== 'contact') return;
+        try { sessionStorage.setItem('lead-page', location.href); } catch (_) {}
+      });
     </script>
 
     <!-- Geo & Local SEO -->

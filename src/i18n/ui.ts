@@ -114,14 +114,14 @@ const en = {
     heading: "Proudly Protecting Central Florida Homes",
     callCta: "Need a plumber? Call",
     main: [
-      { name: "Oviedo", href: "/oviedo-plumber/" },
-      { name: "Winter Springs", href: "/winter-springs-plumber/" },
+      { name: "Avalon Park", href: "/avalon-park-plumber/" },
       { name: "East Orlando", href: "/east-orlando-plumber/" },
+      { name: "Alafaya / UCF", href: "/alafaya-plumber/" },
     ],
     more: [
+      { name: "Oviedo", href: "/oviedo-plumber/" },
+      { name: "Winter Springs", href: "/winter-springs-plumber/" },
       { name: "Lake Mary", href: "/lake-mary-plumber/" },
-      { name: "Alafaya / UCF", href: "/alafaya-plumber/" },
-      { name: "Avalon Park", href: "/avalon-park-plumber/" },
     ],
   },
   contact: {
@@ -169,6 +169,7 @@ const en = {
     rating: (n: number) => `on Google · ${n} reviews`,
     submit: "Get my free estimate",
     responseTime: "Leo calls or texts you back himself, usually within the hour.",
+    consent: "By submitting, you agree Bonet Plumbing may call or text you about your request.",
     successPath: "/success/",
   },
   footer: {
@@ -234,7 +235,7 @@ const en = {
     description:
       "Thank you for contacting Bonet Plumbing LLC. We received your request and will respond within 1 hour. Call 407-734-3968 for immediate help.",
     heading: "We Got Your Request!",
-    body: "We'll be in touch shortly. Expect a call within 1 hour.",
+    body: "Leo will call or text you back himself, usually within the hour.",
     sooner: "Need help sooner?",
     call: "Call",
   },
@@ -350,14 +351,14 @@ const es: UiStrings = {
     heading: "Protegiendo con Orgullo los Hogares de Florida Central",
     callCta: "¿Necesita un plomero? Llame al",
     main: [
-      { name: "Oviedo", href: "/oviedo-plumber/" },
-      { name: "Winter Springs", href: "/winter-springs-plumber/" },
+      { name: "Avalon Park", href: "/avalon-park-plumber/" },
       { name: "East Orlando", href: "/east-orlando-plumber/" },
+      { name: "Alafaya / UCF", href: "/alafaya-plumber/" },
     ],
     more: [
+      { name: "Oviedo", href: "/oviedo-plumber/" },
+      { name: "Winter Springs", href: "/winter-springs-plumber/" },
       { name: "Lake Mary", href: "/lake-mary-plumber/" },
-      { name: "Alafaya / UCF", href: "/alafaya-plumber/" },
-      { name: "Avalon Park", href: "/avalon-park-plumber/" },
     ],
   },
   contact: {
@@ -405,6 +406,7 @@ const es: UiStrings = {
     rating: (n: number) => `en Google · ${n} reseñas`,
     submit: "Obtener mi presupuesto gratis",
     responseTime: "Leo mismo le llama o le escribe, normalmente en menos de una hora.",
+    consent: "Al enviar, acepta que Bonet Plumbing le llame o le envíe mensajes de texto sobre su solicitud.",
     successPath: "/success/",
   },
   footer: {
@@ -469,7 +471,7 @@ const es: UiStrings = {
     description:
       "Gracias por contactar a Bonet Plumbing LLC. Recibimos su solicitud y responderemos en menos de 1 hora. Llame al 407-734-3968 para ayuda inmediata.",
     heading: "¡Recibimos su solicitud!",
-    body: "Nos comunicaremos con usted en breve. Espere una llamada en menos de 1 hora.",
+    body: "Leo mismo le llamará o le escribirá, normalmente en menos de una hora.",
     sooner: "¿Necesita ayuda más pronto?",
     call: "Llame al",
   },

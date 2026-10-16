@@ -36,3 +36,14 @@ const { t } = useI18n(Astro.url);
   </main>
   <Footer quoteHref="/#quick-quote" />
 </Layout>
+
+<script is:inline>
+  // Netlify only lands here after accepting the submission, so this is the confirmed lead.
+  try {
+    var leadPage = sessionStorage.getItem('lead-page');
+    if (leadPage) {
+      sessionStorage.removeItem('lead-page');
+      gtag('event', 'generate_lead', { form_page: leadPage, page_location: location.href });
+    }
+  } catch (_) {}
+</script>
