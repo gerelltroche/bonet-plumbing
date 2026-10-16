@@ -1,43 +1,73 @@
-# Astro Starter Kit: Minimal
+# Bonet Plumbing
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Marketing site for Bonet Plumbing LLC (bonetplumbing.com): a static Astro 7 +
+Tailwind v4 site, hosted on Netlify, in English and Spanish.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-## 🚀 Project Structure
+Requires Node 22.12+ (pinned in `.nvmrc`).
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command                   | Does                                                         |
+| :------------------------ | :----------------------------------------------------------- |
+| `npm install`             | Install dependencies                                         |
+| `npm run dev`             | Dev server at `localhost:4321`                               |
+| `npm run build`           | `astro check` (types) then build to `dist/`; Netlify runs this |
+| `npm run preview`         | Serve the built `dist/` locally                              |
+| `npm run reviews:refresh` | Pull Google reviews into `src/data/reviews.json` (see below) |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Pushing to `main` deploys. A type error fails the build, and so the deploy.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## How the site fits together
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+**Pages.** One file per URL in `src/pages/`. The site sells high-ticket
+residential work only: two service pages (`repiping`, `water-heater-services`)
+and six city pages (`*-plumber`). Everything else that used to exist is 301'd
+to the closest kept page in `netlify.toml`. Prefer improving these pages over
+adding new ones.
 
-Any static assets, like images, can be placed in the `public/` directory.
+**English and Spanish.** English is unprefixed, Spanish lives under `/es/` with
+the same slugs, so every page has a twin at `src/pages/es/<same path>`. Change
+one, change the other. Shared components take their strings from
+`src/i18n/ui.ts` (`es` is typed against `en`, so a missing key fails the
+build) and pick the locale from the URL via `useI18n(Astro.url)` in
+`src/i18n/index.ts`. Layout emits hreflang alternates for each pair.
 
-## 🧞 Commands
+**Layout and SEO.** `src/layouts/Layout.astro` owns the `<head>`: canonical,
+hreflang, Open Graph, the `Plumber` JSON-LD (rating from reviews.json, service
+areas from `src/data/service-areas.ts`), plus optional breadcrumb and FAQ
+JSON-LD passed in as props. Conversion pages (`/success/`, `/quote/...`) are
+noindexed and left out of the sitemap. Sitemap `<lastmod>` comes from each
+page file's last commit (see `astro.config.mjs`).
 
-All commands are run from the root of the project, from a terminal:
+**Contact details.** The phone number and SMS link live in
+`src/lib/contact.ts`. Some older pages still hardcode the number.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+**Quote forms.** Three forms post to the same Netlify Form, `contact`:
+`ContactCTA` (full form on most pages), `QuickQuote` (short form on the home
+page) and `QuotePage` (`/quote/`, the target for Google Business Profile and
+ads). Netlify detects fields from the HTML, so every form carries the same
+field set, with hidden empty inputs for the fields it doesn't show. Add a
+field to all three or Netlify may drop it. Submissions land on `/success/` or
+`/quote/thank-you/`.
 
-## 👀 Want to learn more?
+**Analytics.** GA4 is set up in Layout. Key events: `call_click` and
+`text_click` (any `tel:`/`sms:` tap) and `generate_lead` (fired by the success
+page only after a real form submission).
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+**Reviews.** `src/data/reviews.json` is the only source of review data; the
+Reviews section, the form rating line and the JSON-LD all read it through
+`src/lib/reviews.ts`. The build never calls Google. A GitHub Action
+(`.github/workflows/refresh-reviews.yml`) refreshes it every Monday and commits
+only when something changed, which triggers a deploy. To run it locally, put
+`GOOGLE_PLACES_API_KEY` and `GOOGLE_PLACE_ID` in `.env`.
+
+**Fonts.** Inter (body) and Playfair Display (headings) are self-hosted with
+the Astro Fonts API, configured in `astro.config.mjs` and mapped into Tailwind
+in `src/styles/global.css`.
+
+## Other notes
+
+- `todo.md` tracks open business and site tasks.
+- Netlify's "Pretty URLs" handles the trailing slash. Don't add a catch-all
+  slash redirect in `netlify.toml`; the comment there explains the loop it
+  causes.

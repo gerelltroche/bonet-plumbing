@@ -5,7 +5,6 @@
      2. If the item is already done, prompt the user to delete this todo. -->
 
 - [ ] Leo needs to **verify** the `LeoGomezBonet@bonetplumbing.com` address in Gmail (Settings → Accounts and Import → Send mail as → click "verify"). Once verified, he can set it as default.
-- [x] Get a headshot of Leo to add to the website — builds trust and puts a face to the business.
 - [ ] **Have Leo proofread the Spanish site** (every page under `/es/`, plus the shared strings in `src/i18n/ui.ts`). The translation was machine-drafted in Sept 2026 with formal "usted"; a native read-through for tone and local wording (e.g. "cambio de tuberías", "calentador sin tanque") is worth an hour before promoting the Spanish pages on GBP.
 - [ ] **Add Spanish to Google Business Profile** once Leo signs off: set "Languages spoken: Spanish" and post the `/es/` link in a GBP update so "plomero cerca de mí" searches have a landing page.
 - [ ] Set up **Google Business Profile** as a Service Area Business — primary category "Plumber", add all services, service areas, photos, and a business description. Post weekly updates to stay fresh.
@@ -26,12 +25,8 @@
   9. What do you do when you're not fixing pipes?
   10. Anything you want customers to know before they call?
 
-- [x] **Add a Privacy Policy page** — collecting form data via Netlify Forms with no privacy policy linked anywhere
-- [ ] **Add a testimonials/reviews section** — huge for local SEO and conversions; also enables Review/AggregateRating schema
-- [x] **Optimize images** — `Headshot.jpeg` (130KB) and `logo_with_text.jpeg` (109KB) have no lazy loading, no WebP, no `width`/`height` attributes (causes layout shift)
-- [ ] **Uncomment social profile URLs** in `Layout.astro:96` once Google Business Profile, Facebook, etc. are set up
+- [ ] **Fill in social profile URLs** (`sameAs` in `src/layouts/Layout.astro`) once Google Business Profile, Facebook, etc. are set up
 
 ### Medium Priority
-- [x] **Add phone number pattern validation** to the contact form (currently accepts any text)
 - [ ] **Add a skip-to-content link** for keyboard/screen reader accessibility
 - [ ] **Create an About/Meet the Owner page** (already partially tracked — depends on Leo's answers)
