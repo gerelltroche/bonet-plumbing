@@ -1,0 +1,34 @@
+# Lake Mary city page: /lake-mary-plumber/ and /es/lake-mary-plumber/.
+# Rendered by src/components/city/CityPage.astro; schema in src/content.config.ts.
+geo:
+  placename: Lake Mary, Florida
+  lat: 28.7589
+  lng: -81.3178
+nearby:
+  - winter-springs
+  - oviedo
+  - east-orlando
+en:
+  title: Lake Mary Plumber | Bonet Plumbing LLC
+  description: Lake Mary high-value plumbing — whole-home repiping, tankless water heater installation, slab leak repair, sewer & gas lines. Licensed & insured (CFC1434246). Call 407-734-3968.
+  breadcrumb: Lake Mary Plumber
+  place: Lake Mary
+  h1: Lake Mary Plumber — Premium Service, Upfront Pricing
+  intro: Your Heathrow, Markham Woods, or Colonial Town Park home deserves plumbing service that matches the neighborhood. When a slab leak shows up, a water heater fails, or it's time to go tankless, we respond same-day with upfront pricing — so you know exactly what to expect.
+  localIssues:
+    - Lake Mary's established communities — Heathrow, Magnolia Plantation, Timacuan, and the estates along Markham Woods — were largely built between the 1980s and 2000s, and that timing tells us a lot before we ever walk in the door. These are larger homes, often with multiple bathrooms and two water heaters, which makes them strong candidates for tankless conversion and hot-water recirculation so the far end of the house isn't waiting on hot water. Central Florida's hard water is relentless here, so we do a steady amount of water-heater flushing and softener work to protect those systems.
+    - These neighborhoods are also hitting the age where the original plumbing starts to give out — polybutylene runs and under-slab copper that have simply reached the end of their service life. That's where repiping and slab leak work come in. And because these are homes built for comfort, gas line additions for whole-home generators, pool heaters, and outdoor kitchens are some of the most common upgrades we handle in Lake Mary.
+  sameDayBullet: Same-day service for Lake Mary, Heathrow & surrounding communities
+  nearbyHeading: Nearby Service Areas
+es:
+  title: Plomero en Lake Mary | Bonet Plumbing LLC
+  description: "Plomería de alto valor en Lake Mary: cambio completo de tuberías, instalación de calentadores de agua sin tanque, reparación de fugas bajo la losa, líneas de cloaca y de gas. Con licencia y asegurados (CFC1434246). Llame al 407-734-3968."
+  breadcrumb: Plomero en Lake Mary
+  place: Lake Mary
+  h1: "Plomero en Lake Mary: Servicio Premium, Precio por Adelantado"
+  intro: Su casa en Heathrow, Markham Woods o Colonial Town Park merece un servicio de plomería a la altura del vecindario. Cuando aparece una fuga bajo la losa, el calentador de agua falla o llega el momento de pasar a sin tanque, respondemos el mismo día con precio por adelantado, para que sepa exactamente qué esperar.
+  localIssues:
+    - Las comunidades consolidadas de Lake Mary (Heathrow, Magnolia Plantation, Timacuan y las residencias a lo largo de Markham Woods) se construyeron en su mayoría entre los años 80 y 2000, y esa época nos dice mucho antes de siquiera cruzar la puerta. Son casas más grandes, muchas veces con varios baños y dos calentadores de agua, lo que las convierte en excelentes candidatas para la conversión a sistema sin tanque y la recirculación de agua caliente, para que el extremo más lejano de la casa no tenga que esperar el agua caliente. El agua dura de Florida Central es implacable aquí, así que hacemos con frecuencia purgas de calentadores de agua e instalación de ablandadores para proteger esos sistemas.
+    - "Estos vecindarios también están llegando a la edad en que la plomería original empieza a fallar: tramos de polibutileno y cobre bajo la losa que simplemente alcanzaron el final de su vida útil. Ahí es donde entran el cambio completo de tuberías y la reparación de fugas bajo la losa. Y como son casas construidas para la comodidad, la instalación de líneas de gas para generadores de toda la casa, calentadores de piscina y cocinas exteriores está entre las mejoras más comunes que hacemos en Lake Mary."
+  sameDayBullet: Servicio el mismo día en Lake Mary, Heathrow y las comunidades cercanas
+  nearbyHeading: Áreas de Servicio Cercanas

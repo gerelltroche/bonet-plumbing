@@ -1,0 +1,32 @@
+# Oviedo city page: /oviedo-plumber/ and /es/oviedo-plumber/.
+# Rendered by src/components/city/CityPage.astro; schema in src/content.config.ts.
+geo:
+  placename: Oviedo, Florida
+  lat: 28.67
+  lng: -81.2081
+nearby:
+  - winter-springs
+  - east-orlando
+  - alafaya
+en:
+  title: Oviedo Plumber | Bonet Plumbing LLC
+  description: Oviedo's high-value plumbing specialists — whole-home repiping, water heater & tankless installation, slab leak repair, sewer line & gas line work. Licensed & insured (CFC1434246). Call 407-734-3968.
+  breadcrumb: Oviedo Plumber
+  place: Oviedo
+  h1: Need a Plumber in Oviedo? Same-Day Service, Guaranteed Pricing.
+  intro: Failing polybutylene pipe, rusty water from old galvanized lines, or a water heater that quit on you? Don't let a plumbing problem ruin your day. We'll be at your Oviedo home fast — from neighborhoods near Oviedo Mall to Oviedo on the Park — with upfront pricing before any work begins.
+  localIssues:
+    - Near historic downtown Oviedo, a lot of the homes were built between the 1950s and 70s. Those houses came with galvanized steel supply lines and cast iron drains, and both are right at the end of their service life — we see rusted-out water and recurring drain backups in that part of town constantly. The big subdivisions that went up in the 1980s and 90s, like Alafaya Woods, Kingsbridge, and Twin Rivers, land squarely in the polybutylene era of 1978 to 1995. That gray pipe fails without warning, and when it goes it usually means a full repipe.
+    - Oviedo is built slab-on-grade almost everywhere, so as the copper under those slabs ages, slab leaks are one of the most common calls we get. The mature oak canopy the city is known for is hard on sewer lines too — those roots find their way into the pipe and choke it. Out in rural east Oviedo, plenty of properties run on well water, and that hard water shortens water-heater life and chews up fixtures, which is why we usually recommend pressure regulation out there.
+  sameDayBullet: Same-day appointments so you're not waiting around all week
+es:
+  title: Plomero en Oviedo | Bonet Plumbing LLC
+  description: "Especialistas en plomería de alto valor en Oviedo: cambio completo de tuberías, instalación de calentadores de agua y sin tanque, reparación de fugas bajo la losa, línea de cloaca y líneas de gas. Con licencia y asegurados (CFC1434246). Llame al 407-734-3968."
+  breadcrumb: Plomero en Oviedo
+  place: Oviedo
+  h1: ¿Necesita un Plomero en Oviedo? Servicio el Mismo Día, Precio Garantizado.
+  intro: ¿Tuberías de polibutileno que fallan, agua oxidada por líneas galvanizadas viejas o un calentador de agua que dejó de funcionar? No deje que un problema de plomería le arruine el día. Llegamos rápido a su casa en Oviedo, desde los vecindarios cerca de Oviedo Mall hasta Oviedo on the Park, con el precio claro antes de empezar cualquier trabajo.
+  localIssues:
+    - "Cerca del centro histórico de Oviedo, muchas casas se construyeron entre los años 50 y 70. Esas casas vinieron con tuberías de suministro de acero galvanizado y drenajes de hierro fundido, y ambos están justo al final de su vida útil: en esa parte de la ciudad vemos constantemente agua oxidada y drenajes que se tapan una y otra vez. Las grandes urbanizaciones que se levantaron en los 80 y 90, como Alafaya Woods, Kingsbridge y Twin Rivers, caen de lleno en la era del polibutileno, de 1978 a 1995. Esa tubería gris falla sin aviso, y cuando falla, casi siempre significa un cambio completo de tuberías."
+    - "En Oviedo casi todo está construido sobre losa, así que a medida que envejece el cobre bajo esas losas, las fugas bajo la losa son una de las llamadas más comunes que recibimos. El follaje de robles maduros por el que se conoce la ciudad también castiga las líneas de cloaca: esas raíces se meten en la tubería y la ahogan. En el este rural de Oviedo, muchas propiedades usan agua de pozo, y esa agua dura acorta la vida del calentador de agua y desgasta los grifos, por eso allí solemos recomendar regulación de presión."
+  sameDayBullet: Citas el mismo día para que no espere toda la semana

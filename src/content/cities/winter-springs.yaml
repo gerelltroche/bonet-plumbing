@@ -1,0 +1,32 @@
+# Winter Springs city page: /winter-springs-plumber/ and /es/winter-springs-plumber/.
+# Rendered by src/components/city/CityPage.astro; schema in src/content.config.ts.
+geo:
+  placename: Winter Springs, Florida
+  lat: 28.6989
+  lng: -81.3081
+nearby:
+  - oviedo
+  - lake-mary
+  - east-orlando
+en:
+  title: Winter Springs Plumber | Bonet Plumbing LLC
+  description: Winter Springs high-value plumbing — whole-home repiping, tankless water heaters, slab leak repair, sewer & gas line work. Licensed & insured (CFC1434246). Call 407-734-3968.
+  breadcrumb: Winter Springs Plumber
+  place: Winter Springs
+  h1: Plumbing Problems in Winter Springs? Get Same-Day Help.
+  intro: Rusty water, fading pressure, a slab leak, or no hot water? Whether you're in Tuscawilla, the Highlands, or anywhere in Winter Springs, you can have a licensed plumber at your door today — with honest pricing you agree to before we pick up a wrench.
+  localIssues:
+    - A lot of Winter Springs homes are reaching the age where their original plumbing gives out. Tuscawilla is a large golf-course community built mostly in the 1980s and early '90s — prime polybutylene territory, and that gray pipe fails without warning. Over in The Highlands, which dates to the 1970s and '80s, we pull out aging galvanized supply lines that have rusted shut and choked the pressure down to a trickle.
+    - Most of the city is built slab-on-grade, so when the under-slab copper finally corrodes, we find slab leaks — usually flagged by a warm spot on the floor or a water bill that won't quit climbing. The mature tree canopy here is beautiful, but those roots love finding a sewer line, and we clear and replace plenty of them. And with Central Florida's hard water shortening every water heater's life, tankless conversions and routine flushing are two of the most common calls we run.
+  sameDayBullet: Same-day service — because plumbing problems can't wait
+es:
+  title: Plomero en Winter Springs | Bonet Plumbing LLC
+  description: "Plomería de alto valor en Winter Springs: cambio completo de tuberías, calentadores de agua sin tanque, reparación de fugas bajo la losa, línea de cloaca y líneas de gas. Con licencia y asegurados (CFC1434246). Llame al 407-734-3968."
+  breadcrumb: Plomero en Winter Springs
+  place: Winter Springs
+  h1: ¿Problemas de Plomería en Winter Springs? Reciba Ayuda el Mismo Día.
+  intro: ¿Agua oxidada, presión que se va perdiendo, una fuga bajo la losa o sin agua caliente? Ya sea que viva en Tuscawilla, The Highlands o en cualquier parte de Winter Springs, puede tener un plomero con licencia en su puerta hoy mismo, con un precio honesto que usted aprueba antes de que tomemos una sola herramienta.
+  localIssues:
+    - "Muchas casas de Winter Springs están llegando a la edad en que su plomería original se rinde. Tuscawilla es una gran comunidad de campo de golf construida mayormente en los años 80 y principios de los 90: territorio de polibutileno por excelencia, y esa tubería gris falla sin aviso. En The Highlands, que data de los años 70 y 80, retiramos tuberías de suministro de acero galvanizado envejecidas que se han oxidado por dentro y han reducido la presión a un hilo de agua."
+    - La mayor parte de la ciudad está construida sobre losa, así que cuando el cobre bajo la losa por fin se corroe, encontramos fugas bajo la losa, que casi siempre se delatan por un punto tibio en el piso o una factura de agua que no deja de subir. El follaje de árboles maduros de aquí es hermoso, pero a esas raíces les encanta encontrar una línea de cloaca, y destapamos y reemplazamos muchísimas. Y como el agua dura dFlorida Central acorta la vida de todo calentador de agua, las conversiones a sistema sin tanque y las limpiezas de rutina son dos de las llamadas más comunes que atendemos.
+  sameDayBullet: Servicio el mismo día, porque los problemas de plomería no pueden esperar

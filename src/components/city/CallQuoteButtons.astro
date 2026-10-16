@@ -1,0 +1,17 @@
+---
+// Closing Call / Request a Quote pair on city pages. "Request a Quote" jumps to
+// the page's <ContactCTA /> form (#contact).
+import { PHONE_HREF, PHONE_DISPLAY } from "../../lib/contact";
+import { useI18n } from "../../i18n";
+
+const { t } = useI18n(Astro.url);
+---
+
+<div class="flex flex-col sm:flex-row gap-4">
+  <a href={PHONE_HREF} class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+    {t.banner.callNow}: {PHONE_DISPLAY}
+  </a>
+  <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
+    {t.banner.quote}
+  </a>
+</div>

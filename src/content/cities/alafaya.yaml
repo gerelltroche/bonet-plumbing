@@ -1,0 +1,41 @@
+# Alafaya / UCF city page: /alafaya-plumber/ and /es/alafaya-plumber/.
+# Rendered by src/components/city/CityPage.astro; schema in src/content.config.ts.
+geo:
+  placename: Alafaya, Florida
+  lat: 28.5641
+  lng: -81.2114
+nearby:
+  - avalon-park
+  - oviedo
+  - east-orlando
+  - winter-springs
+en:
+  title: Alafaya & UCF Plumber | Bonet Plumbing LLC
+  description: Alafaya & UCF-area high-value plumbing — whole-home repiping, tankless water heaters, slab leak repair, sewer & gas line work. Licensed & insured (CFC1434246). Call 407-734-3968.
+  breadcrumb: Alafaya Plumber
+  place: Alafaya & UCF
+  h1: Alafaya Plumber — Serving Families & Property Managers
+  intro: Whether you own a family home or manage rental properties along Alafaya Trail, plumbing problems demand fast, professional help. We arrive same-day, explain what's wrong in plain language, and give you an upfront price before we start.
+  localIssues:
+    - The Alafaya Trail corridor near the University of Central Florida is packed with subdivisions built in the 1990s and 2000s, mixed in with a lot of rentals and student housing, and bordered by Waterford Lakes. Those homes are now hitting the age where the original water heaters give out and polybutylene runs start failing — and because most are built slab-on-grade, the leaks often show up under the foundation rather than in a wall.
+    - "That mix is exactly what we work on every day out here. The heavy rental turnover means owners and property managers can't wait around: when a repipe or water-heater swap needs to happen between tenants, it has to be done fast, done right, and properly permitted. We handle that, and we handle the slab leaks the local soil and construction make so common in this part of east Orange County."
+  ctaHeading: Need a Plumber in Alafaya or Near UCF?
+  sameDayBullet: Same-day service for the Alafaya corridor and surrounding neighborhoods
+  nearbyHeading: Nearby Service Areas
+  nearbyLabels:
+    avalon-park: Avalon Park Water Heaters
+es:
+  title: Plomero en Alafaya y UCF | Bonet Plumbing LLC
+  description: "Plomería de alto valor en Alafaya y la zona de UCF: cambio completo de tuberías, calentadores de agua sin tanque, reparación de fugas bajo la losa, líneas de cloaca y de gas. Con licencia y asegurados (CFC1434246). Llame al 407-734-3968."
+  breadcrumb: Plomero en Alafaya
+  place: Alafaya y UCF
+  h1: "Plomero en Alafaya: Al Servicio de Familias y Administradores de Propiedades"
+  intro: Ya sea que tenga una casa familiar o administre propiedades de alquiler a lo largo de Alafaya Trail, los problemas de plomería exigen ayuda rápida y profesional. Llegamos el mismo día, le explicamos qué está fallando en lenguaje claro y le damos un precio por adelantado antes de empezar.
+  localIssues:
+    - El corredor de Alafaya Trail cerca de la University of Florida Central está lleno de urbanizaciones construidas en los años 90 y 2000, mezcladas con muchas propiedades de alquiler y viviendas para estudiantes, y colinda con Waterford Lakes. Esas casas ya están llegando a la edad en que los calentadores de agua originales se rinden y los tramos de polibutileno empiezan a fallar; y como la mayoría está construida sobre losa, las fugas suelen aparecer bajo los cimientos y no en una pared.
+    - "Esa combinación es exactamente en lo que trabajamos aquí todos los días. La alta rotación de inquilinos significa que los dueños y administradores de propiedades no pueden quedarse esperando: cuando hay que hacer un cambio de tuberías o reemplazar un calentador de agua entre un inquilino y otro, tiene que hacerse rápido, bien hecho y con los permisos en regla. Nosotros nos encargamos de eso, y también de las fugas bajo la losa que el suelo y el tipo de construcción de la zona hacen tan comunes en esta parte del este del condado de Orange."
+  ctaHeading: ¿Necesita un Plomero en Alafaya o Cerca de UCF?
+  sameDayBullet: Servicio el mismo día en el corredor de Alafaya y los vecindarios cercanos
+  nearbyHeading: Áreas de Servicio Cercanas
+  nearbyLabels:
+    avalon-park: Calentadores de Agua en Avalon Park

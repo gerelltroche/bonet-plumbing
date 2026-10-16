@@ -25,6 +25,16 @@ and six city pages (`*-plumber`). Everything else that used to exist is 301'd
 to the closest kept page in `netlify.toml`. Prefer improving these pages over
 adding new ones.
 
+**City pages.** Five of the six are data: the copy for each (both languages)
+is in `src/content/cities/<city>.yaml`, and `src/components/city/CityPage.astro`
+renders it. The page files are one-line wrappers. Edit the YAML to change a
+city's copy; edit the template (or `ui.city` in `src/i18n/ui.ts` for the
+shared strings and service cards) to change all of them at once. The schema
+in `src/content.config.ts` fails the build if a city is missing a field in
+either language. Avalon Park has its own water-heater-focused body, so its
+page is hand-written, but it uses the same hero, "What You Get" box and
+buttons from `src/components/city/`.
+
 **English and Spanish.** English is unprefixed, Spanish lives under `/es/` with
 the same slugs, so every page has a twin at `src/pages/es/<same path>`. Change
 one, change the other. Shared components take their strings from

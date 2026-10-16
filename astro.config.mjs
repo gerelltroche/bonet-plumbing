@@ -5,18 +5,25 @@ import tailwindcss from '@tailwindcss/vite';
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 
-// <lastmod> for the sitemap: the later of the page file's last commit and the
-// last reviews refresh (every page shows the Reviews section). A date that
-// only moves when the page really changes is one Google keeps trusting.
+// <lastmod> for the sitemap: the later of the page's last commit and the last
+// reviews refresh (every page shows the Reviews section). A date that only
+// moves when the page really changes is one Google keeps trusting. City pages
+// are thin wrappers, so their content files and template count too.
 const reviewsFetchedAt = JSON.parse(readFileSync('./src/data/reviews.json', 'utf-8')).fetchedAt;
 /** @param {string} url */
 function lastmod(url) {
   const path = new URL(url).pathname.replace(/\/$/, '');
-  const file = [`src/pages${path}.astro`, `src/pages${path}/index.astro`].find(existsSync);
+  const bare = path.replace(/^\/es(?=\/|$)/, '');
+  const city = bare.match(/^\/([a-z-]+)-plumber$/)?.[1];
+  const files = [
+    `src/pages${path}.astro`,
+    `src/pages${path}/index.astro`,
+    ...(city ? [`src/content/cities/${city}.yaml`, 'src/components/city'] : []),
+  ].filter(existsSync);
   let committed = '';
-  if (file) {
+  if (files.length) {
     try {
-      committed = execFileSync('git', ['log', '-1', '--format=%cs', '--', file], { encoding: 'utf-8' }).trim();
+      committed = execFileSync('git', ['log', '-1', '--format=%cs', '--', ...files], { encoding: 'utf-8' }).trim();
     } catch {}
   }
   return committed > reviewsFetchedAt ? committed : reviewsFetchedAt;

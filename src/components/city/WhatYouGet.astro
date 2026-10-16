@@ -1,0 +1,24 @@
+---
+// "What You Get" box on city pages. The licensed and price bullets are shared;
+// the middle (same-day) bullet is per city.
+import { useI18n } from "../../i18n";
+
+interface Props {
+  sameDayBullet: string;
+}
+const { sameDayBullet } = Astro.props;
+const { t } = useI18n(Astro.url);
+const bullets = [t.city.licensedBullet, sameDayBullet, t.city.priceBullet];
+---
+
+<div class="bg-primary/5 border border-primary/10 rounded-xl p-6 mb-10">
+  <h2 class="text-xl font-bold text-text mb-3">{t.city.whatYouGet}</h2>
+  <ul class="space-y-3">
+    {bullets.map((b) => (
+      <li class="flex items-start gap-3">
+        <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+        <span class="text-text-secondary text-sm">{b}</span>
+      </li>
+    ))}
+  </ul>
+</div>

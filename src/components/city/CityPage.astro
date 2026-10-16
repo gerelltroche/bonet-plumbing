@@ -1,0 +1,96 @@
+---
+// The whole city page, in either language. Each URL is a thin wrapper:
+//   src/pages/oviedo-plumber.astro     → <CityPage city="oviedo" />
+//   src/pages/es/oviedo-plumber.astro  → <CityPage city="oviedo" />
+// The copy comes from src/content/cities/<city>.yaml (schema in
+// src/content.config.ts); the language comes from the URL.
+import { getEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import StickyNav from "../StickyNav.astro";
+import Footer from "../Footer.astro";
+import CtaBanner from "../CtaBanner.astro";
+import ContactCTA from "../ContactCTA.astro";
+import Reviews from "../Reviews.astro";
+import CityHero from "./CityHero.astro";
+import WhatYouGet from "./WhatYouGet.astro";
+import CallQuoteButtons from "./CallQuoteButtons.astro";
+import { useI18n, SITE_URL } from "../../i18n";
+
+interface Props {
+  /** File name in src/content/cities/, without .yaml. */
+  city: string;
+}
+const { city } = Astro.props;
+const { locale, t, l } = useI18n(Astro.url);
+
+const entry = await getEntry("cities", city);
+if (!entry) throw new Error(`No city "${city}" in src/content/cities/`);
+const { geo, nearby } = entry.data;
+const c = entry.data[locale];
+
+// "We Also Serve" links: labeled with the footer's area names unless the city overrides one.
+const areaName = (id: string) => [...t.areas.main, ...t.areas.more].find((a) => a.href === `/${id}-plumber/`)?.name;
+const nearbyLinks = nearby.map((id) => {
+  const label = c.nearbyLabels?.[id] ?? areaName(id);
+  if (!label) throw new Error(`${city}.yaml: nearby "${id}" has no label (not in ui areas; add nearbyLabels)`);
+  return { href: l(`/${id}-plumber/`), label };
+});
+---
+
+<Layout
+  title={c.title}
+  description={c.description}
+  breadcrumbs={[
+    { name: t.site.breadcrumbHome, url: `${SITE_URL}${l("/")}` },
+    { name: t.site.breadcrumbAreas, url: `${SITE_URL}${l("/")}#service-areas` },
+    { name: c.breadcrumb },
+  ]}
+  geoPlacename={geo.placename}
+  geoLat={geo.lat}
+  geoLng={geo.lng}
+>
+  <StickyNav />
+  <main>
+    <CityHero h1={c.h1} intro={c.intro} />
+
+    <section class="bg-white pb-16 md:pb-24">
+      <div class="max-w-4xl mx-auto px-4">
+
+        <h2 class="text-2xl md:text-3xl font-bold text-text mb-6">{t.city.servicesHeading(c.place)}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+          {t.city.services.map((s) => (
+            <a href={l(s.href)} class="bg-surface border border-border rounded-xl p-5 hover:shadow-md transition-shadow group">
+              <h3 class="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">{s.title}</h3>
+              <p class="text-text-secondary text-sm">{s.description}</p>
+            </a>
+          ))}
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-bold text-text mb-4">{t.city.localHeading(c.place)}</h2>
+        {c.localIssues.map((p, i) => (
+          <p class={`text-text-secondary ${i === c.localIssues.length - 1 ? "mb-10" : "mb-4"} max-w-2xl`}>{p}</p>
+        ))}
+
+        <CtaBanner heading={c.ctaHeading ?? t.city.ctaHeading(c.place)} sub={t.city.ctaSub} />
+
+        <WhatYouGet sameDayBullet={c.sameDayBullet} />
+
+        <CallQuoteButtons />
+
+        <nav class="mt-16 pt-8 border-t border-border" aria-label={t.city.nearbyAria}>
+          <h2 class="text-lg font-bold text-text mb-4">{c.nearbyHeading ?? t.city.nearbyHeading}</h2>
+          <ul class="flex flex-wrap gap-3">
+            {nearbyLinks.map((n) => (
+              <li><a href={n.href} class="text-accent hover:text-accent-light font-medium text-sm transition-colors">{n.label}</a></li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <ContactCTA />
+
+    <Reviews />
+  </main>
+  <Footer />
+</Layout>

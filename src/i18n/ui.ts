@@ -196,6 +196,51 @@ const en = {
     callNow: "Call Now",
     quote: "Request a Quote",
   },
+  // City pages (src/components/city/). Per-city copy lives in src/content/cities/*.yaml;
+  // these are the parts every city shares. `place` is the city's display name ("Alafaya & UCF").
+  city: {
+    servicesHeading: (place: string) => `High-Value Plumbing Services in ${place}`,
+    localHeading: (place: string) => `Plumbing in ${place}: What We See Most`,
+    ctaHeading: (place: string) => `Need a Plumber in ${place} Today?`,
+    ctaSub: "Free estimates, upfront pricing, and same-day service from a licensed local plumber.",
+    whatYouGet: "What You Get",
+    licensedBullet: "Your home is protected — licensed (CFC1434246) & fully insured in Florida",
+    priceBullet: "You'll know the price before we start — no hidden fees, no surprises",
+    nearbyHeading: "We Also Serve",
+    nearbyAria: "Other service areas",
+    services: [
+      {
+        title: "Whole-Home Repiping",
+        description: "Brittle CPVC, polybutylene, or rusted galvanized pipes replaced with modern PEX or copper — full pressure restored, leaks gone for decades.",
+        href: "/repiping/",
+      },
+      {
+        title: "Water Heaters & Tankless",
+        description: "Same-day replacement and tankless conversion (Rinnai, Navien, Rheem) for endless hot water and lower bills.",
+        href: "/water-heater-services/",
+      },
+      {
+        title: "Slab Leak Repair",
+        description: "Warm floor spots or a spiking water bill? We locate and reroute slab leaks before they damage your foundation.",
+        href: "/repiping/#slab-leak",
+      },
+      {
+        title: "Sewer Line Replacement",
+        description: "Trenchless replacement of collapsed, root-invaded, or bellied sewer lines — without tearing up the yard.",
+        href: "/repiping/#sewer-line",
+      },
+      {
+        title: "Gas Line Installation",
+        description: "New gas lines for tankless heaters, generators, pool heaters, and outdoor kitchens — permitted and leak-tested.",
+        href: "/water-heater-services/#gas-line",
+      },
+      {
+        title: "Water Main Replacement",
+        description: "Leaking service line from the meter to your home? We replace it, often trenchless, to restore full flow.",
+        href: "/repiping/#water-main",
+      },
+    ],
+  },
   bar: {
     region: "Quick contact",
     call: "Call",
@@ -432,6 +477,49 @@ const es: UiStrings = {
     sub: "Presupuestos gratis y precios por adelantado. Servicio el mismo día en Oviedo, Winter Springs y East Orlando.",
     callNow: "Llame ahora",
     quote: "Solicitar cotización",
+  },
+  city: {
+    servicesHeading: (place: string) => `Servicios de Plomería de Alto Valor en ${place}`,
+    localHeading: (place: string) => `Plomería en ${place}: Lo Que Más Vemos`,
+    ctaHeading: (place: string) => `¿Necesita un Plomero en ${place} Hoy?`,
+    ctaSub: "Presupuestos gratis, precios por adelantado y servicio el mismo día de un plomero local con licencia.",
+    whatYouGet: "Lo Que Recibe",
+    licensedBullet: "Su hogar está protegido: con licencia (CFC1434246) y seguro completo en Florida",
+    priceBullet: "Sabrá el precio antes de que empecemos: sin cargos ocultos, sin sorpresas",
+    nearbyHeading: "También Servimos",
+    nearbyAria: "Otras áreas de servicio",
+    services: [
+      {
+        title: "Cambio Completo de Tuberías",
+        description: "Reemplazamos tuberías de CPVC quebradizo, polibutileno o acero galvanizado oxidado por PEX o cobre moderno: presión completa restaurada y sin fugas por décadas.",
+        href: "/repiping/",
+      },
+      {
+        title: "Calentadores de Agua y Sin Tanque",
+        description: "Reemplazo el mismo día y conversión a sistema sin tanque (Rinnai, Navien, Rheem) para agua caliente sin límite y facturas más bajas.",
+        href: "/water-heater-services/",
+      },
+      {
+        title: "Reparación de Fugas Bajo la Losa",
+        description: "¿Puntos tibios en el piso o una factura de agua que se disparó? Localizamos y desviamos las fugas bajo la losa antes de que dañen sus cimientos.",
+        href: "/repiping/#slab-leak",
+      },
+      {
+        title: "Reemplazo de Línea de Cloaca",
+        description: "Reemplazo sin zanja de líneas de cloaca colapsadas, invadidas por raíces o hundidas, sin destrozar el patio.",
+        href: "/repiping/#sewer-line",
+      },
+      {
+        title: "Instalación de Líneas de Gas",
+        description: "Líneas de gas nuevas para calentadores sin tanque, generadores, calentadores de piscina y cocinas exteriores, con permisos y prueba de fugas.",
+        href: "/water-heater-services/#gas-line",
+      },
+      {
+        title: "Reemplazo de Línea Principal de Agua",
+        description: "¿Fuga en la línea que va del medidor a su casa? La reemplazamos, muchas veces sin zanja, para recuperar todo el flujo.",
+        href: "/repiping/#water-main",
+      },
+    ],
   },
   bar: {
     region: "Contacto rápido",

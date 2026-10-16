@@ -1,0 +1,32 @@
+# East Orlando city page: /east-orlando-plumber/ and /es/east-orlando-plumber/.
+# Rendered by src/components/city/CityPage.astro; schema in src/content.config.ts.
+geo:
+  placename: East Orlando, Florida
+  lat: 28.5087
+  lng: -81.1551
+nearby:
+  - oviedo
+  - winter-springs
+  - alafaya
+en:
+  title: East Orlando Plumber | Bonet Plumbing LLC
+  description: East Orlando high-value plumbing — whole-home repiping, tankless water heaters, slab leak repair, sewer line & gas line replacement. Licensed & insured (CFC1434246). Call 407-734-3968.
+  breadcrumb: East Orlando Plumber
+  place: East Orlando
+  h1: East Orlando Plumber — Repiping, Water Heaters & Slab Leaks
+  intro: "From Waterford Lakes to Avalon Park and the University corridor, we take on the big jobs: whole-home repiping, water heater and tankless replacement, slab leaks, and sewer lines. A licensed plumber at your East Orlando home today, with the price agreed before we start."
+  localIssues:
+    - East Orlando is really two plumbing worlds. Avalon Park and Waterford Lakes went up in the late 1990s and 2000s, and those homes are now hitting the age where the original water heaters give out — which is exactly when a tankless conversion starts to make sense. Older Union Park neighborhoods date to the 1960s and 70s, and there we're still dealing with galvanized supply lines that choke down your pressure and cast iron drains that have corroded from the inside out.
+    - Slab-on-grade construction runs throughout this part of town, so slab leaks are common no matter the neighborhood — and we find them before they wreck your foundation. In the older pockets, those cast iron sewer lines crack and corrode, then the oak and pine roots find the cracks and make it worse. Out along the UCF corridor there are a lot of rentals, and owners count on us for fast, permitted work that passes inspection the first time.
+  sameDayBullet: Same-day service across all East Orlando neighborhoods
+es:
+  title: Plomero en East Orlando | Bonet Plumbing LLC
+  description: "Plomería de alto valor en East Orlando: cambio completo de tuberías, calentadores de agua sin tanque, reparación de fugas bajo la losa, reemplazo de línea de cloaca y líneas de gas. Con licencia y asegurados (CFC1434246). Llame al 407-734-3968."
+  breadcrumb: Plomero en East Orlando
+  place: East Orlando
+  h1: "Plomero en East Orlando: Tuberías, Calentadores de Agua y Fugas Bajo la Losa"
+  intro: "Desde Waterford Lakes hasta Avalon Park y el corredor universitario, nos encargamos de los trabajos grandes: cambio completo de tuberías, reemplazo de calentadores de agua y sin tanque, fugas bajo la losa y líneas de cloaca. Un plomero con licencia en su casa de East Orlando hoy mismo, con el precio acordado antes de empezar."
+  localIssues:
+    - East Orlando es en realidad dos mundos de plomería. Avalon Park y Waterford Lakes se construyeron a finales de los 90 y en los 2000, y esas casas están llegando a la edad en que los calentadores de agua originales se rinden, que es justo cuando una conversión a sistema sin tanque empieza a tener sentido. Los vecindarios más antiguos de Union Park datan de los años 60 y 70, y allí seguimos lidiando con tuberías de suministro de acero galvanizado que ahogan la presión y drenajes de hierro fundido corroídos de adentro hacia afuera.
+    - La construcción sobre losa se extiende por toda esta parte de la ciudad, así que las fugas bajo la losa son comunes sin importar el vecindario, y las encontramos antes de que arruinen sus cimientos. En las zonas más antiguas, esas líneas de cloaca de hierro fundido se agrietan y se corroen, y luego las raíces de robles y pinos encuentran las grietas y lo empeoran. A lo largo del corredor de UCF hay muchas propiedades de alquiler, y los dueños cuentan con nosotros para un trabajo rápido, con permisos, que pasa la inspección a la primera.
+  sameDayBullet: Servicio el mismo día en todos los vecindarios de East Orlando
