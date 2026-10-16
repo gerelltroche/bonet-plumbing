@@ -1,0 +1,47 @@
+---
+// "Meet the Owner" for the home page: Leo's story in his own words, from his
+// interview answers. Strings are in ui.owner (src/i18n/ui.ts).
+import { Image } from 'astro:assets';
+import headshot from '../assets/Headshot.jpeg';
+import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from '../lib/contact';
+import { useI18n } from '../i18n';
+
+const { t } = useI18n(Astro.url);
+---
+
+<section id="meet-leo" class="scroll-mt-20 bg-background py-16 md:py-20" aria-labelledby="meet-leo-heading">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-[16rem_1fr] gap-8 md:gap-12 items-start">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-48 md:w-full rounded-2xl overflow-hidden shadow-lg border border-primary/10">
+          <Image src={headshot} alt={t.contact.ownerAlt} width={384} height={477} class="w-full h-auto object-cover" format="webp" quality={80} loading="lazy" />
+        </div>
+        <p class="mt-4 text-lg font-bold text-text">{t.hero.ownerName}</p>
+        <p class="text-sm text-text-secondary font-medium">{t.hero.ownerTitle}</p>
+        <p class="text-xs text-text-secondary/70">{t.hero.license}</p>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wider text-accent mb-2">{t.owner.eyebrow}</p>
+        <h2 id="meet-leo-heading" class="text-3xl md:text-4xl font-bold text-text mb-3">{t.owner.heading}</h2>
+        <div class="w-16 h-1 bg-accent rounded-full mb-6"></div>
+
+        <div class="space-y-4 text-text-secondary leading-relaxed">
+          {t.owner.story.map((p) => <p>{p}</p>)}
+        </div>
+
+        <div class="mt-8 bg-surface border border-border border-l-4 border-l-accent rounded-xl p-6">
+          <h3 class="font-bold text-text mb-2">{t.owner.callHeading}</h3>
+          <p class="text-text-secondary leading-relaxed mb-3">{t.owner.call}</p>
+          <p class="text-text-secondary leading-relaxed">{t.owner.armor}</p>
+        </div>
+
+        <p class="mt-8 text-text font-semibold">
+          {t.owner.tip}{" "}
+          <a href={phone} class="text-primary underline underline-offset-2 hover:text-primary-light whitespace-nowrap">{phoneDisplay}</a>
+        </p>
+        <p class="mt-2 text-sm text-text-muted">{t.owner.offClock}</p>
+      </div>
+    </div>
+  </div>
+</section>

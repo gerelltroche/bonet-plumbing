@@ -100,6 +100,24 @@ const en = {
     heading: "Why Choose Bonet Plumbing",
     items: ["Licensed & Insured in FL", "Same-Day Service, Always Ready", "Upfront Pricing, No Surprises"],
   },
+  // "Meet the Owner" on the home page, in Leo's own words (from his interview answers).
+  owner: {
+    eyebrow: "Meet the Owner",
+    heading: "Hi, I'm Leo Bonet",
+    story: [
+      "I was born in Puerto Rico and moved to Florida when I was 9. East Orlando has been home ever since.",
+      "Plumbing wasn't the plan. It was my first job out of high school: a good friend, more like an older brother, hired me into his company and kept mentoring me even after I moved on to other companies. I've been in the trade since 2012.",
+      "I spent years working for other service companies, and they did reputable work. But I wanted to work close to home and build a name of my own. That's Bonet Plumbing.",
+      "I'm not interested in a big office or a lot of employees. I've worked for and seen too many plumbers upsell customers on work they don't need. I'd rather fix the problem, charge a fair price and go home with a clean conscience. And if a job doesn't feel right, I'll turn it down.",
+    ],
+    callHeading: "A call in the middle of the night",
+    call:
+      "A homeowner called me in the middle of the night. Their water heater was leaking and flooding the house, nobody else would answer the phone that late, and the big companies kept giving them the runaround. I went out that night, shut off the water heater and stopped the damage, then came back the next day and replaced it.",
+    armor:
+      "That's what \"Plumbers in Shining Armor\" means to me. A plumbing emergency is stressful, and customer service isn't just doing the job. It's being there when people need help, even when it's inconvenient.",
+    tip: "Don't worry about the time, even if it's just a question. Call me.",
+    offClock: "Off the clock, you'll find me playing video games or hanging out with friends.",
+  },
   reviews: {
     heading: "Trusted by Your Central Florida Neighbors",
     outOf: "out of 5 stars",
@@ -382,6 +400,23 @@ const es: UiStrings = {
   trust: {
     heading: "Por qué elegir Bonet Plumbing",
     items: ["Con licencia y asegurados en FL", "Servicio el mismo día, siempre listos", "Precio por adelantado, sin sorpresas"],
+  },
+  owner: {
+    eyebrow: "Conozca al dueño",
+    heading: "Hola, soy Leo Bonet",
+    story: [
+      "Nací en Puerto Rico y me mudé a Florida cuando tenía 9 años. Desde entonces, East Orlando ha sido mi hogar.",
+      "La plomería no estaba en mis planes. Fue mi primer trabajo al salir de la escuela secundaria: un buen amigo, más bien un hermano mayor, me contrató en su compañía y siguió siendo mi mentor incluso cuando pasé a otras compañías. Trabajo en el oficio desde 2012.",
+      "Pasé años trabajando para otras compañías de servicio, y hacían un trabajo serio. Pero yo quería trabajar cerca de casa y construir un nombre propio. Eso es Bonet Plumbing.",
+      "No me interesa tener una oficina grande ni muchos empleados. He trabajado para muchos plomeros y he visto a demasiados venderles a los clientes trabajos que no necesitan. Prefiero arreglar el problema, cobrar un precio justo y llegar a casa con la conciencia tranquila. Y si un trabajo no me parece correcto, no lo acepto.",
+    ],
+    callHeading: "Una llamada en medio de la noche",
+    call:
+      "Un cliente me llamó en medio de la noche. Su calentador de agua tenía una fuga y se le estaba inundando la casa, nadie más contestaba el teléfono a esa hora y las compañías grandes solo le daban vueltas. Fui esa misma noche, cerré el calentador y detuve el daño, y al día siguiente volví a reemplazarlo.",
+    armor:
+      "Eso es lo que significa para mí \"Plomeros en Armadura Brillante\". Una emergencia de plomería es estresante, y el buen servicio no es solo hacer el trabajo. Es estar ahí cuando la gente necesita ayuda, aunque no sea conveniente.",
+    tip: "No se preocupe por la hora, aunque sea solo una pregunta. Llámeme.",
+    offClock: "Cuando no estoy trabajando, estoy jugando videojuegos o pasando el rato con mis amigos.",
   },
   reviews: {
     heading: "La Confianza de Sus Vecinos en Florida Central",
