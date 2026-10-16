@@ -10,13 +10,16 @@
     "reviews:refresh": "node --env-file-if-exists=.env scripts/reviews-refresh.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.2.0",
-    "astro": "^5.17.1",
+    "astro": "^7.4.0",
     "tailwindcss": "^4.2.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }

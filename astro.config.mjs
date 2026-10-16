@@ -29,6 +29,10 @@ export default defineConfig({
   // variant to it (see netlify.toml). Declaring it here makes canonicals,
   // the sitemap, and the dev server all agree on the trailing-slash form.
   trailingSlash: 'always',
+  // Astro 7 defaults to 'jsx', which drops the whitespace between adjacent
+  // elements ("407-734-3968Request a Quote"). Keep the pre-7 behavior so
+  // inline links and text never run together.
+  compressHTML: true,
   // English is unprefixed, Spanish lives under /es/ with the same slugs
   // (src/pages/es/*). Shared components pick their strings from the URL via
   // src/i18n, and Layout emits hreflang alternates for every page.
@@ -51,8 +55,6 @@ export default defineConfig({
     }),
   ],
   vite: {
-    // @tailwindcss/vite resolves its own (newer) vite for types while Astro 5
-    // bundles vite 6, so the Plugin types don't line up. Runtime is fine.
-    plugins: [/** @type {any} */ (tailwindcss())]
+    plugins: [tailwindcss()]
   }
 });
