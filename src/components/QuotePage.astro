@@ -25,22 +25,27 @@ const field = "w-full px-4 py-3 border border-border rounded-lg bg-background te
 
 <Layout title={t.quote.title} description={t.quote.description} noindex={true} hideCtaBar={true}>
   <StickyNav />
-  <main class="bg-white py-6 md:py-12">
-    <div class="max-w-lg mx-auto px-4">
-      <h1 class="text-2xl md:text-3xl font-bold text-text">{t.quote.heading}</h1>
-      <p class="text-text-secondary text-sm mt-1 mb-4">{t.contact.responseTime}</p>
+  <!-- Phones: one column, DOM order (intro, form, call/text) so the form is on the first screen.
+       Desktop: intro and call/text on the left, form pinned on the right. -->
+  <main class="bg-background py-6 md:py-12 lg:py-16">
+    <div class="max-w-lg lg:max-w-5xl mx-auto px-4 lg:grid lg:grid-cols-[minmax(0,1fr)_28rem] lg:gap-x-14 lg:items-start">
+      <div class="lg:col-start-1 lg:row-start-1 lg:pt-4">
+        <h1 class="text-2xl md:text-3xl lg:text-5xl font-bold text-text lg:leading-tight">{t.quote.heading}</h1>
+        <div class="hidden lg:block w-16 h-1 bg-accent rounded-full mt-5"></div>
+        <p class="text-text-secondary text-sm lg:text-lg mt-1 lg:mt-5 mb-4 lg:mb-8">{t.contact.responseTime}</p>
 
-      <!-- Owner strip: who's going to call them back -->
-      <div class="flex items-center gap-3 mb-4">
-        <Image src={headshot} alt={t.contact.ownerAlt} width={56} height={56} class="w-14 h-14 rounded-full object-cover object-[center_20%] shadow-sm ring-2 ring-primary/15" format="webp" quality={80} loading="eager" />
-        <div class="leading-tight">
-          <p class="font-bold text-text">{t.contact.ownerName}</p>
-          <p class="text-sm text-text-secondary">{t.contact.ownerTitle}</p>
-          <p class="text-xs text-text-secondary/70">{t.contact.license}</p>
+        <!-- Owner strip: who's going to call them back -->
+        <div class="flex items-center gap-3 lg:gap-4 mb-4 lg:mb-0 lg:bg-surface lg:border lg:border-border lg:rounded-xl lg:p-4 lg:shadow-sm">
+          <Image src={headshot} alt={t.contact.ownerAlt} width={80} height={80} class="w-14 h-14 lg:w-20 lg:h-20 rounded-full object-cover object-[center_20%] shadow-sm ring-2 ring-primary/15" format="webp" quality={80} loading="eager" />
+          <div class="leading-tight">
+            <p class="font-bold text-text lg:text-lg">{t.contact.ownerName}</p>
+            <p class="text-sm text-text-secondary">{t.contact.ownerTitle}</p>
+            <p class="text-xs text-text-secondary/70 mt-0.5">{t.contact.license}</p>
+          </div>
         </div>
       </div>
 
-      <div class="bg-surface border border-border rounded-xl shadow-lg p-5 md:p-7">
+      <div class="lg:col-start-2 lg:row-start-1 lg:row-span-2 bg-surface border border-border rounded-xl shadow-lg p-5 md:p-7">
         <form
           id={`${id}-form`}
           name="contact"
@@ -61,18 +66,20 @@ const field = "w-full px-4 py-3 border border-border rounded-lg bg-background te
           </p>
 
           <div class="space-y-4">
-            <div>
-              <label for={`${id}-name`} class="block text-sm font-semibold text-text mb-1.5">
-                {t.contact.name} <span class="text-red-600">*</span>
-              </label>
-              <input type="text" id={`${id}-name`} name="name" required autocomplete="name" placeholder={t.contact.namePlaceholder} class={field} />
-            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for={`${id}-name`} class="block text-sm font-semibold text-text mb-1.5">
+                  {t.contact.name} <span class="text-red-600">*</span>
+                </label>
+                <input type="text" id={`${id}-name`} name="name" required autocomplete="name" placeholder={t.contact.namePlaceholder} class={field} />
+              </div>
 
-            <div>
-              <label for={`${id}-phone`} class="block text-sm font-semibold text-text mb-1.5">
-                {t.contact.phone} <span class="text-red-600">*</span>
-              </label>
-              <input type="tel" id={`${id}-phone`} name="phone" required inputmode="tel" autocomplete="tel" placeholder={t.contact.phonePlaceholder} class={field} />
+              <div>
+                <label for={`${id}-phone`} class="block text-sm font-semibold text-text mb-1.5">
+                  {t.contact.phone} <span class="text-red-600">*</span>
+                </label>
+                <input type="tel" id={`${id}-phone`} name="phone" required inputmode="tel" autocomplete="tel" placeholder={t.contact.phonePlaceholder} class={field} />
+              </div>
             </div>
 
             <div>
@@ -115,27 +122,29 @@ const field = "w-full px-4 py-3 border border-border rounded-lg bg-background te
       </div>
 
       <!-- Escape hatch for people who'd rather not fill in a form -->
-      <p class="text-text-secondary text-sm text-center mt-6 mb-3">{t.quote.orTalk}</p>
-      <div class="grid grid-cols-2 gap-3">
-        <a
-          href={PHONE_HREF}
-          class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-light text-white font-bold px-4 py-3 rounded-lg shadow-sm transition-colors"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
-          </svg>
-          {t.quote.call}
-          <span class="sr-only">{t.bar.callSr}</span>
-        </a>
-        <a
-          href={smsHref(t.sms.body)}
-          class="inline-flex items-center justify-center gap-2 bg-surface border border-border hover:border-primary/40 text-text font-bold px-4 py-3 rounded-lg shadow-sm transition-colors"
-        >
-          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
-          </svg>
-          {t.quote.text}
-        </a>
+      <div class="lg:col-start-1 lg:row-start-2 lg:mt-8">
+        <p class="text-text-secondary text-sm text-center lg:text-left mt-6 lg:mt-0 mb-3">{t.quote.orTalk}</p>
+        <div class="grid grid-cols-2 gap-3 lg:max-w-sm">
+          <a
+            href={PHONE_HREF}
+            class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-light text-white font-bold px-4 py-3 rounded-lg shadow-sm transition-colors"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+            </svg>
+            {t.quote.call}
+            <span class="sr-only">{t.bar.callSr}</span>
+          </a>
+          <a
+            href={smsHref(t.sms.body)}
+            class="inline-flex items-center justify-center gap-2 bg-surface border border-border hover:border-primary/40 text-text font-bold px-4 py-3 rounded-lg shadow-sm transition-colors"
+          >
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
+            </svg>
+            {t.quote.text}
+          </a>
+        </div>
       </div>
     </div>
   </main>
