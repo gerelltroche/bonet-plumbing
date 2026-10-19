@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of review data for the whole site: the Reviews section on every page and the AggregateRating in the JSON-LD both read from here. Refresh from Google with: npm run reviews:refresh (then commit).",
-  "fetchedAt": "2026-09-27",
+  "fetchedAt": "2026-10-19",
   "reviews": [
     {
       "author": "Katherine Gundel",
@@ -40,6 +40,6 @@
     }
   ],
   "overallRating": 5,
-  "reviewCount": 24,
+  "reviewCount": 25,
   "googleReviewsUrl": "https://maps.google.com/?cid=3120497498541400573&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
 }
