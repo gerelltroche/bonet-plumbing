@@ -78,6 +78,14 @@ only when something changed, which triggers a deploy. To run it locally, put
 the Astro Fonts API, configured in `astro.config.mjs` and mapped into Tailwind
 in `src/styles/global.css`.
 
+**Temporary closures.** Set the dates in `src/data/closure.ts`. While a
+closure is on, every page shows a banner, the "usually within the hour" lines
+change to "when we reopen", and the JSON-LD gets
+`specialOpeningHoursSpecification`. It turns itself off in the browser at the
+reopen time, so it doesn't need a deploy. Set `CLOSURE` to `null` afterwards
+to clean up. Enter the same dates as special hours on the Google Business
+Profile.
+
 ## Other notes
 
 - `todo.md` tracks open business and site tasks.

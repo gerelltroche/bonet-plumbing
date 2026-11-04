@@ -304,6 +304,16 @@ const en = {
     sooner: "Need help sooner?",
     call: "Call",
   },
+  /** Temporary closure (src/data/closure.ts). `reopen` is a formatted date like "Monday, November 16". */
+  closure: {
+    label: "Temporary closure notice",
+    heading: (reopen: string) => `We're temporarily closed and reopen ${reopen}.`,
+    body: "You can still request a quote, and Leo will get back to you when we're back.",
+    /** Replaces contact.responseTime while closed. */
+    responseTime: (reopen: string) => `We're closed until ${reopen}. Leo will call or text you back when we reopen.`,
+    /** Replaces success.body while closed. */
+    successBody: (reopen: string) => `We're closed until ${reopen}. Leo will call or text you back himself when we reopen.`,
+  },
 };
 
 export type UiStrings = typeof en;
@@ -600,6 +610,13 @@ const es: UiStrings = {
     body: "Leo mismo le llamará o le escribirá, normalmente en menos de una hora.",
     sooner: "¿Necesita ayuda más pronto?",
     call: "Llame al",
+  },
+  closure: {
+    label: "Aviso de cierre temporal",
+    heading: (reopen: string) => `Estamos cerrados temporalmente y volvemos a abrir el ${reopen}.`,
+    body: "Puede enviar su solicitud de cotización y Leo le responderá cuando regresemos.",
+    responseTime: (reopen: string) => `Estamos cerrados hasta el ${reopen}. Leo le llamará o le escribirá cuando reabramos.`,
+    successBody: (reopen: string) => `Estamos cerrados hasta el ${reopen}. Leo mismo le llamará o le escribirá cuando reabramos.`,
   },
 };
 

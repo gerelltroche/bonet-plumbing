@@ -5,6 +5,7 @@
 import Layout from "../layouts/Layout.astro";
 import StickyNav from "./StickyNav.astro";
 import Footer from "./Footer.astro";
+import ClosureSwap from "./ClosureSwap.astro";
 import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from "../lib/contact";
 import { useI18n } from "../i18n";
 
@@ -21,7 +22,7 @@ const { t } = useI18n(Astro.url);
         </svg>
       </div>
       <h1 class="text-2xl md:text-3xl font-bold text-text mb-2">{t.success.heading}</h1>
-      <p class="text-text-secondary mb-6">{t.success.body}</p>
+      <p class="text-text-secondary mb-6"><ClosureSwap text={t.success.body} closed={t.closure.successBody} /></p>
       <p class="text-text-secondary text-sm mb-4">{t.success.sooner}</p>
       <a
         href={phone}

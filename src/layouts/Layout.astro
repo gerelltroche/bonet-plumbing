@@ -1,6 +1,8 @@
 ---
 import { Font } from "astro:assets";
 import MobileCtaBar from "../components/MobileCtaBar.astro";
+import ClosureBanner from "../components/ClosureBanner.astro";
+import { CLOSURE, isClosed, easternDate } from "../data/closure";
 import { useI18n, alternateUrl, SITE_URL, LOCALES, DEFAULT_LOCALE } from "../i18n";
 import { getReviews } from "../lib/reviews";
 import { SERVICE_AREAS } from "../data/service-areas";
@@ -64,15 +66,40 @@ const otherOgLocale = locale === "en" ? "es_US" : "en_US";
 // one the <Reviews /> section uses, so the schema can never disagree with the
 // visible numbers on any page.
 const { overallRating, reviewCount } = await getReviews();
+
+// Temporary closure: build-time state for no-JS visitors; the inline script in
+// <head> re-checks against the visitor's clock so it expires without a deploy.
+const closedAtBuild = isClosed(CLOSURE);
+const closureWindow = CLOSURE ? [Date.parse(CLOSURE.startsAt), Date.parse(CLOSURE.reopensAt)] : null;
+// schema.org: opens and closes both 00:00 marks a day closed. validThrough is
+// the last closed day (the day before reopening), in Eastern time.
+const specialHours = CLOSURE
+  ? [{
+      "@type": "OpeningHoursSpecification",
+      "opens": "00:00",
+      "closes": "00:00",
+      "validFrom": easternDate(CLOSURE.startsAt),
+      "validThrough": easternDate(Date.parse(CLOSURE.reopensAt) - 1),
+    }]
+  : undefined;
 ---
 
 <!doctype html>
-<html lang={t.htmlLang}>
+<html lang={t.htmlLang} data-closed={closedAtBuild ? "" : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? "noindex" : "index, follow"} />
+
+    {closureWindow && (
+      <script is:inline define:vars={{ closureWindow }}>
+        // Closure banner on/off by the visitor's clock (see src/data/closure.ts).
+        var n = Date.now(), r = document.documentElement;
+        if (n >= closureWindow[0] && n < closureWindow[1]) r.setAttribute("data-closed", "");
+        else r.removeAttribute("data-closed");
+      </script>
+    )}
 
     <!-- Google Analytics 4. Key events: call_click, text_click, generate_lead (fired by FormSuccess). -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-E4KHF6FJDB"></script>
@@ -196,6 +223,7 @@ const { overallRating, reviewCount } = await getReviews();
           "closes": "23:59"
         }
       ],
+      ...(specialHours ? { "specialOpeningHoursSpecification": specialHours } : {}),
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Plumbing Services",
@@ -244,6 +272,7 @@ const { overallRating, reviewCount } = await getReviews();
     >
       {t.site.skipToContent}
     </a>
+    <ClosureBanner />
     <slot />
     {!hideCtaBar && <MobileCtaBar quoteHref={quoteHref} />}
   </body>

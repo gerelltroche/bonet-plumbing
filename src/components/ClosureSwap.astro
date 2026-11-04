@@ -1,0 +1,26 @@
+---
+// Inline text that changes during a temporary closure (src/data/closure.ts).
+// Renders both versions; CSS keyed on html[data-closed] shows one, so the swap
+// undoes itself when the closure ends without a redeploy.
+import { CLOSURE, formatReopen } from "../data/closure";
+import { useI18n } from "../i18n";
+
+interface Props {
+  /** Normal text. */
+  text: string;
+  /** Closed-period text, given the formatted reopen date. */
+  closed: (reopen: string) => string;
+}
+
+const { text, closed } = Astro.props;
+const { locale } = useI18n(Astro.url);
+---
+
+{CLOSURE ? (
+  <>
+    <span data-closure="normal">{text}</span>
+    <span data-closure="during">{closed(formatReopen(CLOSURE, locale))}</span>
+  </>
+) : (
+  text
+)}

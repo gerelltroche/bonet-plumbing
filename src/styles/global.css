@@ -37,3 +37,9 @@ h1, h2, h3, h4, h5, h6 {
 html {
   scroll-behavior: smooth;
 }
+
+/* Temporary closure (src/data/closure.ts): html[data-closed] picks which text shows. */
+html:not([data-closed]) [data-closure="during"],
+html[data-closed] [data-closure="normal"] {
+  display: none !important;
+}

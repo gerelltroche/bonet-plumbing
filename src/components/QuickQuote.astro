@@ -8,6 +8,7 @@ import FormRating from './FormRating.astro';
 import QuoteForm from './QuoteForm.astro';
 import { FIELD_CLASS as field } from '../lib/quote-form';
 import { useI18n } from '../i18n';
+import ClosureSwap from './ClosureSwap.astro';
 
 const id = "quick-quote";
 const { t, l } = useI18n(Astro.url);
@@ -56,7 +57,7 @@ const { t, l } = useI18n(Astro.url);
           </div>
         </div>
 
-        <p class="text-text-muted text-xs mt-4">{t.contact.responseTime}</p>
+        <p class="text-text-muted text-xs mt-4"><ClosureSwap text={t.contact.responseTime} closed={t.closure.responseTime} /></p>
         <p class="text-text-muted text-xs mt-1">{t.contact.consent}</p>
       </QuoteForm>
     </div>

@@ -1,0 +1,19 @@
+---
+// Site-wide notice shown during a temporary closure (src/data/closure.ts).
+// Visibility is driven by html[data-closed], which Layout sets at build time and
+// re-checks in the browser, so it hides itself once the closure ends.
+import { CLOSURE, formatReopen } from "../data/closure";
+import { useI18n } from "../i18n";
+
+const { locale, t } = useI18n(Astro.url);
+const reopen = CLOSURE ? formatReopen(CLOSURE, locale) : "";
+---
+
+{CLOSURE && (
+  <aside data-closure="during" aria-label={t.closure.label} class="bg-primary-dark text-white">
+    <p class="max-w-6xl mx-auto px-4 py-2.5 text-center text-sm md:text-base">
+      <strong class="font-semibold">{t.closure.heading(reopen)}</strong>{" "}
+      <span class="text-white/85">{t.closure.body}</span>
+    </p>
+  </aside>
+)}

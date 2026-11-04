@@ -6,6 +6,7 @@ import QuoteForm from './QuoteForm.astro';
 import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from '../lib/contact';
 import { FIELD_CLASS } from '../lib/quote-form';
 import { useI18n } from '../i18n';
+import ClosureSwap from './ClosureSwap.astro';
 
 interface Props {
   /** Pre-select "Service Needed" (a value from the services list) on pages about one service. */
@@ -192,7 +193,7 @@ const hasDefault = services.some((svc) => svc.value === defaultService);
 
             <!-- Response time -->
             <p class="text-text-muted text-xs text-center">
-              {t.contact.responseTime}
+              <ClosureSwap text={t.contact.responseTime} closed={t.closure.responseTime} />
             </p>
             <p class="text-text-muted text-xs text-center -mt-3">{t.contact.consent}</p>
           </div>
