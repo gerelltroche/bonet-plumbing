@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import logo from '../assets/logo_with_text.jpeg';
 import TextUsLink from './TextUsLink.astro';
 import LangBadge from './LangBadge.astro';
-import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay } from '../lib/contact';
+import { PHONE_HREF as phone, PHONE_DISPLAY as phoneDisplay, BBB_PROFILE_URL } from '../lib/contact';
 import { useI18n } from '../i18n';
 
 interface Props {
@@ -74,6 +74,8 @@ const areaLinks = [...t.areas.main, ...t.areas.more];
         {t.footer.licensed}
         <span class="mx-2">|</span>
         {t.footer.motto}
+        <span class="mx-2">|</span>
+        <a href={BBB_PROFILE_URL} target="_blank" rel="noopener" class="hover:text-white/60 transition-colors">{t.footer.bbb}</a>
         <span class="mx-2">|</span>
         <a href={l("/privacy-policy/")} class="hover:text-white/60 transition-colors">{t.footer.privacy}</a>
       </p>

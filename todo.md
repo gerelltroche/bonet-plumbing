@@ -12,6 +12,6 @@
   - Both charge similar processing fees. The difference is Square gives us the automation hook Wave doesn't.
 - [ ] Once Leo decides on Square, build the **Netlify function** for automated review requests (Square webhook → delay → SMS/email with Google review link).
 
-- [ ] **Add other profiles to `sameAs`** in `src/layouts/Layout.astro` (Facebook, Yelp, Nextdoor…) as they go live. Google Business Profile is already there.
+- [ ] **Add other profiles to `sameAs`** in `src/layouts/Layout.astro` (Facebook, Yelp, Nextdoor…) as they go live. Google Business Profile and BBB are already there.
 
 ### Medium Priority

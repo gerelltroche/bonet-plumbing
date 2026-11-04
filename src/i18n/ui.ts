@@ -99,6 +99,9 @@ const en = {
   trust: {
     heading: "Why Choose Bonet Plumbing",
     items: ["Licensed & Insured in FL", "Same-Day Service, Always Ready", "Upfront Pricing, No Surprises"],
+    /** Fourth item, links to the BBB profile. */
+    bbb: "BBB Accredited Business",
+    bbbAria: "BBB Accredited Business: view Bonet Plumbing's BBB profile (opens in a new tab)",
   },
   // "Meet the Owner" on the home page, in Leo's own words (from his interview answers).
   owner: {
@@ -209,6 +212,7 @@ const en = {
     privacy: "Privacy Policy",
     licensed: "Licensed & Insured · License CFC1434246",
     motto: "Defending Central Florida Homes",
+    bbb: "BBB Accredited Business",
   },
   banner: {
     heading: "Get It Fixed Right — Starting Today",
@@ -410,6 +414,8 @@ const es: UiStrings = {
   trust: {
     heading: "Por qué elegir Bonet Plumbing",
     items: ["Con licencia y asegurados en FL", "Servicio el mismo día, siempre listos", "Precio por adelantado, sin sorpresas"],
+    bbb: "Acreditado por el BBB",
+    bbbAria: "Acreditado por el BBB: ver el perfil de Bonet Plumbing en el BBB (se abre en una pestaña nueva)",
   },
   owner: {
     eyebrow: "Conozca al dueño",
@@ -519,6 +525,7 @@ const es: UiStrings = {
     privacy: "Política de privacidad",
     licensed: "Con licencia y asegurados · Licencia CFC1434246",
     motto: "Defendiendo los hogares de Florida Central",
+    bbb: "Acreditado por el BBB",
   },
   banner: {
     heading: "Arréglelo Bien, Desde Hoy",

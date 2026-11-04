@@ -6,6 +6,7 @@ import { CLOSURE, isClosed, easternDate } from "../data/closure";
 import { useI18n, alternateUrl, SITE_URL, LOCALES, DEFAULT_LOCALE } from "../i18n";
 import { getReviews } from "../lib/reviews";
 import { SERVICE_AREAS } from "../data/service-areas";
+import { BBB_PROFILE_URL } from "../lib/contact";
 import "../styles/global.css";
 
 interface BreadcrumbItem {
@@ -194,6 +195,7 @@ const specialHours = CLOSURE
       "sameAs": [
         // Google Business Profile (the stable cid link the Places API reports).
         "https://maps.google.com/?cid=3120497498541400573",
+        BBB_PROFILE_URL,
       ],
       "areaServed": SERVICE_AREAS,
       "address": {
