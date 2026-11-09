@@ -1,31 +1,7 @@
 {
   "_comment": "Single source of review data for the whole site: the Reviews section on every page and the AggregateRating in the JSON-LD both read from here. Refresh from Google with: npm run reviews:refresh (then commit).",
-  "fetchedAt": "2026-11-02",
+  "fetchedAt": "2026-11-09",
   "reviews": [
-    {
-      "author": "Steve Rainville",
-      "rating": 5,
-      "lang": "en",
-      "text": {
-        "en": "Couldn't have asked for better customer service then what was provided by Leo from Bonet plumbing. I contacted him around 430pm, and he was at my house by 6pm. He diagnosed my issue very quickly, and took care of everything right away!\n\nI had a constant drip coming from a malfunctioning valve on the home water return. Leo was very thorough in explaining what had to be done, and very well priced. He was extremely professional and with great attention to detail! I highly recommend using his services!",
-        "es": "No podría haber pedido un mejor servicio al cliente que el que me brindó Leo de Bonet Plumbing. Lo contacté alrededor de las 4:30 p. m. y llegó a mi casa a las 6:00 p. m. Diagnosticó mi problema muy rápido y lo solucionó de inmediato.\n\nTenía un goteo constante debido a una válvula defectuosa en el retorno de agua de mi casa. Leo me explicó detalladamente lo que había que hacer y el precio fue muy razonable. Fue sumamente profesional y muy atento a los detalles. ¡Recomiendo ampliamente sus servicios!"
-      },
-      "publishedAt": "2026-10-14",
-      "reviewUrl": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT25GYU5qbFRRVk41T0VsNFIxaGthblpWY1dKMFZuYxAB!2m1!1s0xae1014bb0c077d09:0x2b4e3bf11b0e21fd",
-      "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjVhYHkdYlT95w7XVZro7jxEAPpaQSfbd7xpSwGftxjnz1A57wXy9A=s128-c0x00000000-cc-rp-mo-ba6"
-    },
-    {
-      "author": "Danella Land Group",
-      "rating": 5,
-      "lang": "en",
-      "text": {
-        "en": "Leo is the only plumber I trust, not only with my own home but with my customers homes as well. He’s thorough and gets the job done right the first time. If you want a plumber you don’t have to second guess, I highly recommend Bonet Plumbing.",
-        "es": "Leo es el único plomero en quien confío, no solo para mi casa, sino también para las de mis clientes. Es meticuloso y hace el trabajo bien a la primera. Si buscas un plomero de confianza, te recomiendo ampliamente Bonet Plumbing."
-      },
-      "publishedAt": "2026-04-30",
-      "reviewUrl": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xKVExVVkxlbDlHYlZSc1ZrMXhkVWhVYTBGU1dsRRAB!2m1!1s0xae1014bb0c077d09:0x2b4e3bf11b0e21fd",
-      "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjVJZ6HzVGhXGVL_ZVKh4Iniq9WIITdjQeDyQzYrJ1qZIztsJIrXRw=s128-c0x00000000-cc-rp-mo"
-    },
     {
       "author": "Michelle Espinal",
       "rating": 5,
@@ -37,6 +13,30 @@
       "publishedAt": "2026-04-29",
       "reviewUrl": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT25CbFRrdDRYMmg0V1ZwVVVUTnZOSHAwTWxwbE9YYxAB!2m1!1s0xae1014bb0c077d09:0x2b4e3bf11b0e21fd",
       "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocJBx7Ca8zOpIwN1yJ569tBzfzt4TuNHdSeXgvECYgY5GGYOMg=s128-c0x00000000-cc-rp-mo"
+    },
+    {
+      "author": "Sharon Gryskiewicz",
+      "rating": 5,
+      "lang": "en",
+      "text": {
+        "en": "Leo, owner of Bonet Plumbing  was wonderful!  We had a blockage in our drain  and all our bathroom plumbing was at a stand still. Leo came quickly, fixed the problem and was very professional.  He went above and beyond trying to accommodate our schedule. His pricing was very fair.  We will definitely use him in the future.",
+        "es": "¡Leo, el dueño de Bonet Plumbing, fue maravilloso! Teníamos una obstrucción en el desagüe y la plomería del baño estaba paralizada. Leo llegó rápidamente, solucionó el problema y fue muy profesional. Hizo todo lo posible por adaptarse a nuestro horario. Sus precios fueron muy justos. Sin duda, volveremos a contratarlo en el futuro."
+      },
+      "publishedAt": "2026-08-05",
+      "reviewUrl": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xaUU1FUklWVEF3Ymxkek56VmphWGRXWVVReVNHYxAB!2m1!1s0xae1014bb0c077d09:0x2b4e3bf11b0e21fd",
+      "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocKkJXcgflHrn1o3qfq5wnG7irL1smn7jgGfl67LHIYo_T9q3Q=s128-c0x00000000-cc-rp-mo"
+    },
+    {
+      "author": "Denell De Jesus",
+      "rating": 5,
+      "lang": "en",
+      "text": {
+        "en": "I had a great experience with Bonet Plumbing. Leo responded promptly, arrived on time, and had my  issue fixed in no time. He was professional, knowledgeable, and efficient. The repair took about 10-15 minutes, and everything has been working perfectly since. Excellent customer service from start to finish. I highly recommend Bonet Plumbing to anyone looking for honest, reliable, and quality service!",
+        "es": "Tuve una experiencia fantástica con Bonet Plumbing. Leo respondió con prontitud, llegó puntual y solucionó mi problema enseguida. Fue profesional, experto y eficiente. La reparación duró entre 10 y 15 minutos, y desde entonces todo funciona a la perfección. Excelente atención al cliente de principio a fin. ¡Recomiendo ampliamente Bonet Plumbing a cualquiera que busque un servicio honesto, confiable y de calidad!"
+      },
+      "publishedAt": "2026-07-15",
+      "reviewUrl": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2tGdE1FVXhkVFpKVlhCeFpFWldSVU41UTA1bmRuYxAB!2m1!1s0xae1014bb0c077d09:0x2b4e3bf11b0e21fd",
+      "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjWkaVghynMOIj48v3Vsi1OKJlZDIy5fG2qiAU0nFNPIlDpMxwP1aQ=s128-c0x00000000-cc-rp-mo-ba3"
     }
   ],
   "overallRating": 5,
